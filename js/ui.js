@@ -12,9 +12,9 @@ export const DOM = {
     navButtons: document.querySelectorAll("nav button"),
     sections: document.querySelectorAll("main section"),
     notificationContainer: document.getElementById("notification-container"),
+    // We use functions for elements inside sections because they are loaded dynamically
     usernameInput: () => document.getElementById("usernameInput"),
     passwordInput: () => document.getElementById("passwordInput"),
-    // ... other elements will be selected within their controllers
 };
 
 export const Helpers = {
@@ -32,6 +32,17 @@ export const Helpers = {
     convertToArabicAndEnglishDigits: (text) => {
         if (!text) return "";
         return text.toString().replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+    },
+    calculateChange: () => {
+        const totalEl = document.getElementById('invoiceTotal');
+        const paidEl = document.getElementById('amountPaidInput');
+        if (!totalEl || !paidEl) return;
+
+        const total = parseFloat(totalEl.textContent) || 0;
+        const paid = parseFloat(paidEl.value) || 0;
+        const change = paid - total;
+        document.getElementById('changeText').textContent = change >= 0 ? "الباقي للعميل:" : "المطلوب منه:";
+        document.getElementById('changeAmount').textContent = Math.abs(change).toFixed(2);
     },
     switchTab: (tabId, appState) => {
         DOM.sections.forEach(s => s.classList.toggle("active", s.id === tabId));
@@ -51,7 +62,7 @@ export const Helpers = {
             section.innerHTML = templates[tabId];
         }
         
-        // Re-initialize or render data after loading the template
+        // Call the init function for the specific controller after its template is loaded
         if (tabId === 'sales') SalesController.init(appState);
         if (tabId === 'items') ItemsController.init(appState);
         if (tabId === 'customers') CustomersController.init(appState);

@@ -5,7 +5,7 @@ import { CustomersController } from './customers.js';
 import { ReportsController } from './reports.js';
 import { UsersController } from './users.js';
 import { DOM, Helpers } from './ui.js';
-import { readCollection, getDocument } from './firebase.js';
+import { readCollection, getDocument, addDocument } from './firebase.js';
 
 // الحالة العامة للتطبيق
 const appState = {
@@ -56,6 +56,14 @@ const App = {
             const tabId = e.currentTarget.dataset.tab;
             Helpers.switchTab(tabId, appState);
         }));
+
+        // --- الأسطر المفقودة التي تم إضافتها ---
+        // هذه الأسطر ضرورية لتفعيل الأزرار والوظائف في كل قسم
+        SalesController.bindEvents(appState);
+        ItemsController.bindEvents(appState);
+        CustomersController.bindEvents(appState);
+        UsersController.bindEvents(appState);
+        // ------------------------------------
     }
 };
 
@@ -63,27 +71,48 @@ App.init();
 
 // دالة استيراد الأصناف (تبقى اختيارية للاستخدام من الـ Console)
 window.importItemsFromJSON = async function() {
-    if (!confirm("هل أنت متأكد أنك تريد استيراد الأصناف من ملف p.json؟")) return;
+    if (!confirm("هل أنت متأكد أنك تريد استيراد الأصناف من ملف p.json؟ هذه العملية ستقوم بإضافة كل الأصناف إلى قاعدة البيانات.")) return;
     try {
-        const response = await fetch('p.json');
-        if (!response.ok) throw new Error('لا يمكن تحميل ملف p.json.');
-        const itemsData = await response.json();
-        const { writeBatch, doc, collection } = await import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js");
         const { db } = await import('./firebase.js');
-        const { addDocument } = await import('./firebase.js');
+        const { writeBatch, doc, collection } = await import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js");
         
+        console.log("بدء عملية الاستيراد...");
+        const response = await fetch('p.json');
+        if (!response.ok) throw new Error('لا يمكن تحميل ملف p.json. تأكد من وجوده بجانب ملف index.html');
+        
+        const itemsData = await response.json();
         const itemsToImport = itemsData.filter(item => item.status === true).map(item => ({
             code: item.sku, name: item.name, price: parseFloat(item.price) || 0,
             category: item["category "]?.trim() || "غير مصنف", unit: "قطعة", stock: 999
         }));
 
-        for(const item of itemsToImport) {
-            await addDocument("items", item);
+        if (itemsToImport.length === 0) {
+            alert("لم يتم العثور على أصناف صالحة للاستيراد في ملف p.json.");
+            return;
         }
+
+        console.log(`تم العثور على ${itemsToImport.length} صنف سيتم استيرادها.`);
+
+        let batch = writeBatch(db);
+        const itemsRef = collection(db, "items");
+        let counter = 0;
+
+        for (const item of itemsToImport) {
+            const docRef = doc(itemsRef);
+            batch.set(docRef, item);
+            counter++;
+            if (counter % 499 === 0) {
+               await batch.commit();
+               batch = writeBatch(db);
+               console.log(`تم حفظ ${counter} صنف...`);
+            }
+        }
+        await batch.commit();
+
         alert(`✅ اكتمل الاستيراد بنجاح! تم إضافة ${itemsToImport.length} صنف.`);
         location.reload();
     } catch (error) {
         console.error("فشل الاستيراد:", error);
-        alert("فشلت عملية الاستيراد.");
+        alert("فشلت عملية الاستيراد. تحقق من الـ Console لمزيد من التفاصيل.");
     }
 };

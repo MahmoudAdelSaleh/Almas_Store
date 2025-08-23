@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>كاشير متكامل - Firebase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="login-container">
+        <form id="login-form">
+            <h2><i class="fas fa-lock"></i> تسجيل الدخول</h2>
+            <div class="form-group"><input type="text" id="usernameInput" placeholder="اسم المستخدم" required /></div>
+            <div class="form-group"><input type="password" id="passwordInput" placeholder="كلمة المرور" required /></div>
+            <button type="submit" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button>
+        </form>
+    </div>
+
+    <div id="app-container">
+        <header><span>كاشير متكامل</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
+        <nav>
+            <button data-tab="sales" class="active"><i class="fas fa-cash-register"></i> المبيعات</button>
+            <button data-tab="items"><i class="fas fa-box"></i> الأصناف</button>
+            <button data-tab="customers"><i class="fas fa-users"></i> العملاء</button>
+            <button data-tab="invoices"><i class="fas fa-file-invoice"></i> الفواتير</button>
+            <button data-tab="summary"><i class="fas fa-chart-bar"></i> التقارير</button>
+            <button data-tab="users" class="hidden"><i class="fas fa-user-shield"></i> المستخدمون</button>
+        </nav>
+
+        <main>
+            <section id="sales" class="active">
+                <h2><i class="fas fa-cash-register"></i> عملية بيع</h2>
+                <div class="form-group" style="position: relative;">
+                    <input type="text" id="customerName" placeholder="اسم العميل (اختياري)" autocomplete="off" />
+                    <div id="customerSuggestions"></div>
+                </div>
+                <div class="form-group" style="position: relative;">
+                    <div class="flex-container">
+                        <div style="flex-grow: 1; position: relative;">
+                            <input type="text" id="searchItem" placeholder="بحث بالكود أو اسم الصنف" autocomplete="off" />
+                            <div id="searchResults"></div>
+                        </div>
+                        <button id="scanBarcodeBtn" style="flex-shrink: 0; width: 100px;"><i class="fas fa-camera"></i> مسح</button>
+                    </div>
+                </div>
+                <div class="form-group flex-container">
+                    <label for="quantitySelect">الكمية:</label>
+                    <select id="quantitySelect"></select>
+                    <button id="addToInvoiceBtn"><i class="fas fa-plus-circle"></i> إضافة للفاتورة</button>
+                </div>
+                <h3><i class="fas fa-file-invoice"></i> تفاصيل الفاتورة</h3>
+                <table>
+                    <thead><tr><th>اسم الصنف</th><th>كمية</th><th>سعر الوحدة</th><th>الإجمالي</th><th>حذف</th></tr></thead>
+                    <tbody id="invoiceTable"></tbody>
+                </table>
+                <h3 style="text-align: left;">إجمالي الفاتورة: <span id="invoiceTotal">0.00</span> ج.م</h3>
+                <div class="form-group flex-container">
+                    <label for="paymentMethodSelect">طريقة الدفع:</label>
+                    <select id="paymentMethodSelect">
+                        <option value="cash">نقداً</option>
+                        <option value="visa">فيزا</option>
+                    </select>
+                    <input type="number" id="amountPaidInput" placeholder="المبلغ المدفوع" min="0" />
+                </div>
+                <h3 style="text-align: left;">
+                    <span id="changeText">الباقي للعميل:</span><span id="changeAmount">0.00</span> ج.م
+                </h3>
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                    <button id="printInvoiceBtn" class="btn-success"><i class="fas fa-print"></i> طباعة</button>
+                    <button id="saveInvoiceBtn"><i class="fas fa-save"></i> حفظ الفاتورة</button>
+                </div>
+            </section>
+            
+            <section id="items"><h2><i class="fas fa-box"></i> إدارة الأصناف (للعرض فقط)</h2><table id="itemsTableContainer"><thead><tr><th>كود</th><th>اسم</th><th>سعر</th><th>فئة</th></tr></thead><tbody id="itemsTable"></tbody></table></section>
+            <section id="customers"><h2><i class="fas fa-users"></i> إدارة العملاء</h2><div class="form-group flex-container"><input type="text" id="newCustomerId" placeholder="رقم العميل"><input type="text" id="newCustomerName" placeholder="اسم العميل"><button id="saveCustomerBtn"><i class="fas fa-save"></i> حفظ</button></div><div id="customersList"></div></section>
+            <section id="invoices"><h2><i class="fas fa-file-invoice-dollar"></i> الفواتير المحفوظة</h2><div id="invoicesList"></div></section>
+            <section id="summary"><h2><i class="fas fa-chart-bar"></i> التقارير</h2><div id="summaryContent"></div></section>
+            <section id="users"><h2><i class="fas fa-user-shield"></i> إدارة المستخدمين</h2><div class="form-group flex-container"><input type="text" id="newUsernameInput" placeholder="اسم مستخدم جديد"><input type="password" id="newUserPasswordInput" placeholder="كلمة مرور جديدة"><button id="saveUserBtn"><i class="fas fa-plus"></i> إضافة</button></div><div id="usersList"></div></section>
+        </main>
+    </div>
+
+    <div id="barcode-scanner-container" style="display:none;">
+        <div id="reader"></div>
+        <button id="closeScannerBtn" class="btn-danger btn-small">إغلاق</button>
+    </div>
+    <div id="notification-container"></div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+

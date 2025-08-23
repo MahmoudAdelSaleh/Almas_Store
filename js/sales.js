@@ -1,6 +1,11 @@
 import { DOM, Helpers } from './ui.js';
 
 export const SalesController = {
+    getTemplate: () => `<h2><i class="fas fa-cash-register"></i> ... </h2> ...`,
+    init: (appState) => { /* ... */ },
+import { DOM, Helpers } from './ui.js';
+
+export const SalesController = {
     renderInvoice: (appState) => {
         let total = 0;
         DOM.invoiceTable.innerHTML = appState.currentInvoice.map((item, index) => {

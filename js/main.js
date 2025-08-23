@@ -25,7 +25,6 @@ const App = {
             appState.currentUser = JSON.parse(savedUser);
             Auth.showApp(appState.currentUser.role);
         } else {
-            // عرض قالب تسجيل الدخول إذا لم يكن هناك مستخدم مسجل
             DOM.loginContainer.innerHTML = Auth.getTemplate();
         }
     },
@@ -42,7 +41,7 @@ const App = {
         getDocument("config", "admin").then(doc => { appState.adminPIN = doc?.pin || "790707071"; });
     },
     bindEvents: () => {
-        // استخدام event delegation لنموذج تسجيل الدخول
+        // ربط الأحداث للعناصر الدائمة فقط
         document.body.addEventListener('submit', e => {
             if (e.target.id === 'login-form') {
                 e.preventDefault();
@@ -57,13 +56,8 @@ const App = {
             Helpers.switchTab(tabId, appState);
         }));
 
-        // --- الأسطر المفقودة التي تم إضافتها ---
-        // هذه الأسطر ضرورية لتفعيل الأزرار والوظائف في كل قسم
-        SalesController.bindEvents(appState);
-        ItemsController.bindEvents(appState);
-        CustomersController.bindEvents(appState);
-        UsersController.bindEvents(appState);
-        // ------------------------------------
+        // تم حذف استدعاءات bindEvents الخاصة بباقي الأقسام من هنا
+        // لأنها تُستدعى الآن من دالة switchTab في الوقت المناسب
     }
 };
 
@@ -71,7 +65,7 @@ App.init();
 
 // دالة استيراد الأصناف (تبقى اختيارية للاستخدام من الـ Console)
 window.importItemsFromJSON = async function() {
-    if (!confirm("هل أنت متأكد أنك تريد استيراد الأصناف من ملف p.json؟ هذه العملية ستقوم بإضافة كل الأصناف إلى قاعدة البيانات.")) return;
+    if (!confirm("هل أنت متأكد أنك تريد استيراد الأصناف من ملف p.json؟")) return;
     try {
         const { db } = await import('./firebase.js');
         const { writeBatch, doc, collection } = await import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js");

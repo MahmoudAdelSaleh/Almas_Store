@@ -41,7 +41,6 @@ const App = {
         getDocument("config", "admin").then(doc => { appState.adminPIN = doc?.pin || "790707071"; });
     },
     bindEvents: () => {
-        // ربط الأحداث للعناصر الدائمة فقط
         document.body.addEventListener('submit', e => {
             if (e.target.id === 'login-form') {
                 e.preventDefault();
@@ -56,8 +55,10 @@ const App = {
             Helpers.switchTab(tabId, appState);
         }));
 
-        // تم حذف استدعاءات bindEvents الخاصة بباقي الأقسام من هنا
-        // لأنها تُستدعى الآن من دالة switchTab في الوقت المناسب
+        SalesController.bindEvents(appState);
+        ItemsController.bindEvents(appState);
+        CustomersController.bindEvents(appState);
+        UsersController.bindEvents(appState);
     }
 };
 
@@ -70,22 +71,24 @@ window.importItemsFromJSON = async function() {
         const { db } = await import('./firebase.js');
         const { writeBatch, doc, collection } = await import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js");
         
-        console.log("بدء عملية الاستيراد...");
         const response = await fetch('p.json');
-        if (!response.ok) throw new Error('لا يمكن تحميل ملف p.json. تأكد من وجوده بجانب ملف index.html');
+        if (!response.ok) throw new Error('لا يمكن تحميل ملف p.json.');
         
         const itemsData = await response.json();
         const itemsToImport = itemsData.filter(item => item.status === true).map(item => ({
-            code: item.sku, name: item.name, price: parseFloat(item.price) || 0,
-            category: item["category "]?.trim() || "غير مصنف", unit: "قطعة", stock: 999
+            // --- التعديل هنا ---
+            barcode: item.sku, // حفظ الرقم من ملف JSON في حقل "barcode"
+            name: item.name, 
+            price: parseFloat(item.price) || 0,
+            category: item["category "]?.trim() || "غير مصنف", 
+            unit: "قطعة", 
+            stock: 999
         }));
 
         if (itemsToImport.length === 0) {
-            alert("لم يتم العثور على أصناف صالحة للاستيراد في ملف p.json.");
+            alert("لم يتم العثور على أصناف صالحة للاستيراد.");
             return;
         }
-
-        console.log(`تم العثور على ${itemsToImport.length} صنف سيتم استيرادها.`);
 
         let batch = writeBatch(db);
         const itemsRef = collection(db, "items");
@@ -98,7 +101,6 @@ window.importItemsFromJSON = async function() {
             if (counter % 499 === 0) {
                await batch.commit();
                batch = writeBatch(db);
-               console.log(`تم حفظ ${counter} صنف...`);
             }
         }
         await batch.commit();
@@ -107,6 +109,6 @@ window.importItemsFromJSON = async function() {
         location.reload();
     } catch (error) {
         console.error("فشل الاستيراد:", error);
-        alert("فشلت عملية الاستيراد. تحقق من الـ Console لمزيد من التفاصيل.");
+        alert("فشلت عملية الاستيراد.");
     }
 };

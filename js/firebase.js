@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, updateDoc, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, updateDoc, deleteDoc, getDoc, writeBatch } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAWhNkYnC2n4iuHvdp1O_-S5suxivDidgc",
@@ -14,14 +14,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-window.addDocument = async (collectionName, data) => await addDoc(collection(db, collectionName), { ...data, createdAt: serverTimestamp() });
-window.readCollection = (collectionName, callback, orderByField = "createdAt", orderDirection = "desc") => {
+export const addDocument = async (collectionName, data) => await addDoc(collection(db, collectionName), { ...data, createdAt: serverTimestamp() });
+export const readCollection = (collectionName, callback, orderByField = "name", orderDirection = "asc") => {
     const q = query(collection(db, collectionName), orderBy(orderByField, orderDirection));
     return onSnapshot(q, snapshot => callback(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
 };
-window.updateDocument = async (collectionName, docId, data) => await updateDoc(doc(db, collectionName, docId), data);
-window.deleteDocument = async (collectionName, docId) => await deleteDoc(doc(db, collectionName, docId));
-window.getDocument = async (collectionName, docId) => {
+export const updateDocument = async (collectionName, docId, data) => await updateDoc(doc(db, collectionName, docId), data);
+export const deleteDocument = async (collectionName, docId) => await deleteDoc(doc(db, collectionName, docId));
+export const getDocument = async (collectionName, docId) => {
     const docSnap = await getDoc(doc(db, collectionName, docId));
     return docSnap.exists() ? { id: docSnap.id, ...docSnap.data() } : null;
 };

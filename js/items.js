@@ -1,11 +1,11 @@
-import { DOM, Helpers } from './ui.js';
+import { Helpers } from './ui.js';
 import { addDocument, updateDocument, deleteDocument } from './firebase.js';
 
 export const ItemsController = {
     getTemplate: () => `
         <h2><i class="fas fa-box"></i> إدارة الأصناف</h2>
         <div class="form-group flex-container">
-            <input type="text" id="itemCode" placeholder="كود الصنف (SKU)" />
+            <input type="text" id="itemCode" placeholder="الباركود" />
             <input type="text" id="itemName" placeholder="اسم الصنف" required />
             <input type="text" id="itemCategory" placeholder="الفئة" />
         </div>
@@ -16,7 +16,7 @@ export const ItemsController = {
             <button id="saveItemBtn"><i class="fas fa-save"></i> حفظ الصنف</button>
         </div>
         <table>
-            <thead><tr><th>كود</th><th>اسم</th><th>سعر</th><th>مخزون</th><th>فئة</th><th>تعديل</th><th>حذف</th></tr></thead>
+            <thead><tr><th>باركود</th><th>اسم</th><th>سعر</th><th>مخزون</th><th>فئة</th><th>تعديل</th><th>حذف</th></tr></thead>
             <tbody id="itemsTableBody"></tbody>
         </table>
     `,
@@ -29,7 +29,7 @@ export const ItemsController = {
         if(itemsTableBody) {
             itemsTableBody.innerHTML = appState.items.map(item => 
                 `<tr>
-                    <td>${item.code || ''}</td>
+                    <td>${item.barcode || ''}</td>
                     <td>${item.name}</td>
                     <td>${(item.price || 0).toFixed(2)}</td>
                     <td>${item.stock || 0}</td>
@@ -52,7 +52,8 @@ export const ItemsController = {
     },
     save: async (appState) => {
         const itemData = {
-            code: document.getElementById("itemCode").value.trim(),
+            // --- التعديل هنا ---
+            barcode: document.getElementById("itemCode").value.trim(),
             name: document.getElementById("itemName").value.trim(),
             category: document.getElementById("itemCategory").value.trim(),
             price: parseFloat(document.getElementById("itemPrice").value) || 0,
@@ -79,7 +80,8 @@ export const ItemsController = {
     edit: (id, appState) => {
         const item = appState.items.find(i => i.id === id);
         if (!item) return;
-        document.getElementById("itemCode").value = item.code || '';
+        // --- التعديل هنا ---
+        document.getElementById("itemCode").value = item.barcode || '';
         document.getElementById("itemName").value = item.name || '';
         document.getElementById("itemCategory").value = item.category || '';
         document.getElementById("itemPrice").value = item.price || 0;
@@ -100,18 +102,21 @@ export const ItemsController = {
         }
     },
     bindEvents: (appState) => {
-        const saveBtn = document.getElementById("saveItemBtn");
-        const itemsTable = document.getElementById("itemsTableBody");
+        const itemsSection = document.getElementById('items');
+        if(!itemsSection) return;
 
-        if(saveBtn) saveBtn.addEventListener("click", () => ItemsController.save(appState));
-        if(itemsTable) {
-            itemsTable.addEventListener("click", e => {
-                const target = e.target.closest("button");
-                if (!target) return;
-                const id = target.dataset.id;
-                if (target.classList.contains("edit-item-btn")) ItemsController.edit(id, appState);
-                else if (target.classList.contains("delete-item-btn")) ItemsController.delete(id);
-            });
-        }
+        itemsSection.addEventListener('click', e => {
+            const target = e.target.closest("button");
+            if (!target) return;
+
+            if (target.id === 'saveItemBtn') {
+                ItemsController.save(appState);
+                return;
+            }
+
+            const id = target.dataset.id;
+            if (target.classList.contains("edit-item-btn")) ItemsController.edit(id, appState);
+            else if (target.classList.contains("delete-item-btn")) ItemsController.delete(id);
+        });
     }
 };

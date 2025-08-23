@@ -1,133 +1,254 @@
-import { DOM, Helpers } from './ui.js';
+import { Helpers } from './ui.js';
+import { addDocument } from './firebase.js';
 
 export const SalesController = {
-    getTemplate: () => `<h2><i class="fas fa-cash-register"></i> ... </h2> ...`,
-    init: (appState) => { /* ... */ },
-import { DOM, Helpers } from './ui.js';
+    getTemplate: () => `
+        <h2><i class="fas fa-cash-register"></i> عملية بيع</h2>
+        <div id="categoryContainer" style="margin-bottom: 20px;">
+            <button id="showCategoriesBtn" style="width: 100%; padding: 15px; font-size: 18px;" class="btn-success"><i class="fas fa-tags"></i> عرض الفئات</button>
+        </div>
+        <div id="salesCategoryFilters" class="flex-container" style="justify-content: flex-start; margin-bottom: 15px; display: none;"></div>
+        <div id="categoryPagination" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <button id="prevCategoriesBtn" class="btn-small btn-warning"><i class="fas fa-arrow-right"></i> السابق</button>
+            <span id="categoryPageIndicator" style="font-weight: bold;"></span>
+            <button id="nextCategoriesBtn" class="btn-small btn-warning">التالي <i class="fas fa-arrow-left"></i></button>
+        </div>
+        <div id="itemGrid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px;"></div>
+        <div class="form-group" style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+            <button id="hideCategoriesBtn" class="btn-warning" style="display:none;"><i class="fas fa-eye-slash"></i> إخفاء الفئات والأصناف</button>
+        </div>
+        <div class="form-group" style="position: relative;">
+            <div class="flex-container">
+                <input type="text" id="customerName" placeholder="اسم العميل (اختياري)" autocomplete="off" />
+                <input type="tel" id="customerPhone" placeholder="رقم هاتف العميل (واتساب)" />
+            </div>
+            <div id="customerSuggestions"></div>
+        </div>
+        <div class="form-group">
+            <button id="scanBarcodeBtn" style="width:100%;"><i class="fas fa-camera"></i> مسح باركود صنف</button>
+        </div>
+        <div class="form-group flex-container">
+            <label for="deliveryFeeInput" style="flex: 0 1 auto;">خدمة التوصيل:</label>
+            <div class="input-group" style="flex: 1 1 150px;">
+                <button id="decreaseDeliveryBtn" class="input-group-btn btn-warning">-</button>
+                <input type="number" id="deliveryFeeInput" value="30" min="0" step="5" class="input-group-field" />
+                <button id="increaseDeliveryBtn" class="input-group-btn btn-success">+</button>
+            </div>
+            <span style="flex: 2 1 auto; font-weight: bold;">ج.م</span>
+        </div>
+        <h3><i class="fas fa-file-invoice"></i> تفاصيل الفاتورة</h3>
+        <table>
+            <thead><tr><th>الصنف</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th><th>حذف</th></tr></thead>
+            <tbody id="invoiceTableBody"></tbody>
+        </table>
+        <h4 style="text-align: left;">إجمالي الأصناف: <span id="itemsSubtotal">0.00</span> ج.م</h4>
+        <h3 style="text-align: left;">الإجمالي الكلي: <span id="invoiceTotal">0.00</span> ج.م</h3>
+        <div class="form-group flex-container">
+            <label for="amountPaidInput">المدفوع:</label>
+            <input type="number" id="amountPaidInput" placeholder="المبلغ المدفوع" min="0" step="0.01" />
+        </div>
+        <div class="form-group">
+            <label>طريقة الدفع:</label>
+            <div id="paymentMethodRadios">
+                <input type="radio" id="payCash" name="paymentMethod" value="cash" checked> <label for="payCash">نقداً</label>
+                <input type="radio" id="payVisa" name="paymentMethod" value="visa"> <label for="payVisa">فيزا</label>
+                <input type="radio" id="payWallet" name="paymentMethod" value="wallet"> <label for="payWallet">محفظة</label>
+            </div>
+        </div>
+        <h3 style="text-align: left;">
+            <span id="changeText">الباقي للعميل:</span><span id="changeAmount">0.00</span> ج.م
+        </h3>
+        <div class="flex-container flex-end" style="margin-top: 20px; flex-direction: row !important; gap: 10px;">
+            <button id="sendWhatsappBtn" class="btn-success" style="background-color: #25D366;"><i class="fab fa-whatsapp"></i> واتساب</button>
+            <button id="printInvoiceBtn" class="btn-success"><i class="fas fa-print"></i> طباعة</button>
+            <button id="saveInvoiceBtn"><i class="fas fa-save"></i> حفظ</button>
+        </div>
+    `,
+    
+    // --- تم إضافة الفاصلة (,) المفقودة هنا ---
+    init: (appState) => {
+        SalesController.renderInvoice(appState);
+        document.getElementById('deliveryFeeInput').value = appState.deliveryFee;
+        SalesController.bindEvents(appState);
+    },
+    
+    renderCategoryFilters: (appState) => {
+        const { allCategories, categoryCurrentPage, categoriesPerPage } = appState;
+        const totalPages = Math.ceil(allCategories.length / categoriesPerPage);
+        const startIndex = (categoryCurrentPage - 1) * categoriesPerPage;
+        const categoriesToRender = allCategories.slice(startIndex, startIndex + categoriesPerPage);
+        
+        document.getElementById('salesCategoryFilters').innerHTML = categoriesToRender.map(cat => `<button class="btn-small" data-category="${cat}">${cat}</button>`).join("");
+        document.getElementById('salesCategoryFilters').querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', e => {
+                document.getElementById('salesCategoryFilters').querySelectorAll('button').forEach(b => b.classList.remove('active', 'btn-success'));
+                e.currentTarget.classList.add('active', 'btn-success');
+                SalesController.renderItemsGrid(e.currentTarget.dataset.category, appState);
+            });
+        });
+        
+        document.getElementById('categoryPageIndicator').textContent = `صفحة ${categoryCurrentPage} / ${totalPages}`;
+        document.getElementById('prevCategoriesBtn').disabled = categoryCurrentPage === 1;
+        document.getElementById('nextCategoriesBtn').disabled = categoryCurrentPage >= totalPages;
+    },
+    
+    renderItemsGrid: (category, appState) => {
+        document.getElementById('itemGrid').style.display = 'grid';
+        document.getElementById('hideCategoriesBtn').style.display = 'inline-flex';
+        const itemsToRender = appState.items.filter(item => item.category === category && (item.stock > 0 || isNaN(item.stock) ));
+        document.getElementById('itemGrid').innerHTML = itemsToRender.map(item => `<div class="item-card" data-id="${item.id}"><h5>${item.name}</h5><p>${(item.price || 0).toFixed(2)} ج.م</p></div>`).join("");
+        document.getElementById('itemGrid').querySelectorAll('.item-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const itemToAdd = appState.items.find(item => item.id === card.dataset.id);
+                if (itemToAdd) SalesController.addToInvoice(itemToAdd, appState);
+            });
+        });
+    },
 
-export const SalesController = {
-    renderInvoice: (appState) => {
-        let total = 0;
-        DOM.invoiceTable.innerHTML = appState.currentInvoice.map((item, index) => {
-            const subtotal = item.price * item.qty;
-            total += subtotal;
-            return `<tr><td>${item.name}</td><td>${item.qty}</td><td>${item.price.toFixed(2)}</td><td>${subtotal.toFixed(2)}</td><td><button class="btn-small btn-danger remove-from-invoice-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button></td></tr>`;
-        }).join("");
-        DOM.invoiceTotalSpan.textContent = total.toFixed(2);
+    updateTotal: (appState) => {
+        const itemsSubtotal = appState.currentInvoice.reduce((sum, item) => sum + item.price * item.qty, 0);
+        appState.deliveryFee = parseFloat(document.getElementById('deliveryFeeInput').value) || 0;
+        const total = itemsSubtotal + appState.deliveryFee;
+        document.getElementById('itemsSubtotal').textContent = itemsSubtotal.toFixed(2);
+        document.getElementById('invoiceTotal').textContent = total.toFixed(2);
         Helpers.calculateChange();
     },
-    addToInvoice: (appState, itemToAdd, quantity) => {
-        if (!itemToAdd) { 
-            Helpers.showNotification("يرجى اختيار صنف صحيح"); 
-            return; 
+
+    renderInvoice: (appState) => {
+        const invoiceTableBody = document.getElementById("invoiceTableBody");
+        if(invoiceTableBody){
+            invoiceTableBody.innerHTML = appState.currentInvoice.map((item, index) =>
+                `<tr><td>${item.name}</td><td><div class="flex-container" style="justify-content:center;flex-wrap:nowrap;"><button class="btn-small btn-warning decrease-invoice-qty-btn" data-index="${index}">-</button><span style="padding:0 10px;font-weight:bold;">${item.qty}</span><button class="btn-small btn-success increase-invoice-qty-btn" data-index="${index}">+</button></div></td><td>${(item.price || 0).toFixed(2)}</td><td>${((item.price || 0) * item.qty).toFixed(2)}</td><td><button class="btn-small btn-danger remove-from-invoice-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button></td></tr>`
+            ).join("");
         }
-        const qty = parseInt(quantity) || 1;
-        const existingItem = appState.currentInvoice.find(i => i.id === itemToAdd.id);
-        if (existingItem) {
-            existingItem.qty += qty;
-        } else {
-            appState.currentInvoice.push({ ...itemToAdd, qty: qty });
-        }
-        SalesController.renderInvoice(appState);
-        DOM.searchItemInput.value = "";
-        appState.selectedItem = null;
-        DOM.searchResultsDiv.style.display = 'none';
-        Helpers.showNotification(`تمت إضافة: ${itemToAdd.name}`);
+        SalesController.updateTotal(appState);
     },
+
+    addToInvoice: (selectedItem, appState) => {
+        if (!selectedItem) return;
+        const existingItem = appState.currentInvoice.find(i => i.id === selectedItem.id);
+        if (existingItem) { existingItem.qty++; } 
+        else { appState.currentInvoice.push({ ...selectedItem, qty: 1 }); }
+        SalesController.renderInvoice(appState);
+        Helpers.showNotification(`تمت إضافة: ${selectedItem.name}`);
+    },
+
     saveInvoice: async (appState) => {
         if (appState.currentInvoice.length === 0) { Helpers.showNotification("الفاتورة فارغة"); return; }
-        const total = parseFloat(DOM.invoiceTotalSpan.textContent);
+        const total = parseFloat(document.getElementById('invoiceTotal').textContent);
         const newInvoice = {
-            customerName: DOM.customerNameInput.value.trim(),
-            paymentMethod: DOM.paymentMethodSelect.value,
-            amountPaid: parseFloat(DOM.amountPaidInput.value) || 0,
-            changeOrBalance: (parseFloat(DOM.amountPaidInput.value) || 0) - total,
+            customerName: document.getElementById('customerName').value.trim(),
+            paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+            amountPaid: parseFloat(document.getElementById('amountPaidInput').value) || 0,
+            changeOrBalance: (parseFloat(document.getElementById('amountPaidInput').value) || 0) - total,
             items: [...appState.currentInvoice],
+            deliveryFee: appState.deliveryFee,
             total: total,
         };
         try {
-            await window.addDocument("invoices", newInvoice);
+            await addDocument("invoices", newInvoice);
             Helpers.showNotification("تم حفظ الفاتورة بنجاح!");
             appState.currentInvoice = [];
-            DOM.customerNameInput.value = "";
-            DOM.amountPaidInput.value = "";
+            document.getElementById('customerName').value = "";
+            document.getElementById('customerPhone').value = "";
+            document.getElementById('amountPaidInput').value = "";
+            appState.selectedCustomer = null;
+            document.getElementById('deliveryFeeInput').value = 30;
             SalesController.renderInvoice(appState);
         } catch (error) {
             console.error("Save Invoice Error:", error);
             Helpers.showNotification("حدث خطأ أثناء حفظ الفاتورة.");
         }
     },
-    bindSalesEvents: (appState) => {
-        DOM.searchItemInput.addEventListener("input", e => {
-            const query = e.target.value.toLowerCase();
-            if (query.length < 2) { DOM.searchResultsDiv.style.display = 'none'; return; }
-            const matched = appState.items.filter(item => item.name.toLowerCase().includes(query) || item.sku.includes(query));
-            DOM.searchResultsDiv.innerHTML = matched.map(item => `<div data-id="${item.sku}">${item.name}</div>`).join('');
-            DOM.searchResultsDiv.style.display = matched.length > 0 ? 'block' : 'none';
-        });
-        DOM.searchResultsDiv.addEventListener("click", e => {
-            const id = e.target.dataset.id;
-            const selected = appState.items.find(item => item.sku === id);
-            if (selected) {
-                appState.selectedItem = { id: selected.sku, name: selected.name, price: selected.price };
-                DOM.searchItemInput.value = selected.name;
-                DOM.searchResultsDiv.style.display = 'none';
+
+    bindEvents: (appState) => {
+        const salesSection = document.getElementById('sales');
+        if (!salesSection) return;
+
+        salesSection.addEventListener('click', (e) => {
+            const target = e.target.closest("button");
+            if (!target) return;
+
+            switch (target.id) {
+                case 'showCategoriesBtn':
+                    document.getElementById('showCategoriesBtn').style.display = 'none';
+                    document.getElementById('salesCategoryFilters').style.display = 'flex';
+                    document.getElementById('categoryPagination').style.display = 'flex';
+                    SalesController.renderCategoryFilters(appState);
+                    break;
+                case 'hideCategoriesBtn':
+                    SalesController.init(appState);
+                    break;
+                case 'nextCategoriesBtn':
+                    if (appState.categoryCurrentPage < Math.ceil(appState.allCategories.length / appState.categoriesPerPage)) {
+                        appState.categoryCurrentPage++;
+                        SalesController.renderCategoryFilters(appState);
+                    }
+                    break;
+                case 'prevCategoriesBtn':
+                    if (appState.categoryCurrentPage > 1) {
+                        appState.categoryCurrentPage--;
+                        SalesController.renderCategoryFilters(appState);
+                    }
+                    break;
+                case 'scanBarcodeBtn':
+                    document.getElementById('barcode-scanner-container').style.display = 'flex';
+                    if (!appState.html5QrCode) { appState.html5QrCode = new Html5Qrcode("reader"); }
+                    const onScanSuccess = (decodedText) => {
+                        appState.html5QrCode.stop().then(() => {
+                            document.getElementById('barcode-scanner-container').style.display = 'none';
+                            let codeToSearch = null;
+                            const parts = decodedText.split('|');
+                            if (parts.length >= 5) { codeToSearch = parts[4].trim(); }
+                            else { let barcode = decodedText.trim(); codeToSearch = barcode.length > 12 ? barcode.slice(-12) : barcode; }
+                            const foundItem = appState.items.find(item => item.code === codeToSearch);
+                            if (foundItem) SalesController.addToInvoice(foundItem, appState);
+                            else Helpers.showNotification(`صنف غير موجود: ${codeToSearch}`);
+                        });
+                    };
+                    appState.html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: (w, h) => ({ width: w * 0.8, height: h * 0.5 }) }, onScanSuccess, ()=>{})
+                    .catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
+                    break;
+                case 'increaseDeliveryBtn':
+                    document.getElementById('deliveryFeeInput').value = (parseInt(document.getElementById('deliveryFeeInput').value) || 0) + 5;
+                    SalesController.updateTotal(appState);
+                    break;
+                case 'decreaseDeliveryBtn':
+                    const current = parseInt(document.getElementById('deliveryFeeInput').value) || 0;
+                    if (current >= 5) document.getElementById('deliveryFeeInput').value = current - 5;
+                    SalesController.updateTotal(appState);
+                    break;
+                case 'saveInvoiceBtn':
+                    SalesController.saveInvoice(appState);
+                    break;
+                case 'printInvoiceBtn':
+                case 'sendWhatsappBtn':
+                    // These need their own listeners if they do more complex things
+                    break;
             }
-        });
-        DOM.scanBarcodeBtn.addEventListener('click', () => {
-            DOM.barcodeScannerContainer.style.display = 'flex';
-            if (!appState.html5QrCode) { 
-                appState.html5QrCode = new Html5Qrcode("reader"); 
-            }
-            const onScanSuccess = (decodedText) => {
-                if (appState.html5QrCode.isScanning) {
-                    appState.html5QrCode.stop();
-                }
-                DOM.barcodeScannerContainer.style.display = 'none';
-                let codeToSearch = null;
-                const parts = decodedText.split('|');
-                if (parts.length >= 5) { codeToSearch = parts[4].trim(); } 
-                else { let barcode = decodedText.trim(); codeToSearch = barcode.length > 12 ? barcode.slice(-12) : barcode; }
-                const foundItem = appState.items.find(item => item.sku === codeToSearch);
-                if (foundItem) {
-                    const itemToAdd = { id: foundItem.sku, name: foundItem.name, price: foundItem.price };
-                    SalesController.addToInvoice(appState, itemToAdd, 1);
-                } else { Helpers.showNotification(`صنف غير موجود`); }
-            };
             
-            // تلميح: تم تعديل هذا الجزء. الآن سيحاول مربع المسح أن يأخذ 80% من عرض منطقة الفيديو
-            // هذا يعطي أفضل نتيجة لإزالة الهوامش الرمادية
-            appState.html5QrCode.start(
-                { facingMode: "environment" }, 
-                { fps: 10, qrbox: (viewfinderWidth, viewfinderHeight) => {
-                    const size = Math.min(viewfinderWidth, viewfinderHeight) * 0.8;
-                    return { width: size, height: size };
-                  } 
-                }, 
-                onScanSuccess, 
-                () => {}
-            )
-            .catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
-        });
-        
-        DOM.closeScannerBtn.addEventListener('click', () => { 
-            if (appState.html5QrCode?.isScanning) { 
-                appState.html5QrCode.stop(); 
-            } 
-            DOM.barcodeScannerContainer.style.display = 'none'; 
-        });
-        DOM.addToInvoiceBtn.addEventListener("click", () => {
-            const quantity = parseInt(DOM.quantitySelect.value);
-            SalesController.addToInvoice(appState, appState.selectedItem, quantity);
-        });
-        DOM.invoiceTable.addEventListener("click", e => {
-            if (e.target.closest(".remove-from-invoice-btn")) {
-                const index = e.target.closest(".remove-from-invoice-btn").dataset.index;
+            const index = target.dataset.index;
+            if (target.classList.contains('remove-from-invoice-btn')) {
                 appState.currentInvoice.splice(index, 1);
+                SalesController.renderInvoice(appState);
+            } else if (target.classList.contains('increase-invoice-qty-btn')) {
+                appState.currentInvoice[index].qty++;
+                SalesController.renderInvoice(appState);
+            } else if (target.classList.contains('decrease-invoice-qty-btn')) {
+                if (appState.currentInvoice[index].qty > 1) {
+                    appState.currentInvoice[index].qty--;
+                } else {
+                    appState.currentInvoice.splice(index, 1);
+                }
                 SalesController.renderInvoice(appState);
             }
         });
-        DOM.saveInvoiceBtn.addEventListener("click", () => SalesController.saveInvoice(appState));
-        DOM.amountPaidInput.addEventListener("input", Helpers.calculateChange);
+
+        document.getElementById('closeScannerBtn').addEventListener('click', () => {
+             if (appState.html5QrCode?.isScanning) { appState.html5QrCode.stop(); } 
+             document.getElementById('barcode-scanner-container').style.display = 'none';
+        });
+        document.getElementById('deliveryFeeInput').addEventListener('input', () => SalesController.updateTotal(appState));
+        document.getElementById('amountPaidInput').addEventListener('input', Helpers.calculateChange);
     }
 };

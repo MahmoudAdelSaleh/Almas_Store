@@ -4,19 +4,6 @@ import { addDocument } from './firebase.js';
 export const SalesController = {
     getTemplate: () => `
         <h2><i class="fas fa-cash-register"></i> عملية بيع</h2>
-        <div id="categoryContainer" style="margin-bottom: 20px;">
-            <button id="showCategoriesBtn" style="width: 100%; padding: 15px; font-size: 18px;" class="btn-success"><i class="fas fa-tags"></i> عرض الفئات</button>
-        </div>
-        <div id="salesCategoryFilters" class="flex-container" style="justify-content: flex-start; margin-bottom: 15px; display: none;"></div>
-        <div id="categoryPagination" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <button id="prevCategoriesBtn" class="btn-small btn-warning"><i class="fas fa-arrow-right"></i> السابق</button>
-            <span id="categoryPageIndicator" style="font-weight: bold;"></span>
-            <button id="nextCategoriesBtn" class="btn-small btn-warning">التالي <i class="fas fa-arrow-left"></i></button>
-        </div>
-        <div id="itemGrid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px;"></div>
-        <div class="form-group" style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
-            <button id="hideCategoriesBtn" class="btn-warning" style="display:none;"><i class="fas fa-eye-slash"></i> إخفاء الفئات والأصناف</button>
-        </div>
         <div class="form-group" style="position: relative;">
             <div class="flex-container">
                 <input type="text" id="customerName" placeholder="اسم العميل (اختياري)" autocomplete="off" />
@@ -68,19 +55,64 @@ export const SalesController = {
     init: (appState) => {
         SalesController.renderInvoice(appState);
         document.getElementById('deliveryFeeInput').value = appState.deliveryFee;
+        SalesController.bindEvents(appState);
     },
-    
-    renderCategoryFilters: (appState) => { /* ... No changes needed here ... */ },
-    
-    renderItemsGrid: (category, appState) => { /* ... No changes needed here ... */ },
 
-    updateTotal: (appState) => { /* ... No changes needed here ... */ },
+    updateTotal: (appState) => {
+        const itemsSubtotal = appState.currentInvoice.reduce((sum, item) => sum + item.price * item.qty, 0);
+        appState.deliveryFee = parseFloat(document.getElementById('deliveryFeeInput').value) || 0;
+        const total = itemsSubtotal + appState.deliveryFee;
+        document.getElementById('itemsSubtotal').textContent = itemsSubtotal.toFixed(2);
+        document.getElementById('invoiceTotal').textContent = total.toFixed(2);
+        Helpers.calculateChange();
+    },
 
-    renderInvoice: (appState) => { /* ... No changes needed here ... */ },
+    renderInvoice: (appState) => {
+        const invoiceTableBody = document.getElementById("invoiceTableBody");
+        if(invoiceTableBody){
+            invoiceTableBody.innerHTML = appState.currentInvoice.map((item, index) =>
+                `<tr><td>${item.name}</td><td><div class="flex-container" style="justify-content:center;flex-wrap:nowrap;"><button class="btn-small btn-warning decrease-invoice-qty-btn" data-index="${index}">-</button><span style="padding:0 10px;font-weight:bold;">${item.qty}</span><button class="btn-small btn-success increase-invoice-qty-btn" data-index="${index}">+</button></div></td><td>${(item.price || 0).toFixed(2)}</td><td>${((item.price || 0) * item.qty).toFixed(2)}</td><td><button class="btn-small btn-danger remove-from-invoice-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button></td></tr>`
+            ).join("");
+        }
+        SalesController.updateTotal(appState);
+    },
 
-    addToInvoice: (selectedItem, appState) => { /* ... No changes needed here ... */ },
+    addToInvoice: (selectedItem, appState) => {
+        if (!selectedItem) return;
+        const existingItem = appState.currentInvoice.find(i => i.id === selectedItem.id);
+        if (existingItem) { existingItem.qty++; } 
+        else { appState.currentInvoice.push({ ...selectedItem, qty: 1 }); }
+        SalesController.renderInvoice(appState);
+        Helpers.showNotification(`تمت إضافة: ${selectedItem.name}`);
+    },
 
-    saveInvoice: async (appState) => { /* ... No changes needed here ... */ },
+    saveInvoice: async (appState) => {
+        if (appState.currentInvoice.length === 0) { Helpers.showNotification("الفاتورة فارغة"); return; }
+        const total = parseFloat(document.getElementById('invoiceTotal').textContent);
+        const newInvoice = {
+            customerName: document.getElementById('customerName').value.trim(),
+            paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+            amountPaid: parseFloat(document.getElementById('amountPaidInput').value) || 0,
+            changeOrBalance: (parseFloat(document.getElementById('amountPaidInput').value) || 0) - total,
+            items: [...appState.currentInvoice],
+            deliveryFee: appState.deliveryFee,
+            total: total,
+        };
+        try {
+            await addDocument("invoices", newInvoice);
+            Helpers.showNotification("تم حفظ الفاتورة بنجاح!");
+            appState.currentInvoice = [];
+            document.getElementById('customerName').value = "";
+            document.getElementById('customerPhone').value = "";
+            document.getElementById('amountPaidInput').value = "";
+            appState.selectedCustomer = null;
+            document.getElementById('deliveryFeeInput').value = 30;
+            SalesController.renderInvoice(appState);
+        } catch (error) {
+            console.error("Save Invoice Error:", error);
+            Helpers.showNotification("حدث خطأ أثناء حفظ الفاتورة.");
+        }
+    },
 
     bindEvents: (appState) => {
         const salesSection = document.getElementById('sales');
@@ -98,30 +130,64 @@ export const SalesController = {
                     const onScanSuccess = (decodedText) => {
                         appState.html5QrCode.stop().then(() => {
                             document.getElementById('barcode-scanner-container').style.display = 'none';
-                            let barcodeToSearch = null; // Renamed for clarity
+                            let barcodeToSearch = null;
                             const parts = decodedText.split('|');
                             
-                            if (parts.length >= 5) { 
-                                barcodeToSearch = parts[4].trim(); 
-                            } else { 
-                                barcodeToSearch = decodedText.trim(); 
-                                // No more slicing to support long barcodes
-                            }
+                            if (parts.length >= 5) { barcodeToSearch = parts[4].trim(); } 
+                            else { barcodeToSearch = decodedText.trim(); }
                             
-                            // --- التعديل هنا ---
                             const foundItem = appState.items.find(item => item.barcode === barcodeToSearch);
                             
                             if (foundItem) SalesController.addToInvoice(foundItem, appState);
                             else Helpers.showNotification(`صنف غير موجود: ${barcodeToSearch}`);
                         });
                     };
-
-                    appState.html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: (w, h) => ({ width: w * 0.8, height: h * 0.5 }) }, onScanSuccess, ()=>{})
-                    .catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
+                    
+                    appState.html5QrCode.start(
+                        { facingMode: "environment" }, 
+                        { fps: 10, qrbox: (w, h) => ({ width: w * 0.8, height: h * 0.5 }) }, 
+                        onScanSuccess, 
+                        ()=>{}
+                    ).catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
                     break;
-                // ... other cases
+                    
+                case 'increaseDeliveryBtn':
+                    document.getElementById('deliveryFeeInput').value = (parseInt(document.getElementById('deliveryFeeInput').value) || 0) + 5;
+                    SalesController.updateTotal(appState);
+                    break;
+
+                case 'decreaseDeliveryBtn':
+                    const current = parseInt(document.getElementById('deliveryFeeInput').value) || 0;
+                    if (current >= 5) document.getElementById('deliveryFeeInput').value = current - 5;
+                    SalesController.updateTotal(appState);
+                    break;
+
+                case 'saveInvoiceBtn':
+                    SalesController.saveInvoice(appState);
+                    break;
             }
+            
+            const index = target.dataset.index;
+            if (target.classList.contains('remove-from-invoice-btn')) {
+                appState.currentInvoice.splice(index, 1);
+            } else if (target.classList.contains('increase-invoice-qty-btn')) {
+                appState.currentInvoice[index].qty++;
+            } else if (target.classList.contains('decrease-invoice-qty-btn')) {
+                if (appState.currentInvoice[index].qty > 1) {
+                    appState.currentInvoice[index].qty--;
+                } else {
+                    appState.currentInvoice.splice(index, 1);
+                }
+            }
+            // Re-render only if an invoice item was changed
+            if (index) SalesController.renderInvoice(appState);
         });
-        // ... other listeners
+
+        document.getElementById('closeScannerBtn').addEventListener('click', () => {
+             if (appState.html5QrCode?.isScanning) { appState.html5QrCode.stop(); } 
+             document.getElementById('barcode-scanner-container').style.display = 'none';
+        });
+        document.getElementById('deliveryFeeInput').addEventListener('input', () => SalesController.updateTotal(appState));
+        document.getElementById('amountPaidInput').addEventListener('input', Helpers.calculateChange);
     }
 };

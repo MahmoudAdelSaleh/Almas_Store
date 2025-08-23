@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>كاشير متكامل - Firebase</title>
+    <title>Almas_Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <style>
@@ -59,12 +59,17 @@
         .input-group-btn { border-radius: 0; padding: 5px 12px; font-size: 18px; line-height: 1; height: 38px; flex-shrink: 0; }
         #decreaseDeliveryBtn { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
         #increaseDeliveryBtn { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+        .item-card { border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--white); box-shadow: var(--shadow-light); }
+        .item-card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-color: var(--primary-color); }
+        .item-card h5 { margin: 5px 0; font-size: 14px; height: 40px; overflow: hidden; }
+        .item-card p { margin: 5px 0; font-size: 12px; color: var(--success-color); font-weight: bold; }
+        #salesCategoryFilters button.active { background-color: var(--success-color); color: white; }
     </style>
 </head>
 <body>
     <div id="login-container"></div>
     <div id="app-container">
-        <header><span>كاشير متكامل</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
+        <header><span>Almas_Store</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
         <nav>
             <button data-tab="sales" class="active"><i class="fas fa-cash-register"></i> المبيعات</button>
             <button data-tab="items"><i class="fas fa-box"></i> الأصناف</button>
@@ -185,7 +190,7 @@
             return docSnap.exists() ? { id: docSnap.id, ...docSnap.data() } : null;
         };
 
-        // --- Auth Controller ---
+        // --- Controllers ---
         const Auth = {
             getTemplate: () => `
                 <form id="login-form">
@@ -230,7 +235,6 @@
             }
         };
 
-        // --- Items Controller ---
         const ItemsController = {
             getTemplate: () => `
                 <h2><i class="fas fa-box"></i> إدارة الأصناف</h2>
@@ -456,17 +460,19 @@
                 reader.onload = async (event) => {
                     try {
                         const backupData = JSON.parse(event.target.result);
-                        if (!backupData.items || !backupData.customers) throw new Error("ملف غير صالح");
+                        if (!backupData.items && !backupData.customers && !backupData.invoices) throw new Error("ملف غير صالح أو فارغ");
                         
-                        Helpers.showNotification("جاري استرجاع البيانات...", 10000);
+                        Helpers.showNotification("جاري استرجاع البيانات... قد يستغرق الأمر بعض الوقت.", 10000);
                         let batch = writeBatch(db);
                         let count = 0;
                         const collectionsToRestore = ['items', 'customers', 'invoices'];
+
                         for(const collName of collectionsToRestore) {
                             if(backupData[collName]){
                                 for(const item of backupData[collName]){
                                     const docRef = doc(db, collName, item.id);
-                                    batch.set(docRef, item);
+                                    const { id, ...dataToSet } = item; // Do not write the id field back into the document
+                                    batch.set(docRef, dataToSet);
                                     count++;
                                     if(count % 499 === 0) { await batch.commit(); batch = writeBatch(db); }
                                 }
@@ -513,14 +519,153 @@
                 <h3 style="text-align: left;"><span id="changeText">الباقي للعميل:</span><span id="changeAmount">0.00</span> ج.م</h3>
                 <div class="flex-container flex-end" style="margin-top: 20px; flex-direction: row !important; gap: 10px;"><button id="backupBtn" class="btn-warning"><i class="fas fa-download"></i> نسخة احتياطية</button><button id="saveInvoiceBtn"><i class="fas fa-save"></i> حفظ</button></div>`,
             init: () => { SalesController.renderInvoice(); document.getElementById('deliveryFeeInput').value = appState.deliveryFee; SalesController.bindEvents(); },
-            renderCategoryFilters: () => { /* ... Full logic ... */ },
-            renderItemsGrid: (category) => { /* ... Full logic ... */ },
-            updateTotal: () => { /* ... Full logic ... */ },
-            renderInvoice: () => { /* ... Full logic ... */ },
-            addToInvoice: (selectedItem) => { /* ... Full logic ... */ },
-            saveInvoice: async () => { /* ... Full logic ... */ },
-            backupData: async () => { /* ... Full logic ... */ },
-            bindEvents: () => { /* ... Full logic ... */ }
+            renderCategoryFilters: () => {
+                const { allCategories, categoryCurrentPage, categoriesPerPage } = appState;
+                const totalPages = Math.ceil(allCategories.length / categoriesPerPage);
+                const startIndex = (categoryCurrentPage - 1) * categoriesPerPage;
+                const categoriesToRender = allCategories.slice(startIndex, startIndex + categoriesPerPage);
+                document.getElementById('salesCategoryFilters').innerHTML = categoriesToRender.map(cat => `<button class="btn-small" data-category="${cat}">${cat}</button>`).join("");
+                document.getElementById('salesCategoryFilters').querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        document.getElementById('salesCategoryFilters').querySelectorAll('button').forEach(b => b.classList.remove('active', 'btn-success'));
+                        e.currentTarget.classList.add('active', 'btn-success');
+                        SalesController.renderItemsGrid(e.currentTarget.dataset.category);
+                    });
+                });
+                document.getElementById('categoryPageIndicator').textContent = `صفحة ${categoryCurrentPage} / ${totalPages}`;
+                document.getElementById('prevCategoriesBtn').disabled = categoryCurrentPage === 1;
+                document.getElementById('nextCategoriesBtn').disabled = categoryCurrentPage >= totalPages;
+            },
+            renderItemsGrid: (category) => {
+                document.getElementById('itemGrid').style.display = 'grid';
+                document.getElementById('hideCategoriesBtn').style.display = 'inline-flex';
+                const itemsToRender = appState.items.filter(item => item.category === category && (item.stock > 0 || isNaN(item.stock) ));
+                document.getElementById('itemGrid').innerHTML = itemsToRender.map(item => `<div class="item-card" data-id="${item.id}"><h5>${item.name}</h5><p>${(item.price || 0).toFixed(2)} ج.م</p></div>`).join("");
+                document.getElementById('itemGrid').querySelectorAll('.item-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const itemToAdd = appState.items.find(item => item.id === card.dataset.id);
+                        if (itemToAdd) SalesController.addToInvoice(itemToAdd);
+                    });
+                });
+            },
+            updateTotal: () => {
+                const itemsSubtotal = appState.currentInvoice.reduce((sum, item) => sum + item.price * item.qty, 0);
+                appState.deliveryFee = parseFloat(document.getElementById('deliveryFeeInput').value) || 0;
+                const total = itemsSubtotal + appState.deliveryFee;
+                document.getElementById('itemsSubtotal').textContent = itemsSubtotal.toFixed(2);
+                document.getElementById('invoiceTotal').textContent = total.toFixed(2);
+                Helpers.calculateChange();
+            },
+            renderInvoice: () => {
+                const invoiceTableBody = document.getElementById("invoiceTableBody");
+                if(invoiceTableBody){
+                    invoiceTableBody.innerHTML = appState.currentInvoice.map((item, index) =>
+                        `<tr><td>${item.name}</td><td><div class="flex-container" style="justify-content:center;flex-wrap:nowrap;"><button class="btn-small btn-warning decrease-invoice-qty-btn" data-index="${index}">-</button><span style="padding:0 10px;font-weight:bold;">${item.qty}</span><button class="btn-small btn-success increase-invoice-qty-btn" data-index="${index}">+</button></div></td><td>${(item.price || 0).toFixed(2)}</td><td>${((item.price || 0) * item.qty).toFixed(2)}</td><td><button class="btn-small btn-danger remove-from-invoice-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button></td></tr>`
+                    ).join("");
+                }
+                SalesController.updateTotal();
+            },
+            addToInvoice: (selectedItem) => {
+                if (!selectedItem) return;
+                const existingItem = appState.currentInvoice.find(i => i.id === selectedItem.id);
+                if (existingItem) { existingItem.qty++; } 
+                else { appState.currentInvoice.push({ ...selectedItem, qty: 1 }); }
+                SalesController.renderInvoice();
+                Helpers.showNotification(`تمت إضافة: ${selectedItem.name}`);
+            },
+            saveInvoice: async () => {
+                if (appState.currentInvoice.length === 0) { Helpers.showNotification("الفاتورة فارغة"); return; }
+                const total = parseFloat(document.getElementById('invoiceTotal').textContent);
+                const newInvoice = {
+                    customerName: document.getElementById('customerName').value.trim(),
+                    paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+                    amountPaid: parseFloat(document.getElementById('amountPaidInput').value) || 0,
+                    changeOrBalance: (parseFloat(document.getElementById('amountPaidInput').value) || 0) - total,
+                    items: [...appState.currentInvoice],
+                    deliveryFee: appState.deliveryFee,
+                    total: total,
+                };
+                try {
+                    await addDoc(collection(db, "invoices"), newInvoice);
+                    Helpers.showNotification("تم حفظ الفاتورة بنجاح!");
+                    appState.currentInvoice = [];
+                    document.getElementById('customerName').value = "";
+                    document.getElementById('customerPhone').value = "";
+                    document.getElementById('amountPaidInput').value = "";
+                    appState.selectedCustomer = null;
+                    document.getElementById('deliveryFeeInput').value = 30;
+                    SalesController.renderInvoice();
+                } catch (error) { console.error("Save Invoice Error:", error); Helpers.showNotification("حدث خطأ أثناء حفظ الفاتورة."); }
+            },
+            backupData: async () => {
+                Helpers.showNotification("جاري تجهيز النسخة الاحتياطية...", 5000);
+                try {
+                    const collectionsToBackup = ["items", "customers", "invoices", "users", "config"];
+                    const backupObject = { backupDate: new Date().toISOString() };
+                    for (const coll of collectionsToBackup) {
+                        const snapshot = await getDocs(query(collection(db, coll)));
+                        backupObject[coll] = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                    }
+                    const jsonString = JSON.stringify(backupObject, null, 2);
+                    const blob = new Blob([jsonString], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `Almas_Store_Backup_${new Date().toLocaleDateString('en-CA')}.json`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    Helpers.showNotification("تم تحميل النسخة الاحتياطية بنجاح.");
+                } catch (error) { console.error("Backup failed:", error); Helpers.showNotification("فشل أخذ النسخة الاحتياطية."); }
+            },
+            bindEvents: () => {
+                const salesSection = document.getElementById('sales'); if (!salesSection) return;
+                salesSection.addEventListener('click', (e) => {
+                    const target = e.target.closest("button"); if (!target) return;
+                    switch (target.id) {
+                        case 'showCategoriesBtn':
+                            document.getElementById('showCategoriesBtn').style.display = 'none';
+                            document.getElementById('salesCategoryFilters').style.display = 'flex';
+                            document.getElementById('categoryPagination').style.display = 'flex';
+                            SalesController.renderCategoryFilters();
+                            break;
+                        case 'hideCategoriesBtn': SalesController.init(); break;
+                        case 'nextCategoriesBtn': if (appState.categoryCurrentPage < Math.ceil(appState.allCategories.length / appState.categoriesPerPage)) { appState.categoryCurrentPage++; SalesController.renderCategoryFilters(); } break;
+                        case 'prevCategoriesBtn': if (appState.categoryCurrentPage > 1) { appState.categoryCurrentPage--; SalesController.renderCategoryFilters(); } break;
+                        case 'scanBarcodeBtn':
+                            document.getElementById('barcode-scanner-container').style.display = 'flex';
+                            if (!appState.html5QrCode) { appState.html5QrCode = new Html5Qrcode("reader"); }
+                            const onScanSuccess = (decodedText) => {
+                                appState.html5QrCode.stop().then(() => {
+                                    document.getElementById('barcode-scanner-container').style.display = 'none';
+                                    let barcodeToSearch = null; const parts = decodedText.split('|');
+                                    if (parts.length >= 5) { barcodeToSearch = parts[4].trim(); } 
+                                    else { barcodeToSearch = decodedText.trim(); }
+                                    const foundItem = appState.items.find(item => item.barcode === barcodeToSearch);
+                                    if (foundItem) SalesController.addToInvoice(foundItem);
+                                    else Helpers.showNotification(`صنف غير موجود: ${barcodeToSearch}`);
+                                });
+                            };
+                            const qrboxConfig = (viewfinderWidth, viewfinderHeight) => {
+                                let size = Math.min(viewfinderWidth, viewfinderHeight) * 0.7;
+                                return { width: size, height: size };
+                            };
+                            appState.html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: qrboxConfig }, onScanSuccess, ()=>{})
+                            .catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
+                            break;
+                        case 'increaseDeliveryBtn': document.getElementById('deliveryFeeInput').value = (parseInt(document.getElementById('deliveryFeeInput').value) || 0) + 5; SalesController.updateTotal(); break;
+                        case 'decreaseDeliveryBtn': const current = parseInt(document.getElementById('deliveryFeeInput').value) || 0; if (current >= 5) document.getElementById('deliveryFeeInput').value = current - 5; SalesController.updateTotal(); break;
+                        case 'saveInvoiceBtn': SalesController.saveInvoice(); break;
+                        case 'backupBtn': SalesController.backupData(); break;
+                    }
+                    const index = target.dataset.index;
+                    if (target.classList.contains('remove-from-invoice-btn')) { appState.currentInvoice.splice(index, 1); SalesController.renderInvoice(); } 
+                    else if (target.classList.contains('increase-invoice-qty-btn')) { appState.currentInvoice[index].qty++; SalesController.renderInvoice(); } 
+                    else if (target.classList.contains('decrease-invoice-qty-btn')) { if (appState.currentInvoice[index].qty > 1) { appState.currentInvoice[index].qty--; } else { appState.currentInvoice.splice(index, 1); } SalesController.renderInvoice(); }
+                });
+                document.getElementById('closeScannerBtn').addEventListener('click', () => { if (appState.html5QrCode?.isScanning) { appState.html5QrCode.stop(); } document.getElementById('barcode-scanner-container').style.display = 'none'; });
+                document.getElementById('deliveryFeeInput').addEventListener('input', () => SalesController.updateTotal());
+                document.getElementById('amountPaidInput').addEventListener('input', Helpers.calculateChange);
+            }
         };
         
         // --- App Initialization ---
@@ -543,8 +688,10 @@
                 document.body.addEventListener('submit', e => { if (e.target.id === 'login-form') { e.preventDefault(); Auth.login(DOM.usernameInput().value, DOM.passwordInput().value); } });
                 DOM.logoutBtn.addEventListener("click", Auth.logout);
                 DOM.navButtons.forEach(btn => btn.addEventListener("click", e => Helpers.switchTab(e.currentTarget.dataset.tab)));
+                // This is the correct way, bindEvents are called from switchTab
             }
         };
+
         App.init();
 
         window.importItemsFromJSON = async function() { /* ... Full importer logic ... */ };

@@ -30,6 +30,7 @@
         button { background: var(--primary-color); color: var(--white); border: none; padding: 10px 15px; border-radius: var(--border-radius); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, transform 0.1s; }
         button:hover { background: #0056b3; }
         button:active { transform: translateY(1px); }
+        button:disabled { background-color: #6c757d; cursor: not-allowed; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th, td { border: 1px solid var(--border-color); padding: 10px; text-align: center; vertical-align: middle; }
         th { background: #e9ecef; }
@@ -88,6 +89,7 @@
     <div id="notification-container"></div>
 
     <script type="module">
+        // --- Firebase SDKs ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, updateDoc, deleteDoc, getDoc, writeBatch, getDocs } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -162,7 +164,7 @@
                     summary: ReportsController.getSummaryTemplate(),
                 };
                 const section = document.getElementById(tabId);
-                if (section && templates[tabId]) { section.innerHTML = templates[tabId]; }
+                if (section) section.innerHTML = templates[tabId] || '';
                 
                 if (tabId === 'sales') SalesController.init();
                 if (tabId === 'items') ItemsController.init();
@@ -173,111 +175,254 @@
             }
         };
 
+        // --- Firebase Helper Functions ---
+        const readCollection = (collectionName, callback, orderByField = "name", orderDirection = "asc") => {
+            const q = query(collection(db, collectionName), orderBy(orderByField, orderDirection));
+            return onSnapshot(q, snapshot => callback(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))));
+        };
+        const getDocument = async (collectionName, docId) => {
+            const docSnap = await getDoc(doc(db, collectionName, docId));
+            return docSnap.exists() ? { id: docSnap.id, ...docSnap.data() } : null;
+        };
+
         // --- Controllers ---
         const Auth = {
+            getTemplate: () => `
+                <form id="login-form">
+                    <h2><i class="fas fa-lock"></i> تسجيل الدخول</h2>
+                    <div class="form-group"><input type="text" id="usernameInput" placeholder="اسم المستخدم" required /></div>
+                    <div class="form-group"><input type="password" id="passwordInput" placeholder="كلمة المرور" required /></div>
+                    <button type="submit" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button>
+                </form>
+            `,
+            login: (username, password) => {
+                const loginBtn = document.getElementById('loginBtn');
+                loginBtn.disabled = true;
+                loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الدخول...';
+                const pin = Helpers.convertToArabicAndEnglishDigits(password);
+                if (pin === appState.adminPIN) {
+                    appState.currentUser = { username: "المدير", role: "admin" };
+                    localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
+                    Auth.showApp("admin");
+                    return;
+                }
+                const user = appState.users.find(u => u.username === username && u.password === pin);
+                if (user) {
+                    appState.currentUser = user;
+                    localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
+                    Auth.showApp("user");
+                } else {
+                    Helpers.showNotification("بيانات الدخول غير صحيحة");
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> دخول';
+                }
+            },
+            logout: () => {
+                localStorage.removeItem('currentUser');
+                location.reload();
+            },
+            showApp: (role) => {
+                DOM.loginContainer.style.display = "none";
+                DOM.loginContainer.innerHTML = '';
+                DOM.appContainer.style.display = "block";
+                document.querySelector('[data-tab="users"]').classList.toggle("hidden", role !== "admin");
+                document.querySelector('[data-tab="sales"]').click();
+            }
+        };
+
+        const ItemsController = {
+            getTemplate: () => `
+                <h2><i class="fas fa-box"></i> إدارة الأصناف</h2>
+                <div class="form-group flex-container"><input type="text" id="itemBarcode" placeholder="الباركود" /><input type="text" id="itemName" placeholder="اسم الصنف" required /><input type="text" id="itemCategory" placeholder="الفئة" /></div>
+                <div class="form-group flex-container"><input type="number" id="itemPrice" placeholder="السعر" min="0" step="0.01" required/><input type="number" id="itemStock" placeholder="المخزون" min="0" /><input type="text" id="itemUnit" placeholder="الوحدة (قطعة، كجم)" /><button id="saveItemBtn"><i class="fas fa-save"></i> حفظ الصنف</button></div>
+                <table><thead><tr><th>باركود</th><th>اسم</th><th>سعر</th><th>مخزون</th><th>فئة</th><th>تعديل</th><th>حذف</th></tr></thead><tbody id="itemsTableBody"></tbody></table>`,
+            init: () => { ItemsController.render(); ItemsController.bindEvents(); },
+            render: () => {
+                const itemsTableBody = document.getElementById("itemsTableBody");
+                if(itemsTableBody) {
+                    itemsTableBody.innerHTML = appState.items.map(item => 
+                        `<tr><td>${item.barcode || ''}</td><td>${item.name}</td><td>${(item.price || 0).toFixed(2)}</td><td>${item.stock || 0}</td><td>${item.category || ''}</td><td><button class="btn-small btn-warning edit-item-btn" data-id="${item.id}"><i class="fas fa-edit"></i></button></td><td><button class="btn-small btn-danger delete-item-btn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></td></tr>`
+                    ).join("");
+                }
+            },
+            clearForm: () => {
+                document.getElementById("itemBarcode").value = ""; document.getElementById("itemName").value = "";
+                document.getElementById("itemCategory").value = ""; document.getElementById("itemPrice").value = "";
+                document.getElementById("itemStock").value = ""; document.getElementById("itemUnit").value = "";
+                appState.editingItemId = null;
+                document.getElementById("saveItemBtn").innerHTML = '<i class="fas fa-save"></i> حفظ الصنف';
+                document.getElementById("itemName").focus();
+            },
+            save: async () => {
+                const itemData = {
+                    barcode: document.getElementById("itemBarcode").value.trim(),
+                    name: document.getElementById("itemName").value.trim(),
+                    category: document.getElementById("itemCategory").value.trim(),
+                    price: parseFloat(document.getElementById("itemPrice").value) || 0,
+                    stock: parseInt(document.getElementById("itemStock").value) || 0,
+                    unit: document.getElementById("itemUnit").value.trim()
+                };
+                if (!itemData.name || !itemData.price) { Helpers.showNotification("يجب إدخال اسم وسعر الصنف."); return; }
+                try {
+                    if (appState.editingItemId) { await updateDoc(doc(db, "items", appState.editingItemId), itemData); Helpers.showNotification("تم تعديل الصنف بنجاح."); }
+                    else { await addDoc(collection(db, "items"), itemData); Helpers.showNotification("تم حفظ الصنف بنجاح."); }
+                    ItemsController.clearForm();
+                } catch (error) { console.error("Error saving item:", error); Helpers.showNotification("حدث خطأ أثناء حفظ الصنف."); }
+            },
+            edit: (id) => {
+                const item = appState.items.find(i => i.id === id); if (!item) return;
+                document.getElementById("itemBarcode").value = item.barcode || ''; document.getElementById("itemName").value = item.name || '';
+                document.getElementById("itemCategory").value = item.category || ''; document.getElementById("itemPrice").value = item.price || 0;
+                document.getElementById("itemStock").value = item.stock || 0; document.getElementById("itemUnit").value = item.unit || '';
+                appState.editingItemId = id;
+                document.getElementById("saveItemBtn").innerHTML = '<i class="fas fa-edit"></i> تعديل الصنف';
+            },
+            delete: async (id) => {
+                if (confirm("هل أنت متأكد من حذف هذا الصنف نهائيًا؟")) {
+                    try { await deleteDoc(doc(db, "items", id)); Helpers.showNotification("تم حذف الصنف بنجاح."); }
+                    catch (error) { console.error("Error deleting item:", error); Helpers.showNotification("حدث خطأ أثناء حذف الصنف."); }
+                }
+            },
+            bindEvents: () => {
+                const itemsSection = document.getElementById('items'); if(!itemsSection) return;
+                itemsSection.addEventListener('click', e => {
+                    const target = e.target.closest("button"); if (!target) return;
+                    const id = target.dataset.id;
+                    if (target.id === 'saveItemBtn') ItemsController.save();
+                    else if (target.classList.contains("edit-item-btn")) ItemsController.edit(id);
+                    else if (target.classList.contains("delete-item-btn")) ItemsController.delete(id);
+                });
+            }
+        };
+        
+        const CustomersController = {
+            getTemplate: () => `
+                <h2><i class="fas fa-users"></i> إدارة العملاء</h2>
+                <div class="form-group flex-container"><input type="text" id="newCustomerId" placeholder="رقم العميل" /><input type="text" id="newCustomerName" placeholder="اسم العميل" /><input type="tel" id="newCustomerPhone" placeholder="هاتف العميل" /><button id="saveCustomerBtn"><i class="fas fa-save"></i> حفظ العميل</button></div>
+                <div id="customersList"></div>`,
+            init: () => { CustomersController.render(); CustomersController.bindEvents(); },
+            render: () => {
+                const customersList = document.getElementById("customersList");
+                if(customersList) {
+                    customersList.innerHTML = appState.customers.map(cust => `
+                        <div class="customer-card"><div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><div><b>${cust.name}</b><br/><small>رقم: ${cust.customerId} | هاتف: ${cust.phone || 'غير مسجل'}</small></div><div class="flex-container"><button class="btn-small btn-warning edit-customer-btn" data-id="${cust.id}"><i class="fas fa-edit"></i></button><button class="btn-small btn-danger delete-customer-btn" data-id="${cust.id}"><i class="fas fa-trash-alt"></i></button></div></div></div>`
+                    ).join("");
+                }
+            },
+            clearForm: () => {
+                document.getElementById("newCustomerId").value = ""; document.getElementById("newCustomerName").value = "";
+                document.getElementById("newCustomerPhone").value = ""; appState.editingCustomerId = null;
+                document.getElementById("saveCustomerBtn").innerHTML = '<i class="fas fa-save"></i> حفظ العميل';
+            },
+            save: async () => {
+                const customerData = {
+                    customerId: Helpers.convertToArabicAndEnglishDigits(document.getElementById("newCustomerId").value.trim()),
+                    name: document.getElementById("newCustomerName").value.trim(),
+                    phone: Helpers.convertToArabicAndEnglishDigits(document.getElementById("newCustomerPhone").value.trim())
+                };
+                if (!customerData.customerId || !customerData.name) { Helpers.showNotification("يرجى إدخال رقم واسم العميل."); return; }
+                try {
+                    if (appState.editingCustomerId) { await updateDoc(doc(db, "customers", appState.editingCustomerId), customerData); Helpers.showNotification("تم تعديل العميل."); } 
+                    else { await addDoc(collection(db, "customers"), customerData); Helpers.showNotification("تم حفظ العميل."); }
+                    appState.editingCustomerId = null;
+                    CustomersController.clearForm();
+                } catch (error) { Helpers.showNotification("حدث خطأ."); }
+            },
+            edit: (id) => {
+                const customer = appState.customers.find(c => c.id === id); if (!customer) return;
+                document.getElementById("newCustomerId").value = customer.customerId;
+                document.getElementById("newCustomerName").value = customer.name;
+                document.getElementById("newCustomerPhone").value = customer.phone || "";
+                appState.editingCustomerId = id;
+                document.getElementById("saveCustomerBtn").innerHTML = '<i class="fas fa-edit"></i> تعديل';
+            },
+            delete: async (id) => {
+                if (confirm("هل أنت متأكد من حذف هذا العميل؟")) {
+                    try { await deleteDoc(doc(db, "customers", id)); Helpers.showNotification("تم حذف العميل."); } 
+                    catch (error) { Helpers.showNotification("حدث خطأ."); }
+                }
+            },
+            bindEvents: () => {
+                const customersSection = document.getElementById('customers'); if(!customersSection) return;
+                customersSection.addEventListener('click', e => {
+                    const target = e.target.closest("button"); if (!target) return;
+                    if (target.id === 'saveCustomerBtn') CustomersController.save();
+                    else {
+                        const id = target.dataset.id;
+                        if (target.classList.contains("edit-customer-btn")) CustomersController.edit(id);
+                        else if (target.classList.contains("delete-customer-btn")) CustomersController.delete(id);
+                    }
+                });
+            }
+        };
+
+        const ReportsController = {
+            getInvoicesTemplate: () => `<h2><i class="fas fa-file-invoice-dollar"></i> الفواتير المحفوظة</h2><div id="invoicesList"></div>`,
+            getSummaryTemplate: () => `
+                <h2><i class="fas fa-chart-bar"></i> التقارير</h2>
+                <div class="form-group flex-container"><label for="summaryGroupSelect">تجميع حسب:</label><select id="summaryGroupSelect"><option value="day">اليوم</option><option value="week">الأسبوع</option><option value="month">الشهر</option></select></div>
+                <div class="summary-box"><i class="fas fa-coins"></i> <strong>المجموع الكلي للمبيعات:</strong> <span id="totalSalesAmount">0.00</span> ج.م</div>
+                <table><thead><tr><th>الفترة</th><th>عدد الفواتير</th><th>المبلغ</th></tr></thead><tbody id="salesSummaryTable"></tbody></table>
+                <div style="margin-top: 30px;"><h3><i class="fas fa-star"></i> الأصناف الأكثر مبيعًا</h3><div id="bestSellingItems" class="summary-box"><p>لا توجد بيانات متاحة.</p></div></div>`,
+            renderInvoices: () => {
+                const invoicesList = document.getElementById("invoicesList"); if(!invoicesList) return;
+                if (!appState.invoices || appState.invoices.length === 0) { invoicesList.innerHTML = "<p>لا توجد فواتير محفوظة.</p>"; return; }
+                invoicesList.innerHTML = appState.invoices.map(inv => `...`).join('');
+            },
+            renderSummary: () => { /* ... Full render summary logic ... */ }
+        };
+
+        const UsersController = {
             getTemplate: () => `...`,
-            login: () => {},
-            logout: () => {},
-            showApp: () => {}
+            init: () => { /* ... */ }
         };
-        const SalesController = { getTemplate: () => `...`, init: () => {} };
-        const ItemsController = { getTemplate: () => `...`, init: () => {} };
-        const CustomersController = { getTemplate: () => `...`, init: () => {} };
-        const ReportsController = { getInvoicesTemplate: () => `...`, getSummaryTemplate: () => `...` };
-        const UsersController = { getTemplate: () => `...`, init: () => {} };
-        
-        // --- Full Controller Implementations ---
-        Auth.getTemplate = () => `
-            <form id="login-form">
-                <h2><i class="fas fa-lock"></i> تسجيل الدخول</h2>
-                <div class="form-group"><input type="text" id="usernameInput" placeholder="اسم المستخدم" required /></div>
-                <div class="form-group"><input type="password" id="passwordInput" placeholder="كلمة المرور" required /></div>
-                <button type="submit" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button>
-            </form>`;
-        Auth.login = (username, password) => {
-            const loginBtn = document.getElementById('loginBtn');
-            loginBtn.disabled = true;
-            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الدخول...';
-            const pin = Helpers.convertToArabicAndEnglishDigits(password);
-            if (pin === appState.adminPIN) {
-                appState.currentUser = { username: "المدير", role: "admin" };
-                localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
-                Auth.showApp("admin");
-                return;
-            }
-            const user = appState.users.find(u => u.username === username && u.password === pin);
-            if (user) {
-                appState.currentUser = user;
-                localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
-                Auth.showApp("user");
-            } else {
-                Helpers.showNotification("بيانات الدخول غير صحيحة");
-                loginBtn.disabled = false;
-                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> دخول';
+
+        const SalesController = {
+            getTemplate: () => `...`,
+            init: () => { /* ... */ },
+            backupData: async () => {
+                Helpers.showNotification("جاري تجهيز النسخة الاحتياطية...", 5000);
+                try {
+                    const collectionsToBackup = ["items", "customers", "invoices"];
+                    const backupObject = { backupDate: new Date().toISOString() };
+                    for (const coll of collectionsToBackup) {
+                        const snapshot = await getDocs(query(collection(db, coll)));
+                        backupObject[coll] = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                    }
+                    const jsonString = JSON.stringify(backupObject, null, 2);
+                    const blob = new Blob([jsonString], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `Almas_Store_Backup_${new Date().toLocaleDateString('en-CA')}.json`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    Helpers.showNotification("تم تحميل النسخة الاحتياطية بنجاح.");
+                } catch (error) {
+                    console.error("Backup failed:", error);
+                    Helpers.showNotification("فشل أخذ النسخة الاحتياطية.");
+                }
             }
         };
-        Auth.logout = () => {
-            localStorage.removeItem('currentUser');
-            location.reload();
-        };
-        Auth.showApp = (role) => {
-            DOM.loginContainer.style.display = "none";
-            DOM.loginContainer.innerHTML = '';
-            DOM.appContainer.style.display = "block";
-            document.querySelector('[data-tab="users"]').classList.toggle("hidden", role !== "admin");
-            document.querySelector('[data-tab="sales"]').click();
-        };
 
-        ItemsController.getTemplate = () => `
-            <h2><i class="fas fa-box"></i> إدارة الأصناف</h2>
-            <div class="form-group flex-container"><input type="text" id="itemBarcode" placeholder="الباركود" /><input type="text" id="itemName" placeholder="اسم الصنف" required /><input type="text" id="itemCategory" placeholder="الفئة" /></div>
-            <div class="form-group flex-container"><input type="number" id="itemPrice" placeholder="السعر" min="0" step="0.01" required/><input type="number" id="itemStock" placeholder="المخزون" min="0" /><input type="text" id="itemUnit" placeholder="الوحدة (قطعة، كجم)" /><button id="saveItemBtn"><i class="fas fa-save"></i> حفظ الصنف</button></div>
-            <table><thead><tr><th>باركود</th><th>اسم</th><th>سعر</th><th>مخزون</th><th>فئة</th><th>تعديل</th><th>حذف</th></tr></thead><tbody id="itemsTableBody"></tbody></table>`;
-        ItemsController.init = () => { ItemsController.render(); ItemsController.bindEvents(); };
-        ItemsController.render = () => {
-            const itemsTableBody = document.getElementById("itemsTableBody");
-            if(itemsTableBody) {
-                itemsTableBody.innerHTML = appState.items.map(item => 
-                    `<tr><td>${item.barcode || ''}</td><td>${item.name}</td><td>${(item.price || 0).toFixed(2)}</td><td>${item.stock || 0}</td><td>${item.category || ''}</td><td><button class="btn-small btn-warning edit-item-btn" data-id="${item.id}"><i class="fas fa-edit"></i></button></td><td><button class="btn-small btn-danger delete-item-btn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button></td></tr>`
-                ).join("");
-            }
-        };
-        ItemsController.clearForm = () => {
-            document.getElementById("itemBarcode").value = ""; document.getElementById("itemName").value = "";
-            document.getElementById("itemCategory").value = ""; document.getElementById("itemPrice").value = "";
-            document.getElementById("itemStock").value = ""; document.getElementById("itemUnit").value = "";
-            appState.editingItemId = null;
-            document.getElementById("saveItemBtn").innerHTML = '<i class="fas fa-save"></i> حفظ الصنف';
-            document.getElementById("itemName").focus();
-        };
-        ItemsController.save = async () => { /* ... Full save logic ... */ };
-        ItemsController.edit = (id) => { /* ... Full edit logic ... */ };
-        ItemsController.delete = async (id) => { /* ... Full delete logic ... */ };
-        ItemsController.bindEvents = () => { /* ... Full bindEvents logic ... */ };
-
-        CustomersController.getTemplate = () => `...`;
-        CustomersController.init = () => { /* ... */ };
-
-        ReportsController.getInvoicesTemplate = () => `...`;
-        ReportsController.getSummaryTemplate = () => `...`;
-        ReportsController.renderInvoices = () => { /* ... */ };
-        ReportsController.renderSummary = () => { /* ... */ };
-
-        UsersController.getTemplate = () => `...`;
-        UsersController.init = () => { /* ... */ };
-
-        SalesController.getTemplate = () => `...`;
-        SalesController.init = () => { /* ... */ };
-        SalesController.backupData = async () => { /* ... Backup Logic ... */ };
-        
         // --- App Initialization ---
         const App = {
             init: () => {
+                DOM.loginContainer.innerHTML = Auth.getTemplate();
+                App.bindEvents();
+                App.listenToFirebase();
+                const savedUser = localStorage.getItem('currentUser');
+                if (savedUser) { appState.currentUser = JSON.parse(savedUser); Auth.showApp(appState.currentUser.role); }
+            },
+            listenToFirebase: () => {
+                readCollection("items", data => { appState.items = data; appState.allCategories = [...new Set(data.map(item => item.category).filter(Boolean))].sort(); if(document.getElementById('items').classList.contains('active')) ItemsController.render(); }, "name", "asc");
+                // ... other listeners
+            },
+            bindEvents: () => {
                 document.body.addEventListener('submit', e => { if (e.target.id === 'login-form') { e.preventDefault(); Auth.login(DOM.usernameInput().value, DOM.passwordInput().value); } });
                 DOM.logoutBtn.addEventListener("click", Auth.logout);
                 DOM.navButtons.forEach(btn => btn.addEventListener("click", e => Helpers.switchTab(e.currentTarget.dataset.tab)));
-            },
-            listenToFirebase: () => { /* ... */ }
+            }
         };
         App.init();
     </script>

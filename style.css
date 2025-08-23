@@ -1,3 +1,6 @@
+/* تلميح: استخدام المتغيرات (Variables) في بداية الملف يسهل تغيير ألوان وتصميم الموقع بالكامل 
+    من مكان واحد فقط.
+*/
 :root {
     --primary-color: #007bff;
     --secondary-color: #343a40;
@@ -8,39 +11,167 @@
     --bg-light: #f8f9fa;
     --white: #fff;
     --border-color: #dee2e6;
-    --shadow-light: 0 0 6px rgba(0, 0, 0, 0.1);
+    /* تلميح: تم تعديل الظل ليكون أنعم وأكثر حداثة */
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08); 
+    /* تلميح: متغير جديد لتوحيد شكل الحواف الدائرية في كل العناصر */
+    --border-radius: 6px;
 }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); direction: rtl; }
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    background: var(--bg-light); 
+    color: var(--text-dark); 
+    direction: rtl; 
+    /* تلميح: هذه الخصائص تجعل الخطوط تظهر بشكل أنعم وأوضح على الشاشات */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 #app-container { display: none; }
-header { background: var(--primary-color); color: var(--white); padding: 15px; text-align: center; font-size: 24px; display: flex; justify-content: space-between; align-items: center; }
-nav { display: flex; background: var(--secondary-color); overflow-x: auto; }
-nav button { flex: 1 0 auto; padding: 12px 8px; border: none; background: var(--secondary-color); color: var(--white); font-size: 16px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
+
+header { 
+    background: var(--primary-color); 
+    color: var(--white); 
+    padding: 15px; 
+    text-align: center; 
+    font-size: 24px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    /* تلميح: تم تثبيت الهيدر في أعلى الصفحة ليظل ظاهرًا عند التمرير للأسفل */
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* تلميح: ظل خفيف لإعطاء عمق وفصل الهيدر عن المحتوى */
+}
+
+nav { 
+    display: flex; 
+    background: var(--secondary-color); 
+    overflow-x: auto;
+    /* تلميح: تثبيت شريط التنقل تحت الهيدر مباشرة */
+    position: sticky;
+    top: 73px; /* يعتمد على ارتفاع الهيدر لديك */
+    z-index: 1009;
+}
+
+nav button { 
+    flex: 1 0 auto; 
+    padding: 12px 15px; /* تلميح: زيادة المسافة الأفقية لراحة العين */
+    border: none; 
+    background: var(--secondary-color); 
+    color: var(--white); 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background 0.3s; 
+    white-space: nowrap; 
+}
+
 nav button.active, nav button:hover { background: #0056b3; }
 nav button.hidden { display: none; }
 main { padding: 15px; max-width: 900px; margin: auto; }
 section { display: none; }
 section.active { display: block; }
 input, select, button, table { font-size: 16px; }
-input, select { width: 100%; padding: 10px; margin: 6px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
-button { background: var(--primary-color); color: var(--white); border: none; padding: 10px; border-radius: 4px; cursor: pointer; transition: background 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+input, select { 
+    width: 100%; 
+    padding: 10px; 
+    margin: 6px 0; 
+    box-sizing: border-box; 
+    border: 1px solid var(--border-color); 
+    border-radius: var(--border-radius); /* تلميح: استخدام المتغير لتوحيد الشكل */
+    /* تلميح: إضافة تأثير انتقال ناعم عند التركيز على الحقل */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* تلميح: هذا التعديل يضيف "توهج" أزرق حول حقل الإدخال عند الكتابة فيه */
+input:focus, select:focus {
+    outline: none; /* إزالة الإطار الافتراضي للمتصفح */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button { 
+    background: var(--primary-color); 
+    color: var(--white); 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: var(--border-radius); 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    /* تلميح: إضافة تأثيرات انتقال للحركة ولون الخلفية */
+    transition: background 0.2s, transform 0.1s;
+}
+
 button:hover { background: #0056b3; }
+
+/* تلميح: إضافة تأثير بسيط عند الضغط على الزر ليعطي إحساسًا بالاستجابة */
+button:active {
+    transform: translateY(1px);
+}
+
 table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-th, td { border: 1px solid var(--border-color); padding: 10px; text-align: center; }
+th, td { border: 1px solid var(--border-color); padding: 10px; text-align: center; vertical-align: middle; }
 th { background: #e9ecef; }
-.btn-small { padding: 5px 10px; font-size: 14px; margin: 0 2px; border-radius: 3px; }
+/* تلميح: جعل صفوف الجدول ملونة بشكل متبادل (أبيض/رمادي) لتسهيل القراءة */
+tbody tr:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+.btn-small { padding: 5px 10px; font-size: 14px; margin: 0 2px; border-radius: 4px; }
 .btn-danger { background: var(--danger-color); }
-.btn-success { background: var(--success-color); }
-.summary-box, .customer-card { background: var(--white); padding: 15px; margin: 15px 0; border-radius: 6px; box-shadow: var(--shadow-light); }
-#searchResults, #customerSuggestions { background: var(--white); max-height: 180px; overflow-y: auto; border: 1px solid #ccc; border-top: none; display: none; position: absolute; z-index: 1000; width: 100%; box-sizing: border-box; }
-#searchResults { width: calc(100% - 110px); }
-#searchResults div, #customerSuggestions div { padding: 8px; cursor: pointer; border-bottom: 1px solid #ddd; }
+.summary-box, .customer-card { 
+    background: var(--white); 
+    padding: 15px; 
+    margin: 15px 0; 
+    border-radius: var(--border-radius); 
+    box-shadow: var(--shadow-light);
+    /* تلميح: إضافة تأثير انتقال ناعم للبطاقات عند تمرير الماوس فوقها */
+    transition: all 0.2s ease-in-out;
+}
+
+/* تلميح: هذا التأثير يجعل البطاقة "ترتفع" قليلاً عند التفاعل معها */
+.summary-box:hover, .customer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#searchResults, #customerSuggestions { background: var(--white); max-height: 180px; overflow-y: auto; border: 1px solid var(--border-color); border-top: none; display: none; position: absolute; z-index: 1000; width: 100%; box-sizing: border-box; border-radius: 0 0 var(--border-radius) var(--border-radius); box-shadow: var(--shadow-light); }
+#searchResults div, #customerSuggestions div { padding: 8px; cursor: pointer; border-bottom: 1px solid #f1f1f1; }
+#searchResults div:last-child, #customerSuggestions div:last-child { border-bottom: none; }
 #searchResults div:hover, #customerSuggestions div:hover { background: #eee; }
 .flex-container { display: flex; gap: 10px; align-items: center; }
 #notification-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; }
-.notification { background-color: rgba(0, 0, 0, 0.8); color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; opacity: 0; transition: opacity 0.5s ease-in-out; }
-.notification.show { opacity: 1; }
+.notification { background-color: rgba(0, 0, 0, 0.85); color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; opacity: 0; transition: opacity 0.5s, transform 0.5s; transform: translateY(20px); }
+.notification.show { opacity: 1; transform: translateY(0); }
 #login-container { display: flex; align-items: center; justify-content: center; height: 100vh; }
-#login-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 350px; }
+#login-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 350px; }
 #logoutBtn { background: var(--danger-color); }
-#barcode-scanner-container { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 400px; background: white; padding: 20px; border-radius: 8px; z-index: 1001; border: 2px solid var(--primary-color); }
-#reader { width: 100%; }
+#barcode-scanner-container { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 300px; background: white; padding: 20px; border-radius: 8px; z-index: 1001; border: 2px solid var(--primary-color); }
+#reader { width: 100%; border-radius: var(--border-radius); overflow: hidden; }
+/* تلميح: هذا هو المتحكم الرئيسي في عرض نافذة الكاميرا. صغّره أو كبّره كما تشاء */
+#barcode-scanner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* تلميح: هذا هو المتحكم الرئيسي في عرض نافذة الكاميرا. صغّره أو كبّره كما تشاء */
+    max-width: 300px; 
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1001;
+    border: 2px solid var(--primary-color);
+}
+
+#reader {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden; /* لإخفاء زوائد الفيديو خارج الإطار */
+}

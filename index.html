@@ -5,8 +5,349 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Almas_Store - Firebase</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <style>
+        /* أنماط التصميم الأساسية */
+        :root {
+            --primary-color: #4a6baf;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        #login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #4a6baf 0%, #3498db 100%);
+        }
+        
+        #login-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        #login-form h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            cursor: pointer;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        #loginBtn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+        }
+        
+        #loginBtn:hover {
+            background-color: #3a559c;
+        }
+        
+        #app-container {
+            display: none;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        #logoutBtn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        #logoutBtn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            background-color: white;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav button {
+            padding: 1rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            color: var(--gray-color);
+        }
+        
+        nav button.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        nav button:hover {
+            color: var(--primary-color);
+            background-color: rgba(74, 107, 175, 0.1);
+        }
+        
+        main {
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+        }
+        
+        section.active {
+            display: block;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a559c;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #bd2130;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: right;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-column {
+            flex: 1;
+            padding: 0 0.5rem;
+            min-width: 200px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            color: var(--gray-color);
+            margin-top: 0.5rem;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        #barcode-scanner-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        #reader {
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        #closeScannerBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        #notification-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .notification {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .notification.success {
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .notification.error {
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        .notification.warning {
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-column {
+                width: 100%;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -32,19 +373,324 @@
 
         <main>
             <section id="sales" class="active">
-                 </section>
+                <div class="section-header">
+                    <h2><i class="fas fa-cash-register"></i> نقطة البيع</h2>
+                    <button id="startScannerBtn" class="btn-primary"><i class="fas fa-barcode"></i> مسح الباركود</button>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <input type="text" id="barcodeInput" placeholder="ادخل الباركود أو امسحه" class="form-control" />
+                    </div>
+                    <div class="form-column">
+                        <input type="text" id="productSearch" placeholder="ابحث عن صنف بالاسم" class="form-control" />
+                    </div>
+                </div>
+                
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>الباركود</th>
+                            <th>الصنف</th>
+                            <th>السعر</th>
+                            <th>الكمية</th>
+                            <th>المجموع</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" style="text-align: center;">لا توجد أصناف في السلة</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4">الإجمالي</th>
+                            <th id="cart-total">0.00</th>
+                            <th>درهم</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                
+                <div style="text-align: left; margin-top: 1rem;">
+                    <button id="completeSaleBtn" class="btn-success"><i class="fas fa-check"></i> إتمام البيع</button>
+                    <button id="cancelSaleBtn" class="btn-danger"><i class="fas fa-times"></i> إلغاء</button>
+                </div>
+            </section>
             
             <section id="items">
-                 </section>
+                <div class="section-header">
+                    <h2><i class="fas fa-box"></i> إدارة الأصناف</h2>
+                    <button id="addItemBtn" class="btn-primary"><i class="fas fa-plus"></i> إضافة صنف</button>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <input type="text" id="itemsSearch" placeholder="ابحث عن أصناف" class="form-control" />
+                    </div>
+                </div>
+                
+                <table id="items-table">
+                    <thead>
+                        <tr>
+                            <th>الباركود</th>
+                            <th>الصنف</th>
+                            <th>السعر</th>
+                            <th>الكمية</th>
+                            <th>التصنيف</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123456789</td>
+                            <td>صنف مثال 1</td>
+                            <td>50.00</td>
+                            <td>10</td>
+                            <td>تصنيف مثال</td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>987654321</td>
+                            <td>صنف مثال 2</td>
+                            <td>75.00</td>
+                            <td>5</td>
+                            <td>تصنيف مثال</td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
             <section id="customers">
-                 </section>
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> إدارة العملاء</h2>
+                    <button id="addCustomerBtn" class="btn-primary"><i class="fas fa-plus"></i> إضافة عميل</button>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <input type="text" id="customersSearch" placeholder="ابحث عن عملاء" class="form-control" />
+                    </div>
+                </div>
+                
+                <table id="customers-table">
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th>الهاتف</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>العنوان</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>عميل مثال 1</td>
+                            <td>0512345678</td>
+                            <td>customer1@example.com</td>
+                            <td>عنوان مثال 1</td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>عميل مثال 2</td>
+                            <td>0512345679</td>
+                            <td>customer2@example.com</td>
+                            <td>عنوان مثال 2</td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
             
-            <section id="invoices"></section>
-            <section id="summary"></section>
+            <section id="invoices">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-invoice"></i> الفواتير</h2>
+                    <div>
+                        <button id="filterInvoicesBtn" class="btn-primary"><i class="fas fa-filter"></i> تصفية</button>
+                        <button id="printInvoicesBtn" class="btn-success"><i class="fas fa-print"></i> طباعة</button>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <input type="date" id="invoiceDateFrom" class="form-control" />
+                    </div>
+                    <div class="form-column">
+                        <input type="date" id="invoiceDateTo" class="form-control" />
+                    </div>
+                    <div class="form-column">
+                        <input type="text" id="invoiceSearch" placeholder="ابحث في الفواتير" class="form-control" />
+                    </div>
+                </div>
+                
+                <table id="invoices-table">
+                    <thead>
+                        <tr>
+                            <th>رقم الفاتورة</th>
+                            <th>التاريخ</th>
+                            <th>العميل</th>
+                            <th>المبلغ</th>
+                            <th>الحالة</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INV-2023-001</td>
+                            <td>2023-10-01</td>
+                            <td>عميل مثال 1</td>
+                            <td>250.00</td>
+                            <td><span class="badge success">مكتمل</span></td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-eye"></i></button>
+                                <button class="btn-success"><i class="fas fa-print"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>INV-2023-002</td>
+                            <td>2023-10-02</td>
+                            <td>عميل مثال 2</td>
+                            <td>150.00</td>
+                            <td><span class="badge warning">معلق</span></td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-eye"></i></button>
+                                <button class="btn-success"><i class="fas fa-print"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="summary">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> التقارير والإحصائيات</h2>
+                    <div>
+                        <button id="exportReportBtn" class="btn-success"><i class="fas fa-file-export"></i> تصدير</button>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <input type="date" id="reportDateFrom" class="form-control" />
+                    </div>
+                    <div class="form-column">
+                        <input type="date" id="reportDateTo" class="form-control" />
+                    </div>
+                    <div class="form-column">
+                        <button id="generateReportBtn" class="btn-primary"><i class="fas fa-sync"></i> توليد التقرير</button>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-value">1,250.00</div>
+                        <div class="stat-label">إجمالي المبيعات</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">45</div>
+                        <div class="stat-label">عدد الفواتير</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">28.50</div>
+                        <div class="stat-label">متوسط قيمة الفاتورة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">أكثر المنتجات مبيعاً</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>المبيعات اليومية</h3>
+                    <div id="sales-chart" style="height: 300px; background: #f9f9f9; display: flex; align-items: center; justify-content: center; margin: 1rem 0;">
+                        <p>رسم بياني يظهر هنا</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>أفضل المنتجات مبيعاً</h3>
+                    <table id="top-products-table">
+                        <thead>
+                            <tr>
+                                <th>المنتج</th>
+                                <th>الكمية المباعة</th>
+                                <th>إجمالي المبيعات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>منتج مثال 1</td>
+                                <td>25</td>
+                                <td>750.00</td>
+                            </tr>
+                            <tr>
+                                <td>منتج مثال 2</td>
+                                <td>18</td>
+                                <td>450.00</td>
+                            </tr>
+                            <tr>
+                                <td>منتج مثال 3</td>
+                                <td>12</td>
+                                <td>300.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
             <section id="users">
-                </section>
+                <div class="section-header">
+                    <h2><i class="fas fa-user-shield"></i> إدارة المستخدمين</h2>
+                    <button id="addUserBtn" class="btn-primary"><i class="fas fa-plus"></i> إضافة مستخدم</button>
+                </div>
+                
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>اسم المستخدم</th>
+                            <th>الاسم الكامل</th>
+                            <th>صلاحية</th>
+                            <th>الحالة</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>admin</td>
+                            <td>مدير النظام</td>
+                            <td>مدير</td>
+                            <td><span class="badge success">نشط</span></td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>cashier1</td>
+                            <td>أمين الصندوق 1</td>
+                            <td>مستخدم</td>
+                            <td><span class="badge success">نشط</span></td>
+                            <td>
+                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
     </div>
 
@@ -52,8 +698,125 @@
         <div id="reader"></div>
         <button id="closeScannerBtn" class="btn-danger"><i class="fas fa-times"></i></button>
     </div>
+    
     <div id="notification-container"></div>
 
-    <script type="module" src="js/main.js"></script>
+    <script>
+        // دالة للتبديل بين الأقسام
+        function switchTab(tabName) {
+            // إخفاء جميع الأقسام
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // إلغاء تنشيط جميع أزرار التنقل
+            document.querySelectorAll('nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // إظهار القسم المحدد
+            document.getElementById(tabName).classList.add('active');
+            
+            // تنشيط زر التنقل المحدد
+            document.querySelector(`nav button[data-tab="${tabName}"]`).classList.add('active');
+        }
+        
+        // دالة لعرض الإشعارات
+        function showNotification(message, type = 'success') {
+            const notificationContainer = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            notificationContainer.appendChild(notification);
+            
+            // إزالة الإشعار بعد 5 ثوان
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+        
+        // دالة لمحاكاة تسجيل الدخول
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+            
+            // هنا يجب التحقق من بيانات الدخول مع Firebase
+            // لمثالنا، سنفترض أن التسجيل ناجح دائماً
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('app-container').style.display = 'block';
+            
+            // إذا كان المستخدم مديراً، إظهار قسم المستخدمين
+            if (username === 'admin') {
+                document.querySelector('button[data-tab="users"]').classList.remove('hidden');
+            }
+            
+            showNotification('تم تسجيل الدخول بنجاح');
+        }
+        
+        // دالة للتعامل مع المسح الضوئي للباركود
+        function startBarcodeScanner() {
+            document.getElementById('barcode-scanner-container').style.display = 'flex';
+            
+            // هنا يجب تهيئة ماسح الباركود
+            // لمثالنا، سنقوم بمحاكاة المسح الضوئي
+            setTimeout(() => {
+                // محاكاة نجاح المسح الضوئي
+                document.getElementById('barcode-scanner-container').style.display = 'none';
+                document.getElementById('barcodeInput').value = '123456789';
+                showNotification('تم مسح الباركود بنجاح');
+            }, 2000);
+        }
+        
+        // تهيئة الأحداث عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // حدث تسجيل الدخول
+            document.getElementById('login-form').addEventListener('submit', handleLogin);
+            
+            // حدث الخروج
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                document.getElementById('app-container').style.display = 'none';
+                document.getElementById('login-container').style.display = 'flex';
+                showNotification('تم تسجيل الخروج بنجاح');
+            });
+            
+            // أحداث التنقل بين الأقسام
+            document.querySelectorAll('nav button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    switchTab(tabName);
+                });
+            });
+            
+            // حدث فتح ماسح الباركود
+            document.getElementById('startScannerBtn').addEventListener('click', startBarcodeScanner);
+            
+            // حدث إغلاق ماسح الباركود
+            document.getElementById('closeScannerBtn').addEventListener('click', function() {
+                document.getElementById('barcode-scanner-container').style.display = 'none';
+            });
+            
+            // أحداث الأزرار الأخرى
+            document.getElementById('addItemBtn').addEventListener('click', function() {
+                showNotification('فتح نموذج إضافة صنف جديد');
+            });
+            
+            document.getElementById('addCustomerBtn').addEventListener('click', function() {
+                showNotification('فتح نموذج إضافة عميل جديد');
+            });
+            
+            document.getElementById('completeSaleBtn').addEventListener('click', function() {
+                showNotification('تم إتمام عملية البيع بنجاح');
+            });
+            
+            document.getElementById('cancelSaleBtn').addEventListener('click', function() {
+                showNotification('تم إلغاء عملية البيع');
+            });
+        });
+    </script>
 </body>
 </html>

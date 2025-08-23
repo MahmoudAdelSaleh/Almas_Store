@@ -4,12 +4,35 @@ import { CustomersController } from "./customers.js";
 import { ReportsController } from "./reports.js";
 import { UsersController } from "./users.js";
 
-export const DOM = { /* ... انسخ كل عناصر DOM من الرد السابق ... */ };
+// DOM elements are accessed via functions to ensure they exist after template loading
+export const DOM = {
+    appContainer: document.getElementById("app-container"),
+    loginContainer: document.getElementById("login-container"),
+    logoutBtn: document.getElementById("logoutBtn"),
+    navButtons: document.querySelectorAll("nav button"),
+    sections: document.querySelectorAll("main section"),
+    notificationContainer: document.getElementById("notification-container"),
+    usernameInput: () => document.getElementById("usernameInput"),
+    passwordInput: () => document.getElementById("passwordInput"),
+    // ... other elements will be selected within their controllers
+};
 
 export const Helpers = {
-    showNotification: (message, duration = 3000) => { /* ... */ },
-    convertToArabicAndEnglishDigits: (text) => { /* ... */ },
-    calculateChange: () => { /* ... */ },
+    showNotification: (message, duration = 3000) => {
+        const el = document.createElement("div");
+        el.className = "notification";
+        el.textContent = message;
+        DOM.notificationContainer.appendChild(el);
+        setTimeout(() => el.classList.add("show"), 10);
+        setTimeout(() => {
+            el.classList.remove("show");
+            setTimeout(() => el.remove(), 500);
+        }, duration);
+    },
+    convertToArabicAndEnglishDigits: (text) => {
+        if (!text) return "";
+        return text.toString().replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+    },
     switchTab: (tabId, appState) => {
         DOM.sections.forEach(s => s.classList.toggle("active", s.id === tabId));
         DOM.navButtons.forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
@@ -28,11 +51,11 @@ export const Helpers = {
             section.innerHTML = templates[tabId];
         }
         
-        // إعادة تهيئة الحالة أو عرض البيانات بعد تحميل القالب
+        // Re-initialize or render data after loading the template
         if (tabId === 'sales') SalesController.init(appState);
-        if (tabId === 'items') ItemsController.render(appState);
-        if (tabId === 'customers') CustomersController.render(appState);
-        if (tabId === 'users') UsersController.render(appState);
+        if (tabId === 'items') ItemsController.init(appState);
+        if (tabId === 'customers') CustomersController.init(appState);
+        if (tabId === 'users') UsersController.init(appState);
         if (tabId === 'invoices') ReportsController.renderInvoices(appState);
         if (tabId === 'summary') ReportsController.renderSummary(appState);
     }

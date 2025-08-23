@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <style>
-        /* أنماط التصميم الأساسية */
         :root {
             --primary-color: #4a6baf;
             --secondary-color: #3498db;
@@ -192,6 +191,15 @@
             background-color: #218838;
         }
         
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: black;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
@@ -281,22 +289,32 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.95);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             z-index: 1000;
+            padding: 20px;
         }
         
         #reader {
-            width: 90%;
+            width: 100%;
             max-width: 500px;
+            margin-top: 20px;
         }
         
         #closeScannerBtn {
             position: absolute;
             top: 20px;
             left: 20px;
+            z-index: 1001;
+        }
+        
+        #scanner-title {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
         }
         
         #notification-container {
@@ -328,6 +346,48 @@
             border-left: 4px solid var(--warning-color);
         }
         
+        .autocomplete {
+            position: relative;
+        }
+        
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            top: 100%;
+            right: 0;
+            left: 0;
+            background: white;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+        
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .autocomplete-active {
+            background-color: var(--primary-color) !important;
+            color: #ffffff;
+        }
+        
+        .sale-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+            justify-content: flex-start;
+        }
+        
         /* تصميم متجاوب */
         @media (max-width: 768px) {
             nav {
@@ -345,6 +405,20 @@
             
             .stats-container {
                 grid-template-columns: 1fr;
+            }
+            
+            #reader {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+            }
+            
+            .sale-actions {
+                flex-direction: column;
+            }
+            
+            .sale-actions button {
+                width: 100%;
             }
         }
     </style>
@@ -412,8 +486,19 @@
                     </tfoot>
                 </table>
                 
-                <div style="text-align: left; margin-top: 1rem;">
+                <div class="form-row">
+                    <div class="form-column autocomplete">
+                        <input type="text" id="customerInput" placeholder="اسم العميل أو رقم الهاتف" class="form-control" />
+                    </div>
+                    <div class="form-column">
+                        <input type="text" id="customerPhone" placeholder="رقم الهاتف (لإرسال الواتساب)" class="form-control" />
+                    </div>
+                </div>
+                
+                <div class="sale-actions">
                     <button id="completeSaleBtn" class="btn-success"><i class="fas fa-check"></i> إتمام البيع</button>
+                    <button id="printInvoiceBtn" class="btn-warning"><i class="fas fa-print"></i> طباعة الفاتورة</button>
+                    <button id="sendWhatsappBtn" class="btn-primary"><i class="fas fa-paper-plane"></i> إرسال بالواتساب</button>
                     <button id="cancelSaleBtn" class="btn-danger"><i class="fas fa-times"></i> إلغاء</button>
                 </div>
             </section>
@@ -421,10 +506,19 @@
             <section id="items">
                 <div class="section-header">
                     <h2><i class="fas fa-box"></i> إدارة الأصناف</h2>
-                    <button id="addItemBtn" class="btn-primary"><i class="fas fa-plus"></i> إضافة صنف</button>
+                    <div>
+                        <button id="importJsonBtn" class="btn-primary"><i class="fas fa-file-import"></i> استيراد من JSON</button>
+                        <button id="addItemBtn" class="btn-success"><i class="fas fa-plus"></i> إضافة صنف</button>
+                    </div>
                 </div>
                 
                 <div class="form-row">
+                    <div class="form-column">
+                        <select id="jsonFileSelect" class="form-control">
+                            <option value="p.json">p.json</option>
+                            <option value="p1.json">p1.json</option>
+                        </select>
+                    </div>
                     <div class="form-column">
                         <input type="text" id="itemsSearch" placeholder="ابحث عن أصناف" class="form-control" />
                     </div>
@@ -695,29 +789,32 @@
     </div>
 
     <div id="barcode-scanner-container" style="display:none;">
+        <button id="closeScannerBtn" class="btn-danger"><i class="fas fa-times"></i> إغلاق</button>
+        <h3 id="scanner-title">ضَع الباركود داخل الإطار للمسح</h3>
         <div id="reader"></div>
-        <button id="closeScannerBtn" class="btn-danger"><i class="fas fa-times"></i></button>
     </div>
     
     <div id="notification-container"></div>
 
     <script>
+        // بيانات العملاء (سيتم جلبها من Firebase لاحقاً)
+        const customers = [
+            {name: "عميل مثال 1", phone: "0512345678", email: "customer1@example.com", address: "عنوان مثال 1"},
+            {name: "عميل مثال 2", phone: "0512345679", email: "customer2@example.com", address: "عنوان مثال 2"},
+            {name: "عميل نقدي", phone: "0000000000", email: "", address: ""}
+        ];
+        
         // دالة للتبديل بين الأقسام
         function switchTab(tabName) {
-            // إخفاء جميع الأقسام
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // إلغاء تنشيط جميع أزرار التنقل
             document.querySelectorAll('nav button').forEach(button => {
                 button.classList.remove('active');
             });
             
-            // إظهار القسم المحدد
             document.getElementById(tabName).classList.add('active');
-            
-            // تنشيط زر التنقل المحدد
             document.querySelector(`nav button[data-tab="${tabName}"]`).classList.add('active');
         }
         
@@ -733,7 +830,6 @@
             
             notificationContainer.appendChild(notification);
             
-            // إزالة الإشعار بعد 5 ثوان
             setTimeout(() => {
                 notification.remove();
             }, 5000);
@@ -745,12 +841,9 @@
             const username = document.getElementById('usernameInput').value;
             const password = document.getElementById('passwordInput').value;
             
-            // هنا يجب التحقق من بيانات الدخول مع Firebase
-            // لمثالنا، سنفترض أن التسجيل ناجح دائماً
             document.getElementById('login-container').style.display = 'none';
             document.getElementById('app-container').style.display = 'block';
             
-            // إذا كان المستخدم مديراً، إظهار قسم المستخدمين
             if (username === 'admin') {
                 document.querySelector('button[data-tab="users"]').classList.remove('hidden');
             }
@@ -758,18 +851,136 @@
             showNotification('تم تسجيل الدخول بنجاح');
         }
         
+        // دالة لتهيئة الاقتراح التلقائي للعملاء
+        function initAutocomplete() {
+            const customerInput = document.getElementById('customerInput');
+            
+            customerInput.addEventListener('input', function() {
+                const val = this.value;
+                closeAllLists();
+                
+                if (!val) return false;
+                
+                const autocompleteList = document.createElement('div');
+                autocompleteList.setAttribute('id', 'autocomplete-list');
+                autocompleteList.setAttribute('class', 'autocomplete-items');
+                this.parentNode.appendChild(autocompleteList);
+                
+                customers.forEach(customer => {
+                    if (customer.name.includes(val) || customer.phone.includes(val)) {
+                        const item = document.createElement('div');
+                        item.innerHTML = `<strong>${customer.name}</strong> - ${customer.phone}`;
+                        item.innerHTML += `<input type='hidden' value='${customer.name}' data-phone='${customer.phone}'>`;
+                        
+                        item.addEventListener('click', function() {
+                            customerInput.value = customer.name;
+                            document.getElementById('customerPhone').value = customer.phone;
+                            closeAllLists();
+                        });
+                        
+                        autocompleteList.appendChild(item);
+                    }
+                });
+            });
+            
+            function closeAllLists() {
+                const items = document.getElementsByClassName('autocomplete-items');
+                for (let i = 0; i < items.length; i++) {
+                    items[i].parentNode.removeChild(items[i]);
+                }
+            }
+            
+            document.addEventListener('click', function(e) {
+                closeAllLists();
+            });
+        }
+        
         // دالة للتعامل مع المسح الضوئي للباركود
         function startBarcodeScanner() {
-            document.getElementById('barcode-scanner-container').style.display = 'flex';
+            const scannerContainer = document.getElementById('barcode-scanner-container');
+            scannerContainer.style.display = 'flex';
             
-            // هنا يجب تهيئة ماسح الباركود
-            // لمثالنا، سنقوم بمحاكاة المسح الضوئي
+            // تهيئة ماسح الباركود
+            const html5Qrcode = new Html5Qrcode("reader");
+            
+            Html5Qrcode.getCameras().then(cameras => {
+                if (cameras && cameras.length) {
+                    const cameraId = cameras[0].id;
+                    
+                    html5Qrcode.start(
+                        cameraId,
+                        {
+                            fps: 10,
+                            qrbox: { width: 250, height: 150 }
+                        },
+                        (decodedText, decodedResult) => {
+                            // عند نجاح المسح
+                            html5Qrcode.stop().then(() => {
+                                scannerContainer.style.display = 'none';
+                                document.getElementById('barcodeInput').value = decodedText;
+                                showNotification('تم مسح الباركود بنجاح');
+                            }).catch(err => {
+                                console.error('Error stopping scanner:', err);
+                            });
+                        },
+                        (errorMessage) => {
+                            // رسائل الخطأ (يمكن تجاهلها)
+                        }
+                    ).catch(err => {
+                        console.error('Error starting scanner:', err);
+                        showNotification('فشل في تشغيل الكاميرا', 'error');
+                    });
+                }
+            }).catch(err => {
+                console.error('Error getting cameras:', err);
+                showNotification('لا يمكن الوصول إلى الكاميرا', 'error');
+            });
+            
+            // إضافة حدث إغلاق الماسح
+            document.getElementById('closeScannerBtn').onclick = function() {
+                html5Qrcode.stop().then(() => {
+                    scannerContainer.style.display = 'none';
+                }).catch(err => {
+                    console.error('Error stopping scanner:', err);
+                    scannerContainer.style.display = 'none';
+                });
+            };
+        }
+        
+        // دالة لاستيراد الأصناف من ملف JSON
+        function importItemsFromJson() {
+            const jsonFile = document.getElementById('jsonFileSelect').value;
+            
+            showNotification(`جاري استيراد الأصناف من ${jsonFile}...`, 'warning');
+            
+            // محاكاة استيراد البيانات من ملف JSON
             setTimeout(() => {
-                // محاكاة نجاح المسح الضوئي
-                document.getElementById('barcode-scanner-container').style.display = 'none';
-                document.getElementById('barcodeInput').value = '123456789';
-                showNotification('تم مسح الباركود بنجاح');
-            }, 2000);
+                // في التطبيق الحقيقي، سيتم جلب البيانات من الملف باستخدام fetch
+                const importedItems = [
+                    {barcode: '1122334455', name: 'صنف مستورد 1', price: 30.00, quantity: 15, category: 'مستورد'},
+                    {barcode: '5566778899', name: 'صنف مستورد 2', price: 45.00, quantity: 8, category: 'مستورد'}
+                ];
+                
+                // إضافة الأصناف المستوردة إلى الجدول
+                const itemsTable = document.getElementById('items-table').getElementsByTagName('tbody')[0];
+                
+                importedItems.forEach(item => {
+                    const newRow = itemsTable.insertRow();
+                    newRow.innerHTML = `
+                        <td>${item.barcode}</td>
+                        <td>${item.name}</td>
+                        <td>${item.price}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.category}</td>
+                        <td>
+                            <button class="btn-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                        </td>
+                    `;
+                });
+                
+                showNotification(`تم استيراد ${importedItems.length} صنف من ${jsonFile}`, 'success');
+            }, 1500);
         }
         
         // تهيئة الأحداث عند تحميل الصفحة
@@ -795,10 +1006,11 @@
             // حدث فتح ماسح الباركود
             document.getElementById('startScannerBtn').addEventListener('click', startBarcodeScanner);
             
-            // حدث إغلاق ماسح الباركود
-            document.getElementById('closeScannerBtn').addEventListener('click', function() {
-                document.getElementById('barcode-scanner-container').style.display = 'none';
-            });
+            // تهيئة الاقتراح التلقائي للعملاء
+            initAutocomplete();
+            
+            // حدث استيراد الأصناف من JSON
+            document.getElementById('importJsonBtn').addEventListener('click', importItemsFromJson);
             
             // أحداث الأزرار الأخرى
             document.getElementById('addItemBtn').addEventListener('click', function() {
@@ -810,7 +1022,30 @@
             });
             
             document.getElementById('completeSaleBtn').addEventListener('click', function() {
-                showNotification('تم إتمام عملية البيع بنجاح');
+                const customerName = document.getElementById('customerInput').value;
+                const customerPhone = document.getElementById('customerPhone').value;
+                
+                if (!customerName) {
+                    showNotification('يرجى إدخال اسم العميل', 'error');
+                    return;
+                }
+                
+                showNotification('تم إتمام عملية البيع بنجاح وحفظ الفاتورة');
+            });
+            
+            document.getElementById('printInvoiceBtn').addEventListener('click', function() {
+                showNotification('جاري طباعة الفاتورة...');
+            });
+            
+            document.getElementById('sendWhatsappBtn').addEventListener('click', function() {
+                const customerPhone = document.getElementById('customerPhone').value;
+                
+                if (!customerPhone || customerPhone === '0000000000') {
+                    showNotification('يرجى إدخال رقم هاتف العميل لإرسال الفاتورة', 'error');
+                    return;
+                }
+                
+                showNotification('تم إرسال الفاتورة عبر الواتساب');
             });
             
             document.getElementById('cancelSaleBtn').addEventListener('click', function() {

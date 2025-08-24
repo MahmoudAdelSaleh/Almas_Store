@@ -132,7 +132,7 @@
         }
         
         nav button:hover {
-            color: var(--primary-color);
+            color: var(--primary-color;
             background-color: rgba(74, 107, 175, 0.1);
         }
         
@@ -388,6 +388,20 @@
             justify-content: flex-start;
         }
         
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         /* تصميم متجاوب */
         @media (max-width: 768px) {
             nav {
@@ -512,49 +526,15 @@
                     </div>
                 </div>
                 
-               <div class="form-row">
-    <div class="form-column">
-        <select id="jsonFileSelect" class="form-control">
-            <option value="p1.json">p1.json</option>
-            <option value="p2.json">p2.json</option>
-            <option value="p3.json">p3.json</option>
-            <option value="p4.json">p4.json</option>
-        </select>
-    </div>
-</div>
-
-<div id="jsonData"></div>
-
-<script>
-document.getElementById('jsonFileSelect').addEventListener('change', function() {
-    const selectedFile = this.value;
-    
-    fetch(selectedFile)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
-        })
-        .catch(error => {
-            console.error('خطأ في تحميل الملف:', error);
-            document.getElementById('jsonData').textContent = 'حدث خطأ في تحميل الملف: ' + error;
-        });
-});
-
-// تحميل الملف الافتراضي عند فتح الصفحة
-window.addEventListener('DOMContentLoaded', function() {
-    const defaultFile = document.getElementById('jsonFileSelect').value;
-    
-    fetch(defaultFile)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
-        })
-        .catch(error => {
-            console.error('خطأ في تحميل الملف الافتراضي:', error);
-            document.getElementById('jsonData').textContent = 'حدث خطأ في تحميل الملف الافتراضي: ' + error;
-        });
-});
-</script>
+                <div class="form-row">
+                    <div class="form-column">
+                        <select id="jsonFileSelect" class="form-control">
+                            <option value="p1.json">p1.json</option>
+                            <option value="p2.json">p2.json</option>
+                            <option value="p3.json">p3.json</option>
+                            <option value="p4.json">p4.json</option>
+                        </select>
+                    </div>
                     <div class="form-column">
                         <input type="text" id="itemsSearch" placeholder="ابحث عن أصناف" class="form-control" />
                     </div>
@@ -573,26 +553,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
-                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-primary"><i class="fas fa-edit"></i></button>
-                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
-                            </td>
+                            <td colspan="6" style="text-align: center;">لم يتم تحميل البيانات بعد</td>
                         </tr>
                     </tbody>
                 </table>
@@ -833,12 +794,223 @@ window.addEventListener('DOMContentLoaded', function() {
     <div id="notification-container"></div>
 
     <script>
-        // بيانات العملاء (سيتم جلبها من Firebase لاحقاً)
-        const customers = [
+        // متغيرات التطبيق
+        let allItems = [];
+        let cartItems = [];
+        let customers = [
+            {name: "عميل نقدي", phone: "0000000000", email: "", address: ""},
             {name: "عميل مثال 1", phone: "0512345678", email: "customer1@example.com", address: "عنوان مثال 1"},
-            {name: "عميل مثال 2", phone: "0512345679", email: "customer2@example.com", address: "عنوان مثال 2"},
-            {name: "عميل نقدي", phone: "0000000000", email: "", address: ""}
+            {name: "عميل مثال 2", phone: "0512345679", email: "customer2@example.com", address: "عنوان مثال 2"}
         ];
+        
+        // دالة لتحميل البيانات من ملف JSON
+        async function loadJsonData(filename) {
+            try {
+                showNotification(`جاري تحميل البيانات من ${filename}...`, 'warning');
+                
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`فشل في تحميل الملف: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('خطأ في تحميل البيانات:', error);
+                showNotification(`خطأ في تحميل البيانات من ${filename}`, 'error');
+                return [];
+            }
+        }
+        
+        // دالة لعرض البيانات في جدول الأصناف
+        function displayItems(items) {
+            const itemsTable = document.getElementById('items-table');
+            const tbody = itemsTable.querySelector('tbody');
+            
+            // مسح المحتوى الحالي
+            tbody.innerHTML = '';
+            
+            if (items.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">لا توجد بيانات</td></tr>';
+                return;
+            }
+            
+            // إضافة البيانات إلى الجدول
+            items.forEach(item => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${item.barcode || 'غير متوفر'}</td>
+                    <td>${item.name || 'غير معروف'}</td>
+                    <td>${item.price ? item.price.toFixed(2) : '0.00'}</td>
+                    <td>${item.quantity || 0}</td>
+                    <td>${item.category || 'غير مصنف'}</td>
+                    <td>
+                        <button class="btn-primary edit-item" data-id="${item.id || item.barcode}"><i class="fas fa-edit"></i></button>
+                        <button class="btn-danger delete-item" data-id="${item.id || item.barcode}"><i class="fas fa-trash"></i></button>
+                        <button class="btn-success add-to-cart" data-id="${item.id || item.barcode}"><i class="fas fa-cart-plus"></i></button>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            // إضافة أحداث للأزرار
+            attachItemsEvents();
+            
+            showNotification(`تم تحميل ${items.length} صنف بنجاح`);
+        }
+        
+        // دالة لإرفاق الأحداث لأزرار العناصر
+        function attachItemsEvents() {
+            // حدث إضافة إلى السلة
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.getAttribute('data-id');
+                    const item = allItems.find(i => (i.id === itemId) || (i.barcode === itemId));
+                    
+                    if (item) {
+                        addToCart(item);
+                        switchTab('sales');
+                    }
+                });
+            });
+            
+            // حدث تعديل الصنف
+            document.querySelectorAll('.edit-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.getAttribute('data-id');
+                    showNotification(`فتح نموذج تعديل الصنف ${itemId}`);
+                });
+            });
+            
+            // حدث حذف الصنف
+            document.querySelectorAll('.delete-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.getAttribute('data-id');
+                    if (confirm(`هل أنت متأكد من حذف الصنف ${itemId}؟`)) {
+                        showNotification(`تم حذف الصنف ${itemId}`);
+                    }
+                });
+            });
+        }
+        
+        // دالة للبحث في الأصناف
+        function filterItems(searchTerm) {
+            if (!searchTerm) {
+                displayItems(allItems);
+                return;
+            }
+            
+            const filteredItems = allItems.filter(item => 
+                (item.name && item.name.includes(searchTerm)) || 
+                (item.barcode && item.barcode.includes(searchTerm)) ||
+                (item.category && item.category.includes(searchTerm))
+            );
+            
+            displayItems(filteredItems);
+        }
+        
+        // دالة لإضافة صنف إلى سلة التسوق
+        function addToCart(item) {
+            // التحقق إذا كان الصنف موجوداً بالفعل في السلة
+            const existingItemIndex = cartItems.findIndex(i => i.id === item.id || i.barcode === item.barcode);
+            
+            if (existingItemIndex >= 0) {
+                // زيادة الكمية إذا كان الصنف موجوداً
+                cartItems[existingItemIndex].quantity += 1;
+            } else {
+                // إضافة صنف جديد إلى السلة
+                cartItems.push({
+                    ...item,
+                    quantity: 1,
+                    total: item.price
+                });
+            }
+            
+            updateCartDisplay();
+            showNotification(`تم إضافة ${item.name} إلى السلة`);
+        }
+        
+        // دالة لتحديث عرض سلة التسوق
+        function updateCartDisplay() {
+            const cartTable = document.getElementById('cart-table');
+            const tbody = cartTable.querySelector('tbody');
+            const totalElement = document.getElementById('cart-total');
+            
+            // مسح المحتوى الحالي
+            tbody.innerHTML = '';
+            
+            if (cartItems.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">لا توجد أصناف في السلة</td></tr>';
+                totalElement.textContent = '0.00';
+                return;
+            }
+            
+            // حساب الإجمالي
+            let total = 0;
+            
+            // إضافة العناصر إلى الجدول
+            cartItems.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.barcode || 'غير متوفر'}</td>
+                    <td>${item.name || 'غير معروف'}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                    <td>
+                        <input type="number" min="1" value="${item.quantity}" class="quantity-input" data-index="${index}" style="width: 60px;">
+                    </td>
+                    <td>${itemTotal.toFixed(2)}</td>
+                    <td>
+                        <button class="btn-danger remove-from-cart" data-index="${index}"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            // تحديث الإجمالي
+            totalElement.textContent = total.toFixed(2);
+            
+            // إضافة أحداث لأزرار الحذف وحقول الكمية
+            attachCartEvents();
+        }
+        
+        // دالة لإرفاق الأحداث لعناصر السلة
+        function attachCartEvents() {
+            // أحداث أزرار الحذف
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    const itemName = cartItems[index].name;
+                    
+                    cartItems.splice(index, 1);
+                    updateCartDisplay();
+                    
+                    showNotification(`تم إزالة ${itemName} من السلة`);
+                });
+            });
+            
+            // أحداث تغيير الكمية
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    const newQuantity = parseInt(this.value) || 1;
+                    
+                    if (newQuantity < 1) {
+                        this.value = 1;
+                        cartItems[index].quantity = 1;
+                    } else {
+                        cartItems[index].quantity = newQuantity;
+                    }
+                    
+                    updateCartDisplay();
+                });
+            });
+        }
         
         // دالة للتبديل بين الأقسام
         function switchTab(tabName) {
@@ -884,7 +1056,21 @@ window.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('button[data-tab="users"]').classList.remove('hidden');
             }
             
+            // تحميل البيانات الافتراضية عند تسجيل الدخول
+            loadInitialData();
+            
             showNotification('تم تسجيل الدخول بنجاح');
+        }
+        
+        // دالة لتحميل البيانات الأولية
+        async function loadInitialData() {
+            const defaultFile = document.getElementById('jsonFileSelect').value;
+            const data = await loadJsonData(defaultFile);
+            
+            if (data && data.length > 0) {
+                allItems = data;
+                displayItems(allItems);
+            }
         }
         
         // دالة لتهيئة الاقتراح التلقائي للعملاء
@@ -954,7 +1140,15 @@ window.addEventListener('DOMContentLoaded', function() {
                             html5Qrcode.stop().then(() => {
                                 scannerContainer.style.display = 'none';
                                 document.getElementById('barcodeInput').value = decodedText;
-                                showNotification('تم مسح الباركود بنجاح');
+                                
+                                // البحث عن المنتج باستخدام الباركود
+                                const product = allItems.find(item => item.barcode === decodedText);
+                                if (product) {
+                                    addToCart(product);
+                                    showNotification('تم مسح الباركود وإضافة المنتج إلى السلة');
+                                } else {
+                                    showNotification('المنتج غير موجود في قاعدة البيانات', 'error');
+                                }
                             }).catch(err => {
                                 console.error('Error stopping scanner:', err);
                             });
@@ -984,39 +1178,20 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         
         // دالة لاستيراد الأصناف من ملف JSON
-        function importItemsFromJson() {
+        async function importItemsFromJson() {
             const jsonFile = document.getElementById('jsonFileSelect').value;
             
-            showNotification(`جاري استيراد الأصناف من ${jsonFile}...`, 'warning');
+            const data = await loadJsonData(jsonFile);
             
-            // محاكاة استيراد البيانات من ملف JSON
-            setTimeout(() => {
-                // في التطبيق الحقيقي، سيتم جلب البيانات من الملف باستخدام fetch
-                const importedItems = [
-                    {barcode: '1122334455', name: 'صنف مستورد 1', price: 30.00, quantity: 15, category: 'مستورد'},
-                    {barcode: '5566778899', name: 'صنف مستورد 2', price: 45.00, quantity: 8, category: 'مستورد'}
-                ];
+            if (data && data.length > 0) {
+                allItems = data;
+                displayItems(allItems);
                 
-                // إضافة الأصناف المستوردة إلى الجدول
-                const itemsTable = document.getElementById('items-table').getElementsByTagName('tbody')[0];
+                // حفظ البيانات في localStorage لمحاكاة قاعدة البيانات
+                localStorage.setItem('inventoryItems', JSON.stringify(allItems));
                 
-                importedItems.forEach(item => {
-                    const newRow = itemsTable.insertRow();
-                    newRow.innerHTML = `
-                        <td>${item.barcode}</td>
-                        <td>${item.name}</td>
-                        <td>${item.price}</td>
-                        <td>${item.quantity}</td>
-                        <td>${item.category}</td>
-                        <td>
-                            <button class="btn-primary"><i class="fas fa-edit"></i></button>
-                            <button class="btn-danger"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-                });
-                
-                showNotification(`تم استيراد ${importedItems.length} صنف من ${jsonFile}`, 'success');
-            }, 1500);
+                showNotification(`تم استيراد ${data.length} صنف من ${jsonFile}`, 'success');
+            }
         }
         
         // تهيئة الأحداث عند تحميل الصفحة
@@ -1042,11 +1217,48 @@ window.addEventListener('DOMContentLoaded', function() {
             // حدث فتح ماسح الباركود
             document.getElementById('startScannerBtn').addEventListener('click', startBarcodeScanner);
             
-            // تهيئة الاقتراح التلقائي للعملاء
-            initAutocomplete();
+            // حدث تغيير ملف JSON
+            document.getElementById('jsonFileSelect').addEventListener('change', importItemsFromJson);
             
             // حدث استيراد الأصناف من JSON
             document.getElementById('importJsonBtn').addEventListener('click', importItemsFromJson);
+            
+            // حدث البحث في الأصناف
+            document.getElementById('itemsSearch').addEventListener('input', function() {
+                filterItems(this.value);
+            });
+            
+            // حدث البحث بالباركود في نقطة البيع
+            document.getElementById('barcodeInput').addEventListener('change', function() {
+                const barcode = this.value;
+                if (barcode) {
+                    const product = allItems.find(item => item.barcode === barcode);
+                    if (product) {
+                        addToCart(product);
+                        this.value = '';
+                    } else {
+                        showNotification('المنتج غير موجود', 'error');
+                    }
+                }
+            });
+            
+            // حدث البحث بالاسم في نقطة البيع
+            document.getElementById('productSearch').addEventListener('input', function() {
+                const searchTerm = this.value;
+                if (searchTerm) {
+                    const results = allItems.filter(item => 
+                        item.name && item.name.includes(searchTerm)
+                    );
+                    
+                    if (results.length > 0) {
+                        // عرض نتائج البحث (يمكن تطويره لعرض قائمة منسدلة)
+                        showNotification(`وجدت ${results.length} منتج مطابق`, 'warning');
+                    }
+                }
+            });
+            
+            // تهيئة الاقتراح التلقائي للعملاء
+            initAutocomplete();
             
             // أحداث الأزرار الأخرى
             document.getElementById('addItemBtn').addEventListener('click', function() {
@@ -1066,11 +1278,43 @@ window.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 
+                if (cartItems.length === 0) {
+                    showNotification('السلة فارغة، أضف بعض المنتجات أولاً', 'error');
+                    return;
+                }
+                
+                // حفظ الفاتورة (محاكاة)
+                const invoice = {
+                    id: 'INV-' + Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    customer: customerName,
+                    phone: customerPhone,
+                    items: cartItems,
+                    total: document.getElementById('cart-total').textContent
+                };
+                
+                // حفظ الفاتورة في localStorage
+                let invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
+                invoices.push(invoice);
+                localStorage.setItem('invoices', JSON.stringify(invoices));
+                
+                // تفريغ السلة
+                cartItems = [];
+                updateCartDisplay();
+                document.getElementById('customerInput').value = '';
+                document.getElementById('customerPhone').value = '';
+                
                 showNotification('تم إتمام عملية البيع بنجاح وحفظ الفاتورة');
             });
             
             document.getElementById('printInvoiceBtn').addEventListener('click', function() {
+                if (cartItems.length === 0) {
+                    showNotification('السلة فارغة', 'error');
+                    return;
+                }
+                
                 showNotification('جاري طباعة الفاتورة...');
+                // هنا سيتم تنفيذ كود الطباعة الفعلي
             });
             
             document.getElementById('sendWhatsappBtn').addEventListener('click', function() {
@@ -1081,11 +1325,20 @@ window.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 
+                if (cartItems.length === 0) {
+                    showNotification('السلة فارغة', 'error');
+                    return;
+                }
+                
                 showNotification('تم إرسال الفاتورة عبر الواتساب');
             });
             
             document.getElementById('cancelSaleBtn').addEventListener('click', function() {
-                showNotification('تم إلغاء عملية البيع');
+                if (confirm('هل أنت متأكد من إلغاء عملية البيع؟ سيتم تفريغ السلة.')) {
+                    cartItems = [];
+                    updateCartDisplay();
+                    showNotification('تم إلغاء عملية البيع');
+                }
             });
         });
     </script>

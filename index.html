@@ -107,6 +107,89 @@
             color: var(--dark-color);
         }
         
+        /* نماذج الدخول */
+        .auth-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-tab.active {
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-btn:hover {
+            background-color: #3a559c;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .auth-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
         /* بطاقات الإحصائيات */
         .stats-cards {
             display: grid;
@@ -466,15 +549,83 @@
             color: var(--dark-color);
         }
     </style>
-    
-    <!-- إضافة Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div id="loginPage" class="container">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">تسجيل الدخول</div>
+                <div class="auth-tab" data-tab="register">إنشاء حساب</div>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginEmail">البريد الإلكتروني</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">كلمة المرور</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                
+                <button type="submit" class="auth-btn">تسجيل الدخول</button>
+                
+                <div class="auth-footer">
+                    <a href="#" id="showAdminLogin">تسجيل دخول كمدير</a>
+                </div>
+            </form>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerName">الاسم بالكامل</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerEmail">البريد الإلكتروني</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPhone">رقم الهاتف</label>
+                    <input type="tel" id="registerPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">كلمة المرور</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerConfirmPassword">تأكيد كلمة المرور</label>
+                    <input type="password" id="registerConfirmPassword" required>
+                </div>
+                
+                <button type="submit" class="auth-btn">إنشاء حساب</button>
+            </form>
+
+            <form id="adminLoginForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="adminEmail">بريد المدير</label>
+                    <input type="email" id="adminEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="adminPassword">كلمة مرور المدير</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                
+                <button type="submit" class="auth-btn">دخول كمدير</button>
+                
+                <div class="auth-footer">
+                    <a href="#" id="showUserLogin">تسجيل دخول كعميل</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="appContainer" class="container hidden">
         <!-- الشريط الجانبي -->
         <div class="sidebar">
             <div class="sidebar-header">
@@ -633,7 +784,7 @@
                             <label class="form-label">التصنيف</label>
                             <select class="form-control" id="productCategory">
                                 <option value="">اختر التصنيف</option>
-                                <!-- سيتم ملئ هذا القسم بالتصنيفات من Firebase -->
+                                <!-- سيتم ملئ هذا القسم بالتصنيفات -->
                             </select>
                         </div>
                     </div>
@@ -822,144 +973,44 @@
         const auth = firebase.auth();
         const storage = firebase.storage();
         
-        // قائمة التصنيفات (سيتم جلبها من Firebase لاحقاً)
+        // قائمة التصنيفات
         const categories = [
-            "البقول المعلبة",
-            "الشعرية والشوربة",
-            "جبن مثلثات و كريمى",
-            "المشروبات الغازية",
-            "مياه الشرب",
-            "قطع وعصي الآيس كريم",
-            "القهوة الفورية",
-            "ساندويتشات",
-            "أكواب الآيس كريم",
-            "الأملاح والتوابل",
-            "الحليب المكثف و المجفف",
-            "رقائق منتفخة",
-            "المعكرونة",
-            "مربى",
-            "اللحوم المجمدة",
-            "صلصة الطماطم",
-            "كاتشب و مايونيز",
-            "الخل و الطحينة و المركزات",
-            "عسل",
-            "جل الغسيل و المبيضات",
-            "منتجات غسل الأطباق",
-            "مساحيق الغسيل",
-            "مستحضرات تنظيف المنازل",
-            "صابون اليدين",
-            "خلطات الطبخ",
-            "أدوات التنظيف",
-            "الأدوات المنزلية",
-            "مستلزمات تخزين الطعام",
-            "الزيوت والسمن",
-            "البسكويت",
-            "شاي سائب",
-            "الأدوات و المعدات",
-            "اللبن المحلى",
-            "العصائر",
-            "زبادي بالنكهات",
-            "الكيك والكوكيز",
-            "الأحجام العائلية",
-            "طعام نباتي",
-            "الحلاوة",
-            "مشروبات الشعير",
-            "القهوة التركية و القهوة المطحونة",
-            "شراب محلى",
-            "الحلوى واللبان",
-            "الحليب المعبأ",
-            "كريمات الطبخ",
-            "خضروات مجمدة",
-            "المبيدات الحشرية",
-            "منتجات الخبيز",
-            "التوست",
-            "الخبز",
-            "شاى أعشاب",
-            "الكروسان و الكعك والمعجنات",
-            "كرواسون",
-            "مشروبات خاصة",
-            "الارز المصري",
-            "البقول والحبوب",
-            "المأكولات البحرية المعلبة",
-            "الجبن البيضاء",
-            "جبنة فيتا",
-            "الجبن المعبأة و المقطعة",
-            "الموتزاريلا",
-            "مسحوق الكакاو",
-            "المناديل و المناديل المبللة",
-            "مناديل الحمام",
-            "الزبدة",
-            "المشروبات الرياضية والطاقة",
-            "زبادي سادة",
-            "الرايب",
-            "الشيكولاتة",
-            "ويفر",
-            "طعام قابل للفرد",
-            "معطرات الجو",
-            "حفاضات الأطفال",
-            "البودينج و المحليات",
-            "العصائر الطازجة",
-            "مصنعات الدواجن",
-            "المعجنات المجمدة",
-            "منتجات الطبخ والخبز العضوية",
-            "الفحم ولوازم الشواء",
-            "جيل الاستحمام",
-            "منعمات الاقمشة",
-            "الصلصات و صلصات السلطة",
-            "شاي فتلة",
-            "العصائر المركزة والمجففة",
-            "اللحوم المعلبة",
-            "الخضروات",
-            "الفواكه",
-            "استهلاكيات المائدة",
-            "اكياس النفايات",
-            "رقائق الذرة",
-            "الحلويات",
-            "بيض أبيض",
-            "البيض الأحمر",
-            "منتجات تصفيف الشعر",
-            "المقرمشات",
-            "الفشار",
-            "مقرمشات صحية",
-            "الخضروات المعلبة",
-            "أدوات المطبخ",
-            "السلطات",
-            "رقائق و صلصات البطاطس",
-            "المشروم المعلب",
-            "السكر و المحليات",
-            "كروت شحن",
-            "أعشاب طازجة",
-            "شاى",
-            "الزيتون والمخللات",
-            "الأطعمة الخفيفة والمشروبات العضوية",
-            "الارز البسمتي",
-            "أطعمة الحيوانات الأليفة",
-            "منتجات الحلاقة",
-            "معجون الأسنان",
-            "زبادي يوناني",
-            "اللبن الطازج",
-            "المكسرات والبذور",
-            "اللحوم البارده",
-            "دواجن طازجة",
-            "رقائق معلبة",
-            "عناية الأحذية",
-            "غسول اليدين",
-            "الفواكه المعلبة",
-            "الشوفان",
-            "حبوب الإفطار",
-            "طعام الأطفال",
-            "الشامبو",
-            "قهوة مثلجة",
-            "أدوات الحلاقة",
-            "مناديل المطبخ",
-            "ماكينة الحلاقة"
+            "البقول المعلبة", "الشعرية والشوربة", "جبن مثلثات و كريمى", "المشروبات الغازية", "مياه الشرب",
+            "قطع وعصي الآيس كريم", "القهوة الفورية", "ساندويتشات", "أكواب الآيس كريم", "الأملاح والتوابل",
+            "الحليب المكثف و المجفف", "رقائق منتفخة", "المعكرونة", "مربى", "اللحوم المجمدة",
+            "صلصة الطماطم", "كاتشب و مايونيز", "الخل و الطحينة و المركزات", "عسل", "جل الغسيل و المبيضات",
+            "منتجات غسل الأطباق", "مساحيق الغسيل", "مستحضرات تنظيف المنازل", "صابون اليدين", "خلطات الطبخ",
+            "أدوات التنظيف", "الأدوات المنزلية", "مستلزمات تخزين الطعام", "الزيوت والسمن", "البسكويت",
+            "شاي سائب", "الأدوات و المعدات", "اللبن المحلى", "العصائر", "زبادي بالنكهات",
+            "الكيك والكوكيز", "الأحجام العائلية", "طعام نباتي", "الحلاوة", "مشروبات الشعير",
+            "القهوة التركية و القهوة المطحونة", "شراب محلى", "الحلوى واللبان", "الحليب المعبأ", "كريمات الطبخ",
+            "خضروات مجمدة", "المبيدات الحشرية", "منتجات الخبيز", "التوست", "الخبز",
+            "شاى أعشاب", "الكروسان و الكعك والمعجنات", "كرواسون", "مشروبات خاصة", "الارز المصري",
+            "البقول والحبوب", "المأكولات البحرية المعلبة", "الجبن البيضاء", "جبنة فيتا", "الجبن المعبأة و المقطعة",
+            "الموتزاريلا", "مسحوق الكاكاو", "المناديل و المناديل المبللة", "مناديل الحمام", "الزبدة",
+            "المشروبات الرياضية والطاقة", "زبادي سادة", "الرايب", "الشيكولاتة", "ويفر",
+            "طعام قابل للفرد", "معطرات الجو", "حفاضات الأطفال", "البودينج و المحليات", "العصائر الطازجة",
+            "مصنعات الدواجن", "المعجنات المجمدة", "منتجات الطبخ والخبز العضوية", "الفحم ولوازم الشواء", "جيل الاستحمام",
+            "منعمات الاقمشة", "الصلصات و صلصات السلطة", "شاي فتلة", "العصائر المركزة والمجففة", "اللحوم المعلبة",
+            "الخضروات", "الفواكه", "استهلاكيات المائدة", "اكياس النفايات", "رقائق الذرة",
+            "الحلويات", "بيض أبيض", "البيض الأحمر", "منتجات تصفيف الشعر", "المقرمشات",
+            "الفشار", "مقرمشات صحية", "الخضروات المعلبة", "أدوات المطبخ", "السلطات",
+            "رقائق و صلصات البطاطس", "المشروم المعلب", "السكر و المحليات", "كروت شحن", "أعشاب طازجة",
+            "شاى", "الزيتون والمخللات", "الأطعمة الخفيفة والمشروبات العضوية", "الارز البسمتي", "أطعمة الحيوانات الأليفة",
+            "منتجات الحلاقة", "معجون الأسنان", "زبادي يوناني", "اللبن الطازج", "المكسرات والبذور",
+            "اللحوم البارده", "دواجن طازجة", "رقائق معلبة", "عناية الأحذية", "غسول اليدين",
+            "الفواكه المعلبة", "الشوفان", "حبوب الإفطار", "طعام الأطفال", "الشامبو",
+            "قهوة مثلجة", "أدوات الحلاقة", "مناديل المطبخ", "ماكينة الحلاقة"
         ];
         
         // حالة التطبيق
         let currentUser = null;
         let jsonData = null;
+        let userRole = 'customer'; // customer, manager, admin
         
         // عناصر واجهة المستخدم
+        const loginPage = document.getElementById('loginPage');
+        const appContainer = document.getElementById('appContainer');
         const logoutBtn = document.getElementById('logoutBtn');
         
         // تحديث التاريخ الحالي
@@ -992,41 +1043,155 @@
             }, 3000);
         }
         
-        // التنقل بين الأقسام
-        document.querySelectorAll('.sidebar-menu a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const sectionId = this.getAttribute('data-section');
-                if (sectionId) {
-                    // إخفاء جميع الأقسام
-                    document.querySelectorAll('.content-section').forEach(section => {
-                        section.classList.remove('active');
+        // تسجيل الدخول
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    currentUser = userCredential.user;
+                    userRole = 'customer';
+                    showNotification('تم تسجيل الدخول بنجاح');
+                    switchToApp();
+                })
+                .catch((error) => {
+                    showNotification('خطأ في تسجيل الدخول: ' + error.message, 'error');
+                });
+        });
+        
+        // إنشاء حساب جديد
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const phone = document.getElementById('registerPhone').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                showNotification('كلمات المرور غير متطابقة', 'error');
+                return;
+            }
+            
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    currentUser = userCredential.user;
+                    
+                    // حفظ بيانات المستخدم الإضافية
+                    return db.collection('users').doc(currentUser.uid).set({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        role: 'customer',
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
                     });
+                })
+                .then(() => {
+                    userRole = 'customer';
+                    showNotification('تم إنشاء الحساب بنجاح');
+                    switchToApp();
+                })
+                .catch((error) => {
+                    showNotification('خطأ في إنشاء الحساب: ' + error.message, 'error');
+                });
+        });
+        
+        // تسجيل دخول المدير
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    currentUser = userCredential.user;
                     
-                    // إزالة النشاط من جميع الروابط
-                    document.querySelectorAll('.sidebar-menu a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    // إظهار القسم المحدد
-                    document.getElementById(sectionId).classList.add('active');
-                    this.classList.add('active');
-                    
-                    // تحميل بيانات القسم إذا لزم الأمر
-                    if (sectionId === 'products') {
-                        loadProducts();
-                    } else if (sectionId === 'categories') {
-                        loadCategories();
-                    } else if (sectionId === 'orders') {
-                        loadOrders();
-                    } else if (sectionId === 'customers') {
-                        loadCustomers();
-                    } else if (sectionId === 'dashboard') {
-                        loadDashboardData();
+                    // التحقق من دور المستخدم
+                    return db.collection('users').doc(currentUser.uid).get();
+                })
+                .then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        if (userData.role === 'admin' || userData.role === 'manager') {
+                            userRole = userData.role;
+                            showNotification('تم تسجيل الدخول كمدير بنجاح');
+                            switchToApp();
+                        } else {
+                            auth.signOut();
+                            showNotification('ليس لديك صلاحية الدخول كمدير', 'error');
+                        }
+                    } else {
+                        auth.signOut();
+                        showNotification('بيانات المستخدم غير موجودة', 'error');
                     }
-                }
+                })
+                .catch((error) => {
+                    showNotification('خطأ في تسجيل الدخول: ' + error.message, 'error');
+                });
+        });
+        
+        // التبديل بين نماذج الدخول
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // إزالة النشاط من جميع الألسنة والنماذج
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+                
+                // إضافة النشاط للسان والنموذج المحدد
+                this.classList.add('active');
+                document.getElementById(tabId + 'Form').classList.add('active');
             });
         });
+        
+        // إظهار نموذج دخول المدير
+        document.getElementById('showAdminLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.getElementById('adminLoginForm').classList.remove('hidden');
+            document.getElementById('adminLoginForm').classList.add('active');
+        });
+        
+        // إظهار نموذج دخول المستخدم
+        document.getElementById('showUserLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.getElementById('adminLoginForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.add('active');
+            document.querySelectorAll('.auth-tab')[0].classList.add('active');
+            document.querySelectorAll('.auth-tab')[1].classList.remove('active');
+        });
+        
+        // تسجيل الخروج
+        logoutBtn.addEventListener('click', function() {
+            auth.signOut().then(() => {
+                currentUser = null;
+                userRole = 'customer';
+                switchToLogin();
+                showNotification('تم تسجيل الخروج بنجاح');
+            });
+        });
+        
+        // الانتقال إلى التطبيق
+        function switchToApp() {
+            loginPage.classList.add('hidden');
+            appContainer.classList.remove('hidden');
+            loadDashboardData();
+        }
+        
+        // الانتقال إلى صفحة الدخول
+        function switchToLogin() {
+            loginPage.classList.remove('hidden');
+            appContainer.classList.add('hidden');
+        }
         
         // تحميل بيانات لوحة التحكم
         function loadDashboardData() {
@@ -1113,236 +1278,6 @@
                 // إضافة أحداث لأزرار التعديل والحذف
                 attachProductEvents();
             });
-        }
-        
-        // تحميل التصنيفات
-        function loadCategories() {
-            const categoriesTable = document.getElementById('categoriesTable');
-            categoriesTable.innerHTML = '<tr><td colspan="4" class="text-center">جاري تحميل البيانات...</td></tr>';
-            
-            // جلب عدد المنتجات في كل تصنيف
-            db.collection("products").get().then((querySnapshot) => {
-                const categoryCounts = {};
-                
-                querySnapshot.forEach((doc) => {
-                    const product = doc.data();
-                    if (product.category) {
-                        categoryCounts[product.category] = (categoryCounts[product.category] || 0) + 1;
-                    }
-                });
-                
-                categoriesTable.innerHTML = '';
-                
-                categories.forEach(category => {
-                    const row = document.createElement('tr');
-                    const count = categoryCounts[category] || 0;
-                    
-                    row.innerHTML = `
-                        <td>${category}</td>
-                        <td>${count}</td>
-                        <td><span class="badge badge-success">نشط</span></td>
-                        <td>
-                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
-                            <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-                    
-                    categoriesTable.appendChild(row);
-                });
-            });
-        }
-        
-        // تحميل الطلبات
-        function loadOrders() {
-            const ordersTable = document.getElementById('ordersTable');
-            ordersTable.innerHTML = '<tr><td colspan="6" class="text-center">جاري تحميل البيانات...</td></tr>';
-            
-            db.collection("orders").orderBy("createdAt", "desc").get().then((querySnapshot) => {
-                ordersTable.innerHTML = '';
-                
-                if (querySnapshot.empty) {
-                    ordersTable.innerHTML = '<tr><td colspan="6" class="text-center">لا توجد طلبات</td></tr>';
-                    return;
-                }
-                
-                querySnapshot.forEach((doc) => {
-                    const order = doc.data();
-                    const row = document.createElement('tr');
-                    
-                    row.innerHTML = `
-                        <td>${doc.id}</td>
-                        <td>${order.customerName}</td>
-                        <td>${new Date(order.createdAt.seconds * 1000).toLocaleDateString('ar-EG')}</td>
-                        <td>${order.total} ج.م</td>
-                        <td><span class="badge ${order.status === 'مكتمل' ? 'badge-success' : 'badge-warning'}">${order.status}</span></td>
-                        <td>
-                            <button class="action-btn edit-btn" data-id="${doc.id}"><i class="fas fa-edit"></i></button>
-                            <button class="action-btn delete-btn" data-id="${doc.id}"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-                    
-                    ordersTable.appendChild(row);
-                });
-            });
-        }
-        
-        // تحميل العملاء
-        function loadCustomers() {
-            const customersTable = document.getElementById('customersTable');
-            customersTable.innerHTML = '<tr><td colspan="6" class="text-center">جاري تحميل البيانات...</td></tr>';
-            
-            db.collection("users").where("role", "==", "customer").get().then((querySnapshot) => {
-                customersTable.innerHTML = '';
-                
-                if (querySnapshot.empty) {
-                    customersTable.innerHTML = '<tr><td colspan="6" class="text-center">لا توجد عملاء</td></tr>';
-                    return;
-                }
-                
-                querySnapshot.forEach((doc) => {
-                    const user = doc.data();
-                    const row = document.createElement('tr');
-                    
-                    // جلب عدد طلبات العميل
-                    db.collection("orders").where("userId", "==", doc.id).get().then((ordersSnapshot) => {
-                        row.innerHTML = `
-                            <td>${user.name}</td>
-                            <td>${user.email}</td>
-                            <td>${user.phone || 'غير متوفر'}</td>
-                            <td>${ordersSnapshot.size}</td>
-                            <td><span class="badge badge-success">نشط</span></td>
-                            <td>
-                                <button class="action-btn edit-btn" data-id="${doc.id}"><i class="fas fa-edit"></i></button>
-                                <button class="action-btn delete-btn" data-id="${doc.id}"><i class="fas fa-trash"></i></button>
-                            </td>
-                        `;
-                    });
-                    
-                    customersTable.appendChild(row);
-                });
-            });
-        }
-        
-        // إضافة أحداث لأزرار المنتجات
-        function attachProductEvents() {
-            // أزرار التعديل
-            document.querySelectorAll('.edit-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = this.getAttribute('data-id');
-                    editProduct(productId);
-                });
-            });
-            
-            // أزرار الحذف
-            document.querySelectorAll('.delete-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = this.getAttribute('data-id');
-                    deleteProduct(productId);
-                });
-            });
-        }
-        
-        // تعديل منتج
-        function editProduct(productId) {
-            db.collection("products").doc(productId).get().then((doc) => {
-                if (doc.exists) {
-                    const product = doc.data();
-                    
-                    // تعبئة النموذج ببيانات المنتج
-                    document.getElementById('productName').value = product.name;
-                    document.getElementById('productPrice').value = product.price;
-                    document.getElementById('productQuantity').value = product.quantity;
-                    document.getElementById('productCategory').value = product.category;
-                    document.getElementById('productDescription').value = product.description || '';
-                    
-                    // إظهار النموذج
-                    document.getElementById('productForm').classList.remove('hidden');
-                    
-                    // تغيير نص الزر للحفظ
-                    document.getElementById('saveProductBtn').textContent = 'تحديث المنتج';
-                    
-                    // إضافة معرف المنتج للزر
-                    document.getElementById('saveProductBtn').setAttribute('data-id', productId);
-                }
-            });
-        }
-        
-        // حذف منتج
-        function deleteProduct(productId) {
-            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
-                db.collection("products").doc(productId).delete().then(() => {
-                    showNotification('تم حذف المنتج بنجاح');
-                    loadProducts();
-                }).catch((error) => {
-                    showNotification('حدث خطأ أثناء حذف المنتج: ' + error.message, 'error');
-                });
-            }
-        }
-        
-        // إظهار/إخفاء نموذج إضافة منتج
-        document.getElementById('addProductBtn').addEventListener('click', function() {
-            // مسح النموذج
-            document.getElementById('productForm').reset();
-            document.getElementById('saveProductBtn').textContent = 'حفظ المنتج';
-            document.getElementById('saveProductBtn').removeAttribute('data-id');
-            
-            // إظهار النموذج
-            document.getElementById('productForm').classList.remove('hidden');
-        });
-        
-        document.getElementById('cancelProductBtn').addEventListener('click', function() {
-            document.getElementById('productForm').classList.add('hidden');
-        });
-        
-        // حفظ المنتج
-        document.getElementById('saveProductBtn').addEventListener('click', function() {
-            const productId = this.getAttribute('data-id');
-            const productData = {
-                name: document.getElementById('productName').value,
-                price: parseFloat(document.getElementById('productPrice').value),
-                quantity: parseInt(document.getElementById('productQuantity').value),
-                category: document.getElementById('productCategory').value,
-                description: document.getElementById('productDescription').value,
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            };
-            
-            // إذا كان هناك صورة، قم برفعها
-            const imageFile = document.getElementById('productImage').files[0];
-            if (imageFile) {
-                const storageRef = storage.ref().child('products/' + Date.now() + '_' + imageFile.name);
-                storageRef.put(imageFile).then((snapshot) => {
-                    return snapshot.ref.getDownloadURL();
-                }).then((downloadURL) => {
-                    productData.imageUrl = downloadURL;
-                    saveProductToFirestore(productId, productData);
-                });
-            } else {
-                saveProductToFirestore(productId, productData);
-            }
-        });
-        
-        // حفظ المنتج في Firestore
-        function saveProductToFirestore(productId, productData) {
-            if (productId) {
-                // تحديث منتج موجود
-                db.collection("products").doc(productId).update(productData).then(() => {
-                    showNotification('تم تحديث المنتج بنجاح');
-                    document.getElementById('productForm').classList.add('hidden');
-                    loadProducts();
-                }).catch((error) => {
-                    showNotification('حدث خطأ أثناء تحديث المنتج: ' + error.message, 'error');
-                });
-            } else {
-                // إضافة منتج جديد
-                productData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-                db.collection("products").add(productData).then(() => {
-                    showNotification('تم إضافة المنتج بنجاح');
-                    document.getElementById('productForm').classList.add('hidden');
-                    loadProducts();
-                }).catch((error) => {
-                    showNotification('حدث خطأ أثناء إضافة المنتج: ' + error.message, 'error');
-                });
-            }
         }
         
         // تحميل بيانات JSON
@@ -1458,14 +1393,31 @@
         
         // تحميل البيانات الأولية عند بدء التحميل
         document.addEventListener('DOMContentLoaded', function() {
-            loadDashboardData();
-            
-            // محاولة تسجيل الدخول تلقائياً إذا كان هناك مستخدم مسجل
-            const savedUser = localStorage.getItem('currentUser');
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-                updateUIAfterLogin();
-            }
+            // التحقق إذا كان هناك مستخدم مسجل
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    currentUser = user;
+                    
+                    // جلب بيانات المستخدم لتحديد الدور
+                    db.collection('users').doc(user.uid).get()
+                        .then((doc) => {
+                            if (doc.exists) {
+                                const userData = doc.data();
+                                userRole = userData.role;
+                                switchToApp();
+                            } else {
+                                userRole = 'customer';
+                                switchToApp();
+                            }
+                        })
+                        .catch(() => {
+                            userRole = 'customer';
+                            switchToApp();
+                        });
+                } else {
+                    switchToLogin();
+                }
+            });
         });
     </script>
 </body>

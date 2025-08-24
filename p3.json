@@ -1,0 +1,7378 @@
+[
+    {
+        "barcode":6222020807832,
+        "name":"ايس كريم دولسي صوص ستيك بالشيكولاتة - 75 مل",
+        "price":13,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"ATTYXH"
+    },
+    {
+        "barcode":6222020803803,
+        "name":"كيت كات استيك ميني",
+        "price":18,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"A5K2A3"
+    },
+    {
+        "barcode":6222020803513,
+        "name":"اوريو ميني",
+        "price":18,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"4W26ST"
+    },
+    {
+        "barcode":6222020804763,
+        "name":"سكويز آيس كريم توت مشكل 60 مل",
+        "price":9,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"XJVYG5"
+    },
+    {
+        "barcode":6221007028925,
+        "name":"كادبري ايس كريم ستيك 90 مل",
+        "price":43,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"U8P8QI"
+    },
+    {
+        "barcode":2021079,
+        "name":"جبنة فلمنك - 250 جرام",
+        "price":125,
+        "status":true,
+        "category ":"دواجن  طازجة",
+        "sku":"OXU36Y"
+    },
+    {
+        "barcode":21724,
+        "name":"حلواني سلامي جاف 250جرام ",
+        "price":120,
+        "status":false,
+        "category ":"دواجن  طازجة",
+        "sku":"CTFTEP"
+    },
+    {
+        "barcode":null,
+        "name":"دايم لانشون سادة بقرى    250 جرام ",
+        "price":75,
+        "status":true,
+        "category ":"دواجن  طازجة",
+        "sku":"EY03RR"
+    },
+    {
+        "barcode":99,
+        "name":"بيض بلدي 10",
+        "price":72,
+        "status":false,
+        "category ":"بيض أبيض",
+        "sku":"805T8H"
+    },
+    {
+        "barcode":2600000084383,
+        "name":"كرتونة بيض بلدي",
+        "price":195,
+        "status":false,
+        "category ":"بيض أبيض",
+        "sku":"7MNXG3"
+    },
+    {
+        "barcode":2020613,
+        "name":"بيض بلدي",
+        "price":195,
+        "status":false,
+        "category ":"بيض أبيض",
+        "sku":"2F2TPX"
+    },
+    {
+        "barcode":null,
+        "name":"فاصولية بيضاء بلدي 250 جرام",
+        "price":25,
+        "status":true,
+        "category ":"البقول والحبوب",
+        "sku":"LP7M42"
+    },
+    {
+        "barcode":2143040000000,
+        "name":"حلاوه ساده 1كيلو",
+        "price":155,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"0R2W14"
+    },
+    {
+        "barcode":2254140000000,
+        "name":"حلاوه بالشيكولاته",
+        "price":42,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"MCHIWQ"
+    },
+    {
+        "barcode":2254110000000,
+        "name":"حلاوه ساده",
+        "price":42,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"9G5E9H"
+    },
+    {
+        "barcode":6222000505314,
+        "name":"زيت عباد كريستال 1.6 لتر",
+        "price":204,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"0KPKBU"
+    },
+    {
+        "barcode":6222000559546,
+        "name":"زبده كريستال 500 جم",
+        "price":84,
+        "status":true,
+        "category ":"الزبدة",
+        "sku":"C6BVW8"
+    },
+    {
+        "barcode":6222000559515,
+        "name":"زبده كريستال 1 كجم",
+        "price":162,
+        "status":true,
+        "category ":"الزبدة",
+        "sku":"13Q04N"
+    },
+    {
+        "barcode":6223001331247,
+        "name":"ملوخيه جيفركس مخروطه 500 جم",
+        "price":23,
+        "status":false,
+        "category ":"خضروات مجمدة",
+        "sku":"4RXAIM"
+    },
+    {
+        "barcode":null,
+        "name":"بلح ناشف مصري",
+        "price":75,
+        "status":false,
+        "category ":"التمور والفواكه المجففة و المكسرات",
+        "sku":"YNL8A1"
+    },
+    {
+        "barcode":6224001105814,
+        "name":"لامار شراب تفاح 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"CVJ37Y"
+    },
+    {
+        "barcode":6224001105883,
+        "name":"لامار شراب كوكتيل أحمر 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"53BF0A"
+    },
+    {
+        "barcode":6224008637363,
+        "name":"لامار شراب أناناس 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"374ETU"
+    },
+    {
+        "barcode":6224001105104,
+        "name":"لامار شراب مانجو 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"4D8JMS"
+    },
+    {
+        "barcode":6224008637370,
+        "name":"لامار شراب خوخ 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"DULK5S"
+    },
+    {
+        "barcode":6224008637011,
+        "name":"لامار شراب برتقال 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"5WRQSK"
+    },
+    {
+        "barcode":6224001105111,
+        "name":"لامار شراب جوافة 1 لتر",
+        "price":36,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"KRKVIQ"
+    },
+    {
+        "barcode":6225000197817,
+        "name":"بسطرمه 250 جرام",
+        "price":120,
+        "status":true,
+        "category ":"اللحوم البارده",
+        "sku":"QI9RE4"
+    },
+    {
+        "barcode":100006123,
+        "name":"بسطرمه حلواني 250 جم",
+        "price":160,
+        "status":false,
+        "category ":"اللحوم البارده",
+        "sku":"5ERXLJ"
+    },
+    {
+        "barcode":null,
+        "name":"اطياب لانشون سادة 250جرام ",
+        "price":90,
+        "status":true,
+        "category ":"اللحوم البارده",
+        "sku":"174QO9"
+    },
+    {
+        "barcode":6223000759974,
+        "name":"دومتي كرواسون بكريمة الفستق، 1 قطعة",
+        "price":15,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"5IP3KQ"
+    },
+    {
+        "barcode":6223000759493,
+        "name":"كرواسون شوكولاتة دومتي، 90 جرام",
+        "price":18,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"0J94NU"
+    },
+    {
+        "barcode":6221333002132,
+        "name":"صن بايتس ملح البحر & ثوم 68 جم",
+        "price":13,
+        "status":false,
+        "category ":"مقرمشات صحية",
+        "sku":"TMIVQP"
+    },
+    {
+        "barcode":6224008033769,
+        "name":"مشروب طاقة فولت زجاجة صفراء، 300 مل",
+        "price":20,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"AKKB3G"
+    },
+    {
+        "barcode":6223001363682,
+        "name":"سفن اب مشروب غازي زجاجة، 300 مليلتر",
+        "price":18,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"VUZVXS"
+    },
+    {
+        "barcode":6223001363675,
+        "name":"بيبسي 300 مل",
+        "price":18,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"G7ISN8"
+    },
+    {
+        "barcode":6224001998584,
+        "name":"سبيرو سباثيس مشروب كولا، 330 مل",
+        "price":15,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"735AL6"
+    },
+    {
+        "barcode":6223016572352,
+        "name":"دومتي جبنة كريمية طبيعية بالعسل والكريمة، 220 غرام",
+        "price":76,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"R2MXU8"
+    },
+    {
+        "barcode":6223000274514,
+        "name":"تي بريك شاي كرك، 25 جرام",
+        "price":13,
+        "status":true,
+        "category ":"شاى",
+        "sku":"0Q2H7D"
+    },
+    {
+        "barcode":6223000751824,
+        "name":"دومتي جبنة موزاريلا مشكلة 300 جرام",
+        "price":90,
+        "status":true,
+        "category ":"الموتزاريلا",
+        "sku":"T47BGY"
+    },
+    {
+        "barcode":6223000753798,
+        "name":"دومتي برميم موزاريلا لايت طبيعية %100 280 جرام",
+        "price":132,
+        "status":false,
+        "category ":"الموتزاريلا",
+        "sku":"KBSGF5"
+    },
+    {
+        "barcode":6223000750070,
+        "name":"دومتى جبنه موتزريلا مبشوره ٢٨٠ جرام",
+        "price":85,
+        "status":true,
+        "category ":"الموتزاريلا",
+        "sku":"DAYJ15"
+    },
+    {
+        "barcode":303095836,
+        "name":"رنجة مصر طازجة لكل كجم",
+        "price":220,
+        "status":false,
+        "category ":"مأكولات بحرية مملحة ومدخنة",
+        "sku":"ML0JFK"
+    },
+    {
+        "barcode":6281007033176,
+        "name":"المراعي زبدة طبيعية غير مملحة، 200 جرام",
+        "price":240,
+        "status":true,
+        "category ":"الزبدة",
+        "sku":"IWOXXL"
+    },
+    {
+        "barcode":6281007033190,
+        "name":"المراعي زبدة طبيعية غير مملحة، 100 غرام",
+        "price":120,
+        "status":true,
+        "category ":"الزبدة",
+        "sku":"T5X74F"
+    },
+    {
+        "barcode":6225000177840,
+        "name":"سكر دايت سويتال 25 كيس 1جم",
+        "price":42,
+        "status":false,
+        "category ":"السكر و المحليات",
+        "sku":"9SX25P"
+    },
+    {
+        "barcode":6224008622055,
+        "name":"سكر دايت سويتال 60 كيس",
+        "price":89,
+        "status":false,
+        "category ":"السكر و المحليات",
+        "sku":"8B2HFF"
+    },
+    {
+        "barcode":6224010081185,
+        "name":"مياه نستله ١  لتر كرتونه ",
+        "price":115,
+        "status":false,
+        "category ":"مياه الشرب",
+        "sku":"JJME3G"
+    },
+    {
+        "barcode":2140880000009,
+        "name":"فول سوداني (بالكيلو)",
+        "price":145,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"28RC9U"
+    },
+    {
+        "barcode":null,
+        "name":"فول سوداني بالقشر 1 كيلو",
+        "price":145,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"8AVOSG"
+    },
+    {
+        "barcode":null,
+        "name":"فول سوداني محمص بالقشر، 250 جرام",
+        "price":39,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"CREYPU"
+    },
+    {
+        "barcode":null,
+        "name":"فول سوداني محمص بالقشر، 500 جرام",
+        "price":75,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"PM1S30"
+    },
+    {
+        "barcode":null,
+        "name":"فول سوداني محمص بالقشر، 1 كجم",
+        "price":145,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"N3CRA3"
+    },
+    {
+        "barcode":9125700000004,
+        "name":"جوز هند مبشور ، 1 علبة",
+        "price":35,
+        "status":true,
+        "category ":"المكسرات والبذور",
+        "sku":"D2ZOFL"
+    },
+    {
+        "barcode":2020782,
+        "name":"زبيب - 100 جم",
+        "price":35,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"C7TANY"
+    },
+    {
+        "barcode":null,
+        "name":"فلفل اسود ناعم 100 غرام",
+        "price":65,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"HMS777"
+    },
+    {
+        "barcode":null,
+        "name":"كمون ناعم 100 جم",
+        "price":65,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"LU964C"
+    },
+    {
+        "barcode":6221007083160,
+        "name":"كيمو كونو فانيليا وشوكولاتة ايس كريم  -  105 مل",
+        "price":15,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"JGCYAB"
+    },
+    {
+        "barcode":90399534,
+        "name":"فانتا مشروب غازي تفاح أحمر، 300 مل",
+        "price":15,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"OQWEJZ"
+    },
+    {
+        "barcode":54025714,
+        "name":"شويبس أناناس جولد بيت 250 مل",
+        "price":15,
+        "status":false,
+        "category ":"مشروبات الشعير",
+        "sku":"QK8JRE"
+    },
+    {
+        "barcode":6224008082262,
+        "name":"دابل دير مشروب غازي بالليمون والنعناع، 250 مليلتر",
+        "price":18,
+        "status":false,
+        "category ":"مشروبات الشعير",
+        "sku":"06FEYE"
+    },
+    {
+        "barcode":6224008082316,
+        "name":"دابل دير مشروب غازي بنكهة بيناكولادا، 250 مليلتر",
+        "price":18,
+        "status":false,
+        "category ":"مشروبات الشعير",
+        "sku":"GXCCOA"
+    },
+    {
+        "barcode":2101067,
+        "name":"ترمس حلو 500 غم",
+        "price":27,
+        "status":true,
+        "category ":"البقول والحبوب",
+        "sku":"NDZBDC"
+    },
+    {
+        "barcode":null,
+        "name":"ترمس حلو مستورد 250 جم",
+        "price":14,
+        "status":true,
+        "category ":"البقول والحبوب",
+        "sku":"2AV847"
+    },
+    {
+        "barcode":6223000083161,
+        "name":"فيروز مشروب شعير أناناس  970 مل",
+        "price":33,
+        "status":false,
+        "category ":"مشروبات الشعير",
+        "sku":"X191MU"
+    },
+    {
+        "barcode":6223001039990,
+        "name":"كوكس نشا 60 جم",
+        "price":13,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"WR0G4C"
+    },
+    {
+        "barcode":7622210957375,
+        "name":"كادبوري ديري ميلك شوكولاتة بالأوريو 95 غم",
+        "price":108,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"FTMFYH"
+    },
+    {
+        "barcode":7622202294242,
+        "name":"كادبوري ديري ميلك كريمة وجوز الهند لذيذ برمضان، 35 غرام",
+        "price":44,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"MNDP7F"
+    },
+    {
+        "barcode":6223000710036,
+        "name":"حياة مياه 0.6 لتر",
+        "price":7,
+        "status":true,
+        "category ":"مياه الشرب",
+        "sku":"X2SZH3"
+    },
+    {
+        "barcode":30300002,
+        "name":"مياه معدنية حياة - 600 مل",
+        "price":7,
+        "status":true,
+        "category ":"مياه الشرب",
+        "sku":"NUP0AR"
+    },
+    {
+        "barcode":30300001,
+        "name":"مياه معدنية حياة - 1.5 لتر",
+        "price":12,
+        "status":false,
+        "category ":"مياه الشرب",
+        "sku":"FJTE02"
+    },
+    {
+        "barcode":2600000003972,
+        "name":"مياه حياة - 1.5 لتر - 12 قطعة",
+        "price":130,
+        "status":false,
+        "category ":"مياه الشرب",
+        "sku":"WZ7HY5"
+    },
+    {
+        "barcode":6223000710005,
+        "name":"مياه طبيعية حياة 600 مل - 20 زجاجة",
+        "price":120,
+        "status":true,
+        "category ":"مياه الشرب",
+        "sku":"6JO7WG"
+    },
+    {
+        "barcode":2303234000005,
+        "name":"دايم لانشون دجاج ساده 250 جم",
+        "price":75,
+        "status":false,
+        "category ":"اللحوم البارده",
+        "sku":"SHPYF5"
+    },
+    {
+        "barcode":2305333000009,
+        "name":"تيست لانشون زيتون بقري 250 جم",
+        "price":90,
+        "status":true,
+        "category ":"اللحوم البارده",
+        "sku":"XL6E2I"
+    },
+    {
+        "barcode":6223001031918,
+        "name":"كوكس كريمة كاسترد  بالشوكولاتة 50 جم",
+        "price":12,
+        "status":false,
+        "category ":"مسحوق الكاكاو",
+        "sku":"HRYGBA"
+    },
+    {
+        "barcode":6223001031895,
+        "name":"كوكس كريمة كاسترد  بالفراولة 50 جم",
+        "price":12,
+        "status":true,
+        "category ":"مسحوق الكاكاو",
+        "sku":"NZKG30"
+    },
+    {
+        "barcode":6223001039907,
+        "name":"كوكس ملح الهيمالايا الوردى 200 جم ",
+        "price":19,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"ZZ85YF"
+    },
+    {
+        "barcode":2100489000001,
+        "name":"خرشوف",
+        "price":15,
+        "status":false,
+        "category ":"الخضروات",
+        "sku":"LIHKH7"
+    },
+    {
+        "barcode":7622210335630,
+        "name":"كادبوري ديري ميلك شيكولاته بالبندق 90 جم  الميجا",
+        "price":105,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"J7VLFV"
+    },
+    {
+        "barcode":5053990107384,
+        "name":"برينجلز كريمة و بصل 40جم",
+        "price":60,
+        "status":true,
+        "category ":"رقائق معلبة",
+        "sku":"SHBP7F"
+    },
+    {
+        "barcode":8990800024486,
+        "name":"لونجان، 1 علبة",
+        "price":24,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"BNONEF"
+    },
+    {
+        "barcode":8990800022574,
+        "name":"منتوس رينبو رول  29جم",
+        "price":24,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"5JEC01"
+    },
+    {
+        "barcode":8990800022543,
+        "name":"مينتوس نعناع رولز ،  4 قطع ، 29 جرام\n",
+        "price":24,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"NHUM7W"
+    },
+    {
+        "barcode":7622202223235,
+        "name":"مورو شوكولاتة المغطاة بالكراميل والمغطاة بشوكولاتة كادبوري، 50 جم",
+        "price":24,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"FPQA84"
+    },
+    {
+        "barcode":869344001086,
+        "name":"قهوة ستريجو دابل شوت مثلجة من كافيه كيف - خالية من مشتقات الخنزير",
+        "price":60,
+        "status":false,
+        "category ":"قهوة مثلجة",
+        "sku":"VIO1YC"
+    },
+    {
+        "barcode":8693440010849,
+        "name":"قهوة ستريجو بالفانيليا مثلجة من كافيه كيف - خالية من مشتقات الخنزير",
+        "price":60,
+        "status":false,
+        "category ":"قهوة مثلجة",
+        "sku":"WX0ZWP"
+    },
+    {
+        "barcode":8693440010443,
+        "name":"قهوة ستريجو موكا مثلجة من كافيه كيف - خالية من مشتقات الخنزير",
+        "price":60,
+        "status":false,
+        "category ":"قهوة مثلجة",
+        "sku":"HNH1LE"
+    },
+    {
+        "barcode":6224002781024,
+        "name":"بيبيتو ثاور استيكس كولا  30 جم",
+        "price":14,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"KBBEIT"
+    },
+    {
+        "barcode":6224009073214,
+        "name":"دجاج كينجاري بانيه، 900 جرام",
+        "price":97,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"6F1WPN"
+    },
+    {
+        "barcode":6224009073207,
+        "name":"كينجاري دجاج بانِه حار مجمد، 900 جم",
+        "price":97,
+        "status":false,
+        "category ":"مصنعات الدواجن",
+        "sku":"GG1AYN"
+    },
+    {
+        "barcode":6224009073191,
+        "name":"كينجاري شرائح دجاج مجمدة، 900 جم",
+        "price":240,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"I9QX9S"
+    },
+    {
+        "barcode":6224009073184,
+        "name":"كينجاري شرائح دجاج حارة مجمدة، 900 جم",
+        "price":240,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"W28JF6"
+    },
+    {
+        "barcode":1621193546,
+        "name":"لانشون دجاج تركي مدخن حلواني 250 جم",
+        "price":120,
+        "status":true,
+        "category ":"اللحوم البارده",
+        "sku":"2BBBMP"
+    },
+    {
+        "barcode":6222035235309,
+        "name":"بالانس بروتين بافس منفوخات البروتين بالشطة الحلوة، 70-78 جرام",
+        "price":18,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"ND1UKG"
+    },
+    {
+        "barcode":6222035235293,
+        "name":"بالانس منفوخات البروتين بنكهة الجبنة الحلوة، 70-78 جرام",
+        "price":18,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"WQDMAF"
+    },
+    {
+        "barcode":6222035235286,
+        "name":"بالانس بروتين بافس منفوخات البروتين بنكهة الذرة الحلوة، 70-78 جرام",
+        "price":18,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"QXX2RZ"
+    },
+    {
+        "barcode":6222035210115,
+        "name":"بالانس مقرمشات بروتين بالكريمة الحامضية و البصل، 70جم",
+        "price":18,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"7ITGOI"
+    },
+    {
+        "barcode":6223012616975,
+        "name":"لارش كعكة الشوكولاتة المذابة مع صوص الشوكولاتة، 55 غرام",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"V0DABE"
+    },
+    {
+        "barcode":6225000630338,
+        "name":"راني مشروب فواكه أناناس 235 مل",
+        "price":24,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"6DCLEQ"
+    },
+    {
+        "barcode":6225000630321,
+        "name":"راني مشروب فاكهة الموز والفراولة 235 مل",
+        "price":24,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"CYSF8U"
+    },
+    {
+        "barcode":6225000592728,
+        "name":"راني عصير فواكه بنكهة الخوخ، 235 مل",
+        "price":24,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"NH5H3S"
+    },
+    {
+        "barcode":6281034903930,
+        "name":"راني عصير حبيبات فراولة وموز  240 مل",
+        "price":24,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"Z4LXSX"
+    },
+    {
+        "barcode":90435775,
+        "name":"ريد بُل مشروب الطاقة, جوز الهند و التوت, 250مل",
+        "price":56,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"G7K378"
+    },
+    {
+        "barcode":220241899,
+        "name":"خوخ بلدي",
+        "price":75,
+        "status":false,
+        "category ":"الفواكه",
+        "sku":"JXJATU"
+    },
+    {
+        "barcode":2021096,
+        "name":"كنتالوب - كيلو",
+        "price":45,
+        "status":true,
+        "category ":"الفواكه",
+        "sku":"81ITXI"
+    },
+    {
+        "barcode":31000019,
+        "name":"كنتالوب - 2 كيلو",
+        "price":85,
+        "status":true,
+        "category ":"الفواكه",
+        "sku":"VBTV5P"
+    },
+    {
+        "barcode":6281007045841,
+        "name":"كب كيك الشوكولاتة 30g",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"2JHN38"
+    },
+    {
+        "barcode":6224008857242,
+        "name":"فرايداي ايس كريم كونو فولكانو ",
+        "price":15,
+        "status":false,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"9620V6"
+    },
+    {
+        "barcode":6224008857297,
+        "name":"فرايداي ايس كريم فولكانو ستيك بالقهوه",
+        "price":15,
+        "status":false,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"MQ3Y9U"
+    },
+    {
+        "barcode":6222020808143,
+        "name":"آيس كريم دولتشي صوص الكراميل، 75 مل",
+        "price":13,
+        "status":false,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"AXDZXA"
+    },
+    {
+        "barcode":6222020808167,
+        "name":"آيس كريم سكويز بنكهة الليمون والنعناع، ​​60 مل",
+        "price":12,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"9DKDV5"
+    },
+    {
+        "barcode":6222020808068,
+        "name":"ميجا مانجو ايس كريم 85 مل",
+        "price":24,
+        "status":true,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"3CE7JI"
+    },
+    {
+        "barcode":6221007028291,
+        "name":"مخروط آيس كريم أوريو، 110 مل",
+        "price":36,
+        "status":false,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"11YYP5"
+    },
+    {
+        "barcode":6223009621456,
+        "name":"فينو لونج  4 قطعه",
+        "price":10,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"9VPPKP"
+    },
+    {
+        "barcode":2200011471341,
+        "name":"خبز فينو5 قطع",
+        "price":10,
+        "status":true,
+        "category ":"الخبز",
+        "sku":"YGS0CD"
+    },
+    {
+        "barcode":6223010042356,
+        "name":"فوكس رقائق البطاطس بنكهة النقانق، 62 جرام",
+        "price":13,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"WN1OVV"
+    },
+    {
+        "barcode":6223010042394,
+        "name":"بطاطس جبنه متبله 56-66جم فوكس كرينكل",
+        "price":13,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"CIZ1Y5"
+    },
+    {
+        "barcode":6223010042288,
+        "name":"فوكس رقائق البطاطس بنكهة الفلفل الحار والليمون، 73 جرام",
+        "price":13,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"DMF52F"
+    },
+    {
+        "barcode":6223010042998,
+        "name":null,
+        "price":13,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"VTCG3S"
+    },
+    {
+        "barcode":6223010042295,
+        "name":"فوكس بطاطس طماطم 63-73جم",
+        "price":13,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"IZE5CG"
+    },
+    {
+        "barcode":6223010042318,
+        "name":"فوكس رقائق البطاطس بنكهة الفلفل الحلو، 63 جرام",
+        "price":13,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"L4D42Q"
+    },
+    {
+        "barcode":6224000432973,
+        "name":"مزارع زبادي يوناني 170 جرام",
+        "price":48,
+        "status":false,
+        "category ":"زبادي يوناني",
+        "sku":"2NREY8"
+    },
+    {
+        "barcode":6224000432034,
+        "name":"مزارع دينا زبادى طبيعي 170 جم",
+        "price":22,
+        "status":true,
+        "category ":"زبادي سادة",
+        "sku":"MN2D6W"
+    },
+    {
+        "barcode":6222014301599,
+        "name":"جهينة شراب سوبيا رايب بالمانجو، 220 غرام",
+        "price":22,
+        "status":true,
+        "category ":"البودينج و المحليات",
+        "sku":"PC4559"
+    },
+    {
+        "barcode":7896423487657,
+        "name":"سنيكرز شوكولاتة، 30 جم",
+        "price":30,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"YWTFYT"
+    },
+    {
+        "barcode":6210554028014,
+        "name":"الحموي كافيه قهوة خفيفة بالهيل 90 جم",
+        "price":138,
+        "status":true,
+        "category ":"القهوة التركية و القهوة المطحونة",
+        "sku":"C9Z6UW"
+    },
+    {
+        "barcode":6223000762462,
+        "name":"البوادى مربى فراولة 680جم",
+        "price":60,
+        "status":false,
+        "category ":"مربى",
+        "sku":"RYOEYQ"
+    },
+    {
+        "barcode":6223000762493,
+        "name":"البوادى مربى تين 680جم",
+        "price":60,
+        "status":false,
+        "category ":"مربى",
+        "sku":"8E2Q16"
+    },
+    {
+        "barcode":6223000762486,
+        "name":"البوادى مربى تين 365جم",
+        "price":41,
+        "status":true,
+        "category ":"مربى",
+        "sku":"ECXFAE"
+    },
+    {
+        "barcode":6223000762455,
+        "name":"البوادى مربى فراولة 365جم",
+        "price":41,
+        "status":true,
+        "category ":"مربى",
+        "sku":"NNGYOZ"
+    },
+    {
+        "barcode":6221143097502,
+        "name":"جنرال سائل منظف أرضيات برائحة الزهور 730 جم",
+        "price":49,
+        "status":true,
+        "category ":"أدوات التنظيف",
+        "sku":"864Z8Z"
+    },
+    {
+        "barcode":6281007045865,
+        "name":"مصنع كب كيك الفانيليا، 30 غرام",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"Q1H3L1"
+    },
+    {
+        "barcode":6281007045872,
+        "name":"كب كيك الكراميل 30g",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"YISO97"
+    },
+    {
+        "barcode":6223006521148,
+        "name":"عبور الأرض جبنة طرية دسم نباتية بنكهة الكريمة 500 جرام",
+        "price":49,
+        "status":false,
+        "category ":"الجبن المعبأة و المقطعة",
+        "sku":"8VGDOR"
+    },
+    {
+        "barcode":6223000052778,
+        "name":"الرشيدي الميزان مربى فراولة، 340 جرام",
+        "price":42,
+        "status":true,
+        "category ":"مربى",
+        "sku":"CTJ0IV"
+    },
+    {
+        "barcode":6772504586031,
+        "name":"مناديل مبلله نور - 24 منديل",
+        "price":20,
+        "status":true,
+        "category ":"المناديل و المناديل المبللة",
+        "sku":"EV1VDD"
+    },
+    {
+        "barcode":8690757001065,
+        "name":"سلفر سوبر سائل بني 80 مل",
+        "price":55,
+        "status":true,
+        "category ":"عناية الأحذية",
+        "sku":"LSYKY1"
+    },
+    {
+        "barcode":8690757001072,
+        "name":"سلفر ملمع احذية شاين إسفنجي شفاف 75 مل",
+        "price":55,
+        "status":true,
+        "category ":"عناية الأحذية",
+        "sku":"LD9JO7"
+    },
+    {
+        "barcode":8690757000020,
+        "name":"ملمع أحذية كريمي فضي محايد 75 مل",
+        "price":45,
+        "status":true,
+        "category ":"عناية الأحذية",
+        "sku":"TCE0CS"
+    },
+    {
+        "barcode":6223002557707,
+        "name":"أوكسى جل غسيل للملابس السوداء 900 مل",
+        "price":90,
+        "status":false,
+        "category ":"جل الغسيل و المبيضات",
+        "sku":"K051W6"
+    },
+    {
+        "barcode":6223004260483,
+        "name":"البقرة الضاحكة مثلثات جبنة كلاسيك، 8 قطع",
+        "price":47,
+        "status":false,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"J83Y1Q"
+    },
+    {
+        "barcode":6223004260490,
+        "name":"البقرة الضاحكة مثلثات جبنة كلاسيك، 16 قطعة",
+        "price":95,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"WGAFJ3"
+    },
+    {
+        "barcode":3073781087758,
+        "name":"ابو الولد جبنة مثلثات، 16 قطعة",
+        "price":96,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"ISGM35"
+    },
+    {
+        "barcode":3073781014044,
+        "name":"كيري جبنة مربعات 12 قطعة",
+        "price":180,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"VAZ2R0"
+    },
+    {
+        "barcode":3073781014020,
+        "name":"كيري جبنة مربعات 8 قطع",
+        "price":132,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"Y6U92U"
+    },
+    {
+        "barcode":6224007367278,
+        "name":"ريحانة أرز فاخر 5 كجم",
+        "price":235,
+        "status":true,
+        "category ":"الارز المصري",
+        "sku":"4AUBSU"
+    },
+    {
+        "barcode":6224008857679,
+        "name":"فرايداي جو آيس كريم فراولة",
+        "price":13,
+        "status":false,
+        "category ":"أكواب الآيس كريم",
+        "sku":"97E4PS"
+    },
+    {
+        "barcode":6224000039028,
+        "name":"دايم برجر لحم بقري، 1 كيلوجرام",
+        "price":168,
+        "status":false,
+        "category ":"اللحوم المجمدة",
+        "sku":"CNRR62"
+    },
+    {
+        "barcode":6223000525517,
+        "name":"جريت فودز برجر لحم بقر، 25 قطعة، حوالي 1 كجم",
+        "price":162,
+        "status":true,
+        "category ":"اللحوم المجمدة",
+        "sku":"98NNUU"
+    },
+    {
+        "barcode":6224007537503,
+        "name":"فريدا صابون سائل للايدى  جوز الهند 520 مل",
+        "price":56,
+        "status":true,
+        "category ":"غسول اليدين",
+        "sku":"9BV53W"
+    },
+    {
+        "barcode":6224007537497,
+        "name":"فريدا صابون سائل للايدى  توت بري 520مل",
+        "price":56,
+        "status":true,
+        "category ":"غسول اليدين",
+        "sku":"ABKU95"
+    },
+    {
+        "barcode":6224007537473,
+        "name":"فريدا صابون سائل للايدى الساحل الشمالي 520 مل",
+        "price":56,
+        "status":true,
+        "category ":"غسول اليدين",
+        "sku":"ARGWTF"
+    },
+    {
+        "barcode":6223006130852,
+        "name":"فريدا هاند اقتصادى شرقي 520مل  1+1",
+        "price":95,
+        "status":false,
+        "category ":"غسول اليدين",
+        "sku":"V8DCY2"
+    },
+    {
+        "barcode":6224008204206,
+        "name":"فريدا هاند  اقتصادى توت 520مل 1+1هدية",
+        "price":95,
+        "status":true,
+        "category ":"غسول اليدين",
+        "sku":"YKP1BG"
+    },
+    {
+        "barcode":6224008204183,
+        "name":"فريدا هاند  اقتصادى الساحل الشمالي 520مل 1+1هدية",
+        "price":95,
+        "status":true,
+        "category ":"غسول اليدين",
+        "sku":"I0K2E6"
+    },
+    {
+        "barcode":6223000274866,
+        "name":"مصر كافيه لاتيه 25 جرام",
+        "price":12,
+        "status":true,
+        "category ":"القهوة الفورية",
+        "sku":"1554GZ"
+    },
+    {
+        "barcode":6223013120259,
+        "name":"موسي مشروب الشعير الخالي من الكحول بنكهة الأناناس، 275 مليلتر",
+        "price":24,
+        "status":false,
+        "category ":"مشروبات الشعير",
+        "sku":"ZZLTPJ"
+    },
+    {
+        "barcode":6223000711873,
+        "name":"لبنيتا زبادي فراوله بندل 6*105 جم",
+        "price":60,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"32HQ46"
+    },
+    {
+        "barcode":5063305004802,
+        "name":"ليبتون أكياس شاي أخضر نقي 12 كيس",
+        "price":24,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"HCZMPZ"
+    },
+    {
+        "barcode":5063305005212,
+        "name":"ليبتون شاي أخضر بالنعناع ​​12 كيس",
+        "price":24,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"FRBDKB"
+    },
+    {
+        "barcode":6223000263853,
+        "name":"روابي سمن نباتي 2.5 كيلو",
+        "price":320,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"MMW8Z5"
+    },
+    {
+        "barcode":6222000503983,
+        "name":"كريستال سمن  نباتي اصفر 2.5 كجم",
+        "price":320,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"LO460L"
+    },
+    {
+        "barcode":6222000503976,
+        "name":"كريستال سمن  نباتي ابيض 2.5كجم",
+        "price":320,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"CYC85Q"
+    },
+    {
+        "barcode":6223000263860,
+        "name":"جنة سمن  2.5 كيلو",
+        "price":320,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"6NCTE0"
+    },
+    {
+        "barcode":6222000507264,
+        "name":"كريستال زيت عباد الشمس 5 لتر",
+        "price":600,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"8ICG1B"
+    },
+    {
+        "barcode":6222000504621,
+        "name":"كريستال زيت ذرة 3.5ل",
+        "price":504,
+        "status":false,
+        "category ":"الزيوت والسمن",
+        "sku":"11XWIK"
+    },
+    {
+        "barcode":6222000512701,
+        "name":"الممتاز زيت خليط 2.5 لتر",
+        "price":210,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"M7DP0Q"
+    },
+    {
+        "barcode":6294018812579,
+        "name":"فاين فلافي مناديل ورقية 2 طبقة عبوة، 480 منديل",
+        "price":30,
+        "status":false,
+        "category ":"المناديل و المناديل المبللة",
+        "sku":"BJHXK4"
+    },
+    {
+        "barcode":6224009136865,
+        "name":"جود كير مناديل مطبخ - 6 بكرة",
+        "price":85,
+        "status":false,
+        "category ":"مناديل المطبخ",
+        "sku":"TKPD6K"
+    },
+    {
+        "barcode":6223007651059,
+        "name":"جود كير مناديل وجه",
+        "price":30,
+        "status":false,
+        "category ":"المناديل و المناديل المبللة",
+        "sku":"Q3AOHM"
+    },
+    {
+        "barcode":6221155099488,
+        "name":"كنور مرقة بنكهة اللحم البقري، 9 غم 12 قطعة",
+        "price":22,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"7NFAJ8"
+    },
+    {
+        "barcode":6224007367469,
+        "name":"عدس ريحانة، 500 جرام",
+        "price":60,
+        "status":true,
+        "category ":"البقول والحبوب",
+        "sku":"PHL5Q9"
+    },
+    {
+        "barcode":6224001998386,
+        "name":"سبيرو سباتس مشروب بنكهة اليوسفي 1 لتر",
+        "price":30,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"ZBT8TC"
+    },
+    {
+        "barcode":6224001998409,
+        "name":"سبيرو سباتس ليمون  1لتر",
+        "price":30,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"ELJ2VM"
+    },
+    {
+        "barcode":6224001998508,
+        "name":"سبيرو سباثيس مشروب صودا بنكهة الأناناس في زجاجة، 275 مليلتر",
+        "price":18,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"FZ9WLP"
+    },
+    {
+        "barcode":6224001998478,
+        "name":"سبيرو سباثيس مشروب صودا بنكهة التفاح في زجاجة، 275 مليلتر",
+        "price":18,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"40KPDD"
+    },
+    {
+        "barcode":6224008017981,
+        "name":"ماموتو بسكويت كريمة الشوكولاتة بالبندق، 30 جم",
+        "price":6,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"D0URK4"
+    },
+    {
+        "barcode":6223000760178,
+        "name":"البوادي حلاوه بالسوداني 275 جم",
+        "price":72,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"0MJUFE"
+    },
+    {
+        "barcode":6223000760130,
+        "name":"البوادى فستق حلاوة 275 جرام",
+        "price":114,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"7LUMRY"
+    },
+    {
+        "barcode":6223000760161,
+        "name":"حلاوة شوكولاتة البوادي 275 جم",
+        "price":72,
+        "status":false,
+        "category ":"الحلاوة",
+        "sku":"9VG6LN"
+    },
+    {
+        "barcode":6223000760154,
+        "name":"البوادى حلاوة لوز 275 جم",
+        "price":84,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"N8ENAZ"
+    },
+    {
+        "barcode":6223000760147,
+        "name":"البوادي حلاوه بالبندق 275 جم",
+        "price":84,
+        "status":true,
+        "category ":"الحلاوة",
+        "sku":"ILD7K5"
+    },
+    {
+        "barcode":6223003193218,
+        "name":"راز  مينى كب كيك  شيكولاته 10 قطع",
+        "price":10,
+        "status":false,
+        "category ":"الكيك والكوكيز",
+        "sku":"MQMT0D"
+    },
+    {
+        "barcode":6221333001784,
+        "name":"شيتوس فشار بالطماطم الحاره 54 جم",
+        "price":13,
+        "status":true,
+        "category ":"الفشار",
+        "sku":"9DKYJ0"
+    },
+    {
+        "barcode":6223003190743,
+        "name":"برنش ساندوتش جبنه رومى 1 ق",
+        "price":13,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"LO6UCC"
+    },
+    {
+        "barcode":6223003190217,
+        "name":"برنش كرواسون بالشيكولاتة",
+        "price":15,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"SGI20C"
+    },
+    {
+        "barcode":6223003191023,
+        "name":"برانش ساندويتش إكستريم مع خبز بريوش كراميل، 1 قطعة",
+        "price":14,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"BO8010"
+    },
+    {
+        "barcode":6224000432348,
+        "name":"مزارع دينا زيت زيتون بكر، 250 مليلتر",
+        "price":250,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"CCGFXO"
+    },
+    {
+        "barcode":6224002781055,
+        "name":"بيبيتو ثاور استيكس 30 جرام تفاح",
+        "price":12,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"J6ZINV"
+    },
+    {
+        "barcode":6224002781017,
+        "name":"بيبيتو ثاور استيكس 30 جرام فراوله",
+        "price":12,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"BKKZYI"
+    },
+    {
+        "barcode":6224002781031,
+        "name":"بيبيتو ثاور استيكس 30 جرام بطيخ",
+        "price":12,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"9NA1YW"
+    },
+    {
+        "barcode":6223004960802,
+        "name":"جيلي بالفواكه شكل دبدوب80جم كاندي",
+        "price":12,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"7F7ZWV"
+    },
+    {
+        "barcode":6222035206088,
+        "name":"بالانس فلفل حلو 70 - 78 جم",
+        "price":18,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"W8SCPT"
+    },
+    {
+        "barcode":6222035206095,
+        "name":"بالانسليمون حلو  70 - 78 جم",
+        "price":18,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"PQ52BY"
+    },
+    {
+        "barcode":6223001089162,
+        "name":"دريم بسبوسة 400 غم",
+        "price":54,
+        "status":false,
+        "category ":"الحلويات",
+        "sku":"KUTI7M"
+    },
+    {
+        "barcode":6223003944179,
+        "name":"دريم فانيليا بالبرتقال 5جم",
+        "price":10,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"K9OAFE"
+    },
+    {
+        "barcode":6223000552124,
+        "name":"بيك رولز كاتشب عائلي 90جم",
+        "price":18,
+        "status":true,
+        "category ":"رقائق الذرة",
+        "sku":"GTEJ2C"
+    },
+    {
+        "barcode":7622202213205,
+        "name":"أوريو بسكويت محشو بكريمة الفانيليا، 3 قطع كوكيز، 26.25 جرام",
+        "price":8.5,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"7DQTPH"
+    },
+    {
+        "barcode":7622202310638,
+        "name":"بسكويت أوريو محشو بكريمة الشوكولاتة، 8 قطع كوكيز، 70 جرام",
+        "price":18,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"ED7FWW"
+    },
+    {
+        "barcode":7622202305979,
+        "name":"بسكويت أوريو محشو بكريمة الفانيليا، 5 قطع كوكيز، 43.75 جرام",
+        "price":12,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"NQN68S"
+    },
+    {
+        "barcode":6223005580412,
+        "name":"دروو باوند كيك - 125 جم",
+        "price":15,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"11AYAT"
+    },
+    {
+        "barcode":6223005581235,
+        "name":"درو كعكة الكاكاو ، قطعة واحدة",
+        "price":12,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"YTJU92"
+    },
+    {
+        "barcode":6211101814036,
+        "name":"توليدو اناناس شرائح850جم",
+        "price":180,
+        "status":true,
+        "category ":"الفواكه المعلبة",
+        "sku":"Z9FFD6"
+    },
+    {
+        "barcode":6222014335655,
+        "name":"جهينة بيور عصير رمان 1 لتر",
+        "price":69,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"WKIB6J"
+    },
+    {
+        "barcode":6221155053657,
+        "name":"معجون أسنان مكافح التسوس سيجنال - 50 مل",
+        "price":42,
+        "status":true,
+        "category ":"معجون الأسنان",
+        "sku":"4DC044"
+    },
+    {
+        "barcode":6221048413438,
+        "name":"كلوس اب معجون اسنان انتعاش يدوم لنفس منعش حتي ١٢ ساعة انتعاش النعناع ٥٠ مل",
+        "price":42,
+        "status":true,
+        "category ":"معجون الأسنان",
+        "sku":"7ZAK68"
+    },
+    {
+        "barcode":6223003771232,
+        "name":"بريذيدن جبنة فيتا طبيعي تترباك 500 جم",
+        "price":132,
+        "status":true,
+        "category ":"جبنة فيتا",
+        "sku":"HCGEMZ"
+    },
+    {
+        "barcode":7899567248092,
+        "name":"لحم لانشون دجاج بوردون، 320 جرام",
+        "price":90,
+        "status":true,
+        "category ":"الفواكه المعلبة",
+        "sku":"5XHFBT"
+    },
+    {
+        "barcode":7899567248351,
+        "name":"وجبة غداء لحم البقر من Bordon، 320 جم",
+        "price":90,
+        "status":true,
+        "category ":"الفواكه المعلبة",
+        "sku":"O6MCGM"
+    },
+    {
+        "barcode":6224008245018,
+        "name":"لينو شوفان جامبو 500 جم",
+        "price":90,
+        "status":true,
+        "category ":"الشوفان",
+        "sku":"TXBEW6"
+    },
+    {
+        "barcode":6224008245001,
+        "name":"لينو شوفان سريع الطهى 500 جم",
+        "price":90,
+        "status":true,
+        "category ":"الشوفان",
+        "sku":"FVA0R3"
+    },
+    {
+        "barcode":6223000228678,
+        "name":"ماجيك مومنت صوص فراولة 180 ملل",
+        "price":43,
+        "status":true,
+        "category ":"طعام قابل للفرد",
+        "sku":"P17NZI"
+    },
+    {
+        "barcode":6223000228685,
+        "name":"ماجيك مومنت صوص التوت الازرق 180 ملل",
+        "price":43,
+        "status":true,
+        "category ":"طعام قابل للفرد",
+        "sku":"VJ2U5H"
+    },
+    {
+        "barcode":6291106856422,
+        "name":"الباني كريمة الأصلية 155 جم",
+        "price":69,
+        "status":false,
+        "category ":"طعام قابل للفرد",
+        "sku":"M4TQR0"
+    },
+    {
+        "barcode":5711953135644,
+        "name":"بوك كريم قشطة 160جم",
+        "price":75,
+        "status":true,
+        "category ":"طعام قابل للفرد",
+        "sku":"LR91HI"
+    },
+    {
+        "barcode":6223000662755,
+        "name":"الضحى ملوخية جافة، 130 جم",
+        "price":36,
+        "status":true,
+        "category ":"البقول والحبوب",
+        "sku":"I300AU"
+    },
+    {
+        "barcode":6223000662007,
+        "name":"الضحى فلفل أسود مطحون، 70 غرام",
+        "price":96,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"ML3EU2"
+    },
+    {
+        "barcode":2345913,
+        "name":"حزمة بصل أخضر طازج",
+        "price":10,
+        "status":false,
+        "category ":"أعشاب طازجة",
+        "sku":"5K2FA1"
+    },
+    {
+        "barcode":6223000660409,
+        "name":"المطبخ المصري أرز 1 كجم",
+        "price":44,
+        "status":true,
+        "category ":"الارز المصري",
+        "sku":"MUOEZQ"
+    },
+    {
+        "barcode":6224008033882,
+        "name":"مشروب غازي توت مشكل كبير، 200 مل",
+        "price":10,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"O8FHLG"
+    },
+    {
+        "barcode":6221333001951,
+        "name":"دوريتوس حار نار بالليمون 59 جم",
+        "price":13,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"K3TVLO"
+    },
+    {
+        "barcode":6221999357737,
+        "name":"الهلال بوبوس حوض 3 ديكور 1 قطعة",
+        "price":175,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"APDDES"
+    },
+    {
+        "barcode":6221999357720,
+        "name":"الهلال بوبوس حوض 2 ديكور 1 قطعة",
+        "price":105,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"LPPBBN"
+    },
+    {
+        "barcode":6221999357713,
+        "name":"الهلال بوبوس حوض 1 ديكور 1 قطعة",
+        "price":80,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"YSULDW"
+    },
+    {
+        "barcode":6290633201125,
+        "name":"منشر غسيل 20 م",
+        "price":1080,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"P63ZU5"
+    },
+    {
+        "barcode":6224010952164,
+        "name":"‫منشر غسيل حجم جامبو بالجناح‬",
+        "price":960,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"QCK9C4"
+    },
+    {
+        "barcode":2013240002992,
+        "name":"سكينة دبلة يد خشب صغير",
+        "price":90,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"8VL5AD"
+    },
+    {
+        "barcode":6223002050635,
+        "name":"وى منظف وملمع نحاس 500 مل",
+        "price":132,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"36SPXA"
+    },
+    {
+        "barcode":null,
+        "name":"مبخرة قهوة تركية نحاسية دي 3",
+        "price":415,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"65JDC9"
+    },
+    {
+        "barcode":null,
+        "name":"مبخرة قهوة تركية نحاسية دي 2",
+        "price":306,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"HWXZNH"
+    },
+    {
+        "barcode":null,
+        "name":"مبخرة قهوة تركية نحاسية",
+        "price":240,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"B3NR81"
+    },
+    {
+        "barcode":6223001060123,
+        "name":"حصاد الأطعمة البازلاء المجففة المطبوخة 400 جرام",
+        "price":28,
+        "status":true,
+        "category ":"الخضروات المعلبة",
+        "sku":"RZW89B"
+    },
+    {
+        "barcode":6223001062844,
+        "name":"هارفيست بيليلا بالسكر 400 جرام",
+        "price":28,
+        "status":true,
+        "category ":"البقول المعلبة",
+        "sku":"ZE8SNS"
+    },
+    {
+        "barcode":6223000433089,
+        "name":"ريتش بيك خليط بانيه مقرمش 170 جم",
+        "price":57,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"GIS6DZ"
+    },
+    {
+        "barcode":6223000433126,
+        "name":"ريتش بيك بريميوم بانيه ميكس ، 500 جرام\n",
+        "price":60,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"885INM"
+    },
+    {
+        "barcode":6221033001473,
+        "name":"هاينز صوص طماطم بمرق الدجاج، 295 جرام",
+        "price":46,
+        "status":false,
+        "category ":"صلصة الطماطم",
+        "sku":"GFM0H9"
+    },
+    {
+        "barcode":32894022776,
+        "name":"أمريكانا ذرة حلوة، 330 جرام",
+        "price":69,
+        "status":true,
+        "category ":"البقول المعلبة",
+        "sku":"A9J5RW"
+    },
+    {
+        "barcode":6224007250266,
+        "name":"نور ملح طعام مطحون وناعم 160 جم",
+        "price":8.5,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"971OYD"
+    },
+    {
+        "barcode":6281034016029,
+        "name":"راني عصير حبيبات برتقال 240 مل",
+        "price":24,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"2Y8HTJ"
+    },
+    {
+        "barcode":6223000663813,
+        "name":"الضحى مكرونة خواتم، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"DI9N7G"
+    },
+    {
+        "barcode":6223000663806,
+        "name":"الضحى مكرونة فرن، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"JYYKT8"
+    },
+    {
+        "barcode":6223000663837,
+        "name":"الضحى مكرونة هلالية، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"GEZX26"
+    },
+    {
+        "barcode":6223000663905,
+        "name":"الضحى مكرونة فيوزيللي، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"GK8Q8Y"
+    },
+    {
+        "barcode":6223000663820,
+        "name":"الضحى مكرونة مرمرية، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"31QZI1"
+    },
+    {
+        "barcode":6223000663851,
+        "name":"الضحى مكرونة شعرية، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"2KHFZG"
+    },
+    {
+        "barcode":6223000663868,
+        "name":"الضحى مكرونة لسان عصفور، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"WT2ZJ1"
+    },
+    {
+        "barcode":6223000663844,
+        "name":"الضحى مكرونة سباجيتي، 400 غرام",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"S2RXSG"
+    },
+    {
+        "barcode":6221012251097,
+        "name":"تيميز سويت فليكس 250 جم",
+        "price":72,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"21SZ71"
+    },
+    {
+        "barcode":6223011814129,
+        "name":null,
+        "price":13,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"NSD7WH"
+    },
+    {
+        "barcode":6223011814112,
+        "name":null,
+        "price":13,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"OMTATQ"
+    },
+    {
+        "barcode":6223000663509,
+        "name":"الضحى بقسماط ناعم، 300 غرام",
+        "price":30,
+        "status":true,
+        "category ":"الأملاح والتوابل",
+        "sku":"TOPMFQ"
+    },
+    {
+        "barcode":6224008559481,
+        "name":"حواء - مكرونة بينى - 1 كيلو",
+        "price":44,
+        "status":false,
+        "category ":"المعكرونة",
+        "sku":"DR1ZF4"
+    },
+    {
+        "barcode":6223001877936,
+        "name":"المراعي كريمة طبخ، 500مل",
+        "price":168,
+        "status":true,
+        "category ":"كريمات الطبخ",
+        "sku":"796CI3"
+    },
+    {
+        "barcode":6223004765391,
+        "name":"أبو عوف قهوة تركية تحميص وسط مع الهيل، 250 جرام",
+        "price":276,
+        "status":false,
+        "category ":"القهوة التركية و القهوة المطحونة",
+        "sku":"KZ56T8"
+    },
+    {
+        "barcode":6223004765384,
+        "name":"عطر أبو عوف سبيشال لايت كوفي مع الهيل، 250 جم",
+        "price":276,
+        "status":true,
+        "category ":"القهوة التركية و القهوة المطحونة",
+        "sku":"1P4G54"
+    },
+    {
+        "barcode":6223004765353,
+        "name":"أبو عوف قهوة تركية سادة، 250 جرام",
+        "price":268,
+        "status":false,
+        "category ":"القهوة التركية و القهوة المطحونة",
+        "sku":"UUULL4"
+    },
+    {
+        "barcode":6294010883607,
+        "name":"غلاية كهربائية من الفولاذ المقاوم للصدأ",
+        "price":264,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"STDHP6"
+    },
+    {
+        "barcode":2200000134684,
+        "name":"موب قطن",
+        "price":42,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"MKJ160"
+    },
+    {
+        "barcode":6222016101081,
+        "name":"فرشة بلاط مكواه سوبر",
+        "price":36,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"S7FJ28"
+    },
+    {
+        "barcode":6954007500220,
+        "name":"مقشرة بطاطس لون صغير",
+        "price":42,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"NEAYZ8"
+    },
+    {
+        "barcode":6954007511110,
+        "name":"مقشرة بطاطس بيضاء كبيرة",
+        "price":36,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"QJPAN3"
+    },
+    {
+        "barcode":3938201701365,
+        "name":"مقشرة بطاطس من الستانلس ستيل",
+        "price":45,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"OYRHYS"
+    },
+    {
+        "barcode":6224007923214,
+        "name":"شبكة شواء دجاج عادية",
+        "price":258,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"679ZMJ"
+    },
+    {
+        "barcode":2400294500046,
+        "name":"فحم شواء 3 كيلو",
+        "price":200,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"KNA6NO"
+    },
+    {
+        "barcode":24987979,
+        "name":"سيخ شواء بمقبض خشبي 6 أعواد",
+        "price":252,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"THIVY3"
+    },
+    {
+        "barcode":6935940025995,
+        "name":"سيخ شواء كبير 40 سم - 46 قطعة",
+        "price":35,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"QO4MXE"
+    },
+    {
+        "barcode":8912345006123,
+        "name":"الصقر سيخ شواء بمقبض خشبي، 6 قطع",
+        "price":252,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"EMNYGI"
+    },
+    {
+        "barcode":6223004894015,
+        "name":"شواية فحم 40*35 سم",
+        "price":280,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"R8NUNE"
+    },
+    {
+        "barcode":8964001136408,
+        "name":"شماعة ملابس، 6 قطع",
+        "price":55,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"2AVTJC"
+    },
+    {
+        "barcode":2899900103052,
+        "name":"شماعة بلاستيك",
+        "price":55,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"Pakeg6_pieces"
+    },
+    {
+        "barcode":6224000490034,
+        "name":"ضيافة جبنة شيدر سادة، 1.8 كيلوجرام",
+        "price":260,
+        "status":false,
+        "category ":"الجبن المعبأة و المقطعة",
+        "sku":"260"
+    },
+    {
+        "barcode":8681080610499,
+        "name":"هيرو بيبي سيريال  8 حبوب والخضراوات مع الحليب 150 جم",
+        "price":132,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"6SGVHU"
+    },
+    {
+        "barcode":8690504552895,
+        "name":"هيرو بيبي سيريال  8 حبوب مع حليب 150 جم",
+        "price":132,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"ATSBK0"
+    },
+    {
+        "barcode":8681080610444,
+        "name":"هيرو بيبي سيريال  قمح وشوفان مع الحليب 150 جم",
+        "price":132,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"V8QLWA"
+    },
+    {
+        "barcode":8681080610505,
+        "name":"هيرو بيبي سيريال  8 حبوب وفاكهة مع الحليب 150 جم",
+        "price":132,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"KUJ1F7"
+    },
+    {
+        "barcode":197214,
+        "name":"هيرو بيبي 8 حبوب وتفاح بالحليب",
+        "price":132,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"1MDT21"
+    },
+    {
+        "barcode":8690504550723,
+        "name":"هيرو طعام للاطفال فواكه مشكلة مع الحبوب 125 جم",
+        "price":55,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"FTJ0YZ"
+    },
+    {
+        "barcode":8690504550594,
+        "name":"هيرو طعام للاطفال كومبوت التفاح 125 غم",
+        "price":55,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"YK5QV0"
+    },
+    {
+        "barcode":8690504550570,
+        "name":"هيرو بيبي طعام اطفال 3 فواكه 125 غم",
+        "price":55,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"H9WC23"
+    },
+    {
+        "barcode":8690504550655,
+        "name":"هيرو طعام اطفال الفواكه المشكلة 125 غم",
+        "price":55,
+        "status":true,
+        "category ":"طعام الأطفال",
+        "sku":"MJ2WKU"
+    },
+    {
+        "barcode":6223005872203,
+        "name":"ديتول صابون عناية 115 جرام",
+        "price":36,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"03CPJW"
+    },
+    {
+        "barcode":6223005872104,
+        "name":"ديتول صابون اوريجينال 115 جم",
+        "price":36,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"SBMBXQ"
+    },
+    {
+        "barcode":6223005873729,
+        "name":"ديتول صابون  اصلى 165 جم",
+        "price":48,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"ASBSS4"
+    },
+    {
+        "barcode":6223005873743,
+        "name":"ديتول  صابون  عناية بالبشرة 165 جم",
+        "price":48,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"B8O8HZ"
+    },
+    {
+        "barcode":6223005873767,
+        "name":"ديتول صابون كول 165 جم",
+        "price":48,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"MQBKXX"
+    },
+    {
+        "barcode":6221155063311,
+        "name":"صانسيلك قوة و لمعان 600 مل",
+        "price":155,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"SSGJ5J"
+    },
+    {
+        "barcode":6221155063335,
+        "name":"صانسيلك شامبو إصلاح فورى للشعر التالف 600 مل",
+        "price":156,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"AVWQX7"
+    },
+    {
+        "barcode":6221155063267,
+        "name":"صن سيلك شامبو لمعان للشعر الاسود 350 مل  20% خصم",
+        "price":110,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"FJ044C"
+    },
+    {
+        "barcode":6221155063298,
+        "name":"صانسيلك شامبو إصلاح مكثف 350 مل عرض",
+        "price":110,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"HLW5LD"
+    },
+    {
+        "barcode":6221155113115,
+        "name":"صن سيلك شامبو لشعر كثيف وطويل 350 مل",
+        "price":110,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"9VVYHC"
+    },
+    {
+        "barcode":6221155063274,
+        "name":"صن سيلك شامو قوي  ناعم 350 مل  20% خصم",
+        "price":110,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"BELDRU"
+    },
+    {
+        "barcode":6221155063304,
+        "name":"صانسيلك شامبو لمعان ساحر للشعر الأسود 600 مل",
+        "price":156,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"ZIBBRT"
+    },
+    {
+        "barcode":6221155135292,
+        "name":"دوف شامبو عناية بالزيوت المغذية600 مل عرض",
+        "price":175,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"NEKAX0"
+    },
+    {
+        "barcode":6221155109941,
+        "name":" دوف شامبو لتساقط الشعر 600 مل",
+        "price":175,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"VCRMJI"
+    },
+    {
+        "barcode":6221155109057,
+        "name":"دوف شامبو إصلاح مكثف 600 مل",
+        "price":175,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"IYW77Y"
+    },
+    {
+        "barcode":6221155109064,
+        "name":"دوف شامبو عناية يومية 600 مل",
+        "price":175,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"CO7C53"
+    },
+    {
+        "barcode":6221155135162,
+        "name":"دوف شامبو عناية يومية 350 مل عرض",
+        "price":140,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"MGYSFA"
+    },
+    {
+        "barcode":6221155135186,
+        "name":"دوف شامبو إصلاح مكثف 350 مل عرض",
+        "price":140,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"UDKI4K"
+    },
+    {
+        "barcode":6221155135179,
+        "name":"دوف شامبو علاج تساقط الشعر 350مل ",
+        "price":140,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"7234ZG"
+    },
+    {
+        "barcode":6222048702232,
+        "name":"منظف المراحيض السائل هاربيك باور بلس الأصلي ١٩٠ مل",
+        "price":30,
+        "status":true,
+        "category ":"مستحضرات تنظيف المنازل",
+        "sku":"R9FSI1"
+    },
+    {
+        "barcode":6222048702249,
+        "name":"هاربيك طازج 450 مل",
+        "price":78,
+        "status":true,
+        "category ":"مستحضرات تنظيف المنازل",
+        "sku":"PRL4FS"
+    },
+    {
+        "barcode":6222048702126,
+        "name":"فانيش السائل مزيل البقع 450 مل خصم 25%",
+        "price":140,
+        "status":true,
+        "category ":"مستحضرات تنظيف المنازل",
+        "sku":"YAOOHT"
+    },
+    {
+        "barcode":622115515590,
+        "name":"كمفورت منعم الأقمشة الأزرق برائحة ندى الربيع، 1 لتر",
+        "price":115,
+        "status":true,
+        "category ":"منعمات الاقمشة",
+        "sku":"18XON8"
+    },
+    {
+        "barcode":622115515588,
+        "name":"كمفورت منعم الأقمشة برائحة نواعم الزهور، 1 لتر",
+        "price":115,
+        "status":true,
+        "category ":"منعمات الاقمشة",
+        "sku":"K56J72"
+    },
+    {
+        "barcode":6224000101091,
+        "name":"كيروكس مبيد حشرات - 500مل",
+        "price":105,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"4ZKPFS"
+    },
+    {
+        "barcode":2020521,
+        "name":"فول حبوبة 500 جم و عدس حبوبة 500 جم مجانا",
+        "price":42,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"SV2FCO"
+    },
+    {
+        "barcode":31703080,
+        "name":"لوبيا 500 غرام حبوبة",
+        "price":47,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"DXZ081"
+    },
+    {
+        "barcode":31704051,
+        "name":"عدس بجبة 500جرام حبوبه",
+        "price":36,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"8MU4ZG"
+    },
+    {
+        "barcode":31704052,
+        "name":"لوبيا 500 جرام حبوبه",
+        "price":48,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"4SEDSI"
+    },
+    {
+        "barcode":3073781212211,
+        "name":"أبو الولد جبنة  سبريد كلاسيك 100 جم",
+        "price":25,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"954Q1T"
+    },
+    {
+        "barcode":3073781212259,
+        "name":"أبو الولد جبنة سبريد فلفل حار 100 جم",
+        "price":25,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"TPM9TU"
+    },
+    {
+        "barcode":3073781107302,
+        "name":"كيري جبنة سبريد 150 جم",
+        "price":120,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"GOA62S"
+    },
+    {
+        "barcode":3073781212235,
+        "name":"أبو الولد جبنة سبريد الشيدر  100 جم",
+        "price":25,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"KOZSQI"
+    },
+    {
+        "barcode":6224000529239,
+        "name":"دولفين تونة قطع سهلة الفتح 185 جم",
+        "price":75,
+        "status":true,
+        "category ":"المأكولات البحرية المعلبة",
+        "sku":"5D40OX"
+    },
+    {
+        "barcode":6223004260155,
+        "name":"لافاش كيري برطمان كلاسيك 240جم",
+        "price":120,
+        "status":false,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"3C9ZCP"
+    },
+    {
+        "barcode":3073781069815,
+        "name":"لا فاش كيري جبنة سبريد بالقشطة 200 جم",
+        "price":132,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"PRTEGP"
+    },
+    {
+        "barcode":3073781069846,
+        "name":"لا فاش كيري جبنة شيدرسبريد 200 غرام",
+        "price":132,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"I6WC1R"
+    },
+    {
+        "barcode":6224000529086,
+        "name":"دولفين تونة قطع حار سهله الفتح 170 جم",
+        "price":75,
+        "status":true,
+        "category ":"المأكولات البحرية المعلبة",
+        "sku":"CGEO5T"
+    },
+    {
+        "barcode":6223000580004,
+        "name":"امريكانا بيفي كاند بيف 340 جم",
+        "price":78,
+        "status":false,
+        "category ":"اللحوم المعلبة",
+        "sku":"OHXDLG"
+    },
+    {
+        "barcode":3073781107289,
+        "name":"كيري لبنة 150 جم",
+        "price":85,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"70PK7N"
+    },
+    {
+        "barcode":6285835001413,
+        "name":"جلاكسي لوح شوكولاتة كوكي كرمبل 36 جم",
+        "price":54,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"PO3G7A"
+    },
+    {
+        "barcode":6285835000171,
+        "name":"جلاكسي شوكولاتة  بالفراولة  36 جم",
+        "price":54,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"ECXQAY"
+    },
+    {
+        "barcode":6221152021253,
+        "name":"كلوركس منظف متعدد الاستخدامات 1 لتر",
+        "price":38,
+        "status":false,
+        "category ":"أدوات التنظيف",
+        "sku":"4ALRJA"
+    },
+    {
+        "barcode":6224002781048,
+        "name":"بيبيتو ثاور استيكس 30 جرام فاكهه مشكله",
+        "price":12,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"LCPDRA"
+    },
+    {
+        "barcode":6223000718933,
+        "name":"صن شاين سردين عادى 125 جم",
+        "price":60,
+        "status":false,
+        "category ":"المأكولات البحرية المعلبة",
+        "sku":"K991WW"
+    },
+    {
+        "barcode":6224000529154,
+        "name":"دولفين سردين سهل الفتح 125 جم",
+        "price":50,
+        "status":false,
+        "category ":"المأكولات البحرية المعلبة",
+        "sku":"PGWZDC"
+    },
+    {
+        "barcode":6223000718926,
+        "name":"صن شاين سردين حار 125 جم",
+        "price":60,
+        "status":false,
+        "category ":"المأكولات البحرية المعلبة",
+        "sku":"BM5U5I"
+    },
+    {
+        "barcode":6223000370896,
+        "name":"بسمة فلافل نصف مطبوخة 400 جم",
+        "price":43,
+        "status":true,
+        "category ":"خضروات مجمدة",
+        "sku":"7X0R74"
+    },
+    {
+        "barcode":6223000498132,
+        "name":"هوهوز كيك عائلي بالفراولة 210 جرام",
+        "price":48,
+        "status":false,
+        "category ":"الكيك والكوكيز",
+        "sku":"6U1K3H"
+    },
+    {
+        "barcode":6223000556337,
+        "name":"هوهو كيك عائلي بدون تغطية شوكولاتة، 210 غرام",
+        "price":48,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"2U5LBR"
+    },
+    {
+        "barcode":5285000397960,
+        "name":"نودلز إندومي متنوعة، عبوة جامبو، 5×100جرام",
+        "price":63,
+        "status":false,
+        "category ":"الشعرية والشوربة",
+        "sku":"ASP7R5"
+    },
+    {
+        "barcode":6224008857648,
+        "name":"فرايداي آيس كريم شوكولاتة ستيك",
+        "price":18,
+        "status":false,
+        "category ":"قطع وعصي الآيس كريم",
+        "sku":"NXRTCL"
+    },
+    {
+        "barcode":6221030005399,
+        "name":"كتاكيتو فينجر ويفر شيكولاتة 1 قطعة",
+        "price":24,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"TA6JHS"
+    },
+    {
+        "barcode":6221073011739,
+        "name":"كورونا شيكولاتة ليت 50 جم",
+        "price":37,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"PLUYC2"
+    },
+    {
+        "barcode":6221073010701,
+        "name":"كورونا شيكولاتة حليب 50 جم",
+        "price":37,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"NGKLMI"
+    },
+    {
+        "barcode":6221073012224,
+        "name":"كورن شوكولاتة بالحليب ستيفيا بالبندق 45 جرام",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"RVFROH"
+    },
+    {
+        "barcode":6223003942946,
+        "name":"شوكولاته خام للطبخ 200جرام دريم",
+        "price":72,
+        "status":false,
+        "category ":"طعام قابل للفرد",
+        "sku":"IHZ0V6"
+    },
+    {
+        "barcode":6221073015225,
+        "name":"كورونا فن فروت شوكولاتة بالنعناع",
+        "price":25,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"Z7RXQ6"
+    },
+    {
+        "barcode":6224000432065,
+        "name":"مزارع دينا سمن بقري 600 جم",
+        "price":408,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"EPDLLT"
+    },
+    {
+        "barcode":6224000065331,
+        "name":"زيت زيتون إكسترا فيرجن خشالة - 250 مل",
+        "price":210,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"1AY7N7"
+    },
+    {
+        "barcode":6224008606345,
+        "name":"أفانتي لبن بودره 300 جم",
+        "price":140,
+        "status":false,
+        "category ":"الحليب المكثف و المجفف",
+        "sku":"VU5AWQ"
+    },
+    {
+        "barcode":6222001180275,
+        "name":"سوبر لوكس شيكولاتة 8 قطع",
+        "price":6,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"EO5LSP"
+    },
+    {
+        "barcode":6221152001552,
+        "name":"كلوركس مبيض 3.79 لتر",
+        "price":120,
+        "status":true,
+        "category ":"أدوات التنظيف",
+        "sku":"RWH22L"
+    },
+    {
+        "barcode":6223000556818,
+        "name":"بيك ستيكس سناك بنكهة لحم بقري أرجنتيني، 55 غرام",
+        "price":13,
+        "status":false,
+        "category ":"مقرمشات صحية",
+        "sku":"10OKSZ"
+    },
+    {
+        "barcode":6223000556870,
+        "name":"بيك رولز سناك بنكهة الزعتر، 58 غرام",
+        "price":13,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"NX45NS"
+    },
+    {
+        "barcode":6224001105289,
+        "name":"لمار حليب كامل الدسم 500 مل",
+        "price":36,
+        "status":true,
+        "category ":"الحليب المعبأ",
+        "sku":"ZVJVGM"
+    },
+    {
+        "barcode":6222000506014,
+        "name":"عباد كريستال 0.9 لتر",
+        "price":126,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"HWRE5H"
+    },
+    {
+        "barcode":6222000504010,
+        "name":"كريستال زيت ذرة 1 لتر",
+        "price":156,
+        "status":true,
+        "category ":"الزيوت والسمن",
+        "sku":"DEOSWI"
+    },
+    {
+        "barcode":6223004276156,
+        "name":"اللحيمي كفتة متبلة 850 جم",
+        "price":135,
+        "status":false,
+        "category ":"اللحوم المجمدة",
+        "sku":"N3AVCT"
+    },
+    {
+        "barcode":6518712646866,
+        "name":"طقم ملاعق شاي خشبية، 6 قطع",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"2JQ0NU"
+    },
+    {
+        "barcode":5000263511744,
+        "name":"ملعقة خشبية برستيج",
+        "price":40,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"G4H9TR"
+    },
+    {
+        "barcode":6944110600313,
+        "name":"مينج ماصات 10 مم، 50 قطعة",
+        "price":90,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"UEYQ4G"
+    },
+    {
+        "barcode":6296901284715,
+        "name":"كيتشن مارك فوط تنظيف، 4 قطع",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"PU32YN"
+    },
+    {
+        "barcode":6223003943578,
+        "name":"دريم شوكولاتة خام للطبخ بالحليب 200 جم",
+        "price":72,
+        "status":true,
+        "category ":"مسحوق الكاكاو",
+        "sku":"DO7GTW"
+    },
+    {
+        "barcode":6223003870683,
+        "name":"وطنيه دجاج كامل فاخر1100-1200ج",
+        "price":204,
+        "status":false,
+        "category ":"مصنعات الدواجن",
+        "sku":"OBF3M5"
+    },
+    {
+        "barcode":6221999294629,
+        "name":"الهلال علبه حفظ طعام رحلات",
+        "price":174,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"TWJH43"
+    },
+    {
+        "barcode":6221999348469,
+        "name":"الهلال ايديال طقم علبه ثلاجه مدور",
+        "price":132,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"718JRC"
+    },
+    {
+        "barcode":7894904041596,
+        "name":"سيرا دجاج مجمد 1100 جم",
+        "price":194,
+        "status":false,
+        "category ":"الدواجن المجمدة",
+        "sku":"637U4A"
+    },
+    {
+        "barcode":6221999152684,
+        "name":"الهلال مكنسه سوبر اجزى",
+        "price":85,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"JM34I1"
+    },
+    {
+        "barcode":8692952150111,
+        "name":"لاف طقم فناجين شاي زجاجية بمقبض ، أكواب قهوة شفافة مجموعة من 6 أكواب\n",
+        "price":120,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"PKGKYS"
+    },
+    {
+        "barcode":6222016150164,
+        "name":"الهلال سله مهملات كوين 14لتر",
+        "price":270,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"0UDMP6"
+    },
+    {
+        "barcode":6223004894060,
+        "name":"سيخ شوى معدن",
+        "price":42,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"OQZX4M"
+    },
+    {
+        "barcode":6224000085858,
+        "name":"كوك كول - فحم شوى - 2 كيلو",
+        "price":198,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"17FX1L"
+    },
+    {
+        "barcode":6923484092740,
+        "name":"هانيان اعواد قطنية، 100 قطعة",
+        "price":25,
+        "status":true,
+        "category ":"الأدوات و المعدات",
+        "sku":"E64CB2"
+    },
+    {
+        "barcode":null,
+        "name":"كورير الكوسة",
+        "price":20,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"NPQYEJ"
+    },
+    {
+        "barcode":null,
+        "name":"كورير الكوسة",
+        "price":25,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"2JDVJ6"
+    },
+    {
+        "barcode":4620017160045,
+        "name":"فوطه مطبخ",
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Microfiber_towel"
+    },
+    {
+        "barcode":5040608889305,
+        "name":"كيتشن مارك طقم فوط مطبخ",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"5324YS"
+    },
+    {
+        "barcode":5203963568210,
+        "name":"فرشاة لتنظيف الأرضيات",
+        "price":42,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"7T6K1F"
+    },
+    {
+        "barcode":559800020,
+        "name":"دراجون   فرشاة تنظيف أرضية بمقبض مكنسة",
+        "price":90,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"C285GI"
+    },
+    {
+        "barcode":8906006805552,
+        "name":"فرشاة أرضية بمقبض ناعم",
+        "price":90,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"CYZUGZ"
+    },
+    {
+        "barcode":6953254563897,
+        "name":"فرشاة الأرضية",
+        "price":90,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"VJN7YB"
+    },
+    {
+        "barcode":677150446153,
+        "name":"فرشاة تنظيف الأرضيات فلوبي ، 1 قطعة",
+        "price":160,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"QL7WT0"
+    },
+    {
+        "barcode":6924310128015,
+        "name":"فرشاة ارضيات خشنة مع عصاميتال سيلفرستار",
+        "price":90,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"ME5TQ1"
+    },
+    {
+        "barcode":8697409841970,
+        "name":"زنبق بروش خشنة مع العصا 40 سم",
+        "price":145,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"2QW23R"
+    },
+    {
+        "barcode":6969874035010,
+        "name":"مجموعة فرشاة سيليكون وملعقة",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"IC5PUK"
+    },
+    {
+        "barcode":8621616095321,
+        "name":"بي ان جي_1587 فرشاة سيليكون",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"BJZHX1"
+    },
+    {
+        "barcode":666134002749,
+        "name":"ملعقة خشبية، 1 قطعة",
+        "price":40,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"5M1DGS"
+    },
+    {
+        "barcode":9773905,
+        "name":"ملعقة سيليكون",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"GA1NZU"
+    },
+    {
+        "barcode":666273544119,
+        "name":"مغرفة خشبية 1 قطعة",
+        "price":40,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"82L6FM"
+    },
+    {
+        "barcode":5028250123206,
+        "name":"كيتشن كرافت طقم ملاعق خشبية من ، 3 قطع",
+        "price":145,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"OLLS4F"
+    },
+    {
+        "barcode":6222016100947,
+        "name":"جردل مدور فرنساوي بالعصاره",
+        "price":198,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"3PFM2B"
+    },
+    {
+        "barcode":6222016100930,
+        "name":"جردل توينز بالعصاره",
+        "price":190,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HYL1EC"
+    },
+    {
+        "barcode":6221999651569,
+        "name":"الهلال فوريره جردل بمصفاه",
+        "price":660,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"TZVWD0"
+    },
+    {
+        "barcode":null,
+        "name":"بيلسان مجموعة العاب الرمل مع قارورة مياه",
+        "price":145,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"4FG0X0"
+    },
+    {
+        "barcode":6222014353130,
+        "name":"جهينه زبادي يوناني خوخ 180جم",
+        "price":48,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"Y7QVGQ"
+    },
+    {
+        "barcode":6222014352065,
+        "name":"جهينة زبادي يوناني 0.2% دسم 180 جم",
+        "price":48,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"R6SSLP"
+    },
+    {
+        "barcode":6959150040234,
+        "name":"خله اسنان علبه",
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"ZUVR84"
+    },
+    {
+        "barcode":6222014352195,
+        "name":"جهينة زبادي يوناني 2% دسم 180 جم",
+        "price":48,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"3WMGDR"
+    },
+    {
+        "barcode":6222014352201,
+        "name":"جهينة زبادي يوناني 5% دسم 180 جم",
+        "price":48,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"L0PXGM"
+    },
+    {
+        "barcode":6223006240100,
+        "name":"كيميت مصفاة صغيرة مزدوج",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"I19HRS"
+    },
+    {
+        "barcode":6221333001937,
+        "name":" دوريتوس جبنة الناتشو 59 جم",
+        "price":13,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"MX7QWG"
+    },
+    {
+        "barcode":1002581,
+        "name":"مصفاة وسط ستيل ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"9E5JNO"
+    },
+    {
+        "barcode":6221031490767,
+        "name":"شيتوس فشار بالجبنه 23 جم",
+        "price":6,
+        "status":true,
+        "category ":"الفشار",
+        "sku":"ISFZAM"
+    },
+    {
+        "barcode":6221333002903,
+        "name":"فورنو شيبسي فيوجين فلفل حلو67جم",
+        "price":18,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"CVNNUP"
+    },
+    {
+        "barcode":6221333002934,
+        "name":"فورنو شيبسي بالطماطم 65جم",
+        "price":18,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"ZJ0S34"
+    },
+    {
+        "barcode":6294009912233,
+        "name":"رويال فورد سكينة سليكر 8 بوصات 1 حبة",
+        "price":222,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"JPR1WE"
+    },
+    {
+        "barcode":6294020007222,
+        "name":"رويال فورد مبشرة",
+        "price":90,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"L6ZERS"
+    },
+    {
+        "barcode":622199936857,
+        "name":"سلة مربعة بيد مقاس صغير باللون الأزرق من الهلال والنجمة الفضية",
+        "price":25,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"L5VBAY"
+    },
+    {
+        "barcode":6221999368566,
+        "name":"سلة مستديرة بيد مقاس صغير باللون الأحمر من الهلال والنجمة الفضية",
+        "price":25,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"JXKMUY"
+    },
+    {
+        "barcode":6942312701005,
+        "name":"طقم برطمانات التوابل مع الرفوف 6 قطع",
+        "price":660,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"MYATCA"
+    },
+    {
+        "barcode":6902390023185,
+        "name":"نيوفلام مجموعة توابل ، 12 برطمان",
+        "price":750,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"R1RTOV"
+    },
+    {
+        "barcode":6221158400212,
+        "name":null,
+        "price":55,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"0R2V0X"
+    },
+    {
+        "barcode":8435123233158,
+        "name":"كوك لوبيليا فازة زجاجية 25 سم",
+        "price":1440,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"ER7JE4"
+    },
+    {
+        "barcode":742779135766,
+        "name":"دولتشيسيمو شوكولات فاز - ٥٠٠ غم شوكولاتة بلجيكية",
+        "price":1950,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"JPM2CI"
+    },
+    {
+        "barcode":900411000005,
+        "name":"مج قهوة زجاج، 3 قطع",
+        "price":75,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"KIWEEO"
+    },
+    {
+        "barcode":6221061429065,
+        "name":"نوفال كنكة قهوة لافلي هارت بمقبض 1 قطعة",
+        "price":780,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"RTHQ14"
+    },
+    {
+        "barcode":6222013210908,
+        "name":"تاتش جوكر غلاية استانلس  1.5 لتر",
+        "price":270,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"OXEAOX"
+    },
+    {
+        "barcode":6223004894077,
+        "name":"ريشه شوايه ابيض",
+        "price":45,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"Grill_hobby"
+    },
+    {
+        "barcode":6291105984522,
+        "name":"العالمية براد شاي رقم 2",
+        "price":162,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"7OUKYK"
+    },
+    {
+        "barcode":5053990107339,
+        "name":"برينقلز شيبس بالنكهة الأصلية، 40 جرام",
+        "price":60,
+        "status":true,
+        "category ":"رقائق معلبة",
+        "sku":"8ALFK6"
+    },
+    {
+        "barcode":5053990161935,
+        "name":"برينجلز باربيكيو 40جم",
+        "price":60,
+        "status":false,
+        "category ":"رقائق معلبة",
+        "sku":"CBS1EG"
+    },
+    {
+        "barcode":5060751212652,
+        "name":"مونستر علبة مشروب طاقة، 500 مل",
+        "price":60,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"D7WKAS"
+    },
+    {
+        "barcode":4260092482084,
+        "name":"مساحة ارضيات مع عصا",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"834XY5"
+    },
+    {
+        "barcode":6221999235028,
+        "name":"مساحة الهلال لوكس",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"YY1788"
+    },
+    {
+        "barcode":6222016100756,
+        "name":"مساحة ستار",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"UPMWYT"
+    },
+    {
+        "barcode":2301569000004,
+        "name":"دايم صدور رومي مدخن حبش 250جم",
+        "price":125,
+        "status":true,
+        "category ":"اللحوم البارده",
+        "sku":"CPSXZX"
+    },
+    {
+        "barcode":6223001030164,
+        "name":"تاج الملوك شاي 250 جم",
+        "price":67,
+        "status":true,
+        "category ":"شاى",
+        "sku":"JXRZOW"
+    },
+    {
+        "barcode":6223001031123,
+        "name":"تاج الملوك شاى 100 جم",
+        "price":29,
+        "status":true,
+        "category ":"شاى",
+        "sku":"A5SKNL"
+    },
+    {
+        "barcode":6223001032243,
+        "name":"تاج الملوك شاي كيني أسود مغبر، 40 جم",
+        "price":10,
+        "status":true,
+        "category ":"شاى",
+        "sku":"8YYNHA"
+    },
+    {
+        "barcode":6223000410912,
+        "name":"بريك سناك بالخضروات، 29-39 غرام",
+        "price":13,
+        "status":true,
+        "category ":"رقائق منتفخة",
+        "sku":"8Y87CO"
+    },
+    {
+        "barcode":6223000411001,
+        "name":"ويندوز سناك بنكهة الجبنة، 30-40 غرام",
+        "price":13,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"LYJLQ6"
+    },
+    {
+        "barcode":6225000175143,
+        "name":"ماكستيللا بيضاء ١ كيلو",
+        "price":155,
+        "status":false,
+        "category ":"طعام قابل للفرد",
+        "sku":"V6JF1E"
+    },
+    {
+        "barcode":6223000552995,
+        "name":"اونيرو  كوكيـــز شوكولاتة 25 جم",
+        "price":7,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"7BOSYS"
+    },
+    {
+        "barcode":6221007042198,
+        "name":"فيتنيس بسكويت الشوفان برقائق بنكهة الشوكولاتة، 30 غرام",
+        "price":10,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"F5683I"
+    },
+    {
+        "barcode":6223012614483,
+        "name":"إتش إس كامارا بيتر رول سويسري بحشوة الفانيليا، 55 غرام",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"RL9NAL"
+    },
+    {
+        "barcode":6223012616661,
+        "name":"توتاو مارشملو وجوز الهند مغطى بالشوكولاتة البيضاء، 35 غرام",
+        "price":7,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"LTH64L"
+    },
+    {
+        "barcode":6223012615305,
+        "name":"بايلاك بسكويت محشي بالتمر، 35 غرام",
+        "price":18,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"4BGFE8"
+    },
+    {
+        "barcode":6223005596741,
+        "name":"تاوتاو فانتوم بسكوت كاكاو حشو فانيليا",
+        "price":13,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"D1SFCI"
+    },
+    {
+        "barcode":6221999654089,
+        "name":"الهلال صندوق تخزين 12 لتر",
+        "price":174,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"3OY4OT"
+    },
+    {
+        "barcode":8694064004030,
+        "name":"هوبي لايف علبة تخزين مستطيلة متعددة الأغراض",
+        "price":114,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"Liter_3"
+    },
+    {
+        "barcode":9501063513014,
+        "name":"الفيلاج ممسحة قطنية",
+        "price":42,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"KVXQFZ"
+    },
+    {
+        "barcode":6221030004446,
+        "name":"ريف بسكويت ويفر بحشو كريمة البندق 12 قطعة",
+        "price":15,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"ZNQ17H"
+    },
+    {
+        "barcode":6221030004620,
+        "name":"ريف بسكويت ويفر بالكاكاو بحشو كريمة اللبن 12 قطعة",
+        "price":15,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"UC9J2Y"
+    },
+    {
+        "barcode":6221030004101,
+        "name":"بسكويت الشمعدان وايف إكسترا مغطى شوكولاتة",
+        "price":24,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"TC00L7"
+    },
+    {
+        "barcode":6221030002480,
+        "name":"كتاكيتو اكسترا شيكولاتة بالبسكويت الويفر وكريمة الشيكولاتة 1 قطعة",
+        "price":24,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"7F4UWJ"
+    },
+    {
+        "barcode":8992696527577,
+        "name":"نسكافيه سبانش لاتية قهوة مثلجة 220 مل",
+        "price":42,
+        "status":true,
+        "category ":"قهوة مثلجة",
+        "sku":"IUP8OY"
+    },
+    {
+        "barcode":6224011374408,
+        "name":"ماكسي مشروب غازي رمان 400 م ",
+        "price":14,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"PZAQ9R"
+    },
+    {
+        "barcode":6221029211398,
+        "name":"حلواني شرائح دجاج لاما حارة 1 ك",
+        "price":300,
+        "status":false,
+        "category ":"مصنعات الدواجن",
+        "sku":"LYYGTZ"
+    },
+    {
+        "barcode":6943001510816,
+        "name":"مصفاة شاي من الفولاذ المقاوم للصدأ سهلة التصفية",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"W8O3CD"
+    },
+    {
+        "barcode":6959988400057,
+        "name":"قشرة خشبية H",
+        "price":25,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"H66D15"
+    },
+    {
+        "barcode":6222022705815,
+        "name":"شياله تحمير استانلس",
+        "price":108,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"YFCX50"
+    },
+    {
+        "barcode":6222022706379,
+        "name":"شياله تحمير ستانلس بيد بلاستيك وسط",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"OT8AVN"
+    },
+    {
+        "barcode":99099119590,
+        "name":"ملاعق ستيل طقم 6 قطع",
+        "price":65,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"4Q3V62"
+    },
+    {
+        "barcode":2200000099631,
+        "name":"ملاعق استانلس ستيل طقم 12 حبة",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"N7VGP3"
+    },
+    {
+        "barcode":6221158543421,
+        "name":"أبو حمدة 437 طقم ملاعق سفرة، 3 قطع",
+        "price":30,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"DU8Z4M"
+    },
+    {
+        "barcode":6222022705297,
+        "name":"سكينه استانلس بيد خشب",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"7PQ1H3"
+    },
+    {
+        "barcode":6222022705327,
+        "name":"سكينه استانلس بيد خشب",
+        "price":115,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Big_knife"
+    },
+    {
+        "barcode":6222022706003,
+        "name":"سكينه تقطيع مخلل بيد",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"QW3BT6"
+    },
+    {
+        "barcode":6237691701822,
+        "name":"سكينه 39",
+        "price":100,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"ERSAHC"
+    },
+    {
+        "barcode":6222022705990,
+        "name":"سكينه فاكهه صغيره",
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"AQQUOG"
+    },
+    {
+        "barcode":31604104,
+        "name":"سكينه  استانلس 3بوصه ترمونتينا 23080\/903",
+        "price":25,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"3C3JL4"
+    },
+    {
+        "barcode":2303342000003,
+        "name":"لانشون اللحيمي بقري سادة 250 جم",
+        "price":90,
+        "status":false,
+        "category ":"اللحوم البارده",
+        "sku":"5JWMVD"
+    },
+    {
+        "barcode":6222014353109,
+        "name":"جهينه زبادي يوناني فراوله 180جم",
+        "price":48,
+        "status":false,
+        "category ":"زبادي يوناني",
+        "sku":"3L3A23"
+    },
+    {
+        "barcode":6222014353116,
+        "name":"جهينه زبادي يوناني توت 180جم",
+        "price":48,
+        "status":true,
+        "category ":"زبادي يوناني",
+        "sku":"4U2GSB"
+    },
+    {
+        "barcode":6254000086067,
+        "name":"ريف دايت خبز عالي البروتين، 250 جرام",
+        "price":90,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"X94QK4"
+    },
+    {
+        "barcode":6254000086050,
+        "name":"ريف دايت خبز عالي الألياف، 250 جرام",
+        "price":72,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"JXO004"
+    },
+    {
+        "barcode":6254000086173,
+        "name":"ريف دايت خبز النخالة بلس، 250 جرام",
+        "price":72,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"XS7B2C"
+    },
+    {
+        "barcode":6254000086135,
+        "name":"ريف دايت خبز بذور الشيا، 250 جرام",
+        "price":78,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"Y1CT8T"
+    },
+    {
+        "barcode":6254000086142,
+        "name":"ريف دايت خبز الشوفان، 250 جرام",
+        "price":78,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"QUT75O"
+    },
+    {
+        "barcode":6254000086166,
+        "name":"ريف دايت خبز الشعير، 250 جرام",
+        "price":72,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"SWY7UV"
+    },
+    {
+        "barcode":8690515118301,
+        "name":"كينت توفيتا فراولة 47 غم",
+        "price":36,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"G67DYJ"
+    },
+    {
+        "barcode":8690515221117,
+        "name":"كينت توفيتا توت 47 غم",
+        "price":36,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"T8MTJT"
+    },
+    {
+        "barcode":6224003295049,
+        "name":"مارشميلو فلاف فشار ميلو، 60 غرام",
+        "price":30,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"RL855L"
+    },
+    {
+        "barcode":8690146650416,
+        "name":"بيبيتو جيلي خوخ",
+        "price":14,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"ZZV3QR"
+    },
+    {
+        "barcode":5053990101573,
+        "name":"برينجلز اوريجينال 165 غم",
+        "price":180,
+        "status":false,
+        "category ":"رقائق معلبة",
+        "sku":"DPXU7B"
+    },
+    {
+        "barcode":5053990161966,
+        "name":"برينغلز باربكيو 165 غم",
+        "price":180,
+        "status":false,
+        "category ":"رقائق معلبة",
+        "sku":"FTWWYD"
+    },
+    {
+        "barcode":5053990161669,
+        "name":"برينغلز بابريكا 165 غم",
+        "price":180,
+        "status":false,
+        "category ":"رقائق معلبة",
+        "sku":"VHI7XH"
+    },
+    {
+        "barcode":9001372251329,
+        "name":"مشروب الطاقة باور هورس 250 مل",
+        "price":50,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"XT632W"
+    },
+    {
+        "barcode":9008442000450,
+        "name":"باور هورس ريد رش رمان 250 مل",
+        "price":50,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"99RPJG"
+    },
+    {
+        "barcode":6224010866072,
+        "name":"فري جو مشروب بذور ريحان فراولة290مل",
+        "price":38,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"NZ8NO6"
+    },
+    {
+        "barcode":6224010866102,
+        "name":"فري جو مشروب بذور ريحان كيوى  290مل",
+        "price":38,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"W9J7X6"
+    },
+    {
+        "barcode":6224010866041,
+        "name":"فري جو مشروب بذور ريحان خوخ 290مل",
+        "price":38,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"7HL213"
+    },
+    {
+        "barcode":6224010866065,
+        "name":"فري جو مشروب بذور ريحان عنب احمر 290مل",
+        "price":38,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"LTOLPT"
+    },
+    {
+        "barcode":6224010866027,
+        "name":"فري جو مشروب بذور ريحان اناناس 290مل",
+        "price":38,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"WBLIUG"
+    },
+    {
+        "barcode":6224010866140,
+        "name":"فري جو مشروب بذور ريحان تفاح احمر 290 مل",
+        "price":38,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"L3XLCD"
+    },
+    {
+        "barcode":6224010866010,
+        "name":"فري جو مشروب بذور ريحان مانجو 290مل",
+        "price":38,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"0QJ2Q7"
+    },
+    {
+        "barcode":6224010866089,
+        "name":"فري جو مشروب بذور ريحان كوكتيل 290مل",
+        "price":38,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"G8IFYW"
+    },
+    {
+        "barcode":6224010866133,
+        "name":"فري جو مشروب بذور ريحان  جوز هند   290مل",
+        "price":38,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"NQ5XV5"
+    },
+    {
+        "barcode":6224001733147,
+        "name":"سويس فرو شوكولاتة ميلك كنافة بكريمة اللوتس 160 جم",
+        "price":204,
+        "status":false,
+        "category ":"الشيكولاتة",
+        "sku":"TECSJX"
+    },
+    {
+        "barcode":6224001733093,
+        "name":"سويس فرو شوكولاتة بلوند كنافه بكريمة اللوتس 160 جم",
+        "price":204,
+        "status":false,
+        "category ":"الشيكولاتة",
+        "sku":"Y01W21"
+    },
+    {
+        "barcode":6224001733116,
+        "name":"سويس فرو شوكولاتة بلوند كنافه موس 160 جم",
+        "price":204,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"OHAM46"
+    },
+    {
+        "barcode":80965435,
+        "name":"لوكر ويفر بكريمة الكاكاو والشوكولاتة، 30 غرام",
+        "price":36,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"7O806A"
+    },
+    {
+        "barcode":80930341,
+        "name":"لوكر ويفر بالبندق نابوليتانر كلاسيك، 30 غرام",
+        "price":36,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"UQ6XMI"
+    },
+    {
+        "barcode":7622201695248,
+        "name":"هولز حلوى نعناع منتول 8 قطع 22.4 غم",
+        "price":12,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"46DHMV"
+    },
+    {
+        "barcode":6291003089367,
+        "name":"ويفر تيفاني بريك ريزو الفول السوداني المقرمش 35 جرام",
+        "price":18,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"DUTM9U"
+    },
+    {
+        "barcode":8697439300409,
+        "name":"تورين بسكويت ويفر إكسترا كريمي 55جم",
+        "price":19,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"HFNUJ6"
+    },
+    {
+        "barcode":8697439300195,
+        "name":"تورين ويفر كريمة البندق 55 جم",
+        "price":19,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"XMSLA0"
+    },
+    {
+        "barcode":7622210326096,
+        "name":"لبان ترايدنت فراوله 5 قطع",
+        "price":12,
+        "status":false,
+        "category ":"الحلوى واللبان",
+        "sku":"QA9PYB"
+    },
+    {
+        "barcode":16000502963,
+        "name":"بيتي كروكر حلوى رول آبس بالفواكه، 14 جرام",
+        "price":30,
+        "status":true,
+        "category ":"الحلوى واللبان",
+        "sku":"BEKA4G"
+    },
+    {
+        "barcode":2020000058632,
+        "name":"شيف برايد صينية مافن أكواب سيليكون",
+        "price":78,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"F1Q0NL"
+    },
+    {
+        "barcode":6222022705464,
+        "name":"ماسك سخن شكل كب كيك",
+        "price":42,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"EZE2UH"
+    },
+    {
+        "barcode":6222014310805,
+        "name":"جهينه حليب 0% دسم 1 لتر",
+        "price":63,
+        "status":true,
+        "category ":"الحليب المعبأ",
+        "sku":"NHPSIX"
+    },
+    {
+        "barcode":6222014310294,
+        "name":"جهينة لبن خالى من اللاكتوز 1 لتر",
+        "price":123,
+        "status":true,
+        "category ":"الحليب المعبأ",
+        "sku":"I8Z8TD"
+    },
+    {
+        "barcode":6222014311284,
+        "name":"جهينه حليب خالي من اللاكتوز خالي الدسم 1 لتر",
+        "price":123,
+        "status":true,
+        "category ":"الحليب المعبأ",
+        "sku":"B833H8"
+    },
+    {
+        "barcode":2281122040015,
+        "name":"خس كابوتشا 1 قطعة",
+        "price":18,
+        "status":false,
+        "category ":"الخضروات",
+        "sku":"UILW7Y"
+    },
+    {
+        "barcode":3014260285760,
+        "name":"ماكينة الحلاقة جيليت ناسيت 2 للاستخدام مرة واحدة لكل قطعة",
+        "price":15,
+        "status":true,
+        "category ":"أدوات الحلاقة",
+        "sku":"R6YAP9"
+    },
+    {
+        "barcode":6224000432218,
+        "name":"دينا فارمز شراب زبادي بنكهة المانجو، 250 ملليلتر",
+        "price":33,
+        "status":false,
+        "category ":"البودينج و المحليات",
+        "sku":"3PEFYB"
+    },
+    {
+        "barcode":6224000432232,
+        "name":"دينا فارمز شراب زبادي بنكهة الخوخ، 250 ملليلتر",
+        "price":33,
+        "status":false,
+        "category ":"البودينج و المحليات",
+        "sku":"NVETEI"
+    },
+    {
+        "barcode":6221333003658,
+        "name":"تشيتوس كولورز كريمة حامضة 29  جم",
+        "price":6,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"W0KV3N"
+    },
+    {
+        "barcode":6221333000572,
+        "name":"شيتوس هاشتاج جبنة 31 جم",
+        "price":7,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"N8SDYN"
+    },
+    {
+        "barcode":6221031496400,
+        "name":"شيتوس بايتس بالجبنه الشيدر 28 جم",
+        "price":6,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"ID0QFL"
+    },
+    {
+        "barcode":612280800012,
+        "name":"مقص مطبخ متعدد الاستعمالات",
+        "price":75,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"WAQZRM"
+    },
+    {
+        "barcode":6956203700046,
+        "name":"مقص اسود كارت صغير",
+        "price":75,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"N9DQVL"
+    },
+    {
+        "barcode":5000263591906,
+        "name":"برستيج مقص PR5919",
+        "price":75,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"XKZ0QU"
+    },
+    {
+        "barcode":6227691776050,
+        "name":"سيروكو خرطوم مخطط بلاستيك أبيض 1.5 متر",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"IUIRTL"
+    },
+    {
+        "barcode":8411801330111,
+        "name":"تاتاي خرطوم دش مقوى أبيض ، 1.5 متر",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"XW9RAW"
+    },
+    {
+        "barcode":6227691776081,
+        "name":"سيروكو خرطوم زبرا ازرق، 1.5 متر",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"3W9P9N"
+    },
+    {
+        "barcode":8411801312193,
+        "name":"تاتاي رأس قوس دش  ",
+        "price":90,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"7A8CVR"
+    },
+    {
+        "barcode":6291105614047,
+        "name":"بولد سبا دش يدوي",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"W042X0"
+    },
+    {
+        "barcode":6881647217204,
+        "name":"خرطوم دش مع رأس",
+        "price":185,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"YYIYYR"
+    },
+    {
+        "barcode":2013230001745,
+        "name":"بخاخه بلاستيك",
+        "price":25,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"69P8NJ"
+    },
+    {
+        "barcode":2500000504884,
+        "name":"كوب زجاج 6 قيراط 7 اونص",
+        "price":145,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"DREHMK"
+    },
+    {
+        "barcode":724049181857,
+        "name":"كوب زجاج 6 قطعة",
+        "price":120,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"OMAQ4G"
+    },
+    {
+        "barcode":6957307500594,
+        "name":"كوب زجاج 6 قطع",
+        "price":60,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"Z99ZJC"
+    },
+    {
+        "barcode":6294016410371,
+        "name":"رويال فورد كوب زجاج، 320 مل، 3 قطع",
+        "price":60,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"PVOTFJ"
+    },
+    {
+        "barcode":2283822310016,
+        "name":"طقم بوله زجاج",
+        "price":160,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"IDUJRT"
+    },
+    {
+        "barcode":6222007904103,
+        "name":"طقم بوله زجاج 3ق بغطاء سيتى جلاس",
+        "price":85,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"6XZDPC"
+    },
+    {
+        "barcode":6221333000596,
+        "name":"شيتوس هاشتاج حار نار 31 جم",
+        "price":6,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"3Y6W6F"
+    },
+    {
+        "barcode":6224011241519,
+        "name":"ڤي سوبر صودا ليمون كانز، 300 مل",
+        "price":21,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"WJ5YJS"
+    },
+    {
+        "barcode":1234560481606,
+        "name":"طبق خبز زجاجي دائري بيركس، 0.65 لتر",
+        "price":240,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"V8L98Z"
+    },
+    {
+        "barcode":35560190400564,
+        "name":"دوراليكس ليس طبق شوربة زجاجي شفاف، 17.5 سم",
+        "price":35,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"NTU0I8"
+    },
+    {
+        "barcode":6223000556702,
+        "name":"توينكيز سوبر كيك بالكريمة الأصلية، 50 غرام",
+        "price":13,
+        "status":false,
+        "category ":"الكيك والكوكيز",
+        "sku":"TSUAYC"
+    },
+    {
+        "barcode":6224000178130,
+        "name":"مبرو حليب مجفف كامل الدسم كيس 700 جم",
+        "price":300,
+        "status":true,
+        "category ":"الحليب المكثف و المجفف",
+        "sku":"BHBTCO"
+    },
+    {
+        "barcode":6223000662700,
+        "name":"المطبخ دقيق 1 كجم",
+        "price":34,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"PR7MLC"
+    },
+    {
+        "barcode":6223007520737,
+        "name":"المراعي عصير تفاح 1لتر",
+        "price":60,
+        "status":true,
+        "category ":"العصائر الطازجة",
+        "sku":"FEN1RZ"
+    },
+    {
+        "barcode":6223000556597,
+        "name":"توينكيز ديو كيك بكريمة وشوكولاتة، 45 غرام\n",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"T2NYBE"
+    },
+    {
+        "barcode":6223000556627,
+        "name":"توينكيز ديو كيك بكريمة الكراميل المملح وشوكولاتة، 43 غرام",
+        "price":13,
+        "status":true,
+        "category ":"الكيك والكوكيز",
+        "sku":"J0HOTO"
+    },
+    {
+        "barcode":6224000432577,
+        "name":"دينا فارمز عصير أناناس، 250 ملليلتر",
+        "price":29,
+        "status":true,
+        "category ":"العصائر الطازجة",
+        "sku":"BAMTKP"
+    },
+    {
+        "barcode":6224000432294,
+        "name":"دينا فارمز حليب بنكهة الشوكولاتة، 400 ملليلتر",
+        "price":34,
+        "status":false,
+        "category ":"العصائر الطازجة",
+        "sku":"80W6PF"
+    },
+    {
+        "barcode":6221031005282,
+        "name":"دوريتوس رقائق تورتيلا بتوابل هابانيرو الحارة، 26 جرام",
+        "price":7,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"1PFEST"
+    },
+    {
+        "barcode":6223000497876,
+        "name":"مولتو ماجنوم كرواسون مكس فراولة 80جرام ",
+        "price":18,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"QJ3WF7"
+    },
+    {
+        "barcode":3073780984515,
+        "name":"كيري جبنة بالقشطة قابلة للدهن، مع مذاق لبنة ، 350 غرام",
+        "price":195,
+        "status":false,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"YD7IF1"
+    },
+    {
+        "barcode":3073781162141,
+        "name":"كيريغمس و قرمش جبنة - 35 جم",
+        "price":42,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"5EDDUB"
+    },
+    {
+        "barcode":3073781054941,
+        "name":"كيري جبنة سبريد 350 جم",
+        "price":275,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"GXBFHK"
+    },
+    {
+        "barcode":6222035227533,
+        "name":"بالانس شوتس سويت تشيز 70-78 جرام",
+        "price":24,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"OVC031"
+    },
+    {
+        "barcode":6222035227557,
+        "name":"بالانس شوتس سويت هيت 70-78 جرام",
+        "price":24,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"ZBRWIN"
+    },
+    {
+        "barcode":6222035227540,
+        "name":"بالانس شوتس سويت كورن 70-78 جرام",
+        "price":24,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"QN9EX7"
+    },
+    {
+        "barcode":6223001870050,
+        "name":"كل يوم كوكتيل",
+        "price":12,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"81XK6V"
+    },
+    {
+        "barcode":6223001870036,
+        "name":"كليوم عصير تفاح ، 225 مل",
+        "price":12,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"O68IZG"
+    },
+    {
+        "barcode":6223001870043,
+        "name":"كل يوم مانجو",
+        "price":12,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"N6IGHI"
+    },
+    {
+        "barcode":6223001870067,
+        "name":"كل يوم عصير جوافة، 225 مل",
+        "price":12,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"F3IOQU"
+    },
+    {
+        "barcode":6224001141317,
+        "name":"فايتر فلاش منظف تواليت - 1180 مل",
+        "price":24,
+        "status":true,
+        "category ":"أدوات التنظيف",
+        "sku":"V9VI0C"
+    },
+    {
+        "barcode":6221155206510,
+        "name":"كلير شامبو مضاد للقشرة ومقاوم لتساقط الشعر بالقهوة للرجال، 600 مل",
+        "price":198,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"A7RZ6E"
+    },
+    {
+        "barcode":6221155206572,
+        "name":"كلير شامبو مضاد للقشرة مع الكيراتين ناعم ولامع للنساء، 600 مل",
+        "price":198,
+        "status":true,
+        "category ":"الشامبو",
+        "sku":"19FLRS"
+    },
+    {
+        "barcode":8690637829697,
+        "name":"دوف غسول لليدين مغذي بعمق، 500 مل",
+        "price":102,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"4WIKV9"
+    },
+    {
+        "barcode":6221155152251,
+        "name":"دوف أسرار التغذية غسول اليدين المرطب بزبدة الشيا والفانيليا الدافئة، 500 مليلتر",
+        "price":102,
+        "status":true,
+        "category ":"صابون اليدين",
+        "sku":"4NIPCE"
+    },
+    {
+        "barcode":6223001820093,
+        "name":"التوابل الشرقية برجر مجمد 30 قطعة",
+        "price":180,
+        "status":false,
+        "category ":"اللحوم المجمدة",
+        "sku":"R4N9OD"
+    },
+    {
+        "barcode":6223001824619,
+        "name":"صدور بانيه كوكي بالتوابل الشرقية 20 قطعة",
+        "price":180,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"CEZ6SR"
+    },
+    {
+        "barcode":6223001822875,
+        "name":"كوكي كرانشى ناجتس 20 قطعه",
+        "price":150,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"YVHONC"
+    },
+    {
+        "barcode":6223001824077,
+        "name":"كوكي بانيه  كرانشي صدور حار 20 قطعه - 1 كجم",
+        "price":250,
+        "status":false,
+        "category ":"مصنعات الدواجن",
+        "sku":"4NJSMO"
+    },
+    {
+        "barcode":6223001822653,
+        "name":"كوكي تشيكن ستربس 400 جم",
+        "price":175,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"AU9DE6"
+    },
+    {
+        "barcode":6223001823551,
+        "name":"كوكي دبوس كرانشى حار 700 جم",
+        "price":228,
+        "status":false,
+        "category ":"مصنعات الدواجن",
+        "sku":"NB6EIH"
+    },
+    {
+        "barcode":6223001823544,
+        "name":"كوكي أجنحة دجاج مقرمشة وحارة، 700 غرام",
+        "price":168,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"XQB949"
+    },
+    {
+        "barcode":6223001824060,
+        "name":"كوكي بانيه كرانشي صدور 20 قطعه - 1 كجم",
+        "price":250,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"LMT71T"
+    },
+    {
+        "barcode":6254000086128,
+        "name":"ريف دايت خبز بذور الكتان، 250 جرام",
+        "price":72,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"2B8CGA"
+    },
+    {
+        "barcode":6222007910418,
+        "name":"مج زجاج 1 قطعة سيتى جلاس",
+        "price":135,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"RXGKK0"
+    },
+    {
+        "barcode":6222007901942,
+        "name":"طقم مج شاى 6 ق كارميل سيتى جلاس",
+        "price":120,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"B6MG5W"
+    },
+    {
+        "barcode":9560325761419,
+        "name":"انتو هوم كوب قهوة زجاجي 260 مل",
+        "price":255,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"148P9W"
+    },
+    {
+        "barcode":6924910129993,
+        "name":"فرشاة ارضيه خشنه A مع عصا",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"VLNOPQ"
+    },
+    {
+        "barcode":6221999131870,
+        "name":"الهلال والنجمة الذهبية فرشاة تنظيف الأرضيات",
+        "price":45,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"G4W3IE"
+    },
+    {
+        "barcode":5903355002017,
+        "name":"فرشاة تنظيف ارضية مع مقبض",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"954RKG"
+    },
+    {
+        "barcode":6223009442181,
+        "name":"بونز جبنة جليزد 40 -50 جم",
+        "price":13,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"PZNILU"
+    },
+    {
+        "barcode":6223000662557,
+        "name":"الضحي رقائق الشوفان، 500 غرام",
+        "price":90,
+        "status":false,
+        "category ":"الشوفان",
+        "sku":"21IIG2"
+    },
+    {
+        "barcode":6223009442211,
+        "name":"بونز طماطم بالتوابل 40 -50 جم",
+        "price":13,
+        "status":true,
+        "category ":"رقائق منتفخة",
+        "sku":"L13UYO"
+    },
+    {
+        "barcode":6221024220029,
+        "name":"فيتراك مربى لايت مشمش 220 جم",
+        "price":40,
+        "status":true,
+        "category ":"مربى",
+        "sku":"2BNDGR"
+    },
+    {
+        "barcode":6223009442204,
+        "name":"بونز  فلفل حلو مشطشط 40 -50 جم",
+        "price":13,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"IBZZFF"
+    },
+    {
+        "barcode":6224008532422,
+        "name":"ليالينا رقائق الذرة بنكهة الفلفل الحار والليمون، 60 جم",
+        "price":13,
+        "status":false,
+        "category ":"رقائق منتفخة",
+        "sku":"XBQTJP"
+    },
+    {
+        "barcode":6224008532026,
+        "name":"ليالينا رقائق الذرة بنكهة زبدة الفول السوداني، 55 جم",
+        "price":13,
+        "status":true,
+        "category ":"رقائق منتفخة",
+        "sku":"70MKK2"
+    },
+    {
+        "barcode":6223001752868,
+        "name":"فارم فريتس بطاطس 2.5 كجم",
+        "price":216,
+        "status":true,
+        "category ":"المعجنات المجمدة",
+        "sku":"ZCZNMW"
+    },
+    {
+        "barcode":6223000663257,
+        "name":"الضحى ايزي باستا مكرونة  بصوص الريحان الكريمي 185 جم",
+        "price":28,
+        "status":true,
+        "category ":"المعكرونة",
+        "sku":"T3FHDP"
+    },
+    {
+        "barcode":6223001240754,
+        "name":"مناشف مطبخ زينة  6 رول",
+        "price":95,
+        "status":true,
+        "category ":"مناديل المطبخ",
+        "sku":"4URNQR"
+    },
+    {
+        "barcode":6281100870630,
+        "name":"بليدج سبراي ملمع للاثاث 300 مل",
+        "price":72,
+        "status":true,
+        "category ":"أدوات التنظيف",
+        "sku":"3S2WYP"
+    },
+    {
+        "barcode":6221033173217,
+        "name":"هاينز صوص الخردل الأصفر في عبوة قابلة للضغط، 235 جم",
+        "price":49,
+        "status":false,
+        "category ":"مسطردة",
+        "sku":"SXTYED"
+    },
+    {
+        "barcode":2100767000001,
+        "name":"عسل نحل بالوزن",
+        "price":100,
+        "status":false,
+        "category ":"عسل",
+        "sku":"XQZ3JW"
+    },
+    {
+        "barcode":6223000434024,
+        "name":"ريتش بيك عيش لبناني 14 سم، 4 قطع",
+        "price":8,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"WV55VK"
+    },
+    {
+        "barcode":6294441113724,
+        "name":"الدوري كنكة المصري سادة نحاسي مقاس 1",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"0G8AFX"
+    },
+    {
+        "barcode":717002001026,
+        "name":"هراسة ثوم خشبية",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"CZL3CR"
+    },
+    {
+        "barcode":6900000003510,
+        "name":"هراسة ثوم خشبية",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"T5VGYF"
+    },
+    {
+        "barcode":3357132,
+        "name":"هراسة ثوم ستانلس ستيل",
+        "price":114,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"XA29XF"
+    },
+    {
+        "barcode":6922340039544,
+        "name":"مفرمة ثوم نوعية ممتازة 2682",
+        "price":114,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Z5MY1L"
+    },
+    {
+        "barcode":8694500056197,
+        "name":"مفرمة ثوم",
+        "price":114,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HDVGCU"
+    },
+    {
+        "barcode":4947989235770,
+        "name":"فرشاة سلك صغيرة 3 قطع",
+        "price":40,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"I33I2I"
+    },
+    {
+        "barcode":5055441413969,
+        "name":"ديكتون طقم فرش سلك، 3 قطع",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"LYAID5"
+    },
+    {
+        "barcode":6950129120308,
+        "name":"طقم فرش سلك 3 قطع رقم Wb146",
+        "price":40,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"VU62IX"
+    },
+    {
+        "barcode":2283375070016,
+        "name":"مضرب بيض ستانلس صغير",
+        "price":66,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"EB8EH2"
+    },
+    {
+        "barcode":622201618008,
+        "name":"الهلال والنجمة الفضية مساحة زجاج خضراء مع اسفنجة 1 قطعة",
+        "price":85,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"78IIHE"
+    },
+    {
+        "barcode":8699971798188,
+        "name":"باريكس-مساحة زجاج سكواجة تركي",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"OXBSVD"
+    },
+    {
+        "barcode":3426470275101,
+        "name":"بايركس كوك آند جو طبق زجاج دائري بغطاء ، 0.7 لتر ، 15 × 15 × 8 سم",
+        "price":210,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"AKS4EW"
+    },
+    {
+        "barcode":2283605970017,
+        "name":"طقم بولات زجاج",
+        "price":165,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"6pieces"
+    },
+    {
+        "barcode":6221999317342,
+        "name":"الهلال طشت 54",
+        "price":165,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"6NG1I2"
+    },
+    {
+        "barcode":3800011325,
+        "name":"طشت بلاستيك 25 لتر E-413",
+        "price":165,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"QSIT17"
+    },
+    {
+        "barcode":3800011326,
+        "name":"طشت بلاستيك 35 لتر E-414",
+        "price":195,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"4I29QC"
+    },
+    {
+        "barcode":86443130005435,
+        "name":"طشت  10 لتر",
+        "price":105,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"RKJB9A"
+    },
+    {
+        "barcode":6271100181034,
+        "name":"فحم افريقي طبيعي ممتاز، 4 كيلوغرام",
+        "price":395,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"4EX0T2"
+    },
+    {
+        "barcode":6223000526620,
+        "name":"جريت فودز فرنك بقر 2+1 هديه 450 جم",
+        "price":135,
+        "status":true,
+        "category ":"اللحوم المجمدة",
+        "sku":"B7URU2"
+    },
+    {
+        "barcode":6221012251110,
+        "name":"تيميز حبوب افطار فروت رينجز 250جم",
+        "price":74,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"6V61M1"
+    },
+    {
+        "barcode":6221012251042,
+        "name":"تيميز شوكو رايس 250جم",
+        "price":74,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"AJ0BXK"
+    },
+    {
+        "barcode":6221012251011,
+        "name":"تيميز كورن فليكس بالعسل 250 غم",
+        "price":74,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"OD0RQJ"
+    },
+    {
+        "barcode":6223000520222,
+        "name":"جريت فودز سمبوسك لحم 8 قطع",
+        "price":120,
+        "status":false,
+        "category ":"اللحوم المجمدة",
+        "sku":"FOMVB6"
+    },
+    {
+        "barcode":6223000520239,
+        "name":"جريت فودز سمبوسك جبنة 8 قطع",
+        "price":120,
+        "status":false,
+        "category ":"المعجنات المجمدة",
+        "sku":"7XRPQX"
+    },
+    {
+        "barcode":5060896625126,
+        "name":"مونستر مشروب الطاقة مانجو لوكو، 500 مليلتر",
+        "price":60,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"G0Z1HP"
+    },
+    {
+        "barcode":5060896621661,
+        "name":"مونستر الترا علبة مشروب الطاقة، 500 مليلتر",
+        "price":60,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"BNQAX2"
+    },
+    {
+        "barcode":6223003191054,
+        "name":"برانش كرواسون كراميل بريميوم، 150 غرام",
+        "price":18,
+        "status":true,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"UU5TEX"
+    },
+    {
+        "barcode":6223003191030,
+        "name":"برانش كرواسون شوكولاتة بريميوم، 150 غرام",
+        "price":18,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"UN28TS"
+    },
+    {
+        "barcode":6224001850134,
+        "name":"ماديرامنظف المطبخ القوي للغاية ، 500 مل",
+        "price":57,
+        "status":true,
+        "category ":"أدوات التنظيف",
+        "sku":"CWPHPN"
+    },
+    {
+        "barcode":6223000525197,
+        "name":"جريت فودز عجينة سمبوسك 400 جم",
+        "price":48,
+        "status":true,
+        "category ":"المعجنات المجمدة",
+        "sku":"CRLNXI"
+    },
+    {
+        "barcode":6223000525883,
+        "name":"جريت فودز سجق شرقي 300 جم",
+        "price":95,
+        "status":false,
+        "category ":"اللحوم المجمدة",
+        "sku":"A9QUY2"
+    },
+    {
+        "barcode":6223000520338,
+        "name":"جريت فودز مفروم بقري300 جم",
+        "price":115,
+        "status":false,
+        "category ":"اللحوم المجمدة",
+        "sku":"6DQ0XQ"
+    },
+    {
+        "barcode":null,
+        "name":"صدر ديك رومي مدخن",
+        "price":125,
+        "status":false,
+        "category ":"اللحوم البارده",
+        "sku":"LQA0X5"
+    },
+    {
+        "barcode":null,
+        "name":"مراعى لانشون فراخ مدخن",
+        "price":125,
+        "status":false,
+        "category ":"اللحوم البارده",
+        "sku":"43ZQUQ"
+    },
+    {
+        "barcode":null,
+        "name":"مراعي صدور فراخ مدخن",
+        "price":125,
+        "status":false,
+        "category ":"اللحوم البارده",
+        "sku":"TYLZIM"
+    },
+    {
+        "barcode":6223003804602,
+        "name":"مكفيتيز بسكويت دايجستيف لايت 400 جم",
+        "price":83,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"THAOCQ"
+    },
+    {
+        "barcode":6223003804664,
+        "name":"مكفيتيز بسكويت دايجستيف ميلك 200جم",
+        "price":73,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"0KTCLT"
+    },
+    {
+        "barcode":6223003804671,
+        "name":"مكفيتيز بسكويت دايجستيف دارك 200 جم",
+        "price":73,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"TFOTQK"
+    },
+    {
+        "barcode":6223003804633,
+        "name":"مكفيتيز بسكويت دايجستيف اوريجينال 400 جم",
+        "price":85,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"8OKHDF"
+    },
+    {
+        "barcode":6223003804640,
+        "name":"مكفيتيز بسكويت دايجستيف اوريجينال 250 جم",
+        "price":55,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"0AFKLQ"
+    },
+    {
+        "barcode":6223003804619,
+        "name":"مكفيتيز بسكويت دايجستيف لايت 250 جم",
+        "price":55,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"7TJTBD"
+    },
+    {
+        "barcode":6224011374439,
+        "name":"كولا 1لتر ماكسي",
+        "price":25,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"A403BD"
+    },
+    {
+        "barcode":5053990107353,
+        "name":"برينجلز شيبس بالملح والخل، 40 جرام",
+        "price":60,
+        "status":true,
+        "category ":"رقائق معلبة",
+        "sku":"K99HTJ"
+    },
+    {
+        "barcode":6224001925221,
+        "name":"بروتين بار كوكيز اند كريم شيكولاته بيضاء بريميوم زيرو 60 جرام",
+        "price":55,
+        "status":false,
+        "category ":"الشيكولاتة",
+        "sku":"9S72MB"
+    },
+    {
+        "barcode":6224010103016,
+        "name":"زيرو بروتين بار بالشيكولاتة البراونيز 70 جم",
+        "price":55,
+        "status":false,
+        "category ":"الشيكولاتة",
+        "sku":"703M84"
+    },
+    {
+        "barcode":6224010103122,
+        "name":"زيرو بروتين بار بنكهة التوت 30 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"NJ2184"
+    },
+    {
+        "barcode":7622210999108,
+        "name":"ميلكا شوكولاتة أوريو بالحليب، 100 غم",
+        "price":115,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"XR6CQV"
+    },
+    {
+        "barcode":7622210999368,
+        "name":"ميلكا شوكولاتة الفراولة، 100 غم",
+        "price":115,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"1279SI"
+    },
+    {
+        "barcode":3800005103075,
+        "name":"ميلكا ألواح شوكولاتة بالبندق الكامل، 100 غم",
+        "price":115,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"PABBUH"
+    },
+    {
+        "barcode":7622201098575,
+        "name":"ميلكا لوح شوكولاتة مع بسكويت تك، 87 جم",
+        "price":115,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"5QDO8R"
+    },
+    {
+        "barcode":7622210544179,
+        "name":"ميلكا اوريو ابيض 100 جرام",
+        "price":115,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"82QHHI"
+    },
+    {
+        "barcode":7622210077691,
+        "name":" كادبوري ديري ميلك شوكولاتة بابلي بالحليب 87 جم",
+        "price":105,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"NLPH0D"
+    },
+    {
+        "barcode":8697439300379,
+        "name":"تورين ويفر كريمة الكاكاو 55 جم",
+        "price":19,
+        "status":true,
+        "category ":"البسكويت",
+        "sku":"EOTF7F"
+    },
+    {
+        "barcode":8697439300287,
+        "name":"تورين ويفر كاكاو و كريمة 55 جم",
+        "price":19,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"TDPK08"
+    },
+    {
+        "barcode":8697439300225,
+        "name":"تورين ويفر كريمة الفانيليا 55 جم",
+        "price":19,
+        "status":false,
+        "category ":"البسكويت",
+        "sku":"S5U167"
+    },
+    {
+        "barcode":12000804083,
+        "name":"سفن اب مشروب غازي علبة، 150 مليلتر",
+        "price":43,
+        "status":false,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"524UC2"
+    },
+    {
+        "barcode":12000802751,
+        "name":"ميرندا برتقال 150 مل",
+        "price":43,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"XRVMLN"
+    },
+    {
+        "barcode":12000801655,
+        "name":"بيبسي 150 مل",
+        "price":43,
+        "status":true,
+        "category ":"المشروبات الرياضية والطاقة",
+        "sku":"LV7Q5S"
+    },
+    {
+        "barcode":6224011439053,
+        "name":"دينا فارمز ميلك شيك بالقهوة، 400 ملليلتر",
+        "price":35,
+        "status":false,
+        "category ":"العصائر الطازجة",
+        "sku":"GHVPIG"
+    },
+    {
+        "barcode":6224011232821,
+        "name":"وينر زجاجة كاتشب ومايونيز بلاستيكية شفافة، 730 مل، 2 في العبوة",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"R4UVGK"
+    },
+    {
+        "barcode":8758788661423,
+        "name":"زجاجة كاتشب، 2 قطعة",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"350ml"
+    },
+    {
+        "barcode":31603868,
+        "name":"شنطة تخزين ملابس و بطانية كبير GK-100L",
+        "price":85,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"JTZ0B1"
+    },
+    {
+        "barcode":2013340000225,
+        "name":"شرشوبه فوريره",
+        "price":120,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"MQ7PKG"
+    },
+    {
+        "barcode":101010114,
+        "name":"شرشوبه مدور ه-للتنظيف ",
+        "price":80,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"FAWL0S"
+    },
+    {
+        "barcode":8902084009813,
+        "name":"بيتو عصارة برتقال ديلوكس",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"AEPI0T"
+    },
+    {
+        "barcode":5021565100993,
+        "name":"برستيج عصارة ليمون كبيرة",
+        "price":220,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"FEOORP"
+    },
+    {
+        "barcode":8906032113058,
+        "name":"ستيل اكشن عصارة ليمون، 20 سم",
+        "price":60,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"4OENUH"
+    },
+    {
+        "barcode":6221999399089,
+        "name":"الهلال ماتركس طقم ثلاجه مستطيل",
+        "price":140,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"3_pieces"
+    },
+    {
+        "barcode":6221999163109,
+        "name":"هلال مكنسة مع 3 بكرات",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"NFOALM"
+    },
+    {
+        "barcode":8906006805415,
+        "name":"مكنسة دفع اقتصادية دابليو اوه اتش دى ال 541",
+        "price":145,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"ALQYVD"
+    },
+    {
+        "barcode":6221999183459,
+        "name":"مكنسة مع مجرفة Hos-12-03",
+        "price":65,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"8PRG3Y"
+    },
+    {
+        "barcode":6224009379019,
+        "name":"مكنسة",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"5TM9ET"
+    },
+    {
+        "barcode":6253345509347,
+        "name":"هاوس كير مكنسة ناعمة مع مقبض",
+        "price":165,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"JHLU8M"
+    },
+    {
+        "barcode":6924310121405,
+        "name":"رأس مكنسة ناعمة (فرشاة AZ-158)",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"15H4IC"
+    },
+    {
+        "barcode":8901663105755,
+        "name":"مكنسة جالا الخارجية",
+        "price":145,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"80U0EY"
+    },
+    {
+        "barcode":6222016100855,
+        "name":"زعافة كورة بالاريال جامبو",
+        "price":120,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"VGXYLW"
+    },
+    {
+        "barcode":6221999368528,
+        "name":"الهلال ترت سبت غسيل",
+        "price":610,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"ZOQRP4"
+    },
+    {
+        "barcode":6221999357003,
+        "name":"هلال سبت غسيل بوبوس بالغطاء",
+        "price":610,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"K9JB8U"
+    },
+    {
+        "barcode":6221999654027,
+        "name":"الهلال سبت غسيل راتان مربع",
+        "price":610,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"3CJJF4"
+    },
+    {
+        "barcode":6221999337777,
+        "name":"الهلال بستله",
+        "price":395,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"60liter"
+    },
+    {
+        "barcode":8682116432955,
+        "name":"ريناردو وعاء السكر بالساق",
+        "price":120,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"BDWPOS"
+    },
+    {
+        "barcode":8435123233172,
+        "name":" كوك بيتا فازة زجاجية 25 سم ",
+        "price":1440,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"E0U112"
+    },
+    {
+        "barcode":9000312301230,
+        "name":"ديباج محارم فائقة النعومة",
+        "price":30,
+        "status":true,
+        "category ":"المناديل و المناديل المبللة",
+        "sku":"7CHZND"
+    },
+    {
+        "barcode":6221333002750,
+        "name":"شيبسي جبنة 126 جم",
+        "price":24,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"SUN8T0"
+    },
+    {
+        "barcode":6221333005645,
+        "name":"دوريتوس رقائق تورتيلا كاتشب هالبينو، 95 جم",
+        "price":18,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"1H05CB"
+    },
+    {
+        "barcode":6221333006017,
+        "name":"شيبسي بطاطس كاتشب طماطم 81 جم",
+        "price":18,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"FIFSQC"
+    },
+    {
+        "barcode":6221333006024,
+        "name":"شيبسي بطاطس باربيكيو 81 جم",
+        "price":18,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"MYD2SZ"
+    },
+    {
+        "barcode":6221333006031,
+        "name":"شيبسي بطاطس صلصة برجر 81 جم",
+        "price":18,
+        "status":true,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"LHDRS9"
+    },
+    {
+        "barcode":6221333002743,
+        "name":"شيبسي ملح و خل 126 جم",
+        "price":24,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"69HPQX"
+    },
+    {
+        "barcode":6221333005812,
+        "name":"دوريتوس رقائق تورتيلا بالفلفل الحلو الحار، 95 جم",
+        "price":18,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"GZ5I30"
+    },
+    {
+        "barcode":6221333005966,
+        "name":"شيبسي بطاطس بالباربيكيو 50 جم",
+        "price":13,
+        "status":false,
+        "category ":"رقائق و صلصات البطاطس",
+        "sku":"WD9J98"
+    },
+    {
+        "barcode":6221333002095,
+        "name":"صن بايتس  فلفل حلو 68 جم",
+        "price":13,
+        "status":false,
+        "category ":"رقائق الذرة",
+        "sku":"7SWU67"
+    },
+    {
+        "barcode":6223006710047,
+        "name":"كلوجز شعرية بنكهة سجق شرقي 100 جم",
+        "price":14,
+        "status":true,
+        "category ":"الشعرية والشوربة",
+        "sku":"ZYTZQC"
+    },
+    {
+        "barcode":6223000556894,
+        "name":"بيك رولز سناك بنكهة الليمون الحار، 55 غرام\n",
+        "price":13,
+        "status":true,
+        "category ":"مقرمشات صحية",
+        "sku":"N0THTM"
+    },
+    {
+        "barcode":6223000556832,
+        "name":"بيك ستيكس سناك بنكهة دجاج كاري هندي، 55 غرام\n",
+        "price":13,
+        "status":false,
+        "category ":"مقرمشات صحية",
+        "sku":"703JMY"
+    },
+    {
+        "barcode":6223000555576,
+        "name":"بيك رولز لفائف حجم كبير مخبوزة بنكهة الملح والخل، 60 جرام",
+        "price":13,
+        "status":false,
+        "category ":"مقرمشات صحية",
+        "sku":"UT0KAT"
+    },
+    {
+        "barcode":54023888,
+        "name":"شويبس يوسفي بيتي 250 مل",
+        "price":15,
+        "status":false,
+        "category ":"مشروبات الشعير",
+        "sku":"N50B69"
+    },
+    {
+        "barcode":6221999307015,
+        "name":"الهلال ماجور 33",
+        "price":66,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"BSK292"
+    },
+    {
+        "barcode":6221999317304,
+        "name":"الهلال طشت 42",
+        "price":115,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"J2JBF0"
+    },
+    {
+        "barcode":86443130005437,
+        "name":"طشت  25 لتر",
+        "price":170,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"BVX2H1"
+    },
+    {
+        "barcode":6221999317267,
+        "name":"الهلال طشت 33",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"VLZGXN"
+    },
+    {
+        "barcode":8690555730860,
+        "name":"بنات مقشه باليد خشنه",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"LHBXS3"
+    },
+    {
+        "barcode":6223001823568,
+        "name":"كوكي دجاج مقلى كرانشى حار 12 قطعه + بطاطس",
+        "price":310,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"A9D8H5"
+    },
+    {
+        "barcode":6223000523162,
+        "name":"جريت فودز جلاش فاخر 350 جم",
+        "price":19,
+        "status":false,
+        "category ":"المعجنات المجمدة",
+        "sku":"QA6XHE"
+    },
+    {
+        "barcode":6223000370179,
+        "name":"بسمة بامية اكسترا 400 جم",
+        "price":67,
+        "status":false,
+        "category ":"خضروات مجمدة",
+        "sku":"TPRXUS"
+    },
+    {
+        "barcode":2000013003713,
+        "name":"كوكي أجنحة دجاج مقرمشة حار، 2 قطعة، 700 جم",
+        "price":168,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"FRDZ3C"
+    },
+    {
+        "barcode":6223000552049,
+        "name":"مولتو ميني ماجنم ميكس فراولة و كريمة 84جم",
+        "price":18,
+        "status":true,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"7TM0TZ"
+    },
+    {
+        "barcode":6223000756461,
+        "name":"دومتي جبن ملح خفيف 1  كجم",
+        "price":97,
+        "status":true,
+        "category ":"الجبن المعبأة و المقطعة",
+        "sku":"EL79U7"
+    },
+    {
+        "barcode":2013310000057,
+        "name":"فرشة سليكون بيد سيلكون",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Q928DE"
+    },
+    {
+        "barcode":6222022705648,
+        "name":"فرشاه سليكون بيد سليكون",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"82IOGQ"
+    },
+    {
+        "barcode":6237691701648,
+        "name":"فرشه حلويات سليكون",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"EB1UXY"
+    },
+    {
+        "barcode":6222022705631,
+        "name":"سباتيولا سليكون بيد سليكون",
+        "price":55,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"ZJLE83"
+    },
+    {
+        "barcode":8851844009207,
+        "name":"بايونير قالب ثلج 14 عين",
+        "price":50,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"7B8OUQ"
+    },
+    {
+        "barcode":6294016425146,
+        "name":"رويال فورد قوالب كيك معدنية، 6 قطع RF10952",
+        "price":400,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"W445HM"
+    },
+    {
+        "barcode":8693357171664,
+        "name":"بيسترو طقم بوله حافظه 2 قطع",
+        "price":55,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"2O9FFX"
+    },
+    {
+        "barcode":8693357004481,
+        "name":"مرمرة طقم بوله سرفيس 6 قطع",
+        "price":165,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"J7BYX3"
+    },
+    {
+        "barcode":6225000381681,
+        "name":"مشروب سبيرو سباتس صودا ليمون 330مل",
+        "price":15,
+        "status":false,
+        "category ":"المشروبات الغازية",
+        "sku":"V2QOLH"
+    },
+    {
+        "barcode":6225000381612,
+        "name":"مشروب سبيرو سباتس بنكهة الليموناده 330مل",
+        "price":15,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"HXBZL8"
+    },
+    {
+        "barcode":6223001824091,
+        "name":"كوكي ستربس عادى 1 كجم",
+        "price":360,
+        "status":true,
+        "category ":"مصنعات الدواجن",
+        "sku":"9JYHC8"
+    },
+    {
+        "barcode":6223001822660,
+        "name":"كوكي تشيكن ستربس حار 400 جم",
+        "price":170,
+        "status":false,
+        "category ":"مصنعات الدواجن",
+        "sku":"56B5V7"
+    },
+    {
+        "barcode":6281100870296,
+        "name":"جليد معطر الهواء بعطر لافندر 300 مل",
+        "price":100,
+        "status":true,
+        "category ":"معطرات الجو",
+        "sku":"36I2FQ"
+    },
+    {
+        "barcode":6221073012101,
+        "name":"كورونا كفرتورة شوكولاتة 150 جم",
+        "price":60,
+        "status":true,
+        "category ":"مسحوق الكاكاو",
+        "sku":"IAL0HX"
+    },
+    {
+        "barcode":6221073012255,
+        "name":"كورونا شوكولاتة داكنة باللوز ستيفيا 45 جرام",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"X5F60G"
+    },
+    {
+        "barcode":6221073011975,
+        "name":"كورونا شوكولاتة ميلك رانج بالبندق 45 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"3WMTMZ"
+    },
+    {
+        "barcode":6221073011913,
+        "name":"كورونا شوكولاتة ألباين ميلك بريميوم 45 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"2SFO2U"
+    },
+    {
+        "barcode":6221073011838,
+        "name":"كورونا شوكولاتة بالحليب مملحة باللوز متوسطة 27 جرام",
+        "price":36,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"CGY5SD"
+    },
+    {
+        "barcode":6221073011883,
+        "name":"كورونا شوكولاتة داكنة 72% متوسطة 27 جرام",
+        "price":36,
+        "status":false,
+        "category ":"الشيكولاتة",
+        "sku":"Q148VG"
+    },
+    {
+        "barcode":8904142300771,
+        "name":"رينا سكين تقطيع\/فرم البيتزا 40994",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"XSP76W"
+    },
+    {
+        "barcode":4008033454421,
+        "name":"فاكيلمان مجموعة طحن",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Plastic"
+    },
+    {
+        "barcode":6222014301230,
+        "name":"بودينج جهينة توفي بالكراميل الفاخر، 150 غرام",
+        "price":42,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"735E7G"
+    },
+    {
+        "barcode":6222014301247,
+        "name":"بودينج جهينة الفاخر بالشوكولاتة المزدوجة، 150 غرام",
+        "price":42,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"ZP5986"
+    },
+    {
+        "barcode":6222014301254,
+        "name":"بودينج فرابتشينو فاخر من جهينة، 150 غرام",
+        "price":42,
+        "status":true,
+        "category ":"زبادي بالنكهات",
+        "sku":"DPQLH6"
+    },
+    {
+        "barcode":666273544136,
+        "name":"مشابك ملابس بلاستيك 16 قطعة متعددة الألوان",
+        "price":35,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"EG1P8N"
+    },
+    {
+        "barcode":6222022706713,
+        "name":"طقم مشابك خشب",
+        "price":45,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"XEIZLZ"
+    },
+    {
+        "barcode":1000005900403,
+        "name":"مشابك غسيل خشب",
+        "price":45,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"8VIAUN"
+    },
+    {
+        "barcode":6944905002025,
+        "name":"مشابك قماش بلاستيك، 10 قطع",
+        "price":25,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"7GH8S2"
+    },
+    {
+        "barcode":2000000717999,
+        "name":"مشابك بلاستيك",
+        "price":25,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"7N0M9W"
+    },
+    {
+        "barcode":6291108337370,
+        "name":"هوم واي مصفاة أرز ستانلس ستيل ، 26 سم",
+        "price":195,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"R91MS7"
+    },
+    {
+        "barcode":125776875011,
+        "name":"مصفاة أرز 28 بوصة",
+        "price":80,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"NK0268"
+    },
+    {
+        "barcode":2050100003000,
+        "name":"مصفاة أرز 26 سم",
+        "price":170,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"NAMS01"
+    },
+    {
+        "barcode":6223001348122,
+        "name":"ريد سائل طارد الناموس 37 ليلة - جهاز + عبوة تعبئة 41 مل",
+        "price":175,
+        "status":true,
+        "category ":"المبيدات الحشرية",
+        "sku":"ED5W40"
+    },
+    {
+        "barcode":6223001033677,
+        "name":"جيلى كولا كوكس 80 جرام",
+        "price":20,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"953X83"
+    },
+    {
+        "barcode":6223001030133,
+        "name":"كوكس جيلي بودرة بنكهة الكرز، 80 جرام",
+        "price":20,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"JK67A2"
+    },
+    {
+        "barcode":6223001030119,
+        "name":"كوكس جيلى مانجو 80 جم",
+        "price":20,
+        "status":false,
+        "category ":"الحلويات",
+        "sku":"EHE34M"
+    },
+    {
+        "barcode":6223001033660,
+        "name":"جيلى بطيخ كوكس 80 جرام",
+        "price":20,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"IL1M9N"
+    },
+    {
+        "barcode":6223000432150,
+        "name":"ريتش بيك خبز تورتيلا دقيق القمح 5 قطع",
+        "price":60,
+        "status":false,
+        "category ":"الخبز",
+        "sku":"OCAZSA"
+    },
+    {
+        "barcode":6224000432195,
+        "name":"مزارع دينا لبن بالشيكولاتة 250 مل",
+        "price":29,
+        "status":true,
+        "category ":"العصائر الطازجة",
+        "sku":"34KJE0"
+    },
+    {
+        "barcode":6224011523448,
+        "name":"شوكولاتة رولا البيضاء الخام للطبخ، 150 غرام",
+        "price":45,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"O5OUWS"
+    },
+    {
+        "barcode":6224011523295,
+        "name":"شوكولاتة رولا بالحليب الخام للطبخ، 150 غرام",
+        "price":45,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"6BKAR1"
+    },
+    {
+        "barcode":6224011523301,
+        "name":"شوكولاتة رولا الخام الداكنة للطبخ، 200 غرام",
+        "price":45,
+        "status":true,
+        "category ":"الحلويات",
+        "sku":"XS62Y5"
+    },
+    {
+        "barcode":6223001085911,
+        "name":"دريم ايس كريم بودرة فانيليا 80جم",
+        "price":30,
+        "status":false,
+        "category ":"الحلويات",
+        "sku":"45H1EY"
+    },
+    {
+        "barcode":6221155199294,
+        "name":"كنور خلطة اللحم المفروم،  ٧٠ جم",
+        "price":18,
+        "status":true,
+        "category ":"خلطات الطبخ",
+        "sku":"BGZQF2"
+    },
+    {
+        "barcode":31604817,
+        "name":"شنطة تخزين ملابس و بطانية كبير GK-100S2",
+        "price":80,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"65LDSQ"
+    },
+    {
+        "barcode":7865253110110,
+        "name":"مضرب بيض بفاصل بيض",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"N73BXU"
+    },
+    {
+        "barcode":8002521226305,
+        "name":"مضرب بيض سيليكون 29 سم اكريليك 3 الوان (",
+        "price":45,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"4JGIEW"
+    },
+    {
+        "barcode":7109095703,
+        "name":"مضرب بيض ستيل كبير، 1 قطعة",
+        "price":55,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"K3IOT0"
+    },
+    {
+        "barcode":31604733,
+        "name":"مضرب بيض سيليكون بيد كرستال ",
+        "price":45,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"OH9SNO"
+    },
+    {
+        "barcode":31602873,
+        "name":"شياطة أرز يد خشب",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"NHBLMU"
+    },
+    {
+        "barcode":6222026422220,
+        "name":"شياطة أرز دائرية",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"AVPIWD"
+    },
+    {
+        "barcode":8894222028445,
+        "name":"هوم برو مقوار كوسة",
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"TX99WG"
+    },
+    {
+        "barcode":5000263541710,
+        "name":"بريستيج مصفاة 7 سم 54171",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HKHJFA"
+    },
+    {
+        "barcode":9010001705058,
+        "name":"مصفاة طحين من الفولاذ",
+        "price":85,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"AWKQQP"
+    },
+    {
+        "barcode":9010001705041,
+        "name":"مصفاة طحين من الفولاذ",
+        "price":75,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"96B1NE"
+    },
+    {
+        "barcode":9010001705065,
+        "name":"مصفاة طحين من الفولاذ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"W45NRA"
+    },
+    {
+        "barcode":702007000877,
+        "name":"مصفاة كبيرة من الستانلس ستيل بطبقتين مقاس 10",
+        "price":85,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"C9L7OL"
+    },
+    {
+        "barcode":18690,
+        "name":"خيار مخلل، 250جم",
+        "price":15,
+        "status":false,
+        "category ":"الزيتون والمخللات",
+        "sku":"0OYO69"
+    },
+    {
+        "barcode":2167160000009,
+        "name":"مخلل لفت مقطع 250جم",
+        "price":15,
+        "status":true,
+        "category ":"الزيتون والمخللات",
+        "sku":"ZULX0C"
+    },
+    {
+        "barcode":6223016573632,
+        "name":"كرواسون دومتي جبنة فيتا مع ديك رومي مدخن",
+        "price":18,
+        "status":false,
+        "category ":"الكروسان و الكعك والمعجنات",
+        "sku":"ZA9IOE"
+    },
+    {
+        "barcode":6211101907011,
+        "name":"توليدو حمص مسلوق 247 جم",
+        "price":35,
+        "status":true,
+        "category ":"البقول المعلبة",
+        "sku":"L9XN41"
+    },
+    {
+        "barcode":6224008637301,
+        "name":"لامار شراب كوكتيل أحمر 200 مل",
+        "price":10,
+        "status":true,
+        "category ":"العصائر",
+        "sku":"JDEWNS"
+    },
+    {
+        "barcode":6224000432225,
+        "name":"مزارع دينا معجون جبن مطبوخ بالقشطه 100% طبيعى 500جم",
+        "price":198,
+        "status":true,
+        "category ":"جبن مثلثات و كريمى",
+        "sku":"HXPCRK"
+    },
+    {
+        "barcode":null,
+        "name":"بيض ٦ قطع",
+        "price":45,
+        "status":true,
+        "category ":"بيض أبيض",
+        "sku":"QELCCZ"
+    },
+    {
+        "barcode":6221012251240,
+        "name":"تيميز كورن فليكس شوكولاتة 250 غم",
+        "price":78,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"4HL13C"
+    },
+    {
+        "barcode":6221012251073,
+        "name":"تيميز كورن فليكس كوكو بوس 250 غم",
+        "price":78,
+        "status":false,
+        "category ":"حبوب الإفطار",
+        "sku":"FXHJCE"
+    },
+    {
+        "barcode":6221061807177,
+        "name":"نوفال فيرونا مغرفه شوربه",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"FVVMR1"
+    },
+    {
+        "barcode":8429990270088,
+        "name":"وينسور مغرفة شوربة ستانليس ستيل 18\/10",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"ETTHKT"
+    },
+    {
+        "barcode":4560117570767,
+        "name":"إيليت معلقة ستانلس ستيل، 6 قطع",
+        "price":180,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"J6WSN1"
+    },
+    {
+        "barcode":9068782682327,
+        "name":"ملعقه غويطه سيليكون",
+        "price":75,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"RRBMIC"
+    },
+    {
+        "barcode":6294016412047,
+        "name":"رويال فورد ملعقة مقصوصة ستانلس ستيل",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"ERY5LX"
+    },
+    {
+        "barcode":6291105984300,
+        "name":"العالمية صينية فرن هنا 24 سم",
+        "price":225,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"9GYY57"
+    },
+    {
+        "barcode":31604729,
+        "name":"صينية فرن سوبر 28 سم الومنيوم الزنوكى",
+        "price":210,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"R02VPG"
+    },
+    {
+        "barcode":6291105984324,
+        "name":"العالمية مقاس صينية فرن، 28",
+        "price":210,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"354WCQ"
+    },
+    {
+        "barcode":6221124002938,
+        "name":"صينية بيتزا 24 سم",
+        "price":195,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"ISILZS"
+    },
+    {
+        "barcode":6221124004093,
+        "name":"صينية بيتزا 36 سم",
+        "price":345,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"0XYKBZ"
+    },
+    {
+        "barcode":6221124004109,
+        "name":"صينية بيتزا 38 سم",
+        "price":355,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"RZ15RK"
+    },
+    {
+        "barcode":6221124004086,
+        "name":"صينية بيتزا 34 سم",
+        "price":340,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"JEFEYM"
+    },
+    {
+        "barcode":6291116231301,
+        "name":"شبكة شواء كامبيت غوا 72 × 40 × 35",
+        "price":270,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"GASQXQ"
+    },
+    {
+        "barcode":6291108410349,
+        "name":"التعاونية فحم شوي وزن، 650 جم",
+        "price":60,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"4M8TSM"
+    },
+    {
+        "barcode":6223004894084,
+        "name":"فحم 1 ك شوى",
+        "price":85,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"8SOCPI"
+    },
+    {
+        "barcode":8882796401115,
+        "name":"النيران فحم شوي خشب نباتي طبيعي 3 كغم",
+        "price":200,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"ZYHOZC"
+    },
+    {
+        "barcode":1000300921844,
+        "name":"شواية فحم مستطيلة وسط 2079B",
+        "price":270,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"P6YEGS"
+    },
+    {
+        "barcode":300914288,
+        "name":"فحم شوي 1 كغ كيس",
+        "price":85,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"976H96"
+    },
+    {
+        "barcode":6294015504316,
+        "name":"شواية شواء كهربائية من جيباس",
+        "price":1500,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"5B59HG"
+    },
+    {
+        "barcode":2200000487919,
+        "name":"شواية كهربائية",
+        "price":1500,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"KX1J4W"
+    },
+    {
+        "barcode":6223004894008,
+        "name":"شواية فحم 25* 35 سم",
+        "price":280,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"X42LG6"
+    },
+    {
+        "barcode":9010001706765,
+        "name":"شواية باربيكيو ٤٠x٣٠",
+        "price":270,
+        "status":false,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"DWM5ZB"
+    },
+    {
+        "barcode":6223004894053,
+        "name":"شواية سلك لحمة كبيرة",
+        "price":270,
+        "status":true,
+        "category ":"الفحم ولوازم الشواء",
+        "sku":"BZNV6T"
+    },
+    {
+        "barcode":31602166,
+        "name":"موب دقدق",
+        "price":42,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"E24DX5"
+    },
+    {
+        "barcode":6281007169004,
+        "name":"المراعي شرائح جبنة البرجر، 10 شرائح ",
+        "price":158,
+        "status":true,
+        "category ":"الجبن المعبأة و المقطعة",
+        "sku":"2W7R15"
+    },
+    {
+        "barcode":31602967,
+        "name":"بوله ستاينلس ستيل مقاس 24 سم",
+        "price":294,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"B2ON88"
+    },
+    {
+        "barcode":6904017211869,
+        "name":"كاميل سويت شيلي صوص لحم 330جم",
+        "price":96,
+        "status":true,
+        "category ":"الصلصات و صلصات السلطة",
+        "sku":"FSJHQJ"
+    },
+    {
+        "barcode":6904017211555,
+        "name":"كاميل صويا صوص غامق",
+        "price":78,
+        "status":true,
+        "category ":"الصلصات و صلصات السلطة",
+        "sku":"W22ZJC"
+    },
+    {
+        "barcode":6904017211524,
+        "name":"كاميل صويا صوص فاتح 250ملل",
+        "price":78,
+        "status":true,
+        "category ":"الصلصات و صلصات السلطة",
+        "sku":"TEFHXQ"
+    },
+    {
+        "barcode":6904017211562,
+        "name":"كاميل صويا صوص غامق",
+        "price":55,
+        "status":true,
+        "category ":"الصلصات و صلصات السلطة",
+        "sku":"RN4ZCE"
+    },
+    {
+        "barcode":6904017211531,
+        "name":"كاميل صلصة الصويا الخفيفة، 150 مل",
+        "price":55,
+        "status":true,
+        "category ":"الصلصات و صلصات السلطة",
+        "sku":"RC1HZZ"
+    },
+    {
+        "barcode":8906021073417,
+        "name":"روباريل زبدة الفول السوداني كرانشي - 340 جرام",
+        "price":120,
+        "status":true,
+        "category ":"طعام قابل للفرد",
+        "sku":"W8OTEL"
+    },
+    {
+        "barcode":6224008857501,
+        "name":"فرايداي آيس كريم سوبر بريميم شوكولاتة",
+        "price":15,
+        "status":false,
+        "category ":"أكواب الآيس كريم",
+        "sku":"BXVKKG"
+    },
+    {
+        "barcode":5053990101597,
+        "name":"برينجلز بالكريمة الحامضة والبصل 165 غم",
+        "price":180,
+        "status":false,
+        "category ":"رقائق معلبة",
+        "sku":"HIGVOK"
+    },
+    {
+        "barcode":6224008470014,
+        "name":"حليب صحي طازج كامل الدسم، 850 مل",
+        "price":55,
+        "status":true,
+        "category ":"اللبن الطازج",
+        "sku":"RX70HG"
+    },
+    {
+        "barcode":6224008470496,
+        "name":"هيلثي شراب لبن رايب عادي، 850 مليلتر",
+        "price":58,
+        "status":true,
+        "category ":"الرايب",
+        "sku":"286SBC"
+    },
+    {
+        "barcode":6224008470045,
+        "name":"هيلثي حليب طبيعي بالشوكولاتة، 850 مليلتر",
+        "price":72,
+        "status":false,
+        "category ":"العصائر الطازجة",
+        "sku":"X79MB5"
+    },
+    {
+        "barcode":6224008470335,
+        "name":"هيلثي قهوة مثلجة مع الحليب، 250 مليلتر",
+        "price":30,
+        "status":true,
+        "category ":"العصائر الطازجة",
+        "sku":"E0RZWS"
+    },
+    {
+        "barcode":6224008470434,
+        "name":"هيلثي قهوة مثلجة بالبندق مع الحليب، 250 مليلتر",
+        "price":30,
+        "status":false,
+        "category ":"العصائر الطازجة",
+        "sku":"AYQTI6"
+    },
+    {
+        "barcode":6224008470090,
+        "name":"هيلثي حليب طبيعي بالشوكولاتة، 250 مليلتر",
+        "price":30,
+        "status":true,
+        "category ":"العصائر الطازجة",
+        "sku":"3ZCTR9"
+    },
+    {
+        "barcode":6224008470298,
+        "name":"هيلثي شراب لبن رايب عادي، 250 مليلتر",
+        "price":30,
+        "status":true,
+        "category ":"الرايب",
+        "sku":"BCOVXZ"
+    },
+    {
+        "barcode":6224008470311,
+        "name":"هيلثي شراب لبن رايب بنكهة الخوخ، 250 مليلتر",
+        "price":28,
+        "status":false,
+        "category ":"العصائر الطازجة",
+        "sku":"W7CGUZ"
+    },
+    {
+        "barcode":6224008470885,
+        "name":"هيلثي زبادي كامل الدسم عادي، 400 غرام",
+        "price":30,
+        "status":true,
+        "category ":"زبادي سادة",
+        "sku":"H8C0O9"
+    },
+    {
+        "barcode":6900311380942,
+        "name":"سلة غسيل بلاستيكية حبل",
+        "price":540,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"RTDVW0"
+    },
+    {
+        "barcode":2013540002128,
+        "name":"حبل غسيل سلك 20م لوكس",
+        "price":70,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"HX914H"
+    },
+    {
+        "barcode":6296901913561,
+        "name":"كيتشن مارك حبل غسيل، 15 متر",
+        "price":50,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"IQ684E"
+    },
+    {
+        "barcode":31604455,
+        "name":"مكبس برجر",
+        "price":95,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"J860EV"
+    },
+    {
+        "barcode":6222026422251,
+        "name":"مكبس برجر",
+        "price":95,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"QK63RP"
+    },
+    {
+        "barcode":6224007367360,
+        "name":"ريحانة سكر 1 كجم",
+        "price":55,
+        "status":false,
+        "category ":"السكر و المحليات",
+        "sku":"BXHLBQ"
+    },
+    {
+        "barcode":6221999652511,
+        "name":"الهلال ديكور بستله",
+        "price":270,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"XNJO9I"
+    },
+    {
+        "barcode":6221999337760,
+        "name":"الهلال بستله",
+        "price":395,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"AAYZWJ"
+    },
+    {
+        "barcode":6221999651736,
+        "name":"الهلال رينبو فيرونا زعافه",
+        "price":114,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"QZXIK6"
+    },
+    {
+        "barcode":6294016422893,
+        "name":"زجاجة كاتشب ، 2×600 مل",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"DE3XF1"
+    },
+    {
+        "barcode":7868904566731,
+        "name":"ماجستيك زجاجة كاتشب Mh2304214",
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"E7NAWI"
+    },
+    {
+        "barcode":6223000757215,
+        "name":"دومتي جولد جبنة فيتا طبيعية %100 - 250 جرام",
+        "price":48,
+        "status":true,
+        "category ":"الجبن المعبأة و المقطعة",
+        "sku":"LDCDU7"
+    },
+    {
+        "barcode":6223007651271,
+        "name":"حفاضات جود كير للأطفال، مقاس 4، لارج-ماكسي، من 7-18 كجم - 40 قطعة",
+        "price":220,
+        "status":true,
+        "category ":"حفاضات الأطفال",
+        "sku":"FMKIH2"
+    },
+    {
+        "barcode":6223007651295,
+        "name":"حفاضات جود كير للأطفال، مقاس 5، إكس إل-جونيور، من 11-25 كجم - 40 قطعة",
+        "price":250,
+        "status":true,
+        "category ":"حفاضات الأطفال",
+        "sku":"GTD5KM"
+    },
+    {
+        "barcode":6224007557143,
+        "name":"مولفيكس حفاضات مقاس 5 جونيور 58 قطعة",
+        "price":465,
+        "status":true,
+        "category ":"حفاضات الأطفال",
+        "sku":"JMP0M9"
+    },
+    {
+        "barcode":6224008033066,
+        "name":"بيج كولا علبة مشروب غازي بالنكهة الأصلية، 330 مل",
+        "price":20,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"99CY0E"
+    },
+    {
+        "barcode":6224008033004,
+        "name":"بيج كولا  360 ملي",
+        "price":15,
+        "status":true,
+        "category ":"المشروبات الغازية",
+        "sku":"VE16PA"
+    },
+    {
+        "barcode":6221158400960,
+        "name":"أبو حمدة مخرطة صغيرة بمقبض",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"AU838B"
+    },
+    {
+        "barcode":57076119,
+        "name":"مخرطة فولاذية",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"EP18KP"
+    },
+    {
+        "barcode":5000263505224,
+        "name":"برستيخ مخرطة ملوخية",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"WVPBIS"
+    },
+    {
+        "barcode":680678176568,
+        "name":"باشابتشى طقم كاسات زجاج برميل شفاف 340 مل 3 قطع",
+        "price":180,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"8GMHD7"
+    },
+    {
+        "barcode":2020000061625,
+        "name":"هالوين برميل اليقطين، طويل",
+        "price":145,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"0SR3UC"
+    },
+    {
+        "barcode":6224007923436,
+        "name":"فوتا شنطة حفظ طعام + 5كيلو فحم",
+        "price":510,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"1UW39D"
+    },
+    {
+        "barcode":6224007923931,
+        "name":"فوتا شنطه حفط الحراره - وسط",
+        "price":180,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"4ZLMB5"
+    },
+    {
+        "barcode":6944641491886,
+        "name":"ماسك مشاوي استانلس*سليكون",
+        "price":95,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"XZXL32"
+    },
+    {
+        "barcode":31604081,
+        "name":"ماسك مشاوي أستانلس مضلع وسط",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"IPF2N1"
+    },
+    {
+        "barcode":8693357097285,
+        "name":"باساباتشي بونبونير زجاج مع غطاء",
+        "price":395,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"3GKC7T"
+    },
+    {
+        "barcode":6221999357072,
+        "name":"سبت غسيل مربع بوبوس",
+        "price":325,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"J869FP"
+    },
+    {
+        "barcode":6222011709480,
+        "name":"الوطنية سبت فيلو 2",
+        "price":325,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"B3HR17"
+    },
+    {
+        "barcode":6221999131801,
+        "name":"الهلال فرشاه بلاط مكواه سوبر",
+        "price":36,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"RCT2Q7"
+    },
+    {
+        "barcode":54881005906,
+        "name":"أحمد تي شاي الفطور الانجليزي، 2 غرام × 25 كيس شاي",
+        "price":52,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"VQYVEO"
+    },
+    {
+        "barcode":54881005890,
+        "name":"أحمد تي شاي أخضر، 25 كيس شاي",
+        "price":52,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"O35YTM"
+    },
+    {
+        "barcode":54881014915,
+        "name":"احمد تى شاي  قرنفل 25 فتلة",
+        "price":60,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"4KSBIR"
+    },
+    {
+        "barcode":54881004732,
+        "name":"أحمد تى شاي أخضر بالنعناع 25 فتلة",
+        "price":60,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"B4D3KX"
+    },
+    {
+        "barcode":54881005999,
+        "name":"أحمد تى  شاي انجليزى 25 فتله",
+        "price":52,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"YWZHEQ"
+    },
+    {
+        "barcode":54881011181,
+        "name":"أحمد تى شاي لندن بلند 25 فتله",
+        "price":45,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"4WARAX"
+    },
+    {
+        "barcode":54881026932,
+        "name":"أحمد تي أكياس شاي لندن بلايند أسود مع النعناع، 25 كيس",
+        "price":52,
+        "status":true,
+        "category ":"شاى أعشاب",
+        "sku":"6SFAW4"
+    },
+    {
+        "barcode":8008990003133,
+        "name":"0313 تونكيتا بروف موب بلس",
+        "price":55,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"FAK2LY"
+    },
+    {
+        "barcode":54881008563,
+        "name":"احمد تي شاى اخضر 250 جم",
+        "price":145,
+        "status":false,
+        "category ":"شاى أعشاب",
+        "sku":"CGOCT4"
+    },
+    {
+        "barcode":3800008904,
+        "name":"جردل بلاستيك مع فتالة تركي 13 لتر TURKEY-2601114",
+        "price":696,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"EgyptianFox"
+    },
+    {
+        "barcode":6221999651590,
+        "name":"الهلال جردل فوريره الشبح",
+        "price":696,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"NBLGYM"
+    },
+    {
+        "barcode":6221066083484,
+        "name":"دي ستار سلاك ماستر أحمر متوسط، قطعة واحدة",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"VKDGX2"
+    },
+    {
+        "barcode":6291105984577,
+        "name":"العالمية كنكة قهوة مقاس 6",
+        "price":120,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"IDJIF4"
+    },
+    {
+        "barcode":6291105984553,
+        "name":"العالمية كنكة قهوة رقم 4",
+        "price":100,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"EFYWBK"
+    },
+    {
+        "barcode":6294441113725,
+        "name":"الدوري كنكة المصري سادة نحاسي مقاس 2",
+        "price":144,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"R7VFOX"
+    },
+    {
+        "barcode":8902061212700,
+        "name":"سبوتيرو سبين موب ايزي اس اس",
+        "price":696,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"ZS0ALG"
+    },
+    {
+        "barcode":8697409841864,
+        "name":"زامباك موب براتيك ، 17 سم",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"0B6A51"
+    },
+    {
+        "barcode":4891729020020,
+        "name":"ممسحة قطنية 20 سم",
+        "price":75,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"XAK2SF"
+    },
+    {
+        "barcode":8003705116788,
+        "name":"اريتي حلة طعام صحية بالبخار 9 لتر 0911 W",
+        "price":1680,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"F9VGBF"
+    },
+    {
+        "barcode":5999108419621,
+        "name":"بيرلينجر هاوس روز باخرة طعام كهربائية ذهبية، 6 لتر",
+        "price":990,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"9I7GIB"
+    },
+    {
+        "barcode":885595023753,
+        "name":"راج قدر بخار ستانلس ستيل، رمادي",
+        "price":199,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"25X7SD"
+    },
+    {
+        "barcode":623769159487,
+        "name":"قالب ثلج باللون الأبيض من فينوس - خالٍ من ثنائي الفينول أ",
+        "price":85,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"DGR7XC"
+    },
+    {
+        "barcode":2010012289360,
+        "name":"شيف برايد قالب ثلج مظلة 4 في 1",
+        "price":36,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"EXWYW7"
+    },
+    {
+        "barcode":6225000482340,
+        "name":"بلاك هوك بروتين بار بكريمة الموز 70 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"N5L8OU"
+    },
+    {
+        "barcode":6225000468528,
+        "name":null,
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"FJKF16"
+    },
+    {
+        "barcode":6225000482319,
+        "name":"بلاك هوك بروتين بار بندق 70 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"WSLWCC"
+    },
+    {
+        "barcode":6225000467415,
+        "name":"بلاك هوك بروتين بار موكا 70 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"O0IY0J"
+    },
+    {
+        "barcode":6225000467446,
+        "name":"بلاك هوك لوح بروتين بالفراولة ، 70 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"0S3F0Z"
+    },
+    {
+        "barcode":6225000482357,
+        "name":"بلاك هوك بالكراميل لوح بروتين ، 70 جم",
+        "price":55,
+        "status":true,
+        "category ":"الشيكولاتة",
+        "sku":"XOI9UT"
+    },
+    {
+        "barcode":8711155475934,
+        "name":"أميفا آر إس أرتيزان سكين تقشير بمقبض خشبي، 9 سنتيمترات",
+        "price":45,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"666KMM"
+    },
+    {
+        "barcode":7891112110182,
+        "name":"ترامونتينا سكين تقشير التراكورتي 3 بوصة",
+        "price":55,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"6E3EDO"
+    },
+    {
+        "barcode":6221158400304,
+        "name":"أبو حمدة سكين خبز مسنن ، 10بوصات",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HE1B0R"
+    },
+    {
+        "barcode":6221158400274,
+        "name":"أبو حمدة سكين خبز مسنن، 8 بوصات",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"65CGH8"
+    },
+    {
+        "barcode":6291104882089,
+        "name":"ماصات لمعان ، 100 قطعة",
+        "price":36,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"WZRCBJ"
+    },
+    {
+        "barcode":6294007802475,
+        "name":"رويال ماصات شرب مرنة ، 100 قطعة",
+        "price":36,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"3RD0YR"
+    },
+    {
+        "barcode":6253012604016,
+        "name":"ماصات شرب مرنة RZ 50 قطعة",
+        "price":36,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HR3WFY"
+    },
+    {
+        "barcode":2283894320012,
+        "name":"ماسا فوطه سياره الوان مختلفه",
+        "price":35,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"8U9UMI"
+    },
+    {
+        "barcode":6998468560010,
+        "name":"ماسا فوطه سياره مركات الوان",
+        "price":35,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"PWOO0U"
+    },
+    {
+        "barcode":7404623510,
+        "name":"فوطه مطبخ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"FQ2XRU"
+    },
+    {
+        "barcode":6224009300150,
+        "name":"ماكس ارت زجاجه مياه",
+        "price":50,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"UBTKOL"
+    },
+    {
+        "barcode":2200000099433,
+        "name":"لوح تقطيع بلاستيك كبير",
+        "price":145,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"G985OX"
+    },
+    {
+        "barcode":6222011709473,
+        "name":"الوطنية سبت فيلو 1",
+        "price":270,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"KG9TFO"
+    },
+    {
+        "barcode":6223001878742,
+        "name":"المراعي يوجو مشروب زبادي مانجو 220 مل",
+        "price":23,
+        "status":true,
+        "category ":"البودينج و المحليات",
+        "sku":"3A25YW"
+    },
+    {
+        "barcode":3168430274501,
+        "name":"سكينة شرائح ستانلس ستيل آيس فورس من تيفال 11 سم - مجموعة من 4 قطع ذات تصميم مميز",
+        "price":540,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HE9A4L"
+    },
+    {
+        "barcode":null,
+        "name":null,
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"M0J3YE"
+    },
+    {
+        "barcode":null,
+        "name":null,
+        "price":30,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"YVZM4M"
+    },
+    {
+        "barcode":6294020014190,
+        "name":"رويال فورد سكينة فواكه، قطعتين",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"BYGFD5"
+    },
+    {
+        "barcode":6296901400887,
+        "name":"فنج أند فنج سكين مطبخ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"P6LZR4"
+    },
+    {
+        "barcode":663234010414,
+        "name":"كونكورد  سكين مطبخ 2 قطعة",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"895S3Y"
+    },
+    {
+        "barcode":663234013866,
+        "name":"كونكورد سكين مطبخ ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"U5EXT9"
+    },
+    {
+        "barcode":663234016706,
+        "name":"كونكورد سكين مطبخ ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"8ZOCGD"
+    },
+    {
+        "barcode":7891112108387,
+        "name":"ترامونتينا سكين مطبخ بوليوود 6 بوصة",
+        "price":240,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"7LAJI9"
+    },
+    {
+        "barcode":6296901400924,
+        "name":"فنج أند فنج سكين الشائكة",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"2DCWIJ"
+    },
+    {
+        "barcode":6943342300015,
+        "name":"فنج أند فنج سكين عصر الفولاذ المقاوم للصدأ",
+        "price":60,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"RCPBAE"
+    },
+    {
+        "barcode":6291105984041,
+        "name":"العالمية حلة هنا بيد الومنيوم 28 سم ",
+        "price":372,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"TSPZFB"
+    },
+    {
+        "barcode":6291105984058,
+        "name":"العالمية حلة هنا بيد الومنيوم 30 سم ",
+        "price":390,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"YIBRR7"
+    },
+    {
+        "barcode":31604728,
+        "name":"حلة شاورمة 24 سم الومنيوم الزنوكى",
+        "price":425,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"FREYC2"
+    },
+    {
+        "barcode":8851991700262,
+        "name":"قدر طبخ 26 سم",
+        "price":414,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"HSQCFW"
+    },
+    {
+        "barcode":8851991700309,
+        "name":"قدر طبخ 30 سم",
+        "price":450,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"DGBE7O"
+    },
+    {
+        "barcode":6222014301322,
+        "name":"زبادي جهينة اليوناني بنكهة الأناناس 180 جرام",
+        "price":48,
+        "status":false,
+        "category ":"زبادي يوناني",
+        "sku":"QZBTK7"
+    },
+    {
+        "barcode":6222014353147,
+        "name":"جهينه زبادي يوناني فانيليا 180جم",
+        "price":48,
+        "status":false,
+        "category ":"زبادي يوناني",
+        "sku":"0DHIO6"
+    },
+    {
+        "barcode":6223004276699,
+        "name":"اللحيمي مفروم  600جم",
+        "price":146,
+        "status":false,
+        "category ":"لحم مفروم",
+        "sku":"YEBESP"
+    },
+    {
+        "barcode":6221012003337,
+        "name":"تيميز شوكو بيلو حبوب الفطور، 300 جرام",
+        "price":105,
+        "status":true,
+        "category ":"حبوب الإفطار",
+        "sku":"R4UCG9"
+    },
+    {
+        "barcode":6291103651587,
+        "name":"3 ام اس بي برايت موب شرائط كلاسيك صفراء",
+        "price":66,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"PE7JMG"
+    },
+    {
+        "barcode":6221999348049,
+        "name":"الهلال ديكور سله قمامه بدال",
+        "price":306,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"QMG8RR"
+    },
+    {
+        "barcode":6221999398938,
+        "name":"الهلال كمودينو راتان 4 درج",
+        "price":870,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"N16GG5"
+    },
+    {
+        "barcode":1000002713112,
+        "name":"زجاجة رياضية، 800 مل",
+        "price":150,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"V9Q8TW"
+    },
+    {
+        "barcode":6291101403959,
+        "name":"راج سخان قهوة غير لاصق رقم 2 ، قطعة واحدة",
+        "price":175,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"ZXIA0Z"
+    },
+    {
+        "barcode":6291104221475,
+        "name":"راج سخان قهوة تركي، كبير",
+        "price":150,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"A8LLF7"
+    },
+    {
+        "barcode":6221999286549,
+        "name":"سندريلا ليفه سفنجه حاميه اظافر",
+        "price":20,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"S28H7E"
+    },
+    {
+        "barcode":2055010004461,
+        "name":"ليفه سوبر اسود 3",
+        "price":36,
+        "status":false,
+        "category ":"الأدوات المنزلية",
+        "sku":"NS7A5Q"
+    },
+    {
+        "barcode":8697480521297,
+        "name":"كرسي حمام قوي",
+        "price":120,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"NM99JE"
+    },
+    {
+        "barcode":6251052013102,
+        "name":"كرسي حمام الأردن",
+        "price":120,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"KGZ0B1"
+    },
+    {
+        "barcode":null,
+        "name":"كاجو",
+        "price":85,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"8B7LYW"
+    },
+    {
+        "barcode":2021089,
+        "name":"فستق - 100 جم",
+        "price":95,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"J40LJ8"
+    },
+    {
+        "barcode":null,
+        "name":"عين جمل 100 جم",
+        "price":75,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"TMRG2E"
+    },
+    {
+        "barcode":null,
+        "name":"مقرمشات مشكله",
+        "price":40,
+        "status":false,
+        "category ":"المكسرات والبذور",
+        "sku":"EY4NG1"
+    },
+    {
+        "barcode":8696287092238,
+        "name":"جاروف",
+        "price":36,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"L5PN2V"
+    },
+    {
+        "barcode":8690030006455,
+        "name":"جاروف بلاستيك",
+        "price":36,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"2JTQY0"
+    },
+    {
+        "barcode":6555191201391,
+        "name":"فرشاة مع جاروف",
+        "price":60,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"MSOY2G"
+    },
+    {
+        "barcode":6221999651682,
+        "name":"الهلال رينبو ك\/جاروف - فرشاه",
+        "price":60,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"QC5624"
+    },
+    {
+        "barcode":8901663001989,
+        "name":"غالا طقم تنظيف فرشاة و جاروف",
+        "price":60,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"9XYDF3"
+    },
+    {
+        "barcode":6221999183909,
+        "name":"الهلال جاروف بيد",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"GEF201"
+    },
+    {
+        "barcode":5202003005005,
+        "name":"اتش تي اي لوفة طبيعية",
+        "price":100,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"VTOZ09"
+    },
+    {
+        "barcode":6920220922125,
+        "name":"الدب الابيض لوف أسطواني طبيعي",
+        "price":55,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"YGP23J"
+    },
+    {
+        "barcode":8003653028706,
+        "name":"جاروف مع يد قابلة للطي رقم TK528",
+        "price":102,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"634NZF"
+    },
+    {
+        "barcode":6970738485247,
+        "name":"منشة ذبابة بلاستيكية 1 قطعة",
+        "price":20,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"5B1XRT"
+    },
+    {
+        "barcode":6237691701570,
+        "name":"ولاعه بوتجاز بلاستيك",
+        "price":42,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"1H6FEY"
+    },
+    {
+        "barcode":6253810503849,
+        "name":"ولاعة موقد مع كابل USB",
+        "price":108,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"0YU6G5"
+    },
+    {
+        "barcode":500017777,
+        "name":"صندوق نقود على شكل حصالة بحجم 7.8 × 10 سم",
+        "price":25,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"OUQST3"
+    },
+    {
+        "barcode":6951202837540,
+        "name":"فتاحة علب وزجاجات ، 1 قطعة",
+        "price":114,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"6SBNBU"
+    },
+    {
+        "barcode":6954537865493,
+        "name":"كي اتش بي طقم ملاعق خشبية ، 3 قطع",
+        "price":75,
+        "status":false,
+        "category ":"أدوات المطبخ",
+        "sku":"MUKDY3"
+    },
+    {
+        "barcode":31603789,
+        "name":"شياطة أرز دائرية ",
+        "price":50,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Z57KOE"
+    },
+    {
+        "barcode":8680445159390,
+        "name":"رينا مورا ممسحة مناشف مايكروفايبر ، قطعة واحدة",
+        "price":54,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"JOVMNZ"
+    },
+    {
+        "barcode":10000240721,
+        "name":"ممسحة غزل القطن الخالص من Haoting",
+        "price":90,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"351638"
+    },
+    {
+        "barcode":6931785115617,
+        "name":"مسن السكين",
+        "price":85,
+        "status":true,
+        "category ":"أدوات المطبخ",
+        "sku":"Q41X56"
+    },
+    {
+        "barcode":6925865358865,
+        "name":"اكسنتونج خيزران بيج ، 20 قطعة",
+        "price":30,
+        "status":true,
+        "category ":"الأدوات المنزلية",
+        "sku":"J31SUZ"
+    }
+]

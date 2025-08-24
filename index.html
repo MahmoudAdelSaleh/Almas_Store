@@ -512,13 +512,49 @@
                     </div>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-column">
-                        <select id="jsonFileSelect" class="form-control">
-                            <option value="p.json">p.json</option>
-                            <option value="p1.json">p1.json</option>
-                        </select>
-                    </div>
+               <div class="form-row">
+    <div class="form-column">
+        <select id="jsonFileSelect" class="form-control">
+            <option value="p1.json">p1.json</option>
+            <option value="p2.json">p2.json</option>
+            <option value="p3.json">p3.json</option>
+            <option value="p4.json">p4.json</option>
+        </select>
+    </div>
+</div>
+
+<div id="jsonData"></div>
+
+<script>
+document.getElementById('jsonFileSelect').addEventListener('change', function() {
+    const selectedFile = this.value;
+    
+    fetch(selectedFile)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('خطأ في تحميل الملف:', error);
+            document.getElementById('jsonData').textContent = 'حدث خطأ في تحميل الملف: ' + error;
+        });
+});
+
+// تحميل الملف الافتراضي عند فتح الصفحة
+window.addEventListener('DOMContentLoaded', function() {
+    const defaultFile = document.getElementById('jsonFileSelect').value;
+    
+    fetch(defaultFile)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('خطأ في تحميل الملف الافتراضي:', error);
+            document.getElementById('jsonData').textContent = 'حدث خطأ في تحميل الملف الافتراضي: ' + error;
+        });
+});
+</script>
                     <div class="form-column">
                         <input type="text" id="itemsSearch" placeholder="ابحث عن أصناف" class="form-control" />
                     </div>

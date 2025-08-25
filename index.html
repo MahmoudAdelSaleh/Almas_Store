@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة متجر الألماس</title>
+    <title>متجر الألماس - نظام متكامل</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #4a6baf;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --gray-color: #6c757d;
+        }
+        
         * {
             box-sizing: border-box;
             margin: 0;
@@ -13,407 +25,1255 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --danger: #c0392b;
-        }
-        
         body {
-            background: linear-gradient(120deg, #1a2a6c, #b21f1f, #fdbb2d);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #f5f5f5;
             color: #333;
-        }
-        
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            line-height: 1.6;
         }
         
         .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 900px;
-            min-height: 500px;
-            overflow: hidden;
             display: flex;
+            min-height: 100vh;
         }
         
-        .welcome-section {
-            flex: 1;
-            background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+        /* الشريط الجانبي */
+        .sidebar {
+            width: 250px;
+            background-color: var(--dark-color);
             color: white;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 1rem 0;
         }
         
-        .login-section {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .sidebar-header {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .sidebar-header h2 {
             display: flex;
             align-items: center;
         }
         
-        .logo i {
-            margin-left: 10px;
-            color: #f1c40f;
+        .sidebar-header i {
+            margin-left: 0.5rem;
         }
         
-        .welcome-text h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-        
-        .welcome-text p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .features {
+        .sidebar-menu {
             list-style: none;
-            margin-top: 30px;
         }
         
-        .features li {
-            margin-bottom: 15px;
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-menu a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar-menu i {
+            margin-left: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* المحتوى الرئيسي */
+        .main-content {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .page-title {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        /* بطاقات الإحصائيات */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
         }
         
-        .features i {
-            margin-left: 10px;
-            color: #f1c40f;
-            font-size: 18px;
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+        }
+        
+        .products-icon {
+            background-color: rgba(74, 107, 175, 0.2);
+            color: var(--primary-color);
+        }
+        
+        .categories-icon {
+            background-color: rgba(52, 152, 219, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .orders-icon {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: var(--accent-color);
+        }
+        
+        .stat-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .stat-info p {
+            color: var(--gray-color);
+        }
+        
+        /* لوحة التحكم */
+        .dashboard-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .action-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .action-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #3a559c;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: #bd2130;
+        }
+        
+        .btn:disabled {
+            background-color: var(--gray-color);
+            cursor: not-allowed;
+        }
+        
+        /* جدول المنتجات */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th, table td {
+            padding: 0.8rem;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        
+        table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+        }
+        
+        .badge-success {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: var(--success-color);
+        }
+        
+        .badge-warning {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: var(--warning-color);
+        }
+        
+        .badge-danger {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: var(--danger-color);
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-btn {
+            background-color: var(--secondary-color);
+            margin-left: 0.5rem;
+        }
+        
+        .edit-btn:hover {
+            background-color: #258cd1;
+        }
+        
+        .delete-btn {
+            background-color: var(--danger-color);
+        }
+        
+        .delete-btn:hover {
+            background-color: #bd2130;
+        }
+        
+        /* نموذج الإضافة */
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
         }
         
         .form-title {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 30px;
-            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
         }
         
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        
-        .input-group input:focus {
-            border-color: var(--secondary);
-            outline: none;
-        }
-        
-        .login-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-            font-weight: 500;
-        }
-        
-        .login-btn:hover {
-            background: var(--secondary);
-        }
-        
-        .divider {
-            text-align: center;
-            margin: 25px 0;
-            position: relative;
-        }
-        
-        .divider::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-            background: #ddd;
-        }
-        
-        .divider span {
-            background: white;
-            position: relative;
-            padding: 0 15px;
-            color: #777;
-        }
-        
-        .quick-login {
+        .form-row {
             display: flex;
-            justify-content: space-between;
-            gap: 10px;
+            flex-wrap: wrap;
+            margin: 0 -0.5rem;
+            margin-bottom: 1rem;
         }
         
-        .quick-btn {
+        .form-group {
             flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
+            padding: 0 0.5rem;
+            min-width: 250px;
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+        
+        /* استيراد JSON */
+        .json-import {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .json-import h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .file-selector {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: all 0.3s;
+            margin-bottom: 1rem;
         }
         
-        .admin-btn {
-            background: var(--primary);
-            color: white;
+        .file-selector select {
+            margin-left: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
         
-        .manager-btn {
-            background: var(--secondary);
-            color: white;
+        .json-preview {
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
         }
         
-        .quick-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-        
-        .alert {
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+        /* التنقل بين الصفحات */
+        .content-section {
             display: none;
         }
         
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        .content-section.active {
+            display: block;
         }
         
-        .credentials {
-            background: #f8f9fa;
+        /* التنسيق العام */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-3 {
+            margin-top: 1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--success-color);
+            color: white;
+            padding: 1rem;
             border-radius: 5px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
         }
         
-        .credentials h3 {
-            margin-bottom: 10px;
-            color: var(--dark);
+        .notification.error {
+            background-color: var(--danger-color);
+        }
+        
+        .notification.warning {
+            background-color: var(--warning-color);
+            color: var(--dark-color);
+        }
+        
+        /* صفحة الدخول */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #4a6baf 0%, #3498db 100%);
+        }
+        
+        .login-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             font-size: 16px;
         }
         
-        .credential {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
+        .login-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .role {
-            font-weight: 500;
+        .login-btn:hover {
+            background-color: #3a559c;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                max-width: 400px;
-            }
-            
-            .welcome-section {
-                padding: 30px;
-            }
-            
-            .login-section {
-                padding: 30px;
-            }
+        .admin-info {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .admin-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .credentials {
+            background-color: #e9ecef;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
         }
     </style>
+    
+    <!-- إضافة Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="welcome-section">
-            <div class="logo">
-                <i class="fas fa-gem"></i>
-                <span>متجر الألماس</span>
+    <div id="loginPage" class="login-container">
+        <div class="login-form">
+            <h2><i class="fas fa-lock"></i> تسجيل الدخول للإدارة</h2>
+            <div class="form-group">
+                <input type="text" id="usernameInput" placeholder="اسم المستخدم" value="admin">
             </div>
-            <div class="welcome-text">
-                <h2>مرحباً بك في نظام الإدارة</h2>
-                <p>من خلال هذه البوابة يمكنك إدارة متجرك بالكامل، والتحكم في المنتجات والطلبات والعملاء.</p>
+            <div class="form-group">
+                <input type="password" id="passwordInput" placeholder="كلمة المرور" value="admin123">
             </div>
-            <ul class="features">
-                <li><i class="fas fa-check-circle"></i> إدارة المنتجات والفئات</li>
-                <li><i class="fas fa-check-circle"></i> متابعة الطلبات والمبيعات</li>
-                <li><i class="fas fa-check-circle"></i> إدارة العملاء والمستخدمين</li>
-                <li><i class="fas fa-check-circle"></i> تقارير مفصلة عن الأداء</li>
+            <button class="login-btn" id="loginBtn">دخول</button>
+            
+            <div class="admin-info">
+                <h3>بيانات الدخول:</h3>
+                <div class="credentials">
+                    المستخدم: admin<br>
+                    كلمة المرور: admin123
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="appContainer" class="container hidden">
+        <!-- الشريط الجانبي -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-gem"></i> إدارة المتجر</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                <li><a href="#" data-section="products"><i class="fas fa-box"></i> المنتجات</a></li>
+                <li><a href="#" data-section="categories"><i class="fas fa-tags"></i> التصنيفات</a></li>
+                <li><a href="#" data-section="orders"><i class="fas fa-shopping-cart"></i> الطلبات</a></li>
+                <li><a href="#" data-section="customers"><i class="fas fa-users"></i> العملاء</a></li>
+                <li><a href="#" data-section="import"><i class="fas fa-file-import"></i> استيراد منتجات</a></li>
+                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
             </ul>
         </div>
         
-        <div class="login-section">
-            <h2 class="form-title">تسجيل الدخول</h2>
-            
-            <div class="alert alert-success" id="loginAlert">
-                تم تسجيل الدخول بنجاح! يتم التوجيه إلى لوحة التحكم...
-            </div>
-            
-            <div class="input-group">
-                <label for="email">البريد الإلكتروني</label>
-                <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني">
-            </div>
-            
-            <div class="input-group">
-                <label for="password">كلمة المرور</label>
-                <input type="password" id="password" placeholder="أدخل كلمة المرور">
-            </div>
-            
-            <button class="login-btn" id="loginBtn">تسجيل الدخول</button>
-            
-            <div class="divider">
-                <span>أو</span>
-            </div>
-            
-            <div class="quick-login">
-                <button class="quick-btn admin-btn" id="adminBtn">
-                    <i class="fas fa-user-shield"></i> مدير النظام
-                </button>
-                <button class="quick-btn manager-btn" id="managerBtn">
-                    <i class="fas fa-user-tie"></i> مدير المتجر
-                </button>
-            </div>
-            
-            <div class="credentials">
-                <h3>بيانات الدخول للاختبار:</h3>
-                <div class="credential">
-                    <span class="role">مدير النظام:</span>
-                    <span>admin@almas.com / admin123</span>
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <!-- لوحة التحكم -->
+            <div class="content-section active" id="dashboard">
+                <div class="header">
+                    <h1 class="page-title">لوحة التحكم</h1>
+                    <div id="currentDate">السبت، 15 يوليو 2023</div>
                 </div>
-                <div class="credential">
-                    <span class="role">مدير المتجر:</span>
-                    <span>manager@almas.com / manager123</span>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon products-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="productsCount">0</h3>
+                            <p>المنتجات</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon categories-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="categoriesCount">0</h3>
+                            <p>التصنيفات</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon orders-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="ordersCount">0</h3>
+                            <p>الطلبات</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <div class="action-card">
+                        <h3>إدارة المنتجات</h3>
+                        <p>قم بإضافة منتجات جديدة أو تعديل المنتجات الحالية</p>
+                        <a href="#" class="btn" data-section="products">الذهاب إلى المنتجات</a>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h3>استيراد المنتجات</h3>
+                        <p>استيراد منتجات من ملفات JSON بضغطة زر</p>
+                        <a href="#" class="btn" data-section="import">استيراد منتجات</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">آخر المنتجات المضافة</h2>
+                        <a href="#" data-section="products" class="btn">عرض الكل</a>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>الصورة</th>
+                                    <th>اسم المنتج</th>
+                                    <th>السعر</th>
+                                    <th>الكمية</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentProducts">
+                                <tr>
+                                    <td colspan="6" class="text-center">جاري تحميل البيانات...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم المنتجات -->
+            <div class="content-section" id="products">
+                <div class="header">
+                    <h1 class="page-title">إدارة المنتجات</h1>
+                    <button class="btn btn-success" id="addProductBtn"><i class="fas fa-plus"></i> إضافة منتج جديد</button>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">قائمة المنتجات</h2>
+                        <div>
+                            <input type="text" class="form-control" placeholder="ابحث عن منتج..." style="display: inline-block; width: auto;">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>الصورة</th>
+                                    <th>اسم المنتج</th>
+                                    <th>السعر</th>
+                                    <th>الكمية</th>
+                                    <th>التصنيف</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTable">
+                                <tr>
+                                    <td colspan="7" class="text-center">جاري تحميل البيانات...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- نموذج إضافة منتج -->
+                <div class="form-container hidden" id="productForm">
+                    <h2 class="form-title">إضافة منتج جديد</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">اسم المنتج</label>
+                            <input type="text" class="form-control" placeholder="أدخل اسم المنتج" id="productName">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">السعر (ج.م)</label>
+                            <input type="number" class="form-control" placeholder="أدخل السعر" id="productPrice">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">الكمية المتاحة</label>
+                            <input type="number" class="form-control" placeholder="أدخل الكمية" id="productQuantity">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">التصنيف</label>
+                            <select class="form-control" id="productCategory">
+                                <option value="">اختر التصنيف</option>
+                                <!-- سيتم ملئ هذا القسم بالتصنيفات -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">وصف المنتج</label>
+                            <textarea class="form-control" placeholder="أدخل وصف المنتج" id="productDescription"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">صورة المنتج</label>
+                            <input type="file" class="form-control" id="productImage">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-danger" id="cancelProductBtn">إلغاء</button>
+                        <button class="btn btn-success" id="saveProductBtn">حفظ المنتج</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم استيراد المنتجات -->
+            <div class="content-section" id="import">
+                <div class="header">
+                    <h1 class="page-title">استيراد المنتجات</h1>
+                </div>
+                
+                <div class="json-import">
+                    <h3>استيراد منتجات من ملف JSON</h3>
+                    
+                    <div class="file-selector">
+                        <label>اختر ملف JSON:</label>
+                        <select id="jsonFileSelect">
+                            <option value="p1.json">p1.json</option>
+                            <option value="p2.json">p2.json</option>
+                            <option value="p3.json">p3.json</option>
+                            <option value="p4.json">p4.json</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" id="loadJsonBtn"><i class="fas fa-download"></i> تحميل البيانات</button>
+                    <button class="btn btn-success" id="importJsonBtn"><i class="fas fa-file-import"></i> استيراد المنتجات</button>
+                    
+                    <div class="json-preview" id="jsonPreview">
+                        <p>سيظهر محتوى ملف JSON هنا بعد التحميل</p>
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h2 class="card-title">المنتجات الجاهزة للاستيراد</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>الباركود</th>
+                                    <th>اسم المنتج</th>
+                                    <th>السعر</th>
+                                    <th>التصنيف</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody id="importProductsTable">
+                                <tr>
+                                    <td colspan="5" class="text-center">لم يتم تحميل أي منتجات بعد</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الأقسام الأخرى -->
+            <div class="content-section" id="categories">
+                <div class="header">
+                    <h1 class="page-title">إدارة التصنيفات</h1>
+                    <button class="btn btn-success" id="addCategoryBtn"><i class="fas fa-plus"></i> إضافة تصنيف</button>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">قائمة التصنيفات</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>اسم التصنيف</th>
+                                    <th>عدد المنتجات</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoriesTable">
+                                <tr>
+                                    <td colspan="4" class="text-center">جاري تحميل البيانات...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section" id="orders">
+                <div class="header">
+                    <h1 class="page-title">إدارة الطلبات</h1>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">قائمة الطلبات</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>العميل</th>
+                                    <th>التاريخ</th>
+                                    <th>المبلغ</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTable">
+                                <tr>
+                                    <td colspan="6" class="text-center">جاري تحميل البيانات...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section" id="customers">
+                <div class="header">
+                    <h1 class="page-title">إدارة العملاء</h1>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">قائمة العملاء</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>اسم العميل</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>الهاتف</th>
+                                    <th>عدد الطلبات</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersTable">
+                                <tr>
+                                    <td colspan="6" class="text-center">جاري تحميل البيانات...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // بيانات المستخدمين
-        const users = {
-            admin: {
-                email: "admin@almas.com",
-                password: "admin123",
-                name: "مدير النظام",
-                role: "admin"
-            },
-            manager: {
-                email: "manager@almas.com",
-                password: "manager123",
-                name: "مدير المتجر",
-                role: "manager"
-            }
+        // معلومات تهيئة Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCfOzC8gkqkVSNZ3frtnnCMxbeq-v7yaTY",
+            authDomain: "almas-store-a51eb.firebaseapp.com",
+            databaseURL: "https://almas-store-a51eb-default-rtdb.firebaseio.com",
+            projectId: "almas-store-a51eb",
+            storageBucket: "almas-store-a51eb.firebasestorage.app",
+            messagingSenderId: "502522968593",
+            appId: "1:502522968593:web:e63bf84db5404d9a5bcfb0",
+            measurementId: "G-Z5F4JT5Q6H"
         };
         
-        // عناصر DOM
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
+        // تهيئة Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+        const storage = firebase.storage();
+        
+        // قائمة التصنيفات
+        const categories = [
+            "البقول المعلبة", "الشعرية والشوربة", "جبن مثلثات و كريمى", "المشروبات الغازية", "مياه الشرب",
+            "قطع وعصي الآيس كريم", "القهوة الفورية", "ساندويتشات", "أكواب الآيس كريم", "الأملاح والتوابل",
+            "الحليب المكثف و المجفف", "رقائق منتفخة", "المعكرونة", "مربى", "اللحوم المجمدة",
+            "صلصة الطماطم", "كاتشب و مايونيز", "الخل و الطحينة و المركزات", "عسل", "جل الغسيل و المبيضات",
+            "منتجات غسل الأطباق", "مساحيق الغسيل", "مستحضرات تنظيف المنازل", "صابون اليدين", "خلطات الطبخ",
+            "أدوات التنظيف", "الأدوات المنزلية", "مستلزمات تخزين الطعام", "الزيوت والسمن", "البسكويت",
+            "شاي سائب", "الأدوات و المعدات", "اللبن المحلى", "العصائر", "زبادي بالنكهات",
+            "الكيك والكوكيز", "الأحجام العائلية", "طعام نباتي", "الحلاوة", "مشروبات الشعير",
+            "القهوة التركية و القهوة المطحونة", "شراب محلى", "الحلوى واللبان", "الحليب المعبأ", "كريمات الطبخ",
+            "خضروات مجمدة", "المبيدات الحشرية", "منتجات الخبيز", "التوست", "الخبز",
+            "شاى أعشاب", "الكروسان و الكعك والمعجنات", "كرواسون", "مشروبات خاصة", "الارز المصري",
+            "البقول والحبوب", "المأكولات البحرية المعلبة", "الجبن البيضاء", "جبنة فيتا", "الجبن المعبأة و المقطعة",
+            "الموتزاريلا", "مسحوق الكاكاو", "المناديل و المناديل المبللة", "مناديل الحمام", "الزبدة",
+            "المشروبات الرياضية والطاقة", "زبادي سادة", "الرايب", "الشيكولاتة", "ويفر",
+            "طعام قابل للفرد", "معطرات الجو", "حفاضات الأطفال", "البودينج و المحليات", "العصائر الطازجة",
+            "مصنعات الدواجن", "المعجنات المجمدة", "منتجات الطبخ والخبز العضوية", "الفحم ولوازم الشواء", "جيل الاستحمام",
+            "منعمات الاقمشة", "الصلصات و صلصات السلطة", "شاي فتلة", "العصائر المركزة والمجففة", "اللحوم المعلبة",
+            "الخضروات", "الفواكه", "استهلاكيات المائدة", "اكياس النفايات", "رقائق الذرة",
+            "الحلويات", "بيض أبيض", "البيض الأحمر", "منتجات تصفيف الشعر", "المقرمشات",
+            "الفشار", "مقرمشات صحية", "الخضروات المعلبة", "أدوات المطبخ", "السلطات",
+            "رقائق و صلصات البطاطس", "المشروم المعلب", "السكر و المحليات", "كروت شحن", "أعشاب طازجة",
+            "شاى", "الزيتون والمخللات", "الأطعمة الخفيفة والمشروبات العضوية", "الارز البسمتي", "أطعمة الحيوانات الأليفة",
+            "منتجات الحلاقة", "معجون الأسنان", "زبادي يوناني", "اللبن الطازج", "المكسرات والبذор",
+            "اللحوم الباردة", "دواجن طازجة", "رقائق معلبة", "عناية الأحذية", "غسول اليدين",
+            "الفواكه المعلبة", "الشوفان", "حبوب الإفطار", "طعام الأطفال", "الشامبو",
+            "قهوة مثلجة", "أدوات الحلاقة", "مناديل المطبخ", "ماكينة الحلاقة"
+        ];
+        
+        // حالة التطبيق
+        let currentUser = null;
+        let jsonData = null;
+        
+        // عناصر واجهة المستخدم
+        const loginPage = document.getElementById('loginPage');
+        const appContainer = document.getElementById('appContainer');
         const loginBtn = document.getElementById('loginBtn');
-        const adminBtn = document.getElementById('adminBtn');
-        const managerBtn = document.getElementById('managerBtn');
-        const loginAlert = document.getElementById('loginAlert');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const usernameInput = document.getElementById('usernameInput');
+        const passwordInput = document.getElementById('passwordInput');
         
-        // تعبئة بيانات المدير
-        adminBtn.addEventListener('click', function() {
-            emailInput.value = users.admin.email;
-            passwordInput.value = users.admin.password;
+        // تحديث التاريخ الحالي
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = now.toLocaleDateString('ar-EG', options);
+        
+        // تهيئة التصنيفات في القائمة المنسدلة
+        const categorySelect = document.getElementById('productCategory');
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categorySelect.appendChild(option);
         });
         
-        // تعبئة بيانات مدير المتجر
-        managerBtn.addEventListener('click', function() {
-            emailInput.value = users.manager.email;
-            passwordInput.value = users.manager.password;
-        });
+        // إظهار الإشعار
+        function showNotification(message, type = 'success') {
+            // إزالة أي إشعارات سابقة
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
         
-        // عملية تسجيل الدخول
+        // تسجيل الدخول
         loginBtn.addEventListener('click', function() {
-            const email = emailInput.value;
+            const username = usernameInput.value;
             const password = passwordInput.value;
             
-            // التحقق من صحة البيانات
-            let validUser = null;
-            
-            if (email === users.admin.email && password === users.admin.password) {
-                validUser = users.admin;
-            } else if (email === users.manager.email && password === users.manager.password) {
-                validUser = users.manager;
-            }
-            
-            if (validUser) {
-                // عرض رسالة النجاح
-                loginAlert.style.display = 'block';
-                loginAlert.textContent = `مرحباً ${validUser.name}! تم تسجيل الدخول بنجاح...`;
-                loginAlert.className = 'alert alert-success';
+            if (username === 'admin' && password === 'admin123') {
+                currentUser = {
+                    name: 'مدير النظام',
+                    role: 'admin',
+                    email: 'admin@almas.com'
+                };
                 
                 // حفظ بيانات المستخدم
-                localStorage.setItem('currentUser', JSON.stringify(validUser));
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 
-                // الانتقال إلى لوحة التحكم بعد ثانيتين
-                setTimeout(() => {
-                    window.location.href = "admin-dashboard.html";
-                }, 2000);
+                showNotification('تم تسجيل الدخول بنجاح');
+                
+                // الانتقال إلى التطبيق
+                loginPage.classList.add('hidden');
+                appContainer.classList.remove('hidden');
+                
+                // تحميل البيانات
+                loadDashboardData();
             } else {
-                // عرض رسالة الخطأ
-                loginAlert.style.display = 'block';
-                loginAlert.textContent = 'بيانات الدخول غير صحيحة!';
-                loginAlert.className = 'alert alert-danger';
+                showNotification('اسم المستخدم أو كلمة المرور غير صحيحة', 'error');
             }
         });
         
-        // إدخال تلقائي عند النقر على الحقول
-        emailInput.addEventListener('focus', function() {
-            this.select();
+        // تسجيل الخروج
+        logoutBtn.addEventListener('click', function() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            
+            appContainer.classList.add('hidden');
+            loginPage.classList.remove('hidden');
+            
+            showNotification('تم تسجيل الخروج بنجاح');
         });
         
-        passwordInput.addEventListener('focus', function() {
-            this.select();
+        // التنقل بين الأقسام
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                if (sectionId) {
+                    // إخفاء جميع الأقسام
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // إزالة النشاط من جميع الروابط
+                    document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // إظهار القسم المحدد
+                    document.getElementById(sectionId).classList.add('active');
+                    this.classList.add('active');
+                    
+                    // تحميل بيانات القسم إذا لزم الأمر
+                    if (sectionId === 'products') {
+                        loadProducts();
+                    } else if (sectionId === 'categories') {
+                        loadCategories();
+                    } else if (sectionId === 'orders') {
+                        loadOrders();
+                    } else if (sectionId === 'customers') {
+                        loadCustomers();
+                    } else if (sectionId === 'dashboard') {
+                        loadDashboardData();
+                    }
+                }
+            });
+        });
+        
+        // تحميل بيانات لوحة التحكم
+        function loadDashboardData() {
+            // جلب عدد المنتجات
+            db.collection("products").get().then((querySnapshot) => {
+                document.getElementById('productsCount').textContent = querySnapshot.size;
+            });
+            
+            // جلب عدد التصنيفات
+            document.getElementById('categoriesCount').textContent = categories.length;
+            
+            // جلب عدد الطلبات
+            db.collection("orders").get().then((querySnapshot) => {
+                document.getElementById('ordersCount').textContent = querySnapshot.size;
+            });
+            
+            // جلب أحدث المنتجات
+            db.collection("products").orderBy("createdAt", "desc").limit(5).get().then((querySnapshot) => {
+                const recentProductsTable = document.getElementById('recentProducts');
+                recentProductsTable.innerHTML = '';
+                
+                if (querySnapshot.empty) {
+                    recentProductsTable.innerHTML = '<tr><td colspan="6" class="text-center">لا توجد منتجات</td></tr>';
+                    return;
+                }
+                
+                querySnapshot.forEach((doc) => {
+                    const product = doc.data();
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td class="text-center"><img src="${product.imageUrl || 'https://via.placeholder.com/40'}" alt="product" width="40"></td>
+                        <td>${product.name}</td>
+                        <td>${product.price} ج.م</td>
+                        <td>${product.quantity}</td>
+                        <td><span class="badge ${product.quantity > 0 ? 'badge-success' : 'badge-danger'}">${product.quantity > 0 ? 'متوفر' : 'نفذت الكمية'}</span></td>
+                        <td>
+                            <button class="action-btn edit-btn" data-id="${doc.id}"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn" data-id="${doc.id}"><i class="fas fa-trash"></i></button>
+                        </td>
+                    `;
+                    
+                    recentProductsTable.appendChild(row);
+                });
+                
+                // إضافة أحداث للأزرار
+                attachProductEvents();
+            });
+        }
+        
+        // تحميل المنتجات
+        function loadProducts() {
+            const productsTable = document.getElementById('productsTable');
+            productsTable.innerHTML = '<tr><td colspan="7" class="text-center">جاري تحميل البيانات...</td></tr>';
+            
+            db.collection("products").get().then((querySnapshot) => {
+                productsTable.innerHTML = '';
+                
+                if (querySnapshot.empty) {
+                    productsTable.innerHTML = '<tr><td colspan="7" class="text-center">لا توجد منتجات</td></tr>';
+                    return;
+                }
+                
+                querySnapshot.forEach((doc) => {
+                    const product = doc.data();
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td class="text-center"><img src="${product.imageUrl || 'https://via.placeholder.com/40'}" alt="product" width="40"></td>
+                        <td>${product.name}</td>
+                        <td>${product.price} ج.م</td>
+                        <td>${product.quantity}</td>
+                        <td>${product.category}</td>
+                        <td><span class="badge ${product.quantity > 0 ? 'badge-success' : 'badge-danger'}">${product.quantity > 0 ? 'متوفر' : 'نفذت الكمية'}</span></td>
+                        <td>
+                            <button class="action-btn edit-btn" data-id="${doc.id}"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn" data-id="${doc.id}"><i class="fas fa-trash"></i></button>
+                        </td>
+                    `;
+                    
+                    productsTable.appendChild(row);
+                });
+                
+                // إضافة أحداث لأزرار التعديل والحذف
+                attachProductEvents();
+            });
+        }
+        
+        // تحميل بيانات JSON
+        document.getElementById('loadJsonBtn').addEventListener('click', function() {
+            const selectedFile = document.getElementById('jsonFileSelect').value;
+            
+            // تعطيل الزر أثناء التحميل
+            this.disabled = true;
+            this.innerHTML = '<span class="loading"></span> جاري التحميل...';
+            
+            // جلب البيانات من ملف JSON
+            fetch(selectedFile)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('حدث خطأ في تحميل الملف');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    jsonData = data;
+                    
+                    // عرض البيانات في منطقة المعاينة
+                    document.getElementById('jsonPreview').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    
+                    // عرض البيانات في الجدول
+                    const tableBody = document.getElementById('importProductsTable');
+                    tableBody.innerHTML = '';
+                    
+                    if (data.length === 0) {
+                        tableBody.innerHTML = '<tr><td colspan="5" class="text-center">لا توجد منتجات في الملف</td></tr>';
+                        return;
+                    }
+                    
+                    data.forEach(product => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${product.barcode || 'غير متوفر'}</td>
+                            <td>${product.name}</td>
+                            <td>${product.price} ج.م</td>
+                            <td>${product.category}</td>
+                            <td><span class="badge badge-success">جاهز للاستيراد</span></td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                    
+                    showNotification(`تم تحميل ${data.length} منتج من ${selectedFile}`);
+                })
+                .catch(error => {
+                    showNotification('حدث خطأ في تحميل الملف: ' + error.message, 'error');
+                    console.error('Error loading JSON:', error);
+                })
+                .finally(() => {
+                    // إعادة تمكين الزر
+                    this.disabled = false;
+                    this.innerHTML = '<i class="fas fa-download"></i> تحميل البيانات';
+                });
+        });
+        
+        // استيراد بيانات JSON
+        document.getElementById('importJsonBtn').addEventListener('click', function() {
+            if (!jsonData || jsonData.length === 0) {
+                showNotification('لم يتم تحميل أي بيانات للاستيراد', 'error');
+                return;
+            }
+            
+            if (!confirm(`هل أنت متأكد من استيراد ${jsonData.length} منتج؟`)) {
+                return;
+            }
+            
+            // تعطيل الزر أثناء الاستيراد
+            this.disabled = true;
+            this.innerHTML = '<span class="loading"></span> جاري الاستيراد...';
+            
+            let importedCount = 0;
+            let errorCount = 0;
+            
+            // استيراد كل منتج
+            jsonData.forEach(product => {
+                const productData = {
+                    name: product.name,
+                    price: product.price,
+                    quantity: product.quantity || 0,
+                    category: product.category,
+                    barcode: product.barcode,
+                    description: product.description || '',
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                };
+                
+                db.collection("products").add(productData)
+                    .then(() => {
+                        importedCount++;
+                    })
+                    .catch(error => {
+                        errorCount++;
+                        console.error('Error importing product:', error);
+                    })
+                    .finally(() => {
+                        // عند الانتهاء من جميع المنتجات
+                        if (importedCount + errorCount === jsonData.length) {
+                            showNotification(`تم استيراد ${importedCount} منتج بنجاح${errorCount > 0 ? ' مع وجود ' + errorCount + ' أخطاء' : ''}`);
+                            
+                            // إعادة تمكين الزر
+                            this.disabled = false;
+                            this.innerHTML = '<i class="fas fa-file-import"></i> استيراد المنتجات';
+                            
+                            // تحديث قائمة المنتجات
+                            loadProducts();
+                        }
+                    });
+            });
+        });
+        
+        // التحقق من وجود مستخدم مسجل
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                loginPage.classList.add('hidden');
+                appContainer.classList.remove('hidden');
+                loadDashboardData();
+            }
         });
     </script>
 </body>

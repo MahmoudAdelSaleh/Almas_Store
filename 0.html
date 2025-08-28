@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>كاشير متكامل - نسخة محلية</title>
+    <title>كاشير متكامل - نسخة GitHub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <style>
@@ -58,7 +58,7 @@
 <body>
     <div id="login-container"></div>
     <div id="app-container">
-        <header><span>كاشير (نسخة محلية)</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
+        <header><span>كاشير (نسخة GitHub)</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
         <nav>
             <button data-tab="sales" class="active"><i class="fas fa-cash-register"></i> المبيعات</button>
             <button data-tab="items"><i class="fas fa-box"></i> الأصناف</button>
@@ -79,7 +79,7 @@
         const appState = {
             items: [],
             currentInvoice: [],
-            adminPIN: "790707071", // PIN ثابت للعمل المحلي
+            adminPIN: "790707071",
             currentUser: null,
         };
 
@@ -91,7 +91,6 @@
             navButtons: document.querySelectorAll("nav button"),
             sections: document.querySelectorAll("main section"),
             notificationContainer: document.getElementById("notification-container"),
-            usernameInput: () => document.getElementById("usernameInput"),
             passwordInput: () => document.getElementById("passwordInput"),
         };
 
@@ -198,7 +197,7 @@
                             appState.html5QrCode.stop().then(() => {
                                 document.getElementById('barcode-scanner-container').style.display = 'none';
                                 let barcodeToSearch = decodedText.trim();
-                                const foundItem = appState.items.find(item => item.barcode == barcodeToSearch); // Use == for flexible matching
+                                const foundItem = appState.items.find(item => item.barcode == barcodeToSearch);
                                 if (foundItem) {
                                     SalesController.addToInvoice(foundItem);
                                 } else {
@@ -231,55 +230,46 @@
                 DOM.loginContainer.innerHTML = Auth.getTemplate();
                 App.bindEvents();
 
-                // --- بداية الكود المُعدل لجلب البيانات بالتتابع مع تحديث الواجهة ---
+                // --- بداية الكود المُعدل لجلب البيانات من GitHub ---
                 try {
-                    const fileNames = ['p1.json', 'p2.json', 'p3.json', 'p4.json']; // 4 ملفات محددة
-                    appState.items = []; // نبدأ بمصفوفة فارغة
+                    // !!! هام: قم بتغيير الرابط التالي !!!
+                    // استبدل USERNAME/REPO_NAME/BRANCH ببيانات المستودع الخاص بك
+                    const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/MahmoudAdelSaleh/Almas_Store/refs/heads/main/0.html';
 
-                    for (const [index, fileName] of fileNames.entries()) {
-                        try {
-                            Helpers.showNotification(`جاري تحميل الملف ${index + 1} من ${fileNames.length}...`, 1500);
+                    const fileNames = ['p1.json', 'p2.json', 'p3.json', 'p4.json'];
+                    
+                    const fetchPromises = fileNames.map(fileName => 
+                        fetch(GITHUB_BASE_URL + fileName)
+                            .then(response => {
+                                if (response.ok) return response.json();
+                                return null; // تجاهل الملفات غير الموجودة
+                            })
+                            .catch(error => {
+                                console.warn(`فشل تحميل ${fileName}:`, error);
+                                return null;
+                            })
+                    );
 
-                            const response = await fetch(fileName);
-                            if (!response.ok) {
-                                console.warn(`لم يتم العثور على الملف ${fileName}، سيتم تجاهله.`);
-                                continue; // انتقل للملف التالي في الحلقة
-                            }
+                    const results = await Promise.all(fetchPromises);
+                    const allItems = results.filter(data => data && Array.isArray(data)).flat();
 
-                            const newItemsData = await response.json();
-
-                            if (newItemsData && Array.isArray(newItemsData) && newItemsData.length > 0) {
-                                const processedItems = newItemsData.map(item => ({
-                                    id: item.barcode.toString(),
-                                    barcode: item.barcode.toString(),
-                                    name: item.name,
-                                    price: parseFloat(item.price) || 0,
-                                    category: item["category "]?.trim() || "غير مصنف",
-                                }));
-                                
-                                // إضافة الأصناف الجديدة للحالة العامة
-                                appState.items.push(...processedItems);
-                                
-                                // تحديث واجهة المستخدم فورًا لعرض الأصناف الجديدة
-                                if (document.getElementById('itemsTableBody')) {
-                                    ItemsController.render();
-                                }
-                            }
-                        } catch (error) {
-                            console.error(`حدث خطأ أثناء معالجة الملف ${fileName}:`, error);
-                            continue; // في حالة وجود خطأ في ملف، تجاهله وأكمل الباقي
-                        }
+                    if (allItems.length === 0) {
+                         throw new Error('لم يتم العثور على أي أصناف. تأكد من صحة رابط GitHub ووجود الملفات.');
                     }
 
-                    if (appState.items.length === 0) {
-                         throw new Error('لم يتم تحميل أي أصناف. تأكد من وجود ملفات البيانات وصحتها.');
-                    }
-
-                    Helpers.showNotification(`اكتمل التحميل. إجمالي الأصناف: ${appState.items.length}`, 3000);
+                    appState.items = allItems.map(item => ({
+                        id: item.barcode.toString(),
+                        barcode: item.barcode.toString(),
+                        name: item.name, 
+                        price: parseFloat(item.price) || 0,
+                        category: item["category "]?.trim() || "غير مصنف",
+                    }));
+                    
+                    Helpers.showNotification(`تم تحميل ${appState.items.length} صنف من GitHub بنجاح.`);
 
                 } catch (error) {
                     console.error("فشل تحميل البيانات:", error);
-                    Helpers.showNotification(error.message || "فشل تحميل ملفات الأصناف المحلية.");
+                    Helpers.showNotification(error.message || "فشل تحميل ملفات الأصناف من GitHub.");
                 }
                 // --- نهاية الكود المُعدل ---
                 

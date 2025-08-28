@@ -1,293 +1,531 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>كاشير متكامل - نسخة GitHub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-    <style>
-        :root {
-            --primary-color: #007bff; --secondary-color: #343a40; --success-color: #28a745;
-            --danger-color: #dc3545; --warning-color: #ffc107; --text-dark: #222;
-            --bg-light: #f8f9fa; --white: #fff; --border-color: #dee2e6;
-            --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08); --border-radius: 6px;
-        }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); direction: rtl; }
-        #app-container { display: none; }
-        header, nav { position: sticky; z-index: 1010; }
-        header { background: var(--primary-color); color: var(--white); padding: 15px; text-align: center; font-size: 24px; display: flex; justify-content: space-between; align-items: center; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-        nav { display: flex; background: var(--secondary-color); overflow-x: auto; top: 73px; }
-        nav button { flex: 1 0 auto; padding: 12px 15px; border: none; background: var(--secondary-color); color: var(--white); font-size: 16px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
-        nav button.active, nav button:hover { background: #0056b3; }
-        nav button.hidden { display: none; }
-        main { padding: 15px; max-width: 900px; margin: auto; }
-        section { display: none; }
-        section.active { display: block; }
-        input, select, button, table { font-size: 16px; }
-        input, select { width: 100%; padding: 10px; margin: 6px 0; box-sizing: border-box; border: 1px solid var(--border-color); border-radius: var(--border-radius); transition: border-color 0.2s, box-shadow 0.2s; }
-        input:focus, select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); }
-        button { background: var(--primary-color); color: var(--white); border: none; padding: 10px 15px; border-radius: var(--border-radius); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, transform 0.1s; }
-        button:hover { background: #0056b3; }
-        button:active { transform: translateY(1px); }
-        button:disabled { background-color: #6c757d; cursor: not-allowed; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid var(--border-color); padding: 10px; text-align: center; vertical-align: middle; }
-        th { background: #e9ecef; }
-        tbody tr:nth-child(even) { background-color: var(--bg-light); }
-        .btn-small { padding: 5px 10px; font-size: 14px; margin: 0 2px; border-radius: 4px; }
-        .btn-danger { background: var(--danger-color); }
-        .btn-warning { background-color: var(--warning-color); color: var(--text-dark);}
-        .summary-box, .customer-card { background: var(--white); padding: 15px; margin: 15px 0; border-radius: var(--border-radius); box-shadow: var(--shadow-light); }
-        #notification-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; }
-        .notification { background-color: rgba(0, 0, 0, 0.85); color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; opacity: 0; transition: opacity 0.5s, transform 0.5s; transform: translateY(20px); }
-        .notification.show { opacity: 1; transform: translateY(0); }
-        #login-container { display: flex; align-items: center; justify-content: center; height: 100vh; }
-        #login-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 350px; }
-        #logoutBtn { background: var(--danger-color); }
-        #barcode-scanner-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1011; display: none; justify-content: center; align-items: flex-start; padding-top: 20px; }
-        #reader { width: 90%; max-width: 350px; border: 3px solid var(--white); box-shadow: 0 0 0 2000px rgba(0,0,0,0.5); border-radius: var(--border-radius); overflow: hidden; }
-        #closeScannerBtn { position: fixed; top: 15px; right: 15px; z-index: 1012; }
-        .input-group { display: flex; align-items: center; }
-        .input-group-field { text-align: center; border-radius: 0; padding: 5px 10px; height: 38px; border-left: none; border-right: none; width: 70px; flex-grow: 0 !important; }
-        .input-group-btn { border-radius: 0; padding: 5px 12px; font-size: 18px; line-height: 1; height: 38px; flex-shrink: 0; }
-        #decreaseDeliveryBtn { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
-        #increaseDeliveryBtn { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
-    </style>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>كاشير متكامل - نسخة محلية</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <style>
+
+        :root {
+
+            --primary-color: #007bff; --secondary-color: #343a40; --success-color: #28a745;
+
+            --danger-color: #dc3545; --warning-color: #ffc107; --text-dark: #222;
+
+            --bg-light: #f8f9fa; --white: #fff; --border-color: #dee2e6;
+
+            --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08); --border-radius: 6px;
+
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); direction: rtl; }
+
+        #app-container { display: none; }
+
+        header, nav { position: sticky; z-index: 1010; }
+
+        header { background: var(--primary-color); color: var(--white); padding: 15px; text-align: center; font-size: 24px; display: flex; justify-content: space-between; align-items: center; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
+
+        nav { display: flex; background: var(--secondary-color); overflow-x: auto; top: 73px; }
+
+        nav button { flex: 1 0 auto; padding: 12px 15px; border: none; background: var(--secondary-color); color: var(--white); font-size: 16px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
+
+        nav button.active, nav button:hover { background: #0056b3; }
+
+        nav button.hidden { display: none; }
+
+        main { padding: 15px; max-width: 900px; margin: auto; }
+
+        section { display: none; }
+
+        section.active { display: block; }
+
+        input, select, button, table { font-size: 16px; }
+
+        input, select { width: 100%; padding: 10px; margin: 6px 0; box-sizing: border-box; border: 1px solid var(--border-color); border-radius: var(--border-radius); transition: border-color 0.2s, box-shadow 0.2s; }
+
+        input:focus, select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); }
+
+        button { background: var(--primary-color); color: var(--white); border: none; padding: 10px 15px; border-radius: var(--border-radius); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, transform 0.1s; }
+
+        button:hover { background: #0056b3; }
+
+        button:active { transform: translateY(1px); }
+
+        button:disabled { background-color: #6c757d; cursor: not-allowed; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+
+        th, td { border: 1px solid var(--border-color); padding: 10px; text-align: center; vertical-align: middle; }
+
+        th { background: #e9ecef; }
+
+        tbody tr:nth-child(even) { background-color: var(--bg-light); }
+
+        .btn-small { padding: 5px 10px; font-size: 14px; margin: 0 2px; border-radius: 4px; }
+
+        .btn-danger { background: var(--danger-color); }
+
+        .btn-warning { background-color: var(--warning-color); color: var(--text-dark);}
+
+        .summary-box, .customer-card { background: var(--white); padding: 15px; margin: 15px 0; border-radius: var(--border-radius); box-shadow: var(--shadow-light); }
+
+        #notification-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; }
+
+        .notification { background-color: rgba(0, 0, 0, 0.85); color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; opacity: 0; transition: opacity 0.5s, transform 0.5s; transform: translateY(20px); }
+
+        .notification.show { opacity: 1; transform: translateY(0); }
+
+        #login-container { display: flex; align-items: center; justify-content: center; height: 100vh; }
+
+        #login-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 350px; }
+
+        #logoutBtn { background: var(--danger-color); }
+
+        #barcode-scanner-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1011; display: none; justify-content: center; align-items: flex-start; padding-top: 20px; }
+
+        #reader { width: 90%; max-width: 350px; border: 3px solid var(--white); box-shadow: 0 0 0 2000px rgba(0,0,0,0.5); border-radius: var(--border-radius); overflow: hidden; }
+
+        #closeScannerBtn { position: fixed; top: 15px; right: 15px; z-index: 1012; }
+
+        .input-group { display: flex; align-items: center; }
+
+        .input-group-field { text-align: center; border-radius: 0; padding: 5px 10px; height: 38px; border-left: none; border-right: none; width: 70px; flex-grow: 0 !important; }
+
+        .input-group-btn { border-radius: 0; padding: 5px 12px; font-size: 18px; line-height: 1; height: 38px; flex-shrink: 0; }
+
+        #decreaseDeliveryBtn { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+
+        #increaseDeliveryBtn { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+
+    </style>
+
 </head>
+
 <body>
-    <div id="login-container"></div>
-    <div id="app-container">
-        <header><span>كاشير (نسخة GitHub)</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
-        <nav>
-            <button data-tab="sales" class="active"><i class="fas fa-cash-register"></i> المبيعات</button>
-            <button data-tab="items"><i class="fas fa-box"></i> الأصناف</button>
-        </nav>
-        <main>
-            <section id="sales" class="active"></section>
-            <section id="items"></section>
-        </main>
-    </div>
-    <div id="barcode-scanner-container">
-        <div id="reader"></div>
-        <button id="closeScannerBtn" class="btn-danger"><i class="fas fa-times"></i></button>
-    </div>
-    <div id="notification-container"></div>
 
-    <script type="module">
-        // --- Global App State ---
-        const appState = {
-            items: [],
-            currentInvoice: [],
-            adminPIN: "790707071",
-            currentUser: null,
-        };
+    <div id="login-container"></div>
 
-        // --- DOM Elements & UI Helpers ---
-        const DOM = {
-            appContainer: document.getElementById("app-container"),
-            loginContainer: document.getElementById("login-container"),
-            logoutBtn: document.getElementById("logoutBtn"),
-            navButtons: document.querySelectorAll("nav button"),
-            sections: document.querySelectorAll("main section"),
-            notificationContainer: document.getElementById("notification-container"),
-            passwordInput: () => document.getElementById("passwordInput"),
-        };
+    <div id="app-container">
 
-        const Helpers = {
-            showNotification: (message, duration = 3000) => {
-                const el = document.createElement("div"); el.className = "notification"; el.textContent = message;
-                DOM.notificationContainer.appendChild(el);
-                setTimeout(() => el.classList.add("show"), 10);
-                setTimeout(() => { el.classList.remove("show"); setTimeout(() => el.remove(), 500); }, duration);
-            },
-            convertToArabicAndEnglishDigits: (text) => text ? text.toString().replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)) : "",
-            calculateChange: () => {
-                const totalEl = document.getElementById('invoiceTotal'); const paidEl = document.getElementById('amountPaidInput');
-                if (!totalEl || !paidEl) return;
-                const total = parseFloat(totalEl.textContent) || 0; const paid = parseFloat(paidEl.value) || 0;
-                const change = paid - total;
-                document.getElementById('changeText').textContent = change >= 0 ? "الباقي للعميل:" : "المطلوب منه:";
-                document.getElementById('changeAmount').textContent = Math.abs(change).toFixed(2);
-            },
-            switchTab: (tabId) => {
-                DOM.sections.forEach(s => s.classList.toggle("active", s.id === tabId));
-                DOM.navButtons.forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
-                const templates = {
-                    sales: SalesController.getTemplate(),
-                    items: ItemsController.getTemplate(),
-                };
-                const section = document.getElementById(tabId);
-                if (section) section.innerHTML = templates[tabId] || '';
-                if (tabId === 'sales') SalesController.init();
-                if (tabId === 'items') ItemsController.init();
-            }
-        };
+        <header><span>كاشير (نسخة محلية)</span><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button></header>
 
-        // --- Controllers ---
-        const Auth = {
-            getTemplate: () => `<form id="login-form"><h2><i class="fas fa-lock"></i> تسجيل الدخول</h2><div class="form-group"><input type="password" id="passwordInput" placeholder="كلمة المرور" required /></div><button type="submit" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button></form>`,
-            login: (password) => {
-                const pin = Helpers.convertToArabicAndEnglishDigits(password);
-                if (pin === appState.adminPIN) {
-                    appState.currentUser = { role: "admin" };
-                    Auth.showApp();
-                } else {
-                    Helpers.showNotification("كلمة المرور غير صحيحة");
-                }
-            },
-            logout: () => { location.reload(); },
-            showApp: () => {
-                DOM.loginContainer.style.display = "none";
-                DOM.appContainer.style.display = "block";
-                document.querySelector('[data-tab="sales"]').click();
-            }
-        };
+        <nav>
 
-        const ItemsController = {
-            getTemplate: () => `<h2><i class="fas fa-box"></i> قائمة الأصناف (للعرض)</h2><table><thead><tr><th>باركود</th><th>اسم</th><th>سعر</th><th>فئة</th></tr></thead><tbody id="itemsTableBody"></tbody></table>`,
-            init: () => { ItemsController.render(); },
-            render: () => {
-                const itemsTableBody = document.getElementById("itemsTableBody");
-                if(itemsTableBody) itemsTableBody.innerHTML = appState.items.map(item => `<tr><td>${item.barcode || ''}</td><td>${item.name}</td><td>${(item.price || 0).toFixed(2)}</td><td>${item.category || ''}</td></tr>`).join("");
-            }
-        };
+            <button data-tab="sales" class="active"><i class="fas fa-cash-register"></i> المبيعات</button>
 
-        const SalesController = {
-            getTemplate: () => `
-                <h2><i class="fas fa-cash-register"></i> عملية بيع</h2>
-                <div class="form-group"><button id="scanBarcodeBtn" style="width:100%; padding: 15px; font-size: 18px;"><i class="fas fa-camera"></i> مسح باركود صنف</button></div>
-                <h3><i class="fas fa-file-invoice"></i> تفاصيل الفاتورة</h3>
-                <table><thead><tr><th>الصنف</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th><th>حذف</th></tr></thead><tbody id="invoiceTableBody"></tbody></table>
-                <h3 style="text-align: left;">الإجمالي: <span id="invoiceTotal">0.00</span> ج.م</h3>
-                <div class="form-group flex-container"><label for="amountPaidInput">المدفوع:</label><input type="number" id="amountPaidInput" placeholder="المبلغ المدفوع" min="0" /></div>
-                <h3 style="text-align: left;"><span id="changeText">الباقي:</span><span id="changeAmount">0.00</span> ج.م</h3>
-                <div style="margin-top:20px; text-align:center; background: var(--warning-color); color: var(--text-dark); padding:10px; border-radius:var(--border-radius);">
-                    <strong>تنبيه:</strong> هذه نسخة محلية، لن يتم حفظ الفواتير بعد إعادة تحميل الصفحة.
-                </div>`,
-            init: () => { SalesController.renderInvoice(); SalesController.bindEvents(); },
-            renderInvoice: () => {
-                const invoiceTableBody = document.getElementById("invoiceTableBody");
-                let total = 0;
-                if(invoiceTableBody) {
-                    invoiceTableBody.innerHTML = appState.currentInvoice.map((item, index) => {
-                        const subtotal = item.price * item.qty;
-                        total += subtotal;
-                        return `<tr><td>${item.name}</td><td><div class="flex-container" style="justify-content:center;flex-wrap:nowrap;"><button class="btn-small btn-warning decrease-invoice-qty-btn" data-index="${index}">-</button><span style="padding:0 10px;font-weight:bold;">${item.qty}</span><button class="btn-small btn-success increase-invoice-qty-btn" data-index="${index}">+</button></div></td><td>${(item.price || 0).toFixed(2)}</td><td>${subtotal.toFixed(2)}</td><td><button class="btn-small btn-danger remove-from-invoice-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button></td></tr>`;
-                    }).join('');
-                    document.getElementById('invoiceTotal').textContent = total.toFixed(2);
-                    Helpers.calculateChange();
-                }
-            },
-            addToInvoice: (selectedItem) => {
-                if (!selectedItem) return;
-                const existingItem = appState.currentInvoice.find(i => i.id === selectedItem.id);
-                if (existingItem) { existingItem.qty++; } 
-                else { appState.currentInvoice.push({ ...selectedItem, qty: 1 }); }
-                SalesController.renderInvoice();
-            },
-            bindEvents: () => {
-                const salesSection = document.getElementById('sales'); if (!salesSection) return;
-                salesSection.addEventListener('click', (e) => {
-                    const target = e.target.closest("button"); if (!target) return;
-                    if (target.id === 'scanBarcodeBtn') {
-                        document.getElementById('barcode-scanner-container').style.display = 'flex';
-                        if (!appState.html5QrCode) { appState.html5QrCode = new Html5Qrcode("reader"); }
-                        const onScanSuccess = (decodedText) => {
-                            appState.html5QrCode.stop().then(() => {
-                                document.getElementById('barcode-scanner-container').style.display = 'none';
-                                let barcodeToSearch = decodedText.trim();
-                                const foundItem = appState.items.find(item => item.barcode == barcodeToSearch);
-                                if (foundItem) {
-                                    SalesController.addToInvoice(foundItem);
-                                } else {
-                                    Helpers.showNotification(`صنف غير موجود: ${barcodeToSearch}`);
-                                }
-                            });
-                        };
-                        appState.html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: {width: 250, height: 250} }, onScanSuccess, ()=>{})
-                        .catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
-                    }
-                    const index = target.dataset.index;
-                    if (target.classList.contains('remove-from-invoice-btn')) { appState.currentInvoice.splice(index, 1); SalesController.renderInvoice(); } 
-                    else if (target.classList.contains('increase-invoice-qty-btn')) { appState.currentInvoice[index].qty++; SalesController.renderInvoice(); } 
-                    else if (target.classList.contains('decrease-invoice-qty-btn')) { 
-                        if (appState.currentInvoice[index].qty > 1) { appState.currentInvoice[index].qty--; } 
-                        else { appState.currentInvoice.splice(index, 1); }
-                        SalesController.renderInvoice();
-                    }
-                });
-                document.getElementById('closeScannerBtn').addEventListener('click', () => { 
-                    if (appState.html5QrCode?.isScanning) { appState.html5QrCode.stop(); } 
-                    document.getElementById('barcode-scanner-container').style.display = 'none';
-                });
-                document.getElementById('amountPaidInput').addEventListener('input', Helpers.calculateChange);
-            }
-        };
+            <button data-tab="items"><i class="fas fa-box"></i> الأصناف</button>
 
-        const App = {
-            init: async () => {
-                DOM.loginContainer.innerHTML = Auth.getTemplate();
-                App.bindEvents();
+        </nav>
 
-                // --- بداية الكود المُعدل لجلب البيانات من GitHub ---
-                try {
-                    // --- تم تحديث الرابط بناءً على معلوماتك ---
-                    const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/MahmoudAdelSaleh/Almas_Store/main/';
+        <main>
 
-                    const fileNames = ['p1.json', 'p2.json', 'p3.json', 'p4.json'];
-                    
-                    const fetchPromises = fileNames.map(fileName => 
-                        fetch(GITHUB_BASE_URL + fileName)
-                            .then(response => {
-                                if (response.ok) return response.json();
-                                return null; // تجاهل الملفات غير الموجودة
-                            })
-                            .catch(error => {
-                                console.warn(`فشل تحميل ${fileName}:`, error);
-                                return null;
-                            })
-                    );
+            <section id="sales" class="active"></section>
 
-                    const results = await Promise.all(fetchPromises);
-                    const allItems = results.filter(data => data && Array.isArray(data)).flat();
+            <section id="items"></section>
 
-                    if (allItems.length === 0) {
-                         throw new Error('لم يتم العثور على أي أصناف. تأكد من صحة رابط GitHub ووجود الملفات.');
-                    }
+        </main>
 
-                    appState.items = allItems.map(item => ({
-                        id: item.barcode.toString(),
-                        barcode: item.barcode.toString(),
-                        name: item.name, 
-                        price: parseFloat(item.price) || 0,
-                        category: item["category "]?.trim() || "غير مصنف",
-                    }));
-                    
-                    Helpers.showNotification(`تم تحميل ${appState.items.length} صنف من GitHub بنجاح.`);
+    </div>
 
-                } catch (error) {
-                    console.error("فشل تحميل البيانات:", error);
-                    Helpers.showNotification(error.message || "فشل تحميل ملفات الأصناف من GitHub.");
-                }
-                // --- نهاية الكود المُعدل ---
-                
-                const savedUser = localStorage.getItem('currentUser');
-                if (savedUser) { appState.currentUser = JSON.parse(savedUser); Auth.showApp(); }
-            },
-            bindEvents: () => {
-                document.body.addEventListener('submit', e => { 
-                    if (e.target.id === 'login-form') { 
-                        e.preventDefault(); 
-                        Auth.login(DOM.passwordInput().value); 
-                    } 
-                });
-                DOM.logoutBtn.addEventListener("click", Auth.logout);
-                DOM.navButtons.forEach(btn => btn.addEventListener("click", e => Helpers.switchTab(e.currentTarget.dataset.tab)));
-            }
-        };
-       
-        App.init();
-    </script>
+    <div id="barcode-scanner-container">
+
+        <div id="reader"></div>
+
+        <button id="closeScannerBtn" class="btn-danger"><i class="fas fa-times"></i></button>
+
+    </div>
+
+    <div id="notification-container"></div>
+
+
+
+    <script type="module">
+
+        // --- Global App State ---
+
+        const appState = {
+
+            items: [],
+
+            currentInvoice: [],
+
+            adminPIN: "790707071", // PIN ثابت للعمل المحلي
+
+            currentUser: null,
+
+        };
+
+
+
+        // --- DOM Elements & UI Helpers ---
+
+        const DOM = {
+
+            appContainer: document.getElementById("app-container"),
+
+            loginContainer: document.getElementById("login-container"),
+
+            logoutBtn: document.getElementById("logoutBtn"),
+
+            navButtons: document.querySelectorAll("nav button"),
+
+            sections: document.querySelectorAll("main section"),
+
+            notificationContainer: document.getElementById("notification-container"),
+
+            usernameInput: () => document.getElementById("usernameInput"),
+
+            passwordInput: () => document.getElementById("passwordInput"),
+
+        };
+
+
+
+        const Helpers = {
+
+            showNotification: (message, duration = 3000) => {
+
+                const el = document.createElement("div"); el.className = "notification"; el.textContent = message;
+
+                DOM.notificationContainer.appendChild(el);
+
+                setTimeout(() => el.classList.add("show"), 10);
+
+                setTimeout(() => { el.classList.remove("show"); setTimeout(() => el.remove(), 500); }, duration);
+
+            },
+
+            convertToArabicAndEnglishDigits: (text) => text ? text.toString().replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)) : "",
+
+            calculateChange: () => {
+
+                const totalEl = document.getElementById('invoiceTotal'); const paidEl = document.getElementById('amountPaidInput');
+
+                if (!totalEl || !paidEl) return;
+
+                const total = parseFloat(totalEl.textContent) || 0; const paid = parseFloat(paidEl.value) || 0;
+
+                const change = paid - total;
+
+                document.getElementById('changeText').textContent = change >= 0 ? "الباقي للعميل:" : "المطلوب منه:";
+
+                document.getElementById('changeAmount').textContent = Math.abs(change).toFixed(2);
+
+            },
+
+            switchTab: (tabId) => {
+
+                DOM.sections.forEach(s => s.classList.toggle("active", s.id === tabId));
+
+                DOM.navButtons.forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
+
+                const templates = {
+
+                    sales: SalesController.getTemplate(),
+
+                    items: ItemsController.getTemplate(),
+
+                };
+
+                const section = document.getElementById(tabId);
+
+                if (section) section.innerHTML = templates[tabId] || '';
+
+                if (tabId === 'sales') SalesController.init();
+
+                if (tabId === 'items') ItemsController.init();
+
+            }
+
+        };
+
+
+
+        // --- Controllers ---
+
+        const Auth = {
+
+            getTemplate: () => `<form id="login-form"><h2><i class="fas fa-lock"></i> تسجيل الدخول</h2><div class="form-group"><input type="password" id="passwordInput" placeholder="كلمة المرور" required /></div><button type="submit" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button></form>`,
+
+            login: (password) => {
+
+                const pin = Helpers.convertToArabicAndEnglishDigits(password);
+
+                if (pin === appState.adminPIN) {
+
+                    appState.currentUser = { role: "admin" };
+
+                    Auth.showApp();
+
+                } else {
+
+                    Helpers.showNotification("كلمة المرور غير صحيحة");
+
+                }
+
+            },
+
+            logout: () => { location.reload(); },
+
+            showApp: () => {
+
+                DOM.loginContainer.style.display = "none";
+
+                DOM.appContainer.style.display = "block";
+
+                document.querySelector('[data-tab="sales"]').click();
+
+            }
+
+        };
+
+
+
+        const ItemsController = {
+
+            getTemplate: () => `<h2><i class="fas fa-box"></i> قائمة الأصناف (للعرض)</h2><table><thead><tr><th>باركود</th><th>اسم</th><th>سعر</th><th>فئة</th></tr></thead><tbody id="itemsTableBody"></tbody></table>`,
+
+            init: () => { ItemsController.render(); },
+
+            render: () => {
+
+                const itemsTableBody = document.getElementById("itemsTableBody");
+
+                if(itemsTableBody) itemsTableBody.innerHTML = appState.items.map(item => `<tr><td>${item.barcode || ''}</td><td>${item.name}</td><td>${(item.price || 0).toFixed(2)}</td><td>${item.category || ''}</td></tr>`).join("");
+
+            }
+
+        };
+
+
+
+        const SalesController = {
+
+            getTemplate: () => `
+
+                <h2><i class="fas fa-cash-register"></i> عملية بيع</h2>
+
+                <div class="form-group"><button id="scanBarcodeBtn" style="width:100%; padding: 15px; font-size: 18px;"><i class="fas fa-camera"></i> مسح باركود صنف</button></div>
+
+                <h3><i class="fas fa-file-invoice"></i> تفاصيل الفاتورة</h3>
+
+                <table><thead><tr><th>الصنف</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th><th>حذف</th></tr></thead><tbody id="invoiceTableBody"></tbody></table>
+
+                <h3 style="text-align: left;">الإجمالي: <span id="invoiceTotal">0.00</span> ج.م</h3>
+
+                <div class="form-group flex-container"><label for="amountPaidInput">المدفوع:</label><input type="number" id="amountPaidInput" placeholder="المبلغ المدفوع" min="0" /></div>
+
+                <h3 style="text-align: left;"><span id="changeText">الباقي:</span><span id="changeAmount">0.00</span> ج.م</h3>
+
+                <div style="margin-top:20px; text-align:center; background: var(--warning-color); color: var(--text-dark); padding:10px; border-radius:var(--border-radius);">
+
+                    <strong>تنبيه:</strong> هذه نسخة محلية، لن يتم حفظ الفواتير بعد إعادة تحميل الصفحة.
+
+                </div>`,
+
+            init: () => { SalesController.renderInvoice(); SalesController.bindEvents(); },
+
+            renderInvoice: () => {
+
+                const invoiceTableBody = document.getElementById("invoiceTableBody");
+
+                let total = 0;
+
+                if(invoiceTableBody) {
+
+                    invoiceTableBody.innerHTML = appState.currentInvoice.map((item, index) => {
+
+                        const subtotal = item.price * item.qty;
+
+                        total += subtotal;
+
+                        return `<tr><td>${item.name}</td><td><div class="flex-container" style="justify-content:center;flex-wrap:nowrap;"><button class="btn-small btn-warning decrease-invoice-qty-btn" data-index="${index}">-</button><span style="padding:0 10px;font-weight:bold;">${item.qty}</span><button class="btn-small btn-success increase-invoice-qty-btn" data-index="${index}">+</button></div></td><td>${(item.price || 0).toFixed(2)}</td><td>${subtotal.toFixed(2)}</td><td><button class="btn-small btn-danger remove-from-invoice-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+
+                    }).join('');
+
+                    document.getElementById('invoiceTotal').textContent = total.toFixed(2);
+
+                    Helpers.calculateChange();
+
+                }
+
+            },
+
+            addToInvoice: (selectedItem) => {
+
+                if (!selectedItem) return;
+
+                const existingItem = appState.currentInvoice.find(i => i.id === selectedItem.id);
+
+                if (existingItem) { existingItem.qty++; } 
+
+                else { appState.currentInvoice.push({ ...selectedItem, qty: 1 }); }
+
+                SalesController.renderInvoice();
+
+            },
+
+            bindEvents: () => {
+
+                const salesSection = document.getElementById('sales'); if (!salesSection) return;
+
+                salesSection.addEventListener('click', (e) => {
+
+                    const target = e.target.closest("button"); if (!target) return;
+
+                    if (target.id === 'scanBarcodeBtn') {
+
+                        document.getElementById('barcode-scanner-container').style.display = 'flex';
+
+                        if (!appState.html5QrCode) { appState.html5QrCode = new Html5Qrcode("reader"); }
+
+                        const onScanSuccess = (decodedText) => {
+
+                            appState.html5QrCode.stop().then(() => {
+
+                                document.getElementById('barcode-scanner-container').style.display = 'none';
+
+                                let barcodeToSearch = decodedText.trim();
+
+                                const foundItem = appState.items.find(item => item.barcode == barcodeToSearch); // Use == for flexible matching
+
+                                if (foundItem) {
+
+                                    SalesController.addToInvoice(foundItem);
+
+                                } else {
+
+                                    Helpers.showNotification(`صنف غير موجود: ${barcodeToSearch}`);
+
+                                }
+
+                            });
+
+                        };
+
+                        appState.html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: {width: 250, height: 250} }, onScanSuccess, ()=>{})
+
+                        .catch(() => Helpers.showNotification("خطأ في تشغيل الكاميرا"));
+
+                    }
+
+                    const index = target.dataset.index;
+
+                    if (target.classList.contains('remove-from-invoice-btn')) { appState.currentInvoice.splice(index, 1); SalesController.renderInvoice(); } 
+
+                    else if (target.classList.contains('increase-invoice-qty-btn')) { appState.currentInvoice[index].qty++; SalesController.renderInvoice(); } 
+
+                    else if (target.classList.contains('decrease-invoice-qty-btn')) { 
+
+                        if (appState.currentInvoice[index].qty > 1) { appState.currentInvoice[index].qty--; } 
+
+                        else { appState.currentInvoice.splice(index, 1); }
+
+                        SalesController.renderInvoice();
+
+                    }
+
+                });
+
+                document.getElementById('closeScannerBtn').addEventListener('click', () => { 
+
+                    if (appState.html5QrCode?.isScanning) { appState.html5QrCode.stop(); } 
+
+                    document.getElementById('barcode-scanner-container').style.display = 'none';
+
+                });
+
+                document.getElementById('amountPaidInput').addEventListener('input', Helpers.calculateChange);
+
+            }
+
+        };
+
+
+
+        const App = {
+
+            init: async () => {
+
+                DOM.loginContainer.innerHTML = Auth.getTemplate();
+
+                App.bindEvents();
+
+                try {
+
+                    const response = await fetch('p.json');
+
+                    if (!response.ok) throw new Error('فشل تحميل p.json');
+
+                    const itemsData = await response.json();
+
+                    appState.items = itemsData.map(item => ({
+
+                        id: item.barcode.toString(), // Use barcode as unique ID
+
+                        barcode: item.barcode.toString(),
+
+                        name: item.name, 
+
+                        price: parseFloat(item.price) || 0,
+
+                        category: item["category "]?.trim() || "غير مصنف",
+
+                    }));
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    Helpers.showNotification("فشل تحميل ملف الأصناف p.json. تأكد من وجوده.");
+
+                }
+
+                const savedUser = localStorage.getItem('currentUser');
+
+                if (savedUser) { appState.currentUser = JSON.parse(savedUser); Auth.showApp(); }
+
+            },
+
+            bindEvents: () => {
+
+                document.body.addEventListener('submit', e => { 
+
+                    if (e.target.id === 'login-form') { 
+
+                        e.preventDefault(); 
+
+                        Auth.login(DOM.passwordInput().value); 
+
+                    } 
+
+                });
+
+                DOM.logoutBtn.addEventListener("click", Auth.logout);
+
+                DOM.navButtons.forEach(btn => btn.addEventListener("click", e => Helpers.switchTab(e.currentTarget.dataset.tab)));
+
+            }
+
+        };
+
+        
+
+        App.init();
+
+    </script>
+
 </body>
+
 </html>

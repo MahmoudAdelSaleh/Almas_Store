@@ -18,16 +18,20 @@
         #app-container { display: none; }
         header, nav { position: sticky; z-index: 1010; }
         header { background: var(--primary-color); color: var(--white); padding: 15px; text-align: center; font-size: 24px; display: flex; justify-content: space-between; align-items: center; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-        header > div { display: flex; gap: 10px; } /* لتنظيم الأزرار في الهيدر */
+        header > div { display: flex; gap: 10px; }
         nav { display: flex; background: var(--secondary-color); overflow-x: auto; top: 73px; }
         nav button { flex: 1 0 auto; padding: 12px 15px; border: none; background: var(--secondary-color); color: var(--white); font-size: 16px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
         nav button.active, nav button:hover { background: #0056b3; }
         main { padding: 15px; max-width: 900px; margin: auto; }
         section { display: none; }
         section.active { display: block; }
+        input, select, button, table { font-size: 16px; }
+        button { background: var(--primary-color); color: var(--white); border: none; padding: 10px 15px; border-radius: var(--border-radius); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, transform 0.1s; }
+        button:hover { background: #0056b3; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th, td { border: 1px solid var(--border-color); padding: 10px; text-align: center; vertical-align: middle; }
         th { background: #e9ecef; }
+        .btn-small { padding: 5px 10px; font-size: 14px; margin: 0 2px; border-radius: 4px; }
         .btn-danger { background: var(--danger-color); }
         #notification-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; }
         .notification { background-color: rgba(0, 0, 0, 0.85); color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; opacity: 0; transition: opacity 0.5s, transform 0.5s; transform: translateY(20px); }
@@ -42,13 +46,12 @@
 
 <body>
     <div id="login-container"></div>
-
     <div id="app-container">
         <header>
             <span>الكاشير</span>
             <div>
-                <button id="adminPanelBtn" style="background: var(--success-color); padding: 8px 12px;"><i class="fas fa-cog"></i></button>
-                <button id="logoutBtn" style="padding: 8px 12px;"><i class="fas fa-sign-out-alt"></i> خروج</button>
+                <button id="adminPanelBtn" title="لوحة تحكم المسؤول" style="background: var(--success-color); padding: 8px 12px;"><i class="fas fa-cog"></i></button>
+                <button id="logoutBtn" title="خروج" style="padding: 8px 12px;"><i class="fas fa-sign-out-alt"></i></button>
             </div>
         </header>
         <nav>
@@ -60,7 +63,6 @@
             <section id="items"></section>
         </main>
     </div>
-
     <div id="barcode-scanner-container">
         <div id="reader"></div>
         <button id="closeScannerBtn" class="btn-danger"><i class="fas fa-times"></i></button>
@@ -81,7 +83,8 @@
             appContainer: document.getElementById("app-container"),
             loginContainer: document.getElementById("login-container"),
             logoutBtn: document.getElementById("logoutBtn"),
-            navButtons: () => document.querySelectorAll("nav button"), // Changed to function to get updated list
+            nav: document.querySelector("nav"),
+            navButtons: () => document.querySelectorAll("nav button"),
             sections: document.querySelectorAll("main section"),
             notificationContainer: document.getElementById("notification-container"),
             passwordInput: () => document.getElementById("passwordInput"),
@@ -95,7 +98,7 @@
                 setTimeout(() => { el.classList.remove("show"); setTimeout(() => el.remove(), 500); }, duration);
             },
             convertToArabicAndEnglishDigits: (text) => text ? text.toString().replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)) : "",
-            calculateChange: () => { /* ... الكود كما هو ... */ },
+            calculateChange: () => { /* الكود هنا كما هو */ },
             switchTab: (tabId) => {
                 DOM.sections.forEach(s => s.classList.toggle("active", s.id === tabId));
                 DOM.navButtons().forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
@@ -112,7 +115,7 @@
 
         // --- Controllers ---
         const Auth = {
-            getTemplate: () => `...`, // (تم إخفاء الكود المكرر للاختصار)
+            getTemplate: () => `<form id="login-form"><h2><i class="fas fa-lock"></i> تسجيل الدخول</h2><div class="form-group"><input type="password" id="passwordInput" placeholder="كلمة المرور" required /></div><button type="submit" id="loginBtn"><i class="fas fa-sign-in-alt"></i> دخول</button></form>`,
             login: (password) => {
                 const pin = Helpers.convertToArabicAndEnglishDigits(password);
                 if (pin === appState.adminPIN) {
@@ -132,14 +135,14 @@
 
         const ItemsController = {
             getTemplate: () => `<h2><i class="fas fa-box"></i> قائمة الأصناف</h2><table><thead><tr><th>باركود</th><th>اسم</th><th>سعر</th><th>فئة</th></tr></thead><tbody id="itemsTableBody"></tbody></table>`,
-            init: () => { ItemsController.render(); },
+            init: () => ItemsController.render(),
             render: () => {
                 const itemsTableBody = document.getElementById("itemsTableBody");
                 if (itemsTableBody) itemsTableBody.innerHTML = appState.items.map(item => `<tr><td>${item.barcode || ''}</td><td>${item.name}</td><td>${(item.price || 0).toFixed(2)}</td><td>${item.category || ''}</td></tr>`).join("");
             }
         };
 
-        const SalesController = { /* ... الكود كما هو ... */ };
+        const SalesController = { /* الكود هنا كما هو */ };
 
         const App = {
             init: async () => {
@@ -147,19 +150,17 @@
                 App.bindEvents();
                 try {
                     const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/MahmoudAdelSaleh/Almas_Store/main/';
-                    const fileNames = ['p1.json', 'p2.json', 'p3.json', 'p4.json', 'p5.json', 'p6.json', 'p7.json']; // زيادة عدد الملفات للبحث عنها
+                    const fileNames = ['p1.json', 'p2.json', 'p3.json', 'p4.json', 'p5.json'];
                     
                     const fetchPromises = fileNames.map(fileName =>
                         fetch(GITHUB_BASE_URL + fileName)
                         .then(response => response.ok ? response.json() : null)
                         .catch(() => null)
                     );
-
                     const results = await Promise.all(fetchPromises);
                     const allItems = results.filter(Boolean).flat();
-
                     if (allItems.length === 0) {
-                        throw new Error('لم يتم العثور على أي أصناف. تأكد من صحة الرابط ووجود الملفات.');
+                        throw new Error('لم يتم العثور على أي أصناف. تأكد من صحة رابط GitHub.');
                     }
                     appState.items = allItems.map(item => ({
                         id: item.barcode.toString(), barcode: item.barcode.toString(),
@@ -178,9 +179,17 @@
                     if (e.target.id === 'login-form') { e.preventDefault(); Auth.login(DOM.passwordInput().value); }
                 });
                 DOM.logoutBtn.addEventListener("click", Auth.logout);
-                DOM.navButtons().forEach(btn => btn.addEventListener("click", e => Helpers.switchTab(e.currentTarget.dataset.tab)));
+
+                // **تحسين مهم:** استخدام Event Delegation لضمان عمل الأزرار الجديدة
+                if (DOM.nav) {
+                    DOM.nav.addEventListener('click', e => {
+                        const button = e.target.closest('button');
+                        if (button && button.dataset.tab) {
+                            Helpers.switchTab(button.dataset.tab);
+                        }
+                    });
+                }
                 
-                // *** الكود الجديد لزر لوحة التحكم ***
                 const adminBtn = document.getElementById('adminPanelBtn');
                 if (adminBtn) {
                     adminBtn.addEventListener('click', () => {

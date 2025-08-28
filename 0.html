@@ -230,21 +230,64 @@
             init: async () => {
                 DOM.loginContainer.innerHTML = Auth.getTemplate();
                 App.bindEvents();
+
+                // --- بداية الكود المعدل لجلب البيانات من جيت هب ---
                 try {
-                    const response = await fetch('p.json');
-                    if (!response.ok) throw new Error('فشل تحميل p.json');
-                    const itemsData = await response.json();
-                    appState.items = itemsData.map(item => ({
+                    // ===================================================================================
+                    // ===   هام جداً: قم بتغيير الرابط التالي إلى رابط المستودع الخاص بك على جيت هب   ===
+                    // ===================================================================================
+                    // يجب أن يكون الرابط بصيغة Raw (محتوى خام)
+                    // مثال: https://raw.githubusercontent.com/USERNAME/REPO-NAME/main/
+                    const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/USERNAME/REPO/BRANCH/';
+
+                    // العدد الأقصى للملفات التي سيتم محاولة تحميلها (p1.json, p2.json, ... p20.json)
+                    const MAX_FILES_TO_CHECK = 20; 
+
+                    Helpers.showNotification("جاري تحميل الأصناف من الإنترنت...", 2000);
+
+                    const fetchPromises = [];
+                    for (let i = 1; i <= MAX_FILES_TO_CHECK; i++) {
+                        const fileName = `p${i}.json`;
+                        const promise = fetch(GITHUB_BASE_URL + fileName)
+                            .then(response => {
+                                // إذا تم العثور على الملف بنجاح، قم بتحويله إلى JSON
+                                if (response.ok) return response.json();
+                                // تجاهل الأخطاء مثل 404 (ملف غير موجود) ولا تفعل شيئًا
+                                return null;
+                            })
+                            .catch(error => {
+                                console.warn(`خطأ في جلب الملف ${fileName}:`, error);
+                                return null; // في حالة فشل الشبكة، تجاهل الملف أيضًا
+                            });
+                        fetchPromises.push(promise);
+                    }
+
+                    // انتظر جميع محاولات الجلب لتكتمل
+                    const results = await Promise.all(fetchPromises);
+                    
+                    // قم بتصفية النتائج الفارغة (الملفات غير الموجودة) ودمج جميع المصفوفات في مصفوفة واحدة
+                    const allItems = results.filter(data => data !== null).flat();
+
+                    if (allItems.length === 0) {
+                         throw new Error('لم يتم العثور على أي أصناف. تأكد من صحة الرابط ووجود ملفات p*.json.');
+                    }
+
+                    appState.items = allItems.map(item => ({
                         id: item.barcode.toString(), // Use barcode as unique ID
                         barcode: item.barcode.toString(),
                         name: item.name, 
                         price: parseFloat(item.price) || 0,
                         category: item["category "]?.trim() || "غير مصنف",
                     }));
+                    
+                    Helpers.showNotification(`تم تحميل ${appState.items.length} صنف بنجاح.`, 4000);
+
                 } catch (error) {
-                    console.error(error);
-                    Helpers.showNotification("فشل تحميل ملف الأصناف p.json. تأكد من وجوده.");
+                    console.error("فشل تحميل البيانات:", error);
+                    Helpers.showNotification(error.message || "فشل تحميل ملفات الأصناف من جيت هب. تأكد من الرابط واتصال الإنترنت.");
                 }
+                // --- نهاية الكود المعدل ---
+                
                 const savedUser = localStorage.getItem('currentUser');
                 if (savedUser) { appState.currentUser = JSON.parse(savedUser); Auth.showApp(); }
             },
@@ -259,7 +302,7 @@
                 DOM.navButtons.forEach(btn => btn.addEventListener("click", e => Helpers.switchTab(e.currentTarget.dataset.tab)));
             }
         };
-        
+       
         App.init();
     </script>
 </body>

@@ -231,47 +231,51 @@
                 DOM.loginContainer.innerHTML = Auth.getTemplate();
                 App.bindEvents();
 
-                // --- بداية الكود المُعدل لجلب البيانات من ملفات محلية متعددة ---
+                // --- بداية الكود المُعدل لجلب البيانات بالتتابع مع تحديث الواجهة ---
                 try {
-                    // العدد الأقصى للملفات التي سيتم البحث عنها في نفس المجلد (p1.json, p2.json, ... p20.json)
-                    const MAX_FILES_TO_CHECK = 20; 
+                    const fileNames = ['p1.json', 'p2.json', 'p3.json', 'p4.json']; // 4 ملفات محددة
+                    appState.items = []; // نبدأ بمصفوفة فارغة
 
-                    const fetchPromises = [];
-                    for (let i = 1; i <= MAX_FILES_TO_CHECK; i++) {
-                        const fileName = `p${i}.json`; // اسم الملف المحلي
-                        const promise = fetch(fileName) // الجلب من نفس مسار ملف HTML
-                            .then(response => {
-                                // إذا تم العثور على الملف بنجاح، قم بتحويله إلى JSON
-                                if (response.ok) return response.json();
-                                // تجاهل الملف إذا لم يتم العثور عليه
-                                return null;
-                            })
-                            .catch(error => {
-                                // تجاهل أي ملفات غير موجودة أو أخطاء في التحميل
-                                return null; 
-                            });
-                        fetchPromises.push(promise);
+                    for (const [index, fileName] of fileNames.entries()) {
+                        try {
+                            Helpers.showNotification(`جاري تحميل الملف ${index + 1} من ${fileNames.length}...`, 1500);
+
+                            const response = await fetch(fileName);
+                            if (!response.ok) {
+                                console.warn(`لم يتم العثور على الملف ${fileName}، سيتم تجاهله.`);
+                                continue; // انتقل للملف التالي في الحلقة
+                            }
+
+                            const newItemsData = await response.json();
+
+                            if (newItemsData && Array.isArray(newItemsData) && newItemsData.length > 0) {
+                                const processedItems = newItemsData.map(item => ({
+                                    id: item.barcode.toString(),
+                                    barcode: item.barcode.toString(),
+                                    name: item.name,
+                                    price: parseFloat(item.price) || 0,
+                                    category: item["category "]?.trim() || "غير مصنف",
+                                }));
+                                
+                                // إضافة الأصناف الجديدة للحالة العامة
+                                appState.items.push(...processedItems);
+                                
+                                // تحديث واجهة المستخدم فورًا لعرض الأصناف الجديدة
+                                if (document.getElementById('itemsTableBody')) {
+                                    ItemsController.render();
+                                }
+                            }
+                        } catch (error) {
+                            console.error(`حدث خطأ أثناء معالجة الملف ${fileName}:`, error);
+                            continue; // في حالة وجود خطأ في ملف، تجاهله وأكمل الباقي
+                        }
                     }
 
-                    // انتظر جميع محاولات جلب الملفات لتكتمل
-                    const results = await Promise.all(fetchPromises);
-                    
-                    // قم بتصفية النتائج الفارغة (للملفات غير الموجودة أو الفارغة) ودمج جميع البيانات في قائمة واحدة
-                    const allItems = results.filter(data => data && Array.isArray(data) && data.length > 0).flat();
-
-                    if (allItems.length === 0) {
-                         throw new Error('لم يتم العثور على أي أصناف. تأكد من وجود ملفات (p1.json, p2.json, ...) في نفس مجلد البرنامج.');
+                    if (appState.items.length === 0) {
+                         throw new Error('لم يتم تحميل أي أصناف. تأكد من وجود ملفات البيانات وصحتها.');
                     }
 
-                    appState.items = allItems.map(item => ({
-                        id: item.barcode.toString(),
-                        barcode: item.barcode.toString(),
-                        name: item.name, 
-                        price: parseFloat(item.price) || 0,
-                        category: item["category "]?.trim() || "غير مصنف",
-                    }));
-                    
-                    Helpers.showNotification(`تم تحميل ${appState.items.length} صنف بنجاح.`);
+                    Helpers.showNotification(`اكتمل التحميل. إجمالي الأصناف: ${appState.items.length}`, 3000);
 
                 } catch (error) {
                     console.error("فشل تحميل البيانات:", error);
